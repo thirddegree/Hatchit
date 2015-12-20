@@ -1,0 +1,3 @@
+[submodule "HatchitCore"]
+	path = HatchitCore
+	url = https://github.com/thirddegree/HatchitCore
