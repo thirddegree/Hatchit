@@ -1,0 +1,3 @@
+
+cd _build
+cmake ..
