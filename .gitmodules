@@ -4,3 +4,6 @@
 [submodule "HatchitTest"]
 	path = HatchitTest
 	url = https://github.com/thirddegree/HatchitTest
+[submodule "HatchitDoxygen"]
+	path = HatchitDoxygen
+	url = https://github.com/thirddegree/HatchitDoxygen.git
