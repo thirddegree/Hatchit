@@ -7,3 +7,6 @@
 [submodule "HatchitDoxygen"]
 	path = HatchitDoxygen
 	url = https://github.com/thirddegree/HatchitDoxygen.git
+[submodule "ThirdParty/inih"]
+	path = ThirdParty/inih
+	url = https://github.com/benhoyt/inih.git

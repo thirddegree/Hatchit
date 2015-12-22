@@ -1,5 +1,6 @@
 
-include_directories("${PROJECT_SOURCE_DIR}/../HatchitCore/include/")
+include_directories("${PROJECT_SOURCE_DIR}/../HatchitCore/include/"
+                    "${PROJECT_SOURCE_DIR}/../ThirdParty/inih/")
 
 add_definitions(-D_UNICODE)
 
