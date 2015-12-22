@@ -28,10 +28,11 @@ configure_file (
     "${PROJECT_SOURCE_DIR}/../HatchitCore/include/ht_version.h"
 )
 
-include_directories("${PROJECT_SOURCE_DIR}/../HatchitCore/include"
-                    "${PROJECT_SOURCE_DIR}/../HatchitTest/include")
+include_directories("../HatchitCore/include"
+                    "../ThirdParty/inih"
+                    "../HatchitTest/include")
 
-file(GLOB HT_CORE_SRC ../HatchitCore/source/*.cpp)
+file(GLOB HT_CORE_SRC ../HatchitCore/source/*.cpp ../ThirdParty/inih/*.c)
 file(GLOB HT_TEST_SRC ../HatchitTest/source/*.cpp)
 
 add_library(HatchitCore SHARED ${HT_CORE_SRC})
