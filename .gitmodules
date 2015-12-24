@@ -13,3 +13,6 @@
 [submodule "HatchitResource"]
 	path = HatchitResource
 	url = https://github.com/thirddegree/HatchitResource.git
+[submodule "HatchitScript"]
+	path = HatchitScript
+	url = https://github.com/thirddegree/HatchitScript.git
