@@ -29,19 +29,22 @@ configure_file (
 )
 
 include_directories("../HatchitCore/include"
+                    "../HatchitResource/include"
                     "../ThirdParty/inih"
                     "../HatchitTest/include")
 
 file(GLOB HT_CORE_SRC ../HatchitCore/source/*.cpp ../ThirdParty/inih/*.c)
+file(GLOB HT_RESOURCE_SRC ../HatchitResource/source/*.cpp)
 file(GLOB HT_TEST_SRC ../HatchitTest/source/*.cpp)
 
 add_library(HatchitCore SHARED ${HT_CORE_SRC})
+add_library(HatchitResource SHARED ${HT_RESOURCE_SRC})
 
 add_executable(ht_test ${HT_TEST_SRC})
 
-target_link_libraries(ht_test HatchitCore)
+target_link_libraries(ht_test HatchitCore HatchitResource assimp)
 
 #install
 
-install (TARGETS HatchitCore DESTINATION lib)
+install (TARGETS HatchitCore HatchitResource DESTINATION lib)
 install (TARGETS ht_test DESTINATION bin)

@@ -10,3 +10,6 @@
 [submodule "ThirdParty/inih"]
 	path = ThirdParty/inih
 	url = https://github.com/benhoyt/inih.git
+[submodule "HatchitResource"]
+	path = HatchitResource
+	url = https://github.com/thirddegree/HatchitResource.git
