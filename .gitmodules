@@ -22,3 +22,9 @@
 [submodule "ThirdParty/SDL2"]
 	path = ThirdParty/SDL2
 	url = https://github.com/thirddegree/SDL2.git
+[submodule "ThirdParty/tinyxml2"]
+	path = ThirdParty/tinyxml2
+	url = https://github.com/leethomason/tinyxml2.git
+[submodule "HatchitGame"]
+	path = HatchitGame
+	url = https://github.com/thirddegree/HatchitGame.git
