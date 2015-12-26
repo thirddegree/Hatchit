@@ -25,3 +25,6 @@ configure_file (
 
 add_subdirectory("${PROJECT_SOURCE_DIR}/HatchitCore")
 add_subdirectory("${PROJECT_SOURCE_DIR}/HatchitTest")
+
+
+

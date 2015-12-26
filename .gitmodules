@@ -16,3 +16,6 @@
 [submodule "HatchitScript"]
 	path = HatchitScript
 	url = https://github.com/thirddegree/HatchitScript.git
+[submodule "ThirdParty/assimp"]
+	path = ThirdParty/assimp
+	url = https://github.com/assimp/assimp.git
