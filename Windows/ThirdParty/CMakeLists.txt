@@ -9,6 +9,8 @@ project(ThirdPartyLibs)
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
 
+
+#HANDLE ASSIMP THIRD PARTY LIBRARY
 add_subdirectory("${PROJECT_SOURCE_DIR}/../../ThirdParty/assimp" "${CMAKE_CURRENT_BINARY_DIR}/Assimp")
 
 set_target_properties(assimp_cmd uninstall unit gtest UpdateAssimpLibsDebugSymbolsAndDLLs PROPERTIES EXCLUDE_FROM_ALL 1 EXCLUDE_FROM_DEFAULT_BUILD 1)
@@ -18,3 +20,16 @@ set_target_properties(assimp
                       LIBRARY_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/../_build/dependencies/assimp/lib"
                       RUNTIME_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/../_build/dependencies/assimp/bin")
                       
+#HANDLE SDL2 THIRD PARTY LIBRARY
+
+add_subdirectory("${PROJECT_SOURCE_DIR}/../../ThirdParty/SDL2" "${CMAKE_CURRENT_BINARY_DIR}/SDL2")
+set_target_properties(SDL2
+                      PROPERTIES
+                      ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/../_build/dependencies/SDL2/lib"
+                      LIBRARY_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/../_build/dependencies/SDL2/lib"
+                      RUNTIME_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/../_build/dependencies/SDL2/bin")
+set_target_properties(SDL2main
+                      PROPERTIES
+                      ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/../_build/dependencies/SDL2/lib"
+                      LIBRARY_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/../_build/dependencies/SDL2/lib"
+                      RUNTIME_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/../_build/dependencies/SDL2/bin")
