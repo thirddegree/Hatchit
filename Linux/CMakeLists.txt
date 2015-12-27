@@ -30,21 +30,24 @@ configure_file (
 
 include_directories("../HatchitCore/include"
                     "../HatchitResource/include"
+                    "../HatchitGame/include"
                     "../ThirdParty/inih"
                     "../HatchitTest/include")
 
 file(GLOB HT_CORE_SRC ../HatchitCore/source/*.cpp ../ThirdParty/inih/*.c)
 file(GLOB HT_RESOURCE_SRC ../HatchitResource/source/*.cpp)
-file(GLOB HT_TEST_SRC ../HatchitTest/source/*.cpp)
+file(GLOB HT_GAME_SRC ../HatchitGame/source/*.cpp)
+file(GLOB HT_TEST_SRC ../HatchitTest/source/main.cpp)
 
 add_library(HatchitCore SHARED ${HT_CORE_SRC})
 add_library(HatchitResource SHARED ${HT_RESOURCE_SRC})
+add_library(HatchitGame SHARED ${HT_GAME_SRC})
 
 add_executable(ht_test ${HT_TEST_SRC})
 
-target_link_libraries(ht_test HatchitCore HatchitResource assimp)
+target_link_libraries(ht_test HatchitCore HatchitResource HatchitGame assimp SDL2)
 
 #install
 
-install (TARGETS HatchitCore HatchitResource DESTINATION lib)
+install (TARGETS HatchitCore HatchitResource HatchitGame DESTINATION lib)
 install (TARGETS ht_test DESTINATION bin)
