@@ -6,8 +6,8 @@ include_directories("../../HatchitCore/include"
                     "../../ThirdParty/SDL2/include"
                     "../../ThirdParty/inih/")
                     
-link_directories("${PROJECT_SOURCE_DIR}/_build/dependencies/assimp/lib/Release/"
-                 "${PROJECT_SOURCE_DIR}/_build/dependencies/SDL2/lib/Release/")
+link_directories("../_build/dependencies/assimp/lib/Release/"
+                 "../_build/dependencies/SDL2/lib/Release/")
                     
 file(GLOB HT_GAME_INC ../../HatchitGame/include/*.h)
 file(GLOB HT_GAME_SRC ../../HatchitGame/source/*.cpp)
