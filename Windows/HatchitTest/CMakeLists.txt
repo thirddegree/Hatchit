@@ -1,8 +1,16 @@
+set (HatchitTest_TITLE "HatchitTest")
+configure_file (
+    "${PROJECT_SOURCE_DIR}/../HatchitTest/include/HatchitTest.h.in"
+    "${PROJECT_SOURCE_DIR}/../HatchitTest/include/HatchitTest.h"
+)
+
 
 include_directories("${PROJECT_SOURCE_DIR}/../HatchitCore/include/"
                     "${PROJECT_SOURCE_DIR}/../HatchitResource/include/"
                     "${PROJECT_SOURCE_DIR}/../HatchitGame/include/"
+                    "${PROJECT_SOURCE_DIR}/../HatchitTest/include/"
                     "${PROJECT_SOURCE_DIR}/../ThirdParty/assimp/include"
+                    "${PROJECT_SOURCE_DIR}/../ThirdParty/SDL2/include"
                     "${PROJECT_SOURCE_DIR}/../ThirdParty/inih/")
                     
                     
