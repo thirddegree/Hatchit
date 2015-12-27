@@ -28,3 +28,6 @@
 [submodule "HatchitGame"]
 	path = HatchitGame
 	url = https://github.com/thirddegree/HatchitGame.git
+[submodule "HatchitMath"]
+	path = HatchitMath
+	url = https://github.com/thirddegree/HatchitMath.git

@@ -24,6 +24,7 @@ configure_file (
 )
 
 add_subdirectory("${PROJECT_SOURCE_DIR}/HatchitCore")
+add_subdirectory("${PROJECT_SOURCE_DIR}/HatchitMath")
 add_subdirectory("${PROJECT_SOURCE_DIR}/HatchitResource")
 add_subdirectory("${PROJECT_SOURCE_DIR}/HatchitGame")
 add_subdirectory("${PROJECT_SOURCE_DIR}/HatchitTest")
