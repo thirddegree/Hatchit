@@ -34,3 +34,6 @@
 [submodule "HatchitGraphics"]
 	path = HatchitGraphics
 	url = https://github.com/thirddegree/HatchitGraphics.git
+[submodule "ThirdParty/glew"]
+	path = ThirdParty/glew
+	url = https://github.com/thirddegree/glew.git

@@ -44,10 +44,10 @@ add_custom_command(TARGET HatchitTest POST_BUILD
                    $<TARGET_FILE_DIR:HatchitGame>/HatchitGame.dll $<TARGET_FILE_DIR:HatchitTest>)
 add_custom_command(TARGET HatchitTest POST_BUILD
                    COMMAND ${CMAKE_COMMAND} -E copy
-                   $(SolutionDir)../dependencies/SDL2/bin/Release/SDL2.dll $<TARGET_FILE_DIR:HatchitTest>)
+                   $(SolutionDir)../dependencies/SDL2/bin/$(Configuration)/SDL2.dll $<TARGET_FILE_DIR:HatchitTest>)
 add_custom_command(TARGET HatchitTest POST_BUILD
                    COMMAND ${CMAKE_COMMAND} -E copy
-                   $(SolutionDir)../dependencies/assimp/bin/Release/assimp.dll $<TARGET_FILE_DIR:HatchitTest>)    
+                   $(SolutionDir)../dependencies/assimp/bin/$(Configuration)/assimp.dll $<TARGET_FILE_DIR:HatchitTest>)    
 
               
 

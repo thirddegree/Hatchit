@@ -44,3 +44,7 @@ set_target_properties(SDL2main
                       
 #HANDLE TINYXML2 THIRD PARTY LIBRARY
 #add_subdirectory("${PROJECT_SOURCE_DIR}/../../ThirdParty/tinyxml2" "${CMAKE_CURRENT_BINARY_DIR}/tinyxml2")
+
+#HANDLE GLEW THIRD PARTY LIBRARY
+add_subdirectory("${PROJECT_SOURCE_DIR}/../../ThirdParty/glew/build/cmake" "${CMAKE_CURRENT_BINARY_DIR}/glew")
+set_target_properties(glew glew_s glewinfo glewmx glewmx_s visualinfo PROPERTIES FOLDER glew)
