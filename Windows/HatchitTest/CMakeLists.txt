@@ -7,6 +7,10 @@ configure_file (
 
 include_directories("${PROJECT_SOURCE_DIR}/../HatchitCore/include/"
                     "${PROJECT_SOURCE_DIR}/../HatchitResource/include/"
+                    "${PROJECT_SOURCE_DIR}/../HatchitMath/include"
+                    "${PROJECT_SOURCE_DIR}/../HatchitGraphics/include"
+                    "${PROJECT_SOURCE_DIR}/../HatchitGraphics/include/opengl"
+                    "${PROJECT_SOURCE_DIR}/../HatchitGraphics/include/directx"
                     "${PROJECT_SOURCE_DIR}/../HatchitGame/include/"
                     "${PROJECT_SOURCE_DIR}/../HatchitTest/include/"
                     "${PROJECT_SOURCE_DIR}/../ThirdParty/assimp/include"
@@ -31,6 +35,12 @@ add_custom_command(TARGET HatchitTest POST_BUILD
                    $<TARGET_FILE_DIR:HatchitResource>/HatchitResource.dll $<TARGET_FILE_DIR:HatchitTest>)
 add_custom_command(TARGET HatchitTest POST_BUILD
                    COMMAND ${CMAKE_COMMAND} -E copy
+                   $<TARGET_FILE_DIR:HatchitMath>/HatchitMath.dll $<TARGET_FILE_DIR:HatchitTest>)
+add_custom_command(TARGET HatchitTest POST_BUILD
+                   COMMAND ${CMAKE_COMMAND} -E copy
+                   $<TARGET_FILE_DIR:HatchitGraphics>/HatchitGraphics.dll $<TARGET_FILE_DIR:HatchitTest>)
+add_custom_command(TARGET HatchitTest POST_BUILD
+                   COMMAND ${CMAKE_COMMAND} -E copy
                    $<TARGET_FILE_DIR:HatchitGame>/HatchitGame.dll $<TARGET_FILE_DIR:HatchitTest>)
 add_custom_command(TARGET HatchitTest POST_BUILD
                    COMMAND ${CMAKE_COMMAND} -E copy
@@ -42,4 +52,4 @@ add_custom_command(TARGET HatchitTest POST_BUILD
               
 
 
-target_link_libraries(HatchitTest HatchitCore HatchitResource HatchitGame assimp SDL2)
+target_link_libraries(HatchitTest HatchitCore HatchitResource HatchitMath HatchitGraphics HatchitGame assimp SDL2)

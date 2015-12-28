@@ -1,14 +1,25 @@
 
 include_directories("../../HatchitCore/include"
                     "../../HatchitGraphics/include"
+                    "../../HatchitGraphics/include/directx"
+                    "../../HatchitGraphics/include/opengl"
                     "../../ThirdParty/inih/")
                     
 file(GLOB HT_GRAPHICS_INC ../../HatchitGraphics/include/*.h)
-file(GLOB HT_GRAPHICS_SRC ../../HatchitGraphics/source/*.cpp)
+file(GLOB HT_GRAPHICS_SRC ../../HatchitGraphics/source/*.cpp ../../HatchitGraphics/source/opengl/*.cpp ../../HatchitGraphics/source/directx/*.cpp)
+file(GLOB HT_GRAPHICS_OPENGL_INC ../../HatchitGraphics/include/opengl/*.h)
+file(GLOB HT_GRAPHICS_OPENGL_SRC ../../HatchitGraphics/source/opengl/*.cpp)
+file(GLOB HT_GRAPHICS_DIRECTX_INC ../../HatchitGraphics/include/directx/*.h)
+file(GLOB HT_GRAPHICS_DIRECTX_SRC ../../HatchitGraphics/source/directx/*.cpp)
+
+source_group("Header Files\\directx" FILES ${HT_GRAPHICS_DIRECTX_INC})
+source_group("Source Files\\directx" FILES ${HT_GRAPHICS_DIRECTX_SRC})
+source_group("Header Files\\opengl" FILES ${HT_GRAPHICS_OPENGL_INC})
+source_group("Source Files\\opengl" FILES ${HT_GRAPHICS_OPENGL_SRC})
 
 add_definitions(-D_UNICODE)
 
-add_library(HatchitGraphics SHARED ${HT_GRAPHICS_INC} ${HT_GRAPHICS_SRC})
+add_library(HatchitGraphics SHARED ${HT_GRAPHICS_INC} ${HT_GRAPHICS_DIRECTX_INC} ${HT_GRAPHICS_OPENGL_INC}  ${HT_GRAPHICS_SRC} ${HT_GRAPHICS_DIRECTX_SRC} ${HT_GRAPHICS_OPENGL_SRC})
 
 target_compile_definitions(HatchitGraphics PRIVATE HT_NONCLIENT_BUILD)
 
