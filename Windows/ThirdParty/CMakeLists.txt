@@ -34,8 +34,6 @@ set_target_properties(SDL2
                       LIBRARY_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/../_build/dependencies/SDL2/lib"
                       RUNTIME_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/../_build/dependencies/SDL2/bin")
                       
-
-
 set_target_properties(SDL2main
                       PROPERTIES
                       ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/../_build/dependencies/SDL2/lib"
@@ -43,8 +41,21 @@ set_target_properties(SDL2main
                       RUNTIME_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/../_build/dependencies/SDL2/bin")
                       
 #HANDLE TINYXML2 THIRD PARTY LIBRARY
-#add_subdirectory("${PROJECT_SOURCE_DIR}/../../ThirdParty/tinyxml2" "${CMAKE_CURRENT_BINARY_DIR}/tinyxml2")
-
+add_subdirectory("${PROJECT_SOURCE_DIR}/../../ThirdParty/tinyxml2" "${CMAKE_CURRENT_BINARY_DIR}/tinyxml2")
+set_target_properties(tinyxml2 xmltest DATA_COPY PROPERTIES FOLDER tinyxml2)
+set_target_properties(tinyxml2
+                      PROPERTIES
+                      ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/../_build/dependencies/tinyxml2/lib"
+                      LIBRARY_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/../_build/dependencies/tinyxml2/lib"
+                      RUNTIME_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/../_build/dependencies/tinyxml2/bin"
+                      OUTPUT_NAME "tinyxml2")
+                      
 #HANDLE GLEW THIRD PARTY LIBRARY
 add_subdirectory("${PROJECT_SOURCE_DIR}/../../ThirdParty/glew/build/cmake" "${CMAKE_CURRENT_BINARY_DIR}/glew")
 set_target_properties(glew glew_s glewinfo glewmx glewmx_s visualinfo PROPERTIES FOLDER glew)
+set_target_properties(glew
+                      PROPERTIES
+                      ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/../_build/dependencies/glew/lib"
+                      LIBRARY_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/../_build/dependencies/glew/lib"
+                      RUNTIME_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/../_build/dependencies/glew/bin"
+                      OUTPUT_NAME "glew32")

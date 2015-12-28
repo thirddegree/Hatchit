@@ -8,10 +8,14 @@ include_directories("../../HatchitCore/include"
                     "../../HatchitGame/include"
                     "../../ThirdParty/assimp/include"
                     "../../ThirdParty/SDL2/include"
-                    "../../ThirdParty/inih/")
+                    "../../ThirdParty/inih/"
+                    "../../ThirdParty/tinyxml2/"
+                    "../../ThirdParty/glew/include")
                     
-link_directories("../_build/dependencies/assimp/lib/Release/"
-                 "../_build/dependencies/SDL2/lib/Release/")
+link_directories("../_build/dependencies/assimp/lib/$(Configuration)/"
+                 "../_build/dependencies/SDL2/lib/$(Configuration)/"
+                 "../_build/dependencies/tinyxml2/lib/$(Configuration)/"
+                 "../_build/dependencies/glew/lib/$(Configuration)/")
                     
 file(GLOB HT_GAME_INC ../../HatchitGame/include/*.h)
 file(GLOB HT_GAME_SRC ../../HatchitGame/source/*.cpp)
@@ -22,4 +26,4 @@ add_library(HatchitGame SHARED ${HT_GAME_INC} ${HT_GAME_SRC})
 
 target_compile_definitions(HatchitGame PRIVATE HT_NONCLIENT_BUILD)
 
-target_link_libraries(HatchitGame HatchitCore HatchitResource HatchitMath HatchitGraphics assimp SDL2 d3d11 d3dcompiler)
+target_link_libraries(HatchitGame HatchitCore HatchitResource HatchitMath HatchitGraphics tinyxml2 opengl32 glu32 assimp SDL2 glew32 d3d11 d3dcompiler)

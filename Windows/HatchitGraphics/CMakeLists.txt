@@ -3,7 +3,8 @@ include_directories("../../HatchitCore/include"
                     "../../HatchitGraphics/include"
                     "../../HatchitGraphics/include/directx"
                     "../../HatchitGraphics/include/opengl"
-                    "../../ThirdParty/inih/")
+                    "../../ThirdParty/inih/"
+                    "../../ThirdParty/glew/include")
                     
 file(GLOB HT_GRAPHICS_INC ../../HatchitGraphics/include/*.h)
 file(GLOB HT_GRAPHICS_SRC ../../HatchitGraphics/source/*.cpp ../../HatchitGraphics/source/opengl/*.cpp ../../HatchitGraphics/source/directx/*.cpp)
@@ -19,8 +20,10 @@ source_group("Source Files\\opengl" FILES ${HT_GRAPHICS_OPENGL_SRC})
 
 add_definitions(-D_UNICODE)
 
+link_directories("../_build/dependencies/glew/lib/$(Configuration)/")
+
 add_library(HatchitGraphics SHARED ${HT_GRAPHICS_INC} ${HT_GRAPHICS_DIRECTX_INC} ${HT_GRAPHICS_OPENGL_INC}  ${HT_GRAPHICS_SRC} ${HT_GRAPHICS_DIRECTX_SRC} ${HT_GRAPHICS_OPENGL_SRC})
 
 target_compile_definitions(HatchitGraphics PRIVATE HT_NONCLIENT_BUILD)
 
-target_link_libraries(HatchitGraphics d3d11 d3dcompiler)
+target_link_libraries(HatchitGraphics d3d11 d3dcompiler glew32 opengl32 glu32)
