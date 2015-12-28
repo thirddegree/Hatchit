@@ -31,6 +31,8 @@ configure_file (
 include_directories("../HatchitCore/include"
                     "../HatchitResource/include"
                     "../HatchitMath/include"
+                    "../HatchitGraphics/include"
+                    "../HatchitGraphics/include/opengl"
                     "../HatchitGame/include"
                     "../ThirdParty/inih"
                     "../HatchitTest/include")
@@ -38,19 +40,21 @@ include_directories("../HatchitCore/include"
 file(GLOB HT_CORE_SRC ../HatchitCore/source/*.cpp ../ThirdParty/inih/*.c)
 file(GLOB HT_RESOURCE_SRC ../HatchitResource/source/*.cpp)
 file(GLOB HT_MATH_SRC ../HatchitMath/source/*.cpp)
+file(GLOB HT_GRAPHICS_SRC ../HatchitGraphics/source/*.cpp ../HatchitGraphics/source/opengl/*.cpp)
 file(GLOB HT_GAME_SRC ../HatchitGame/source/*.cpp)
 file(GLOB HT_TEST_SRC ../HatchitTest/source/main.cpp)
 
 add_library(HatchitCore SHARED ${HT_CORE_SRC})
 add_library(HatchitMath SHARED ${HT_MATH_SRC})
 add_library(HatchitResource SHARED ${HT_RESOURCE_SRC})
+add_library(HatchitGraphics SHARED ${HT_GRAPHICS_SRC})
 add_library(HatchitGame SHARED ${HT_GAME_SRC})
 
 add_executable(ht_test ${HT_TEST_SRC})
 
-target_link_libraries(ht_test HatchitCore HatchitResource HatchitMath HatchitGame assimp SDL2)
+target_link_libraries(ht_test HatchitCore HatchitResource HatchitMath HatchitGraphics HatchitGame assimp SDL2)
 
 #install
 
-install (TARGETS HatchitCore HatchitResource HatchitMath HatchitGame DESTINATION lib)
+install (TARGETS HatchitCore HatchitResource HatchitMath HatchitGraphics HatchitGame DESTINATION lib)
 install (TARGETS ht_test DESTINATION bin)
