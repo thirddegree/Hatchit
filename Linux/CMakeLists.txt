@@ -50,9 +50,16 @@ add_library(HatchitResource SHARED ${HT_RESOURCE_SRC})
 add_library(HatchitGraphics SHARED ${HT_GRAPHICS_SRC})
 add_library(HatchitGame SHARED ${HT_GAME_SRC})
 
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -D_DEBUG")
+
 add_executable(ht_test ${HT_TEST_SRC})
 
-target_link_libraries(ht_test HatchitCore HatchitResource HatchitMath HatchitGraphics HatchitGame assimp SDL2)
+add_custom_command(TARGET ht_test PRE_BUILD
+                   COMMAND ${CMAKE_COMMAND} -E copy
+                   ${PROJECT_SOURCE_DIR}/../HatchitTest/HatchitTest.ini $<TARGET_FILE_DIR:ht_test>)
+
+target_link_libraries(HatchitGame HatchitCore HatchitResource HatchitMath HatchitGraphics assimp SDL2 GLEW GL GLU)
+target_link_libraries(ht_test HatchitCore HatchitResource HatchitMath HatchitGraphics HatchitGame assimp SDL2 GLEW GL GLU)
 
 #install
 
