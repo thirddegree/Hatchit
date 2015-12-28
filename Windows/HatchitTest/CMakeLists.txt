@@ -31,33 +31,35 @@ add_definitions(-D_UNICODE)
 
 add_executable(HatchitTest ${PROJECT_SOURCE_DIR}/../HatchitTest/source/main.cpp)
 
-add_custom_command(TARGET HatchitTest POST_BUILD
+add_custom_command(TARGET HatchitTest PRE_BUILD
                    COMMAND ${CMAKE_COMMAND} -E copy
                    $<TARGET_FILE_DIR:HatchitCore>/HatchitCore.dll $<TARGET_FILE_DIR:HatchitTest>)
-add_custom_command(TARGET HatchitTest POST_BUILD
+add_custom_command(TARGET HatchitTest PRE_BUILD
                    COMMAND ${CMAKE_COMMAND} -E copy
                    $<TARGET_FILE_DIR:HatchitResource>/HatchitResource.dll $<TARGET_FILE_DIR:HatchitTest>)
-add_custom_command(TARGET HatchitTest POST_BUILD
+add_custom_command(TARGET HatchitTest PRE_BUILD
                    COMMAND ${CMAKE_COMMAND} -E copy
                    $<TARGET_FILE_DIR:HatchitMath>/HatchitMath.dll $<TARGET_FILE_DIR:HatchitTest>)
-add_custom_command(TARGET HatchitTest POST_BUILD
+add_custom_command(TARGET HatchitTest PRE_BUILD
                    COMMAND ${CMAKE_COMMAND} -E copy
                    $<TARGET_FILE_DIR:HatchitGraphics>/HatchitGraphics.dll $<TARGET_FILE_DIR:HatchitTest>)
-add_custom_command(TARGET HatchitTest POST_BUILD
+add_custom_command(TARGET HatchitTest PRE_BUILD
                    COMMAND ${CMAKE_COMMAND} -E copy
                    $<TARGET_FILE_DIR:HatchitGame>/HatchitGame.dll $<TARGET_FILE_DIR:HatchitTest>)
-add_custom_command(TARGET HatchitTest POST_BUILD
+add_custom_command(TARGET HatchitTest PRE_BUILD
                    COMMAND ${CMAKE_COMMAND} -E copy
                    $(SolutionDir)../dependencies/SDL2/bin/$(Configuration)/SDL2.dll $<TARGET_FILE_DIR:HatchitTest>)
-add_custom_command(TARGET HatchitTest POST_BUILD
+add_custom_command(TARGET HatchitTest PRE_BUILD
                    COMMAND ${CMAKE_COMMAND} -E copy
                    $(SolutionDir)../dependencies/assimp/bin/$(Configuration)/assimp.dll $<TARGET_FILE_DIR:HatchitTest>)    
-add_custom_command(TARGET HatchitTest POST_BUILD
+add_custom_command(TARGET HatchitTest PRE_BUILD
                    COMMAND ${CMAKE_COMMAND} -E copy
                    $(SolutionDir)../dependencies/glew/bin/$(Configuration)/glew32.dll $<TARGET_FILE_DIR:HatchitTest>)    
-add_custom_command(TARGET HatchitTest POST_BUILD
+add_custom_command(TARGET HatchitTest PRE_BUILD
                    COMMAND ${CMAKE_COMMAND} -E copy
-                   $(SolutionDir)../dependencies/tinyxml2/bin/$(Configuration)/tinyxml2.dll $<TARGET_FILE_DIR:HatchitTest>)                 
-
+                   $(SolutionDir)../dependencies/tinyxml2/bin/$(Configuration)/tinyxml2.dll $<TARGET_FILE_DIR:HatchitTest>)       
+add_custom_command(TARGET HatchitTest PRE_BUILD
+                   COMMAND ${CMAKE_COMMAND} -E copy
+                   ${PROJECT_SOURCE_DIR}/../HatchitTest/HatchitTest.ini $<TARGET_FILE_DIR:HatchitTest>)    
 
 target_link_libraries(HatchitTest HatchitCore HatchitResource HatchitMath HatchitGraphics HatchitGame tinyxml2 assimp SDL2 d3d11 d3dcompiler opengl32 glew32 glu32)
