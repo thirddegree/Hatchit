@@ -1,6 +1,10 @@
 
 include_directories("../../HatchitCore/include"
                     "../../HatchitResource/include"
+                    "../../HatchitMath/include"
+                    "../../HatchitGraphics/include"
+                    "../../HatchitGraphics/include/directx"
+                    "../../HatchitGraphics/include/opengl"
                     "../../HatchitGame/include"
                     "../../ThirdParty/assimp/include"
                     "../../ThirdParty/SDL2/include"
@@ -18,4 +22,4 @@ add_library(HatchitGame SHARED ${HT_GAME_INC} ${HT_GAME_SRC})
 
 target_compile_definitions(HatchitGame PRIVATE HT_NONCLIENT_BUILD)
 
-target_link_libraries(HatchitGame HatchitCore HatchitResource assimp SDL2)
+target_link_libraries(HatchitGame HatchitCore HatchitResource HatchitMath HatchitGraphics assimp SDL2 d3d11 d3dcompiler)

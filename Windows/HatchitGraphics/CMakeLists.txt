@@ -23,4 +23,4 @@ add_library(HatchitGraphics SHARED ${HT_GRAPHICS_INC} ${HT_GRAPHICS_DIRECTX_INC}
 
 target_compile_definitions(HatchitGraphics PRIVATE HT_NONCLIENT_BUILD)
 
-target_link_libraries(HatchitGraphics)
+target_link_libraries(HatchitGraphics d3d11 d3dcompiler)
