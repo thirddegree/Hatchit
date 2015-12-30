@@ -37,3 +37,6 @@
 [submodule "ThirdParty/glew"]
 	path = ThirdParty/glew
 	url = https://github.com/thirddegree/glew.git
+[submodule "HatchitImage"]
+	path = HatchitImage
+	url = https://github.com/thirddegree/HatchitImage.git
