@@ -31,6 +31,8 @@ configure_file (
 include_directories("../HatchitCore/include"
                     "../HatchitResource/include"
                     "../HatchitMath/include"
+                    "../HatchitImage/include"
+                    "../HatchitImage/stb"
                     "../HatchitGraphics/include"
                     "../HatchitGraphics/include/opengl"
                     "../HatchitGame/include"
@@ -41,27 +43,38 @@ file(GLOB HT_CORE_SRC ../HatchitCore/source/*.cpp ../ThirdParty/inih/*.c)
 file(GLOB HT_RESOURCE_SRC ../HatchitResource/source/*.cpp)
 file(GLOB HT_MATH_SRC ../HatchitMath/source/*.cpp)
 file(GLOB HT_GRAPHICS_SRC ../HatchitGraphics/source/*.cpp ../HatchitGraphics/source/opengl/*.cpp)
+file(GLOB HT_IMAGE_SRC ../HatchitImage/source/*.cpp ../HatchitImage/source/*.c)
 file(GLOB HT_GAME_SRC ../HatchitGame/source/*.cpp)
 file(GLOB HT_TEST_SRC ../HatchitTest/source/main.cpp)
 
 add_library(HatchitCore SHARED ${HT_CORE_SRC})
 add_library(HatchitMath SHARED ${HT_MATH_SRC})
 add_library(HatchitResource SHARED ${HT_RESOURCE_SRC})
+add_library(HatchitImage SHARED ${HT_IMAGE_SRC})
 add_library(HatchitGraphics SHARED ${HT_GRAPHICS_SRC})
 add_library(HatchitGame SHARED ${HT_GAME_SRC})
 
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -D_DEBUG")
+
+
+target_compile_definitions(HatchitImage PRIVATE STB_IMAGE_IMPLEMENTATION)
 
 add_executable(ht_test ${HT_TEST_SRC})
 
 add_custom_command(TARGET ht_test PRE_BUILD
                    COMMAND ${CMAKE_COMMAND} -E copy
                    ${PROJECT_SOURCE_DIR}/../HatchitTest/HatchitTest.ini $<TARGET_FILE_DIR:ht_test>)
+add_custom_command(TARGET ht_test PRE_BUILD
+                    COMMAND ${CMAKE_COMMAND} -E copy
+                    ${PROJECT_SOURCE_DIR}/../HatchitImage/test/floor.jpg $<TARGET_FILE_DIR:ht_test>)
+add_custom_command(TARGET ht_test PRE_BUILD
+                    COMMAND ${CMAKE_COMMAND} -E copy
+                    ${PROJECT_SOURCE_DIR}/../HatchitImage/test/croissant.png $<TARGET_FILE_DIR:ht_test>)        
 
-target_link_libraries(HatchitGame HatchitCore HatchitResource HatchitMath HatchitGraphics assimp SDL2 GLEW GL GLU)
-target_link_libraries(ht_test HatchitCore HatchitResource HatchitMath HatchitGraphics HatchitGame assimp SDL2 GLEW GL GLU)
+target_link_libraries(HatchitGame HatchitCore HatchitResource HatchitMath HatchitImage HatchitGraphics assimp SDL2 GLEW GL GLU)
+target_link_libraries(ht_test HatchitCore HatchitResource HatchitMath HatchitImage HatchitGraphics HatchitGame assimp SDL2 GLEW GL GLU)
 
 #install
 
-install (TARGETS HatchitCore HatchitResource HatchitMath HatchitGraphics HatchitGame DESTINATION lib)
+install (TARGETS HatchitCore HatchitResource HatchitMath HatchitImage HatchitGraphics HatchitGame DESTINATION lib)
 install (TARGETS ht_test DESTINATION bin)
