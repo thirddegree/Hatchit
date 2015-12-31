@@ -42,7 +42,7 @@
 	url = https://github.com/thirddegree/HatchitImage.git
 [submodule "ThirdParty/libsndfile"]
 	path = ThirdParty/libsndfile
-	url = https://github.com/erikd/libsndfile.git
+	url = https://github.com/thirddegree/libsndfile.git
 [submodule "ThirdParty/openal-soft"]
 	path = ThirdParty/openal-soft
 	url = https://github.com/kcat/openal-soft.git

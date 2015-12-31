@@ -1,3 +1,7 @@
+REM autogen libsndfile cmake
+
+call "../../ThirdParty/libsndfile/autogen.sh cmake"
+
 cd ../_build
 mkdir dependencies
 mkdir VS2013
