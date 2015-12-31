@@ -40,3 +40,6 @@
 [submodule "HatchitImage"]
 	path = HatchitImage
 	url = https://github.com/thirddegree/HatchitImage.git
+[submodule "ThirdParty/libsndfile"]
+	path = ThirdParty/libsndfile
+	url = https://github.com/erikd/libsndfile.git
