@@ -62,3 +62,9 @@ set_target_properties(glew
 
 #HANDLE BULLET-PHYSICS THIRD PARTY LIBRARY
 add_subdirectory("${PROJECT_SOURCE_DIR}/../../ThirdParty/bullet3/" "${CMAKE_CURRENT_BINARY_DIR}/bullet3")
+set_target_properties(BulletCollision BulletSoftBody BulletDynamics BulletInverseDynamics LinearMath PROPERTIES FOLDER bullet)
+set_target_properties(BulletCollision BulletSoftBody BulletDynamics BulletInverseDynamics LinearMath
+                      PROPERTIES
+                      ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/../_build/dependencies/bullet/lib"
+                      LIBRARY_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/../_build/dependencies/bullet/lib"
+                      RUNTIME_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/../_build/dependencies/bullet/bin")
