@@ -66,6 +66,11 @@ add_custom_command(TARGET HatchitTest PRE_BUILD
                    $(SolutionDir)../dependencies/tinyxml2/bin/$(Configuration)/tinyxml2.dll $<TARGET_FILE_DIR:HatchitTest>)       
 add_custom_command(TARGET HatchitTest PRE_BUILD
                    COMMAND ${CMAKE_COMMAND} -E copy
-                   ${PROJECT_SOURCE_DIR}/../HatchitTest/HatchitTest.ini $<TARGET_FILE_DIR:HatchitTest>)    
-
+                   ${PROJECT_SOURCE_DIR}/../HatchitTest/HatchitTest.ini $<TARGET_FILE_DIR:HatchitTest>) 
+add_custom_command(TARGET HatchitTest PRE_BUILD
+                   COMMAND ${CMAKE_COMMAND} -E copy
+                   ${PROJECT_SOURCE_DIR}/../HatchitImage/test/croissant.png $<TARGET_FILE_DIR:HatchitTest>)    
+add_custom_command(TARGET HatchitTest PRE_BUILD
+                   COMMAND ${CMAKE_COMMAND} -E copy
+                   ${PROJECT_SOURCE_DIR}/../HatchitImage/test/floor.jpg $<TARGET_FILE_DIR:HatchitTest>)    
 target_link_libraries(HatchitTest HatchitCore HatchitResource HatchitMath HatchitImage HatchitGraphics HatchitGame tinyxml2 assimp SDL2 d3d11 d3dcompiler opengl32 glew32 glu32)
