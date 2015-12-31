@@ -46,3 +46,6 @@
 [submodule "ThirdParty/openal-soft"]
 	path = ThirdParty/openal-soft
 	url = https://github.com/kcat/openal-soft.git
+[submodule "ThirdParty/bullet3"]
+	path = ThirdParty/bullet3
+	url = https://github.com/thirddegree/bullet3.git
