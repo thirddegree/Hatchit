@@ -68,6 +68,3 @@ set_target_properties(BulletCollision BulletSoftBody BulletDynamics BulletInvers
                       ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/../_build/dependencies/bullet/lib"
                       LIBRARY_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/../_build/dependencies/bullet/lib"
                       RUNTIME_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/../_build/dependencies/bullet/bin")
-                      
-#HANDLE LIBSNDFIL THIRD PARTY LIBRARY
-add_subdirectory("${PROJECT_SOURCE_DIR}/../../ThirdParty/libsndfile/" "${CMAKE_CURRENT_BINARY_DIR}/libsndfile")

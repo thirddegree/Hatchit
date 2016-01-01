@@ -1,7 +1,3 @@
-REM autogen libsndfile cmake
-
-call "../../ThirdParty/libsndfile/autogen.sh cmake"
-
 cd ../_build
 mkdir dependencies
 mkdir VS2013
@@ -13,10 +9,12 @@ cmake ../../../ThirdParty/ -G "Visual Studio 12 2013 Win64"
 cd ../../VS2015
 mkdir ThirdParty
 cd ThirdParty
-cmake ../../../ThirdParty/ -G "Visual Studio 14 2015 Win64"
+::cmake ../../../ThirdParty/ -G "Visual Studio 14 2015 Win64"
 cd ../../../
 
 REM Build Python libraries
+
+set PYTHONPATH=%PYTHONPATH%;C:\Python34\Lib
 
 mkdir _build\dependencies\Python\bin\Debug
 mkdir _build\dependencies\Python\bin\Release
