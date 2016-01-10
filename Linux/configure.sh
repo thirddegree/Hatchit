@@ -1,4 +1,4 @@
-
+#!/bin/bash
 cd _build
 mkdir debug
 mkdir release
