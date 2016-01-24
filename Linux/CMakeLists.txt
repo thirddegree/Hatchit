@@ -15,7 +15,11 @@ set (HatchitEngine_VERSION_BUILD 1)
 include (CheckCXXCompilerFlag)
 CHECK_CXX_COMPILER_FLAG("-std=c++11" COMPILER_SUPPORTS_CXX11)
 if(COMPILER_SUPPORTS_CXX11)
-    set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -g")
+    if(CMAKE_BUILD_TYPE MATCHES DEBUG)
+        set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -g")
+    else()
+        set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall")
+    endif()
 else()
     message(STATUS "The compiler ${CMAKE_CXX_COMPILER} has no C++11 support. Please use a different C++ compiler.")
 endif()
@@ -28,7 +32,7 @@ configure_file (
     "${PROJECT_SOURCE_DIR}/../HatchitCore/include/ht_version.h"
 )
 
-include_directories("../HatchitCore/include"
+include_directories("../HatchitCore/include" "../HatchitCore/include/linux"
                     "../HatchitResource/include"
                     "../HatchitMath/include"
                     "../HatchitImage/include"
@@ -41,7 +45,7 @@ include_directories("../HatchitCore/include"
                     "../HatchitTest/include"
                     "/usr/include/python3.4")
 
-file(GLOB HT_CORE_SRC ../HatchitCore/source/*.cpp ../ThirdParty/inih/*.c)
+file(GLOB HT_CORE_SRC ../HatchitCore/source/*.cpp ../HatchitCore/source/linux/*.cpp ../ThirdParty/inih/*.c)
 file(GLOB HT_RESOURCE_SRC ../HatchitResource/source/*.cpp)
 file(GLOB HT_MATH_SRC ../HatchitMath/source/*.cpp)
 file(GLOB HT_GRAPHICS_SRC ../HatchitGraphics/source/*.cpp ../HatchitGraphics/source/opengl/*.cpp)
@@ -78,8 +82,8 @@ add_custom_command(TARGET ht_test PRE_BUILD
                     ${PROJECT_SOURCE_DIR}/../HatchitImage/test/croissant.png $<TARGET_FILE_DIR:ht_test>)
 
 target_link_libraries(HatchitScript HatchitCore python3.4m)
-target_link_libraries(HatchitGame HatchitCore HatchitResource HatchitMath HatchitImage HatchitGraphics assimp SDL2 GLEW GL GLU)
-target_link_libraries(ht_test HatchitCore HatchitResource HatchitMath HatchitImage HatchitScript HatchitGraphics HatchitGame assimp SDL2 GLEW GL GLU)
+target_link_libraries(HatchitGame HatchitCore HatchitResource HatchitMath HatchitImage HatchitGraphics assimp SDL2 GLEW GL GLU )
+target_link_libraries(ht_test HatchitCore HatchitResource HatchitMath HatchitImage HatchitScript HatchitGraphics HatchitGame assimp SDL2 GLEW GL GLU )
 
 #install
 
