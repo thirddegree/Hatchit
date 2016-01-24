@@ -5,7 +5,7 @@ configure_file (
 )
 
 
-include_directories("${PROJECT_SOURCE_DIR}/../HatchitCore/include/"
+include_directories("${PROJECT_SOURCE_DIR}/../HatchitCore/include/" "${PROJECT_SOURCE_DIR}/../HatchitCore/include/windows"
                     "${PROJECT_SOURCE_DIR}/../HatchitResource/include/"
                     "${PROJECT_SOURCE_DIR}/../HatchitMath/include"
                     "${PROJECT_SOURCE_DIR}/../HatchitImage/include"

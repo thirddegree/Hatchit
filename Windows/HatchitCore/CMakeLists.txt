@@ -1,10 +1,11 @@
 
 
-include_directories("../../HatchitCore/include"
+include_directories("../../HatchitCore/include" 
+                    "../../HatchitCore/include/windows"
                     "../../ThirdParty/inih/")
 					
-file(GLOB HT_CORE_INC ../../HatchitCore/include/*.h)
-file(GLOB HT_CORE_SRC ../../HatchitCore/source/*.cpp)
+file(GLOB HT_CORE_INC ../../HatchitCore/include/*.h ../../HatchitCore/include/windows/*.h)
+file(GLOB HT_CORE_SRC ../../HatchitCore/source/*.cpp ../../HatchitCore/source/windows/*.cpp)
 file(GLOB INIH_SRC ../../ThirdParty/inih/*.c)
 
 source_group("Source Files\\inih" FILES ${INIH_SRC})

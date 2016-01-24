@@ -1,5 +1,5 @@
 
-include_directories("../../HatchitCore/include"
+include_directories("../../HatchitCore/include" "../../HatchitCore/include/windows"
                     "../../HatchitResource/include"
                     "../../HatchitMath/include"
                     "../../HatchitGraphics/include"
