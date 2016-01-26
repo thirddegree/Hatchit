@@ -15,8 +15,8 @@ set(CMAKE_DEBUG_POSTFIX "")
 #HANDLE ASSIMP THIRD PARTY LIBRARY
 add_subdirectory("${PROJECT_SOURCE_DIR}/../../ThirdParty/assimp" "${CMAKE_CURRENT_BINARY_DIR}/Assimp")
 
-set_target_properties(assimp_cmd uninstall unit gtest UpdateAssimpLibsDebugSymbolsAndDLLs PROPERTIES EXCLUDE_FROM_ALL 1 EXCLUDE_FROM_DEFAULT_BUILD 1)
-set_target_properties(assimp assimp_viewer assimp_cmd uninstall unit gtest UpdateAssimpLibsDebugSymbolsAndDLLs zlibstatic PROPERTIES FOLDER Assimp)
+set_target_properties(uninstall unit gtest UpdateAssimpLibsDebugSymbolsAndDLLs PROPERTIES EXCLUDE_FROM_ALL 1 EXCLUDE_FROM_DEFAULT_BUILD 1)
+set_target_properties(assimp uninstall unit gtest UpdateAssimpLibsDebugSymbolsAndDLLs zlibstatic PROPERTIES FOLDER Assimp)
 set_target_properties(assimp
                       PROPERTIES
                       ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/../_build/dependencies/assimp/lib"

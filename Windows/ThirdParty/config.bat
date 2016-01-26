@@ -5,11 +5,15 @@ mkdir VS2015
 cd VS2013
 mkdir ThirdParty
 cd ThirdParty
-cmake ../../../ThirdParty/ -G "Visual Studio 12 2013 Win64"
+::cmake ../../../ThirdParty/ -G "Visual Studio 12 2013 Win64" -DDIRECTX=NO -DASSIMP_BUILD_ASSIMP_TOOLS=NO
+::msbuild ThirdPartyLibs.sln /p:Configuration=Debug
+::msbuild ThirdPartyLibs.sln /p:Configuration=Release
 cd ../../VS2015
 mkdir ThirdParty
 cd ThirdParty
-::cmake ../../../ThirdParty/ -G "Visual Studio 14 2015 Win64"
+cmake ../../../ThirdParty/ -G "Visual Studio 14 2015 Win64" -DDIRECTX=NO -DASSIMP_BUILD_ASSIMP_TOOLS=NO
+msbuild ThirdPartyLibs.sln /p:Configuration=Debug
+msbuild ThirdPartyLibs.sln /p:Configuration=Release
 cd ../../../
 
 REM Build Python libraries
