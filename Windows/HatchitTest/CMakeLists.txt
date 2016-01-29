@@ -8,14 +8,13 @@ configure_file (
 include_directories("${PROJECT_SOURCE_DIR}/../HatchitCore/include/" "${PROJECT_SOURCE_DIR}/../HatchitCore/include/windows"
                     "${PROJECT_SOURCE_DIR}/../HatchitResource/include/"
                     "${PROJECT_SOURCE_DIR}/../HatchitMath/include"
-                    "${PROJECT_SOURCE_DIR}/../HatchitImage/include"
-                    "${PROJECT_SOURCE_DIR}/../HatchitImage/stb"
                     "${PROJECT_SOURCE_DIR}/../HatchitGraphics/include"
                     "${PROJECT_SOURCE_DIR}/../HatchitGraphics/include/opengl"
                     "${PROJECT_SOURCE_DIR}/../HatchitGraphics/include/directx"
                     "${PROJECT_SOURCE_DIR}/../HatchitGame/include/"
                     "${PROJECT_SOURCE_DIR}/../HatchitTest/include/"
                     "${PROJECT_SOURCE_DIR}/../ThirdParty/assimp/include"
+                    "${PROJECT_SOURCE_DIR}/../ThirdParty/stb"
                     "${PROJECT_SOURCE_DIR}/../ThirdParty/SDL2/include"
                     "${PROJECT_SOURCE_DIR}/../ThirdParty/inih/"
                     "${PROJECT_SOURCE_DIR}/../ThirdParty/glew/include/"
@@ -53,22 +52,14 @@ add_custom_command(TARGET HatchitTest PRE_BUILD
                    $<TARGET_FILE_DIR:HatchitMath>/HatchitMath.dll $<TARGET_FILE_DIR:HatchitTest>)
 add_custom_command(TARGET HatchitTest PRE_BUILD
                    COMMAND ${CMAKE_COMMAND} -E copy
-                   $<TARGET_FILE_DIR:HatchitGraphics>/HatchitGraphics.dll $<TARGET_FILE_DIR:HatchitTest>)
-add_custom_command(TARGET HatchitTest PRE_BUILD
-                   COMMAND ${CMAKE_COMMAND} -E copy
-                   $<TARGET_FILE_DIR:HatchitImage>/HatchitImage.dll $<TARGET_FILE_DIR:HatchitTest>)                  
+                   $<TARGET_FILE_DIR:HatchitGraphics>/HatchitGraphics.dll $<TARGET_FILE_DIR:HatchitTest>)              
 add_custom_command(TARGET HatchitTest PRE_BUILD
                    COMMAND ${CMAKE_COMMAND} -E copy
                    $<TARGET_FILE_DIR:HatchitGame>/HatchitGame.dll $<TARGET_FILE_DIR:HatchitTest>)                                            
 add_custom_command(TARGET HatchitTest PRE_BUILD
                    COMMAND ${CMAKE_COMMAND} -E copy
                    ${PROJECT_SOURCE_DIR}/../HatchitTest/HatchitTest.ini $<TARGET_FILE_DIR:HatchitTest>) 
-add_custom_command(TARGET HatchitTest PRE_BUILD
-                   COMMAND ${CMAKE_COMMAND} -E copy
-                   ${PROJECT_SOURCE_DIR}/../HatchitImage/test/croissant.png $<TARGET_FILE_DIR:HatchitTest>)    
-add_custom_command(TARGET HatchitTest PRE_BUILD
-                   COMMAND ${CMAKE_COMMAND} -E copy
-                   ${PROJECT_SOURCE_DIR}/../HatchitImage/test/floor.jpg $<TARGET_FILE_DIR:HatchitTest>)
 
 set(PYTHON_LIBS debug python34_d optimized python34 python3)
-target_link_libraries(HatchitTest HatchitCore HatchitResource HatchitMath HatchitImage HatchitGraphics HatchitGame ${PYTHON_LIBS} tinyxml2 assimp SDL2 d3d11 d3dcompiler opengl32 glew32 glu32)
+set(ASSIMP_LIBS debug assimpd optimized assimp)
+target_link_libraries(HatchitTest HatchitCore HatchitResource HatchitMath HatchitGraphics HatchitGame ${PYTHON_LIBS} tinyxml2 ${ASSIMP_LIBS} SDL2 d3d11 d3dcompiler opengl32 glew32 glu32)

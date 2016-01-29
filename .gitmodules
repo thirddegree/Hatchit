@@ -37,9 +37,6 @@
 [submodule "ThirdParty/glew"]
 	path = ThirdParty/glew
 	url = https://github.com/thirddegree/glew.git
-[submodule "HatchitImage"]
-	path = HatchitImage
-	url = https://github.com/thirddegree/HatchitImage.git
 [submodule "ThirdParty/openal-soft"]
 	path = ThirdParty/openal-soft
 	url = https://github.com/kcat/openal-soft.git
@@ -49,3 +46,6 @@
 [submodule "ThirdParty/Python"]
 	path = ThirdParty/Python
 	url = https://github.com/thirddegree/Python.git
+[submodule "ThirdParty/stb"]
+	path = ThirdParty/stb
+	url = https://github.com/thirddegree/stb
