@@ -49,3 +49,6 @@
 [submodule "ThirdParty/stb"]
 	path = ThirdParty/stb
 	url = https://github.com/thirddegree/stb
+[submodule "HatchitNetwork"]
+	path = HatchitNetwork
+	url = https://github.com/thirddegree/HatchitNetwork.git
