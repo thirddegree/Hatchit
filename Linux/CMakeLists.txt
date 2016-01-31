@@ -73,8 +73,9 @@ add_custom_command(TARGET ht_test PRE_BUILD
                    ${PROJECT_SOURCE_DIR}/../HatchitTest/HatchitTest.ini $<TARGET_FILE_DIR:ht_test>)
 
 target_link_libraries(HatchitScript HatchitCore python3.4m)
+target_link_libraries(HatchitGraphics HatchitCore HatchitResource HatchitMath)
 target_link_libraries(HatchitGame HatchitCore HatchitResource HatchitMath HatchitGraphics assimp SDL2 GLEW GL GLU )
-target_link_libraries(ht_test HatchitCore HatchitResource HatchitMath HatchitScript HatchitGraphics HatchitGame assimp SDL2 GLEW GL GLU )
+target_link_libraries(ht_test HatchitCore HatchitResource HatchitMath HatchitScript HatchitGraphics HatchitGame assimp SDL2 GLEW GL GLU pthread)
 
 #install
 
