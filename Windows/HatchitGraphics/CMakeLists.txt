@@ -3,6 +3,8 @@ include_directories("../../HatchitCore/include"
                     "../../HatchitGraphics/include"
                     "../../HatchitGraphics/include/directx"
                     "../../HatchitGraphics/include/opengl"
+                    "../../HatchitResource/include"
+                    "../../HatchitMath/include"
                     "../../ThirdParty/inih/"
                     "../../ThirdParty/glew/include")
                     
@@ -26,4 +28,4 @@ add_library(HatchitGraphics SHARED ${HT_GRAPHICS_INC} ${HT_GRAPHICS_DIRECTX_INC}
 
 target_compile_definitions(HatchitGraphics PRIVATE HT_NONCLIENT_BUILD)
 
-target_link_libraries(HatchitGraphics d3d11 d3dcompiler glew32 opengl32 glu32)
+target_link_libraries(HatchitGraphics HatchitResource HatchitMath d3d11 d3dcompiler glew32 opengl32 glu32)
