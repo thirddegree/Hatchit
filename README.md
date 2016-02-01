@@ -52,7 +52,7 @@ This is the easy part!
 
 * `cd` into `Hatchit\Windows`
 * Run the `config.bat` files located here. This will configure the Visual Studio solution
-* Your shell should be located in `Hatchit\Windows\_build\debug\VS2015`
+* Your shell should be located in `Hatchit\Windows\_build\VS2015`
 * Open the `HatchitEngine.sln` file however you'd like
 * Make sure that `HatchitTest` is marked as your startup project
 * Build and Run!
