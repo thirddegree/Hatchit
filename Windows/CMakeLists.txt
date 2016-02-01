@@ -1,4 +1,3 @@
-
 if(WIN32)
 cmake_minimum_required (VERSION 3.1)
 else()
@@ -29,7 +28,5 @@ add_subdirectory("${PROJECT_SOURCE_DIR}/HatchitResource")
 add_subdirectory("${PROJECT_SOURCE_DIR}/HatchitScript")
 add_subdirectory("${PROJECT_SOURCE_DIR}/HatchitGraphics")
 add_subdirectory("${PROJECT_SOURCE_DIR}/HatchitGame")
+add_subdirectory("${PROJECT_SOURCE_DIR}/HatchitNetwork")
 add_subdirectory("${PROJECT_SOURCE_DIR}/HatchitTest")
-
-
-
