@@ -8,10 +8,6 @@ project(ThirdPartyLibs)
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
-
-set(CMAKE_DEBUG_POSTFIX "")
-
-
 #HANDLE ASSIMP THIRD PARTY LIBRARY
 add_subdirectory("${PROJECT_SOURCE_DIR}/../../ThirdParty/assimp" "${CMAKE_CURRENT_BINARY_DIR}/Assimp")
 
