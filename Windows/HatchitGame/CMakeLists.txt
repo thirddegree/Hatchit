@@ -27,4 +27,5 @@ add_library(HatchitGame SHARED ${HT_GAME_INC} ${HT_GAME_SRC})
 target_compile_definitions(HatchitGame PRIVATE HT_NONCLIENT_BUILD)
 
 set(ASSIMP_LIBS debug assimpd optimized assimp)
-target_link_libraries(HatchitGame HatchitCore HatchitResource HatchitMath HatchitGraphics tinyxml2 opengl32 glu32 ${ASSIMP_LIBS} SDL2 glew32 d3d11 d3dcompiler)
+set(GLEW_LIBS debug glew32d optimized glew32)
+target_link_libraries(HatchitGame HatchitCore HatchitResource HatchitMath HatchitGraphics tinyxml2 opengl32 glu32 ${ASSIMP_LIBS} SDL2 ${GLEW_LIBS} d3d11 d3dcompiler)

@@ -28,4 +28,5 @@ add_library(HatchitGraphics SHARED ${HT_GRAPHICS_INC} ${HT_GRAPHICS_DIRECTX_INC}
 
 target_compile_definitions(HatchitGraphics PRIVATE HT_NONCLIENT_BUILD)
 
-target_link_libraries(HatchitGraphics HatchitResource HatchitMath d3d11 d3dcompiler glew32 opengl32 glu32)
+set(GLEW_LIBS debug glew32d optimized glew32)
+target_link_libraries(HatchitGraphics HatchitResource HatchitMath d3d11 d3dcompiler ${GLEW_LIBS} opengl32 glu32)

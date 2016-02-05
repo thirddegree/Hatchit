@@ -96,6 +96,7 @@ add_custom_command(TARGET HatchitServer PRE_BUILD
 
 set(PYTHON_LIBS debug python34_d optimized python34 python3)
 set(ASSIMP_LIBS debug assimpd optimized assimp)
-target_link_libraries(HatchitTest HatchitCore HatchitResource HatchitMath HatchitNetwork HatchitGraphics HatchitGame ${PYTHON_LIBS} tinyxml2 ${ASSIMP_LIBS} SDL2 d3d11 d3dcompiler opengl32 glew32 glu32 Ws2_32)
+set(GLEW_LIBS debug glew32d optimized glew32)
+target_link_libraries(HatchitTest HatchitCore HatchitResource HatchitMath HatchitNetwork HatchitGraphics HatchitGame ${PYTHON_LIBS} tinyxml2 ${ASSIMP_LIBS} SDL2 d3d11 d3dcompiler opengl32 ${GLEW_LIBS} glu32 Ws2_32)
 target_link_libraries(HatchitClient HatchitCore HatchitNetwork Ws2_32)
 target_link_libraries(HatchitServer HatchitCore HatchitNetwork Ws2_32)
