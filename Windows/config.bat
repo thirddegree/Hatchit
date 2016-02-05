@@ -4,10 +4,10 @@ mkdir bin\Release
 
 REM Place all third party libs into the Debug and Release bin folders
 
-copy /Y dependencies\SDL2\bin\Debug\SDL2.dll bin\Debug
+copy /Y dependencies\SDL2\bin\Debug\SDL2d.dll bin\Debug
 copy /Y dependencies\assimp\bin\Debug\assimp.dll bin\Debug
-copy /Y dependencies\glew\bin\Debug\glew32.dll bin\Debug
-copy /Y dependencies\tinyxml2\bin\Debug\tinyxml2.dll bin\Debug
+copy /Y dependencies\glew\bin\Debug\glew32d.dll bin\Debug
+copy /Y dependencies\tinyxml2\bin\Debug\tinyxml2d.dll bin\Debug
 copy /Y dependencies\Python\bin\Debug\python3.dll bin\Debug
 copy /Y dependencies\Python\bin\Debug\python34_d.dll bin\Debug
 
