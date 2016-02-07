@@ -22,7 +22,8 @@ source_group("Source Files\\opengl" FILES ${HT_GRAPHICS_OPENGL_SRC})
 
 add_definitions(-D_UNICODE)
 
-link_directories("../_build/dependencies/glew/lib/$(Configuration)/")
+link_directories("../_build/dependencies/glew/lib/$(Configuration)/"
+                 "../_build/dependencies/assimp/lib/$(Configuration)/")
 
 add_library(HatchitGraphics SHARED ${HT_GRAPHICS_INC} ${HT_GRAPHICS_DIRECTX_INC} ${HT_GRAPHICS_OPENGL_INC}  ${HT_GRAPHICS_SRC} ${HT_GRAPHICS_DIRECTX_SRC} ${HT_GRAPHICS_OPENGL_SRC})
 
