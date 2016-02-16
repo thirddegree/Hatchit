@@ -5,6 +5,17 @@ configure_file (
 )
 
 
+if(DEFINED ENV{VK_SDK_PATH})
+set(VK_INCLUDES "$ENV{VK_SDK_PATH}/Include")
+set(VK_LIB_DIR "$ENV{VK_SDK_PATH}/Source/lib")
+set(VK_LIBS debug vulkan-1 optimized vulkan-1)
+else()
+set(VK_INCLUDES "")
+set(VK_LIB_DIR "")
+set(VK_LIBS "")
+endif()
+
+
 include_directories("${PROJECT_SOURCE_DIR}/../HatchitCore/include/" "${PROJECT_SOURCE_DIR}/../HatchitCore/include/windows"
                     "${PROJECT_SOURCE_DIR}/../HatchitResource/include/"
                     "${PROJECT_SOURCE_DIR}/../HatchitMath/include"
@@ -21,7 +32,8 @@ include_directories("${PROJECT_SOURCE_DIR}/../HatchitCore/include/" "${PROJECT_S
                     "${PROJECT_SOURCE_DIR}/../ThirdParty/glew/include/"
                     "${PROJECT_SOURCE_DIR}/../ThirdParty/tinyxml2/"
                     "${PROJECT_SOURCE_DIR}/../ThirdParty/Python/include/"
-                    "${PROJECT_SOURCE_DIR}/../ThirdParty/Python/PC/")
+                    "${PROJECT_SOURCE_DIR}/../ThirdParty/Python/PC/"
+                    ${VK_INCLUDES})
 
 
 
@@ -29,7 +41,8 @@ link_directories("${PROJECT_SOURCE_DIR}/_build/dependencies/assimp/lib/$(Configu
                  "${PROJECT_SOURCE_DIR}/_build/dependencies/SDL2/lib/$(Configuration)/"
                  "${PROJECT_SOURCE_DIR}/_build/dependencies/tinyxml2/lib/$(Configuration)/"
                  "${PROJECT_SOURCE_DIR}/_build/dependencies/glew/lib/$(Configuration)/"
-                 "${PROJECT_SOURCE_DIR}/_build/dependencies/Python/lib/$(Configuration)/")
+                 "${PROJECT_SOURCE_DIR}/_build/dependencies/Python/lib/$(Configuration)/"
+                 ${VK_LIB_DIR})
 
 
 add_definitions(-D_UNICODE)
@@ -103,6 +116,6 @@ set(GLEW_LIBS debug glew32d optimized glew32)
 set(TINYXML_LIBS debug tinyxml2d optimized tinyxml2)
 set(BULLET_LIBS debug BulletCollisiond BulletDynamicsd BulletInverseDynamicsd BulletSoftBodyd LinearMathd optimized BulletCollision BulletDynamics BulletInverseDynamics BulletSoftBody LinearMath)
 set(SDL_LIBS debug SDL2d optimized SDL2)
-target_link_libraries(HatchitTest HatchitCore HatchitResource HatchitMath HatchitNetwork HatchitGraphics HatchitGame ${PYTHON_LIBS} ${TINYXML_LIBS} ${ASSIMP_LIBS} ${SDL_LIBS} d3d11 d3dcompiler opengl32 ${GLEW_LIBS} glu32 Ws2_32)
+target_link_libraries(HatchitTest HatchitCore HatchitResource HatchitMath HatchitNetwork HatchitGraphics HatchitGame ${PYTHON_LIBS} ${TINYXML_LIBS} ${ASSIMP_LIBS} ${SDL_LIBS} d3d11 d3dcompiler opengl32 ${GLEW_LIBS} glu32 Ws2_32 ${VK_LIBS})
 target_link_libraries(HatchitClient HatchitCore HatchitNetwork Ws2_32)
 target_link_libraries(HatchitServer HatchitCore HatchitNetwork Ws2_32)
