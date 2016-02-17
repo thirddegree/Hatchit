@@ -17,6 +17,7 @@ include_directories("../../HatchitCore/include"
                     "../../HatchitMath/include"
                     "../../ThirdParty/inih/"
                     "../../ThirdParty/glew/include"
+		    "../../ThirdParty/assimp/include"
                     ${VK_INCLUDES})
                     
 file(GLOB HT_GRAPHICS_INC ../../HatchitGraphics/include/*.h)
