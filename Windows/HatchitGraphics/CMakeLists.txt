@@ -13,6 +13,7 @@ include_directories("../../HatchitCore/include"
                     "../../HatchitGraphics/include"
                     "../../HatchitGraphics/include/directx"
                     "../../HatchitGraphics/include/opengl"
+                    "../../HatchitGraphics/include/vulkan"
                     "../../HatchitResource/include"
                     "../../HatchitMath/include"
                     "../../ThirdParty/inih/"
@@ -26,11 +27,15 @@ file(GLOB HT_GRAPHICS_OPENGL_INC ../../HatchitGraphics/include/opengl/*.h)
 file(GLOB HT_GRAPHICS_OPENGL_SRC ../../HatchitGraphics/source/opengl/*.cpp)
 file(GLOB HT_GRAPHICS_DIRECTX_INC ../../HatchitGraphics/include/directx/*.h)
 file(GLOB HT_GRAPHICS_DIRECTX_SRC ../../HatchitGraphics/source/directx/*.cpp)
+file(GLOB HT_GRAPHICS_VULKAN_INC ../../HatchitGraphics/include/vulkan/*.h)
+file(GLOB HT_GRAPHICS_VULKAN_SRC ../../HatchitGraphics/source/vulkan/*.cpp)
 
 source_group("Header Files\\directx" FILES ${HT_GRAPHICS_DIRECTX_INC})
 source_group("Source Files\\directx" FILES ${HT_GRAPHICS_DIRECTX_SRC})
 source_group("Header Files\\opengl" FILES ${HT_GRAPHICS_OPENGL_INC})
 source_group("Source Files\\opengl" FILES ${HT_GRAPHICS_OPENGL_SRC})
+source_group("Header Files\\vulkan" FILES ${HT_GRAPHICS_VULKAN_INC})
+source_group("Source Files\\vulkan" FILES ${HT_GRAPHICS_VULKAN_SRC})
 
 add_definitions(-D_UNICODE)
 
@@ -39,7 +44,7 @@ link_directories("../_build/dependencies/glew/lib/$(Configuration)/"
                  "../_build/dependencies/assimp/lib/$(Configuration)/"
                  ${VK_LIB_DIR})
 
-add_library(HatchitGraphics SHARED ${HT_GRAPHICS_INC} ${HT_GRAPHICS_DIRECTX_INC} ${HT_GRAPHICS_OPENGL_INC}  ${HT_GRAPHICS_SRC} ${HT_GRAPHICS_DIRECTX_SRC} ${HT_GRAPHICS_OPENGL_SRC})
+add_library(HatchitGraphics SHARED ${HT_GRAPHICS_INC} ${HT_GRAPHICS_DIRECTX_INC} ${HT_GRAPHICS_OPENGL_INC}  ${HT_GRAPHICS_SRC} ${HT_GRAPHICS_DIRECTX_SRC} ${HT_GRAPHICS_OPENGL_SRC} ${HT_GRAPHICS_VULKAN_INC} ${HT_GRAPHICS_VULKAN_SRC})
 
 target_compile_definitions(HatchitGraphics PRIVATE HT_NONCLIENT_BUILD)
 

@@ -15,6 +15,7 @@ include_directories("../../HatchitCore/include" "../../HatchitCore/include/windo
                     "../../HatchitGraphics/include"
                     "../../HatchitGraphics/include/directx"
                     "../../HatchitGraphics/include/opengl"
+		    "../../HatchitGraphics/include/vulkan"
                     "../../HatchitGame/include"
                     "../../ThirdParty/assimp/include"
                     "../../ThirdParty/SDL2/include"

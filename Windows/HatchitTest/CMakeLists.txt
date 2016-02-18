@@ -22,6 +22,7 @@ include_directories("${PROJECT_SOURCE_DIR}/../HatchitCore/include/" "${PROJECT_S
                     "${PROJECT_SOURCE_DIR}/../HatchitGraphics/include"
                     "${PROJECT_SOURCE_DIR}/../HatchitGraphics/include/opengl"
                     "${PROJECT_SOURCE_DIR}/../HatchitGraphics/include/directx"
+		    "${PROJECT_SOURCE_DIR}/../HatchitGraphics/include/vulkan"
                     "${PROJECT_SOURCE_DIR}/../HatchitGame/include/"
                     "${PROJECT_SOURCE_DIR}/../HatchitTest/include/"
                     "${PROJECT_SOURCE_DIR}/../HatchitNetwork/include/"
