@@ -22,7 +22,9 @@ include_directories("${PROJECT_SOURCE_DIR}/../HatchitCore/include/" "${PROJECT_S
                     "${PROJECT_SOURCE_DIR}/../HatchitGraphics/include"
                     "${PROJECT_SOURCE_DIR}/../HatchitGraphics/include/opengl"
                     "${PROJECT_SOURCE_DIR}/../HatchitGraphics/include/directx"
-		    "${PROJECT_SOURCE_DIR}/../HatchitGraphics/include/vulkan"
+                    "${PROJECT_SOURCE_DIR}/../HatchitGraphics/include/directx/dx11"
+                    "${PROJECT_SOURCE_DIR}/../HatchitGraphics/include/directx/dx12"
+		            "${PROJECT_SOURCE_DIR}/../HatchitGraphics/include/vulkan"
                     "${PROJECT_SOURCE_DIR}/../HatchitGame/include/"
                     "${PROJECT_SOURCE_DIR}/../HatchitTest/include/"
                     "${PROJECT_SOURCE_DIR}/../HatchitNetwork/include/"
@@ -117,6 +119,11 @@ set(GLEW_LIBS debug glew32d optimized glew32)
 set(TINYXML_LIBS debug tinyxml2d optimized tinyxml2)
 set(BULLET_LIBS debug BulletCollisiond BulletDynamicsd BulletInverseDynamicsd BulletSoftBodyd LinearMathd optimized BulletCollision BulletDynamics BulletInverseDynamics BulletSoftBody LinearMath)
 set(SDL_LIBS debug SDL2d optimized SDL2)
-target_link_libraries(HatchitTest HatchitCore HatchitResource HatchitMath HatchitNetwork HatchitGraphics HatchitGame ${PYTHON_LIBS} ${TINYXML_LIBS} ${ASSIMP_LIBS} ${SDL_LIBS} d3d11 d3dcompiler opengl32 ${GLEW_LIBS} glu32 Ws2_32 ${VK_LIBS})
+set(D3D11_LIBS debug d3d11 d3dcompiler optimized d3d11 d3dcompiler)
+set(D3D12_LIBS debug d3d12 d3dcompiler optimized d3d12 d3dcompiler)
+set(OPENGL_LIBS debug opengl32 glu32 optimized opengl32 glu32)
+
+target_link_libraries(HatchitTest HatchitCore HatchitResource HatchitMath HatchitNetwork HatchitGraphics HatchitGame
+                       ${PYTHON_LIBS} ${TINYXML_LIBS} ${ASSIMP_LIBS} ${SDL_LIBS} ${D3D11_LIBS} ${D3D12_LIBS} ${GLEW_LIBS} ${OPENGL_LIBS} Ws2_32 ${VK_LIBS})
 target_link_libraries(HatchitClient HatchitCore HatchitNetwork Ws2_32)
 target_link_libraries(HatchitServer HatchitCore HatchitNetwork Ws2_32)

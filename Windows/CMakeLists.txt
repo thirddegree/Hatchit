@@ -1,5 +1,5 @@
 if(WIN32)
-cmake_minimum_required (VERSION 3.1)
+cmake_minimum_required (VERSION 3.5)
 else()
 cmake_minimum_required (VERSION 3.0)
 endif()

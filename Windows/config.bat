@@ -23,12 +23,9 @@ copy /Y dependencies\Python\bin\Release\python3.dll bin\Release
 copy /Y dependencies\Python\bin\Release\python34.dll bin\Release
 copy /Y %VK_SDK_PATH%\Source\lib\vulkan-1.dll bin\Release
 
-mkdir VS2013
 mkdir VS2015
-cd VS2013
-cmake ../../ -G "Visual Studio 12 2013 Win64"
-cd ../VS2015
-cmake ../../ -G "Visual Studio 14 2015 Win64"
+cd VS2015
+cmake ../../ -DCMAKE_SYSTEM_VERSION=10.0 -G "Visual Studio 14 2015 Win64"
 
 
 

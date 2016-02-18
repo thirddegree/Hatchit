@@ -14,8 +14,10 @@ include_directories("../../HatchitCore/include" "../../HatchitCore/include/windo
                     "../../HatchitMath/include"
                     "../../HatchitGraphics/include"
                     "../../HatchitGraphics/include/directx"
+                    "../../HatchitGraphics/include/directx/dx11"
+                    "../../HatchitGraphics/include/directx/dx12"
                     "../../HatchitGraphics/include/opengl"
-		    "../../HatchitGraphics/include/vulkan"
+		            "../../HatchitGraphics/include/vulkan"
                     "../../HatchitGame/include"
                     "../../ThirdParty/assimp/include"
                     "../../ThirdParty/SDL2/include"
@@ -44,4 +46,8 @@ set(GLEW_LIBS debug glew32d optimized glew32)
 set(TINYXML_LIBS debug tinyxml2d optimized tinyxml2)
 set(BULLET_LIBS debug BulletCollisiond BulletDynamicsd BulletInverseDynamicsd BulletSoftBodyd LinearMathd optimized BulletCollision BulletDynamics BulletInverseDynamics BulletSoftBody LinearMath)
 set(SDL_LIBS debug SDL2d optimized SDL2)
-target_link_libraries(HatchitGame HatchitCore HatchitResource HatchitMath HatchitGraphics ${TINYXML_LIBS} opengl32 glu32 ${ASSIMP_LIBS} ${SDL_LIBS} ${GLEW_LIBS} d3d11 d3dcompiler ${VK_LIBS})
+set(D3D11_LIBS debug d3d11 d3dcompiler optimized d3d11 d3dcompiler)
+set(D3D12_LIBS debug d3d12 d3dcompiler optimized d3d12 d3dcompiler)
+set(OPENGL_LIBS debug opengl32 glu32 optimized opengl32 glu32)
+
+target_link_libraries(HatchitGame HatchitCore HatchitResource HatchitMath HatchitGraphics ${TINYXML_LIBS} ${OPENGL_LIBS} ${ASSIMP_LIBS} ${SDL_LIBS} ${GLEW_LIBS} ${D3D11_LIBS} ${D3D12_LIBS} ${VK_LIBS})
