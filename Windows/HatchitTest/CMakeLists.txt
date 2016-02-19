@@ -120,7 +120,7 @@ set(TINYXML_LIBS debug tinyxml2d optimized tinyxml2)
 set(BULLET_LIBS debug BulletCollisiond BulletDynamicsd BulletInverseDynamicsd BulletSoftBodyd LinearMathd optimized BulletCollision BulletDynamics BulletInverseDynamics BulletSoftBody LinearMath)
 set(SDL_LIBS debug SDL2d optimized SDL2)
 set(D3D11_LIBS debug d3d11 d3dcompiler optimized d3d11 d3dcompiler)
-set(D3D12_LIBS debug d3d12 d3dcompiler optimized d3d12 d3dcompiler)
+set(D3D12_LIBS debug d3d12 d3dcompiler dxgi optimized d3d12 d3dcompiler dxgi)
 set(OPENGL_LIBS debug opengl32 glu32 optimized opengl32 glu32)
 
 target_link_libraries(HatchitTest HatchitCore HatchitResource HatchitMath HatchitNetwork HatchitGraphics HatchitGame

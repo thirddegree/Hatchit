@@ -9,6 +9,8 @@ else()
     set(VK_LIBS "")
 endif()
 
+set(D3D12_LIB_DIR "$(WindowsSDK_LibraryPath_x64)")
+
 include_directories("../../HatchitCore/include"
                     "../../HatchitGraphics/include"
                     "../../HatchitGraphics/include/directx"
@@ -21,7 +23,8 @@ include_directories("../../HatchitCore/include"
                     "../../ThirdParty/inih/"
                     "../../ThirdParty/glew/include"
 		            "../../ThirdParty/assimp/include"
-                    ${VK_INCLUDES})
+                    ${VK_INCLUDES}
+                    ${D3D12_LIB_DIR})
                     
 file(GLOB HT_GRAPHICS_INC ../../HatchitGraphics/include/*.h)
 file(GLOB HT_GRAPHICS_SRC ../../HatchitGraphics/source/*.cpp)
@@ -40,6 +43,8 @@ source_group("Header Files\\directx" FILES ${HT_GRAPHICS_DIRECTX_INC})
 source_group("Source Files\\directx" FILES ${HT_GRAPHICS_DIRECTX_SRC})
 source_group("Header Files\\directx\\dx11" FILES ${HT_GRAPHICS_D3D11_INC})
 source_group("Source Files\\directx\\dx11" FILES ${HT_GRAPHICS_D3D11_SRC})
+source_group("Header Files\\directx\\dx12" FILES ${HT_GRAPHICS_D3D12_INC})
+source_group("Source Files\\directx\\dx12" FILES ${HT_GRAPHICS_D3D12_SRC})
 source_group("Header Files\\opengl" FILES ${HT_GRAPHICS_OPENGL_INC})
 source_group("Source Files\\opengl" FILES ${HT_GRAPHICS_OPENGL_SRC})
 source_group("Header Files\\vulkan" FILES ${HT_GRAPHICS_VULKAN_INC})
@@ -59,7 +64,7 @@ target_compile_definitions(HatchitGraphics PRIVATE HT_NONCLIENT_BUILD)
 
 set(GLEW_LIBS debug glew32d optimized glew32)
 set(D3D11_LIBS debug d3d11 d3dcompiler optimized d3d11 d3dcompiler)
-set(D3D12_LIBS debug d3d12 d3dcompiler optimized d3d12 d3dcompiler)
+set(D3D12_LIBS debug d3d12 d3dcompiler dxgi optimized d3d12 d3dcompiler dxgi)
 set(OPENGL_LIBS debug opengl32 glu32 optimized opengl32 glu32)
 
 target_link_libraries(HatchitGraphics HatchitResource HatchitMath ${D3D11_LIBS} ${D3D12_LIBS} ${GLEW_LIBS} ${OPENGL_LIBS} ${VK_LIBS})
