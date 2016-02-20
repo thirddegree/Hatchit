@@ -81,6 +81,8 @@ else()
 set(HT_DX_INCLUDES "")
 endif()
 
+set(D3D12_LIB_DIR "$(WindowsSDK_LibraryPath_x64)")
+
 include_directories("../../HatchitCore/include"
                     "../../HatchitResource/include"
                     "../../HatchitMath/include"
@@ -100,7 +102,6 @@ file(GLOB HT_GRAPHICS_INC ../../HatchitGraphics/include/*.h)
 file(GLOB HT_GRAPHICS_SRC ../../HatchitGraphics/source/*.cpp)
 
 add_definitions(-D_UNICODE)
-
 
 link_directories(${GLEW_LIB_DIR}
                  "../_build/dependencies/assimp/lib/$(Configuration)/"

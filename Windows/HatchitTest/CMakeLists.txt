@@ -4,7 +4,6 @@ configure_file (
     "${PROJECT_SOURCE_DIR}/../HatchitTest/include/HatchitTest.h"
 )
 
-
 #If we've asked for Vulkan support
 if(DEFINED ENV{VK_SDK_PATH} AND VK_SUPPORT)
 set(VK_INCLUDES "$ENV{VK_SDK_PATH}/Include")
@@ -126,6 +125,9 @@ add_custom_command(TARGET HatchitTest PRE_BUILD
 add_custom_command(TARGET HatchitTest PRE_BUILD
                    COMMAND ${CMAKE_COMMAND} -E copy_directory
                    ${PROJECT_SOURCE_DIR}/../Assets/Models/ $<TARGET_FILE_DIR:HatchitTest>)
+add_custom_command(TARGET HatchitTest PRE_BUILD
+                   COMMAND ${CMAKE_COMMAND} -E copy_directory
+                   ${PROJECT_SOURCE_DIR}/../Assets/Shaders/ $<TARGET_FILE_DIR:HatchitTest>)
                    
 set_target_properties(HatchitClient
                       PROPERTIES
