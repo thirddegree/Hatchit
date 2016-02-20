@@ -54,6 +54,7 @@ endif()
 include_directories("../../HatchitCore/include" "../../HatchitCore/include/windows"
                     "../../HatchitResource/include"
                     "../../HatchitMath/include"
+                    "../../HatchitMath/source/inline"
                     "../../HatchitGraphics/include"
                     ${HT_DX_INCLUDES}
                     ${HT_DX11_INCLUDES}
