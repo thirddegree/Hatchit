@@ -123,4 +123,4 @@ add_library(HatchitGraphics SHARED 	${HT_GRAPHICS_INC}
 
 target_compile_definitions(HatchitGraphics PRIVATE HT_NONCLIENT_BUILD)
 
-target_link_libraries(HatchitGraphics HatchitResource HatchitMath ${DX11_LIBS} ${DX12_LIBS} ${GLEW_LIBS} ${OPENGL_LIBS} ${VK_LIBS})
+target_link_libraries(HatchitGraphics HatchitResource HatchitMath ${DX11_LIBS} ${DX12_LIBS} ${GLEW_LIBS} ${GL_LIBS} ${VK_LIBS})

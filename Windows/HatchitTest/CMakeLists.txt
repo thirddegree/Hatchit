@@ -164,6 +164,6 @@ set(BULLET_LIBS debug BulletCollisiond BulletDynamicsd BulletInverseDynamicsd Bu
 set(SDL_LIBS debug SDL2d optimized SDL2)
 
 target_link_libraries(HatchitTest HatchitCore HatchitResource HatchitMath HatchitNetwork HatchitGraphics HatchitGame
-                       ${PYTHON_LIBS} ${TINYXML_LIBS} ${ASSIMP_LIBS} ${SDL_LIBS} ${D3D11_LIBS} ${D3D12_LIBS} ${GLEW_LIBS} ${OPENGL_LIBS} Ws2_32 ${VK_LIBS})
+                       ${PYTHON_LIBS} ${TINYXML_LIBS} ${ASSIMP_LIBS} ${SDL_LIBS} ${D3D11_LIBS} ${D3D12_LIBS} ${GLEW_LIBS} ${GL_LIBS} Ws2_32 ${VK_LIBS})
 target_link_libraries(HatchitClient HatchitCore HatchitNetwork Ws2_32)
 target_link_libraries(HatchitServer HatchitCore HatchitNetwork Ws2_32)
