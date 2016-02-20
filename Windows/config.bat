@@ -61,42 +61,22 @@ mkdir VS2015
 cd VS2015
 
 @echo off
-if %VK% == 0 if %GL% == 0 if %DX11% == 0 if %DX12% == 0 (
-	@echo on
-	echo "All Graphics"
-	cmake ../../ -DALL_GRAPHICS=TRUE -DCMAKE_SYSTEM_VERSION=10.0 -G "Visual Studio 14 2015 Win64"
-)
+set languageString = ""
 
-@echo off
-if %VK% == 1 if %GL% == 0 if %DX11% == 0 if %DX12% == 0 (
-	@echo on
-	echo "Vulkan"
-	cmake ../../ -DALL_GRAPHICS=FALSE -DVK_SUPPORT=TRUE -DCMAKE_SYSTEM_VERSION=10.0 -G "Visual Studio 14 2015 Win64"
-)
+if %VK% == 1 set "languageString=-DVK_SUPPORT=TRUE"
 
-@echo off
-if %VK% == 0 if %GL% == 1 if %DX11% == 0 if %DX12% == 0 (
-	@echo on
-	cmake ../../ -DGL_SUPPORT=TRUE -DCMAKE_SYSTEM_VERSION=10.0 -G "Visual Studio 14 2015 Win64"
-)
+if %GL% == 1 set "languageString=-DGL_SUPPORT=TRUE"
 
-@echo off
-if %VK% == 0 if %GL% == 0 if %DX11% == 1 if %DX12% == 0 (
-	@echo on
-	cmake ../../ -DDX11_SUPPORT=TRUE -DCMAKE_SYSTEM_VERSION=10.0 -G "Visual Studio 14 2015 Win64"
-)
+if %DX12% == 1 set "languageString=-DDX12_SUPPORT=TRUE"
 
-@echo off
-if %VK% == 0 if %GL% == 0 if %DX11% == 0 if %DX12% == 1 (
-	@echo on
-	cmake ../../ -DDX12_SUPPORT=TRUE -DCMAKE_SYSTEM_VERSION=10.0 -G "Visual Studio 14 2015 Win64"
-)
+if %DX11% == 1 set "languageString=-DDX11_SUPPORT=TRUE"
 
-@echo off
-if %VK% == 1 if %GL% == 1 if %DX11% == 1 if %DX12% == 1 (
-	@echo on
-	cmake ../../ -DALL_GRAPHICS=TRUE -DCMAKE_SYSTEM_VERSION=10.0 -G "Visual Studio 14 2015 Win64"
-)
+::if %VK% == 0 if %GL% == 0 if %DX11% == 0 if %DX12% == 0 set languageString=-DALL_GRAPHICS=TRUE
+
+echo %languageString%
+@echo on
+cmake ../../ %languageString% -DCMAKE_SYSTEM_VERSION=10.0 -G "Visual Studio 14 2015 Win64"
+
 
 
 

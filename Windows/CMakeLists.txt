@@ -4,6 +4,7 @@ else()
 cmake_minimum_required (VERSION 3.0)
 endif()
 
+set(ALL_GRAPHICS FALSE CACHE BOOL "Build with all available graphics languages")
 set(VK_SUPPORT FALSE CACHE BOOL "Build with Vulkan")
 set(GL_SUPPORT FALSE CACHE BOOL "Build with OpenGL")
 set(DX12_SUPPORT FALSE CACHE BOOL "Build with Direct X 12")
