@@ -5,14 +5,56 @@ configure_file (
 )
 
 
-if(DEFINED ENV{VK_SDK_PATH})
+#If we've asked for Vulkan support
+if(DEFINED ENV{VK_SDK_PATH} AND VK_SUPPORT)
 set(VK_INCLUDES "$ENV{VK_SDK_PATH}/Include")
 set(VK_LIB_DIR "$ENV{VK_SDK_PATH}/Source/lib")
 set(VK_LIBS debug vulkan-1 optimized vulkan-1)
+set(HT_VK_INCLUDES "${PROJECT_SOURCE_DIR}../HatchitGraphics/include/vulkan")
 else()
 set(VK_INCLUDES "")
 set(VK_LIB_DIR "")
 set(VK_LIBS "")
+set(HT_VK_INCLUDES "")
+endif()
+
+# If we've asked for OpenGL support
+if(GL_SUPPORT)
+set(GL_LIBS debug opengl32 glu32 optimized opengl32 glu32)
+set(GLEW_LIBS debug glew32d optimized glew32)
+set(GLEW_INCLUDES "${PROJECT_SOURCE_DIR}../ThirdParty/glew/include")
+set(GLEW_LIB_DIR "${PROJECT_SOURCE_DIR}/_build/dependencies/glew/lib/$(Configuration)/")
+set(HT_GL_INCLUDES "${PROJECT_SOURCE_DIR}../HatchitGraphics/include/opengl")
+else()
+set(GL_LIBS "")
+set(GLEW_LIBS "")
+set(GLEW_INCLUDES "")
+set(HT_GL_INCLUDES "")
+endif()
+
+# If we've asked for DirectX 12 Support
+if(DX12_SUPPORT)
+set(DX12_LIBS debug d3d12 d3dcompiler optimized d3d12 d3dcompiler)
+set(HT_DX12_INCLUDES "${PROJECT_SOURCE_DIR}../HatchitGraphics/include/directx/dx12")
+else()
+set(DX12_LIBS "")
+set(HT_DX12_INCLUDES "")
+endif()
+
+# If we've asked for DirectX 11 Support
+if(DX11_SUPPORT)
+set(DX11_LIBS debug d3d11 d3dcompiler optimized d3d11 d3dcompiler)
+set(HT_DX11_INCLUDES "${PROJECT_SOURCE_DIR}../HatchitGraphics/include/directx/dx11")
+else()
+set(DX11_LIBS "")
+set(HT_DX11_INCLUDES "")
+endif()
+
+# If we've asked for either DX11 or DX12 Support
+if(DX11_SUPPORT OR DX12_SUPPORT)
+set(HT_DX_INCLUDES "${PROJECT_SOURCE_DIR}../HatchitGraphics/include/directx")
+else()
+set(HT_DX_INCLUDES "")
 endif()
 
 
@@ -20,11 +62,11 @@ include_directories("${PROJECT_SOURCE_DIR}/../HatchitCore/include/" "${PROJECT_S
                     "${PROJECT_SOURCE_DIR}/../HatchitResource/include/"
                     "${PROJECT_SOURCE_DIR}/../HatchitMath/include"
                     "${PROJECT_SOURCE_DIR}/../HatchitGraphics/include"
-                    "${PROJECT_SOURCE_DIR}/../HatchitGraphics/include/opengl"
-                    "${PROJECT_SOURCE_DIR}/../HatchitGraphics/include/directx"
-                    "${PROJECT_SOURCE_DIR}/../HatchitGraphics/include/directx/dx11"
-                    "${PROJECT_SOURCE_DIR}/../HatchitGraphics/include/directx/dx12"
-		            "${PROJECT_SOURCE_DIR}/../HatchitGraphics/include/vulkan"
+                    ${HT_GL_INCLUDES}
+                    ${HT_DX_INCLUDES}
+                    ${HT_DX11_INCLUDES}
+                    ${HT_DX12_INCLUDES}
+					${HT_VK_INCLUDES}
                     "${PROJECT_SOURCE_DIR}/../HatchitGame/include/"
                     "${PROJECT_SOURCE_DIR}/../HatchitTest/include/"
                     "${PROJECT_SOURCE_DIR}/../HatchitNetwork/include/"
@@ -32,7 +74,7 @@ include_directories("${PROJECT_SOURCE_DIR}/../HatchitCore/include/" "${PROJECT_S
                     "${PROJECT_SOURCE_DIR}/../ThirdParty/stb"
                     "${PROJECT_SOURCE_DIR}/../ThirdParty/SDL2/include"
                     "${PROJECT_SOURCE_DIR}/../ThirdParty/inih/"
-                    "${PROJECT_SOURCE_DIR}/../ThirdParty/glew/include/"
+                    ${HT_GLEW_INCLUDES}
                     "${PROJECT_SOURCE_DIR}/../ThirdParty/tinyxml2/"
                     "${PROJECT_SOURCE_DIR}/../ThirdParty/Python/include/"
                     "${PROJECT_SOURCE_DIR}/../ThirdParty/Python/PC/"
@@ -43,7 +85,7 @@ include_directories("${PROJECT_SOURCE_DIR}/../HatchitCore/include/" "${PROJECT_S
 link_directories("${PROJECT_SOURCE_DIR}/_build/dependencies/assimp/lib/$(Configuration)/"
                  "${PROJECT_SOURCE_DIR}/_build/dependencies/SDL2/lib/$(Configuration)/"
                  "${PROJECT_SOURCE_DIR}/_build/dependencies/tinyxml2/lib/$(Configuration)/"
-                 "${PROJECT_SOURCE_DIR}/_build/dependencies/glew/lib/$(Configuration)/"
+                 ${GLEW_LIB_DIR}
                  "${PROJECT_SOURCE_DIR}/_build/dependencies/Python/lib/$(Configuration)/"
                  ${VK_LIB_DIR})
 
@@ -115,13 +157,9 @@ add_custom_command(TARGET HatchitServer PRE_BUILD
 
 set(PYTHON_LIBS debug python34_d optimized python34 python3)
 set(ASSIMP_LIBS debug assimpd optimized assimp)
-set(GLEW_LIBS debug glew32d optimized glew32)
 set(TINYXML_LIBS debug tinyxml2d optimized tinyxml2)
 set(BULLET_LIBS debug BulletCollisiond BulletDynamicsd BulletInverseDynamicsd BulletSoftBodyd LinearMathd optimized BulletCollision BulletDynamics BulletInverseDynamics BulletSoftBody LinearMath)
 set(SDL_LIBS debug SDL2d optimized SDL2)
-set(D3D11_LIBS debug d3d11 d3dcompiler optimized d3d11 d3dcompiler)
-set(D3D12_LIBS debug d3d12 d3dcompiler optimized d3d12 d3dcompiler)
-set(OPENGL_LIBS debug opengl32 glu32 optimized opengl32 glu32)
 
 target_link_libraries(HatchitTest HatchitCore HatchitResource HatchitMath HatchitNetwork HatchitGraphics HatchitGame
                        ${PYTHON_LIBS} ${TINYXML_LIBS} ${ASSIMP_LIBS} ${SDL_LIBS} ${D3D11_LIBS} ${D3D12_LIBS} ${GLEW_LIBS} ${OPENGL_LIBS} Ws2_32 ${VK_LIBS})

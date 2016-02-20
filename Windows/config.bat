@@ -1,9 +1,43 @@
-
-set arg1=%1
-
+@echo off
 cd _build
 mkdir bin\Debug
 mkdir bin\Release
+
+SET VK=0
+SET GL=0
+SET DX11=0
+SET DX12=0
+
+::Check command line arguments for which graphics langs to support
+if "%1" == "GL" SET GL=1
+if "%2" == "GL" SET GL=1
+if "%3" == "GL" SET GL=1
+if "%4" == "GL" SET GL=1
+
+if "%1" == "VK" SET VK=1
+if "%2" == "VK" SET VK=1
+if "%3" == "VK" SET VK=1
+if "%4" == "VK" SET VK=1
+
+if "%1" == "DX11" SET DX11=1
+if "%2" == "DX11" SET DX11=1
+if "%3" == "DX11" SET DX11=1
+if "%4" == "DX11" SET DX11=1
+
+if "%1" == "DX12" SET DX12=1
+if "%2" == "DX12" SET DX12=1
+if "%3" == "DX12" SET DX12=1
+if "%4" == "DX12" SET DX12=1
+
+@echo %VK%
+@echo %GL%
+@echo %DX11%
+@echo %DX12%
+
+
+:copying
+
+@echo on
 
 REM Place all third party libs into the Debug and Release bin folders
 
@@ -25,7 +59,44 @@ copy /Y %VK_SDK_PATH%\Source\lib\vulkan-1.dll bin\Release
 
 mkdir VS2015
 cd VS2015
-cmake ../../ -DCMAKE_SYSTEM_VERSION=10.0 -G "Visual Studio 14 2015 Win64"
+
+@echo off
+if %VK% == 0 if %GL% == 0 if %DX11% == 0 if %DX12% == 0 (
+	@echo on
+	echo "All Graphics"
+	cmake ../../ -DALL_GRAPHICS=TRUE -DCMAKE_SYSTEM_VERSION=10.0 -G "Visual Studio 14 2015 Win64"
+)
+
+@echo off
+if %VK% == 1 if %GL% == 0 if %DX11% == 0 if %DX12% == 0 (
+	@echo on
+	echo "Vulkan"
+	cmake ../../ -DALL_GRAPHICS=FALSE -DVK_SUPPORT=TRUE -DCMAKE_SYSTEM_VERSION=10.0 -G "Visual Studio 14 2015 Win64"
+)
+
+@echo off
+if %VK% == 0 if %GL% == 1 if %DX11% == 0 if %DX12% == 0 (
+	@echo on
+	cmake ../../ -DGL_SUPPORT=TRUE -DCMAKE_SYSTEM_VERSION=10.0 -G "Visual Studio 14 2015 Win64"
+)
+
+@echo off
+if %VK% == 0 if %GL% == 0 if %DX11% == 1 if %DX12% == 0 (
+	@echo on
+	cmake ../../ -DDX11_SUPPORT=TRUE -DCMAKE_SYSTEM_VERSION=10.0 -G "Visual Studio 14 2015 Win64"
+)
+
+@echo off
+if %VK% == 0 if %GL% == 0 if %DX11% == 0 if %DX12% == 1 (
+	@echo on
+	cmake ../../ -DDX12_SUPPORT=TRUE -DCMAKE_SYSTEM_VERSION=10.0 -G "Visual Studio 14 2015 Win64"
+)
+
+@echo off
+if %VK% == 1 if %GL% == 1 if %DX11% == 1 if %DX12% == 1 (
+	@echo on
+	cmake ../../ -DALL_GRAPHICS=TRUE -DCMAKE_SYSTEM_VERSION=10.0 -G "Visual Studio 14 2015 Win64"
+)
 
 
 

@@ -4,6 +4,33 @@ else()
 cmake_minimum_required (VERSION 3.0)
 endif()
 
+set(VK_SUPPORT FALSE CACHE BOOL "Build with Vulkan")
+set(GL_SUPPORT FALSE CACHE BOOL "Build with OpenGL")
+set(DX12_SUPPORT FALSE CACHE BOOL "Build with Direct X 12")
+set(DX11_SUPPORT FALSE CACHE BOOL "Build with Direct X 11")
+
+#If this is defined we want support for all possible graphics apis
+if(ALL_GRAPHICS)
+	add_definitions(-DVK_SUPPORT -DGL_SUPPORT -DDX11_SUPPORT -DDX12_SUPPORT)
+	message("ALL_GRAPHICS defined")
+else()
+	if(VK_SUPPORT)
+		add_definitions(-DVK_SUPPORT)
+	endif()
+	
+	if(GL_SUPPORT)
+		add_definitions(-DGL_SUPPORT)
+	endif()
+	
+	if(DX12_SUPPORT)
+		add_definitions(-DDX12_SUPPORT)
+	endif()
+	
+	if(DX11_SUPPORT)
+		add_definitions(-DDX11_SUPPORT)
+	endif()
+	
+endif()
 
 project(HatchitEngine)
 
