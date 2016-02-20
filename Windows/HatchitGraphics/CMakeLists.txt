@@ -40,7 +40,7 @@ endif()
 
 # If we've asked for DirectX 12 Support
 if(DX12_SUPPORT)
-set(DX12_LIBS debug d3d12 d3dcompiler optimized d3d12 d3dcompiler)
+set(DX12_LIBS debug d3d12 d3dcompiler dxgi optimized d3d12 d3dcompiler dxgi)
 set(HT_DX12_INCLUDES "../../HatchitGraphics/include/directx/dx12")
 
 file(GLOB HT_GRAPHICS_D3D12_INC ../../HatchitGraphics/include/directx/dx12/*.h)
@@ -105,6 +105,7 @@ add_definitions(-D_UNICODE)
 
 link_directories(${GLEW_LIB_DIR}
                  "../_build/dependencies/assimp/lib/$(Configuration)/"
+                 ${D3D12_LIB_DIR}
                  ${VK_LIB_DIR})
 
 add_library(HatchitGraphics SHARED 	${HT_GRAPHICS_INC}
@@ -122,4 +123,4 @@ add_library(HatchitGraphics SHARED 	${HT_GRAPHICS_INC}
 
 target_compile_definitions(HatchitGraphics PRIVATE HT_NONCLIENT_BUILD)
 
-target_link_libraries(HatchitGraphics HatchitResource HatchitMath ${D3D11_LIBS} ${D3D12_LIBS} ${GLEW_LIBS} ${OPENGL_LIBS} ${VK_LIBS})
+target_link_libraries(HatchitGraphics HatchitResource HatchitMath ${DX11_LIBS} ${DX12_LIBS} ${GLEW_LIBS} ${OPENGL_LIBS} ${VK_LIBS})

@@ -28,7 +28,7 @@ endif()
 
 # If we've asked for DirectX 12 Support
 if(DX12_SUPPORT)
-set(DX12_LIBS debug d3d12 d3dcompiler optimized d3d12 d3dcompiler)
+set(DX12_LIBS debug d3d12 d3dcompiler dxgi optimized d3d12 d3dcompiler dxgi)
 set(HT_DX12_INCLUDES "../../HatchitGraphics/include/directx/dx12")
 else()
 set(DX12_LIBS "")
