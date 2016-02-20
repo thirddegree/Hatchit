@@ -4,11 +4,7 @@ else()
 cmake_minimum_required (VERSION 3.0)
 endif()
 
-set(ALL_GRAPHICS FALSE CACHE BOOL "Build with all available graphics languages")
-set(VK_SUPPORT FALSE CACHE BOOL "Build with Vulkan")
-set(GL_SUPPORT FALSE CACHE BOOL "Build with OpenGL")
-set(DX12_SUPPORT FALSE CACHE BOOL "Build with Direct X 12")
-set(DX11_SUPPORT FALSE CACHE BOOL "Build with Direct X 11")
+project(HatchitEngine)
 
 #If this is defined we want support for all possible graphics apis
 if(ALL_GRAPHICS)
@@ -17,23 +13,25 @@ if(ALL_GRAPHICS)
 else()
 	if(VK_SUPPORT)
 		add_definitions(-DVK_SUPPORT)
+		message("Vulkan Support defined")
 	endif()
 	
 	if(GL_SUPPORT)
 		add_definitions(-DGL_SUPPORT)
+		message("OpenGL Support defined")
 	endif()
 	
 	if(DX12_SUPPORT)
 		add_definitions(-DDX12_SUPPORT)
+		message("DirectX12 Support defined")
 	endif()
 	
 	if(DX11_SUPPORT)
 		add_definitions(-DDX11_SUPPORT)
+		message("DirectX11 Support defined")
 	endif()
 	
 endif()
-
-project(HatchitEngine)
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 

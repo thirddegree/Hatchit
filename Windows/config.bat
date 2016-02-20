@@ -29,13 +29,7 @@ if "%2" == "DX12" SET DX12=1
 if "%3" == "DX12" SET DX12=1
 if "%4" == "DX12" SET DX12=1
 
-@echo %VK%
-@echo %GL%
-@echo %DX11%
-@echo %DX12%
-
-
-:copying
+::Copying
 
 @echo on
 
@@ -61,19 +55,21 @@ mkdir VS2015
 cd VS2015
 
 @echo off
-set languageString = ""
+set languageString=
 
-if %VK% == 1 set "languageString=-DVK_SUPPORT=TRUE"
+if %VK% == 1 set languageString=%languageString% -DVK_SUPPORT=TRUE
 
-if %GL% == 1 set "languageString=-DGL_SUPPORT=TRUE"
+if %GL% == 1 set languageString=%languageString% -DGL_SUPPORT=TRUE
 
-if %DX12% == 1 set "languageString=-DDX12_SUPPORT=TRUE"
+if %DX12% == 1 set languageString=%languageString% -DDX12_SUPPORT=TRUE
 
-if %DX11% == 1 set "languageString=-DDX11_SUPPORT=TRUE"
+if %DX11% == 1 set languageString=%languageString% -DDX11_SUPPORT=TRUE
 
-::if %VK% == 0 if %GL% == 0 if %DX11% == 0 if %DX12% == 0 set languageString=-DALL_GRAPHICS=TRUE
+if %VK% == 0 if %GL% == 0 if %DX11% == 0 if %DX12% == 0 set languageString=-DALL_GRAPHICS=TRUE
 
-echo %languageString%
+:: Delete CMake cache
+del CMakeCache.txt
+
 @echo on
 cmake ../../ %languageString% -DCMAKE_SYSTEM_VERSION=10.0 -G "Visual Studio 14 2015 Win64"
 
