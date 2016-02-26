@@ -89,4 +89,4 @@ set(TINYXML_LIBS debug tinyxml2d optimized tinyxml2)
 set(BULLET_LIBS debug BulletCollisiond BulletDynamicsd BulletInverseDynamicsd BulletSoftBodyd LinearMathd optimized BulletCollision BulletDynamics BulletInverseDynamics BulletSoftBody LinearMath)
 set(SDL_LIBS debug SDL2d optimized SDL2)
 
-target_link_libraries(HatchitGame HatchitCore HatchitResource HatchitMath HatchitGraphics ${TINYXML_LIBS} ${GL_LIBS} ${ASSIMP_LIBS} ${SDL_LIBS} ${GLEW_LIBS} ${DX11_LIBS} ${DX12_LIBS} ${VK_LIBS})
+target_link_libraries(HatchitGame HatchitCore HatchitResource HatchitGraphics ${TINYXML_LIBS} ${GL_LIBS} ${ASSIMP_LIBS} ${SDL_LIBS} ${GLEW_LIBS} ${DX11_LIBS} ${DX12_LIBS} ${VK_LIBS})
