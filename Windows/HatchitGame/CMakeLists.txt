@@ -51,7 +51,8 @@ else()
 set(HT_DX_INCLUDES "")
 endif()
 
-include_directories("../../HatchitCore/include" "../../HatchitCore/include/windows"
+include_directories("../../HatchitCore/include" 
+                    "../../HatchitCore/include/windows"
                     "../../HatchitResource/include"
                     "../../HatchitMath/include"
                     "../../HatchitMath/source/inline"
@@ -62,6 +63,7 @@ include_directories("../../HatchitCore/include" "../../HatchitCore/include/windo
                     ${HT_GL_INCLUDES}
 					${HT_VK_INCLUDES}
                     "../../HatchitGame/include"
+                    "../../HatchitGame/include/sdl"
                     "../../ThirdParty/assimp/include"
                     "../../ThirdParty/SDL2/include"
                     "../../ThirdParty/inih/"
@@ -76,8 +78,8 @@ link_directories("../_build/dependencies/assimp/lib/$(Configuration)/"
                  ${GLEW_LIB_DIR}
                  ${VK_LIB_DIR})
                     
-file(GLOB HT_GAME_INC ../../HatchitGame/include/*.h)
-file(GLOB HT_GAME_SRC ../../HatchitGame/source/*.cpp)
+file(GLOB HT_GAME_INC ../../HatchitGame/include/*.h ../../HatchitGame/include/sdl/*.h) 
+file(GLOB HT_GAME_SRC ../../HatchitGame/source/*.cpp ../../HatchitGame/source/sdl/*.cpp)
 
 add_definitions(-D_UNICODE)
 

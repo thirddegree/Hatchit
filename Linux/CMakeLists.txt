@@ -67,6 +67,23 @@ set(HT_GL_INCLUDES "")
 endif()
 
 
+#If Vulkan support is defined we want to use XCB
+if(VK_SUPPORT)
+
+set(WINDOW_LIBS xcb)
+set(HT_WINDOW_INCLUDES ../HatchitGame/include/xcb/)
+
+file(GLOB HT_WINDOW_SRC ../HatchitGame/source/xcb/*.cpp)
+
+else()
+
+set(WINDOW_LIBS SDL2)
+set(HT_WINDOW_INCLUDES ../HatchitGame/include/sdl/)
+
+file(GLOB HT_WINDOW_SRC ../HatchitGame/source/sdl/*.cpp)
+
+endif()
+
 #configure header file to pass
 #CMake settings to source code
 configure_file (
@@ -75,16 +92,17 @@ configure_file (
 )
 
 include_directories("../HatchitCore/include" 
-		    "../HatchitCore/include/linux"
+		            "../HatchitCore/include/linux"
                     "../HatchitResource/include"
                     "../HatchitMath/include"
                     "../HatchitGraphics/include"
                     "../HatchitNetwork/include"
-		    "../HatchitMath/source/inline"
+		            "../HatchitMath/source/inline"
                     "../HatchitGame/include"
-		    "../ThirdParty/inih/"
-		    ${HT_VK_INCLUDES}
-		    ${HT_GL_INCLUDES}
+		            "../ThirdParty/inih/"
+		            ${HT_VK_INCLUDES}
+		            ${HT_GL_INCLUDES}
+                    ${HT_WINDOW_INCLUDES}
                     "../HatchitTest/include")
 
 file(GLOB HT_CORE_SRC ../HatchitCore/source/*.cpp ../HatchitCore/source/linux/*.cpp ../ThirdParty/inih/*.c)
@@ -105,7 +123,7 @@ add_library(HatchitResource SHARED ${HT_RESOURCE_SRC})
 #add_library(HatchitScript SHARED ${HT_SCRIPT_SRC})
 add_library(HatchitGraphics SHARED ${HT_GRAPHICS_SRC} ${HT_VK_SRC} ${HT_GL_SRC})
 add_library(HatchitNetwork SHARED ${HT_NETWORK_SRC})
-add_library(HatchitGame SHARED ${HT_GAME_SRC})
+add_library(HatchitGame SHARED ${HT_GAME_SRC} ${HT_WINDOW_SRC})
 
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -D_DEBUG")
 
@@ -126,9 +144,16 @@ add_custom_command(TARGET ht_test PRE_BUILD
                    COMMAND ${CMAKE_COMMAND} -E copy
                    ${PROJECT_SOURCE_DIR}/../HatchitTest/HatchitTest.ini $<TARGET_FILE_DIR:ht_test>)
 
+add_custom_command(TARGET ht_test PRE_BUILD
+                   COMMAND ${CMAKE_COMMAND} -E copy_directory
+                   ${PROJECT_SOURCE_DIR}/../Assets/Models/ $<TARGET_FILE_DIR:ht_test>)
+add_custom_command(TARGET ht_test PRE_BUILD
+                   COMMAND ${CMAKE_COMMAND} -E copy_directory
+                   ${PROJECT_SOURCE_DIR}/../Assets/Shaders/ $<TARGET_FILE_DIR:ht_test>)
+
 target_link_libraries(HatchitGraphics HatchitCore HatchitResource HatchitMath)
 target_link_libraries(HatchitNetwork HatchitCore)
-target_link_libraries(HatchitGame HatchitCore HatchitResource HatchitMath HatchitGraphics HatchitNetwork assimp SDL2 ${GL_LIBS} ${VK_LIBS} )
+target_link_libraries(HatchitGame HatchitCore HatchitResource HatchitMath HatchitGraphics HatchitNetwork assimp SDL2 ${GL_LIBS} ${VK_LIBS} ${WINDOW_LIBS} )
 target_link_libraries(ht_test HatchitCore HatchitResource HatchitMath HatchitGraphics HatchitNetwork HatchitGame assimp SDL2 ${GL_LIBS} ${VK_LIBS} pthread)
 target_link_libraries(ht_client HatchitCore HatchitNetwork pthread)
 target_link_libraries(ht_server HatchitCore HatchitNetwork pthread)
