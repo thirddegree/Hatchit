@@ -100,6 +100,8 @@ include_directories("../HatchitCore/include"
 		            "../HatchitMath/source/inline"
                     "../HatchitGame/include"
 		            "../ThirdParty/inih/"
+                    "../ThirdParty/cppformat/cppformat"
+                    "../ThirdParty/json/src/"
 		            ${HT_VK_INCLUDES}
 		            ${HT_GL_INCLUDES}
                     ${HT_WINDOW_INCLUDES}
@@ -151,12 +153,13 @@ add_custom_command(TARGET ht_test PRE_BUILD
                    COMMAND ${CMAKE_COMMAND} -E copy_directory
                    ${PROJECT_SOURCE_DIR}/../Assets/Shaders/ $<TARGET_FILE_DIR:ht_test>)
 
+#target_link_libraries(HatchitCore cppformat)
 target_link_libraries(HatchitGraphics HatchitCore HatchitResource HatchitMath)
 target_link_libraries(HatchitNetwork HatchitCore)
 target_link_libraries(HatchitGame HatchitCore HatchitResource HatchitMath HatchitGraphics HatchitNetwork assimp SDL2 ${GL_LIBS} ${VK_LIBS} ${WINDOW_LIBS} )
-target_link_libraries(ht_test HatchitCore HatchitResource HatchitMath HatchitGraphics HatchitNetwork HatchitGame assimp SDL2 ${GL_LIBS} ${VK_LIBS} pthread)
-target_link_libraries(ht_client HatchitCore HatchitNetwork pthread)
-target_link_libraries(ht_server HatchitCore HatchitNetwork pthread)
+target_link_libraries(ht_test HatchitCore HatchitResource HatchitMath HatchitGraphics HatchitNetwork HatchitGame assimp SDL2 ${GL_LIBS} ${VK_LIBS} pthread cppformat)
+target_link_libraries(ht_client HatchitCore HatchitNetwork pthread cppformat)
+target_link_libraries(ht_server HatchitCore HatchitNetwork pthread cppformat)
 
 
 #install
