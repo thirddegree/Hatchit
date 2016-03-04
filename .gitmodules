@@ -27,7 +27,7 @@
 	url = https://github.com/thirddegree/tinyxml2.git
 [submodule "HatchitGame"]
 	path = HatchitGame
-	url = https://github.com/thirddegree/HatchitGame.git
+	url = https://github.com/tcreeds/HatchitGame.git
 [submodule "HatchitMath"]
 	path = HatchitMath
 	url = https://github.com/thirddegree/HatchitMath.git
@@ -52,3 +52,6 @@
 [submodule "HatchitNetwork"]
 	path = HatchitNetwork
 	url = https://github.com/thirddegree/HatchitNetwork.git
+[submodule "ThirdParty/json"]
+	path = ThirdParty/json
+	url = https://github.com/nlohmann/json.git
