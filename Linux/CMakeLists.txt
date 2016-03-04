@@ -80,7 +80,6 @@ include_directories("../HatchitCore/include"
                     "../HatchitMath/include"
                     "../HatchitGraphics/include"
                     "../HatchitNetwork/include"
-                    "../HatchitScript/include"
 		    "../HatchitMath/source/inline"
                     "../HatchitGame/include"
 		    "../ThirdParty/inih/"
@@ -92,7 +91,7 @@ file(GLOB HT_CORE_SRC ../HatchitCore/source/*.cpp ../HatchitCore/source/linux/*.
 file(GLOB HT_RESOURCE_SRC ../HatchitResource/source/*.cpp ../HatchitResource/source/*.c)
 file(GLOB HT_MATH_SRC ../HatchitMath/source/*.cpp)
 file(GLOB HT_GRAPHICS_SRC ../HatchitGraphics/source/*.cpp)
-file(GLOB HT_SCRIPT_SRC ../HatchitScript/source/*.cpp)
+#file(GLOB HT_SCRIPT_SRC ../HatchitScript/source/*.cpp)
 file(GLOB HT_NETWORK_SRC ../HatchitNetwork/source/*cpp)
 file(GLOB HT_GAME_SRC ../HatchitGame/source/*.cpp)
 file(GLOB HT_TEST_SRC ../HatchitTest/source/main.cpp)
@@ -103,7 +102,7 @@ file(GLOB HT_SERVER_SRC ../HatchitTest/source/server.cpp)
 add_library(HatchitCore SHARED ${HT_CORE_SRC})
 add_library(HatchitMath SHARED ${HT_MATH_SRC})
 add_library(HatchitResource SHARED ${HT_RESOURCE_SRC})
-add_library(HatchitScript SHARED ${HT_SCRIPT_SRC})
+#add_library(HatchitScript SHARED ${HT_SCRIPT_SRC})
 add_library(HatchitGraphics SHARED ${HT_GRAPHICS_SRC} ${HT_VK_SRC} ${HT_GL_SRC})
 add_library(HatchitNetwork SHARED ${HT_NETWORK_SRC})
 add_library(HatchitGame SHARED ${HT_GAME_SRC})
@@ -111,6 +110,14 @@ add_library(HatchitGame SHARED ${HT_GAME_SRC})
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -D_DEBUG")
 
 target_compile_definitions(HatchitResource PRIVATE STB_IMAGE_IMPLEMENTATION)
+
+if(GL_SUPPORT)
+	target_compile_definitions(HatchitGame PRIVATE GL_SUPPORT)
+endif()
+
+if(VK_SUPPORT)
+	target_compile_definitions(HatchitGame PRIVATE VK_SUPPORT)
+endif()
 
 add_executable(ht_test ${HT_TEST_SRC})
 add_executable(ht_client ${HT_CLIENT_SRC})
@@ -122,13 +129,13 @@ add_custom_command(TARGET ht_test PRE_BUILD
 target_link_libraries(HatchitGraphics HatchitCore HatchitResource HatchitMath)
 target_link_libraries(HatchitNetwork HatchitCore)
 target_link_libraries(HatchitGame HatchitCore HatchitResource HatchitMath HatchitGraphics HatchitNetwork assimp SDL2 ${GL_LIBS} ${VK_LIBS} )
-target_link_libraries(ht_test HatchitCore HatchitResource HatchitMath HatchitScript HatchitGraphics HatchitNetwork HatchitGame assimp SDL2 ${GL_LIBS} ${VK_LIBS} pthread)
+target_link_libraries(ht_test HatchitCore HatchitResource HatchitMath HatchitGraphics HatchitNetwork HatchitGame assimp SDL2 ${GL_LIBS} ${VK_LIBS} pthread)
 target_link_libraries(ht_client HatchitCore HatchitNetwork pthread)
 target_link_libraries(ht_server HatchitCore HatchitNetwork pthread)
 
 
 #install
 
-install (TARGETS HatchitCore HatchitResource HatchitMath HatchitScript HatchitGraphics HatchitNetwork HatchitGame DESTINATION lib)
+install (TARGETS HatchitCore HatchitResource HatchitMath HatchitGraphics HatchitNetwork HatchitGame DESTINATION lib)
 install (TARGETS ht_test ht_client ht_server DESTINATION bin)
 
