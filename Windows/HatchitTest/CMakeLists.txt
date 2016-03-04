@@ -78,6 +78,7 @@ include_directories("${PROJECT_SOURCE_DIR}/../HatchitCore/include/" "${PROJECT_S
                     "${PROJECT_SOURCE_DIR}/../ThirdParty/tinyxml2/"
                     "${PROJECT_SOURCE_DIR}/../ThirdParty/Python/include/"
                     "${PROJECT_SOURCE_DIR}/../ThirdParty/Python/PC/"
+					"${PROJECT_SOURCE_DIR}/../ThirdParty/json/src"
                     ${VK_INCLUDES})
 
 

@@ -96,6 +96,7 @@ include_directories("../../HatchitCore/include"
                     "../../ThirdParty/assimp/include"
                     "../../ThirdParty/inih/"
                     "../../ThirdParty/tinyxml2/"
+					"../../ThirdParty/json/src"
                     ${GLEW_INCLUDES}
                     ${VK_INCLUDES})
                     

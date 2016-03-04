@@ -2,7 +2,8 @@
 
 include_directories("../../HatchitCore/include" 
                     "../../HatchitCore/include/windows"
-                    "../../ThirdParty/inih/")
+                    "../../ThirdParty/inih/"
+					"../../ThirdParty/json/src")
 					
 file(GLOB HT_CORE_INC ../../HatchitCore/include/*.h ../../HatchitCore/include/windows/*.h)
 file(GLOB HT_CORE_SRC ../../HatchitCore/source/*.cpp ../../HatchitCore/source/windows/*.cpp)
