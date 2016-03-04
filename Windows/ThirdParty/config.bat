@@ -5,7 +5,7 @@ mkdir VS2015
 cd VS2013
 mkdir ThirdParty
 cd ThirdParty
-::cmake ../../../ThirdParty/ -G "Visual Studio 12 2013 Win64" -DDIRECTX=NO -DASSIMP_BUILD_ASSIMP_TOOLS=NO
+::cmake ../../../ThirdParty/ -G "Visual Studio 12 2013 Win64" -DDIRECTX=NO -DASSIMP_BUILD_ASSIMP_TOOLS=NO -DBUILD_SHARED_LIBS=TRUE
 ::msbuild ThirdPartyLibs.sln /p:Configuration=Debug
 ::msbuild ThirdPartyLibs.sln /p:Configuration=Release
 cd ../../VS2015

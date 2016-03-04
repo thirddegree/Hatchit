@@ -4,7 +4,8 @@ include_directories("../../HatchitCore/include"
                     "../../ThirdParty/assimp/include"
                     "../../ThirdParty/stb/"
                     "../../ThirdParty/inih/"
-					"../../ThirdParty/json/src")
+		    "../../ThirdParty/json/src"
+		    "../../ThirdParty/cppformat/cppformat")
                     
 link_directories("../_build/dependencies/assimp/lib/$(Configuration)/")
                     

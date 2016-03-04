@@ -55,3 +55,6 @@
 [submodule "ThirdParty/json"]
 	path = ThirdParty/json
 	url = https://github.com/nlohmann/json.git
+[submodule "ThirdParty/cppformat"]
+	path = ThirdParty/cppformat
+	url = https://github.com/cppformat/cppformat.git

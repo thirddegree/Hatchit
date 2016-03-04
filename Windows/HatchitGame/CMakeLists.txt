@@ -61,14 +61,15 @@ include_directories("../../HatchitCore/include"
                     ${HT_DX11_INCLUDES}
                     ${HT_DX12_INCLUDES}
                     ${HT_GL_INCLUDES}
-					${HT_VK_INCLUDES}
+		    ${HT_VK_INCLUDES}
                     "../../HatchitGame/include"
                     "../../HatchitGame/include/sdl"
                     "../../ThirdParty/assimp/include"
                     "../../ThirdParty/SDL2/include"
                     "../../ThirdParty/inih/"
                     "../../ThirdParty/tinyxml2/"
-					"../../ThirdParty/json/src"
+		    "../../ThirdParty/json/src"
+		    "../../ThirdParty/cppformat/cppformat"
                     ${GLEW_INCLUDES}
                     ${VK_INCLUDES})
                     
