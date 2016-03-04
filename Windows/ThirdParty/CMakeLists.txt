@@ -64,3 +64,13 @@ set_target_properties(BulletCollision BulletSoftBody BulletDynamics BulletInvers
                       ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/../_build/dependencies/bullet/lib"
                       LIBRARY_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/../_build/dependencies/bullet/lib"
                       RUNTIME_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/../_build/dependencies/bullet/bin")
+
+#HANDLE CPPFORMAT THIRD PARTY LIBRARY
+add_subdirectory("${PROJECT_SOURCE_DIR}/../../ThirdParty/cppformat/" "${CMAKE_CURRENT_BINARY_DIR}/cppformat")
+set_target_properties(cppformat PROPERTIES FOLDER cppformat)
+set_target_properties(cppformat
+		      PROPERTIES
+		      ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/../_build/dependencies/cppformat/lib"
+		      LIBRARY_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/../_build/dependencies/cppformat/lib"
+		      RUNTIME_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/../_build/dependencies/cppformat/bin")
+

@@ -66,7 +66,7 @@ include_directories("${PROJECT_SOURCE_DIR}/../HatchitCore/include/" "${PROJECT_S
                     ${HT_DX_INCLUDES}
                     ${HT_DX11_INCLUDES}
                     ${HT_DX12_INCLUDES}
-					${HT_VK_INCLUDES}
+		    ${HT_VK_INCLUDES}
                     "${PROJECT_SOURCE_DIR}/../HatchitGame/include/"
                     "${PROJECT_SOURCE_DIR}/../HatchitTest/include/"
                     "${PROJECT_SOURCE_DIR}/../HatchitNetwork/include/"
@@ -76,6 +76,7 @@ include_directories("${PROJECT_SOURCE_DIR}/../HatchitCore/include/" "${PROJECT_S
                     "${PROJECT_SOURCE_DIR}/../ThirdParty/inih/"
                     ${HT_GLEW_INCLUDES}
                     "${PROJECT_SOURCE_DIR}/../ThirdParty/tinyxml2/"
+		    "${PROJECT_SOURCE_DIR}/../ThirdParty/cppformat/cppformat"
                     "${PROJECT_SOURCE_DIR}/../ThirdParty/Python/include/"
                     "${PROJECT_SOURCE_DIR}/../ThirdParty/Python/PC/"
 					"${PROJECT_SOURCE_DIR}/../ThirdParty/json/src"
