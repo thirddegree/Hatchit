@@ -7,27 +7,39 @@ SET VK=0
 SET GL=0
 SET DX11=0
 SET DX12=0
+SET UWA=0
 
 ::Check command line arguments for which graphics langs to support
 if "%1" == "GL" SET GL=1
 if "%2" == "GL" SET GL=1
 if "%3" == "GL" SET GL=1
 if "%4" == "GL" SET GL=1
+if "%5" == "GL" SET GL=1
 
 if "%1" == "VK" SET VK=1
 if "%2" == "VK" SET VK=1
 if "%3" == "VK" SET VK=1
 if "%4" == "VK" SET VK=1
+if "%5" == "VK" SET VK=1
 
 if "%1" == "DX11" SET DX11=1
 if "%2" == "DX11" SET DX11=1
 if "%3" == "DX11" SET DX11=1
 if "%4" == "DX11" SET DX11=1
+if "%5" == "DX11" SET DX11=1
 
 if "%1" == "DX12" SET DX12=1
 if "%2" == "DX12" SET DX12=1
 if "%3" == "DX12" SET DX12=1
 if "%4" == "DX12" SET DX12=1
+if "%5" == "DX12" SET DX12=1
+
+::Check command line arguments to support Universal Windows App
+if "%1" == "UWA" SET UWA=1
+if "%2" == "UWA" SET UWA=1
+if "%3" == "UWA" SET UWA=1
+if "%4" == "UWA" SET UWA=1
+if "%5" == "UWA" SET UWA=1
 
 ::Copying
 
@@ -58,6 +70,7 @@ cd VS2015
 
 @echo off
 set languageString=
+set buildUniversalApp=
 
 if %VK% == 1 set languageString=%languageString% -DVK_SUPPORT=TRUE
 
@@ -69,11 +82,14 @@ if %DX11% == 1 set languageString=%languageString% -DDX11_SUPPORT=TRUE
 
 if %VK% == 0 if %GL% == 0 if %DX11% == 0 if %DX12% == 0 set languageString=-DALL_GRAPHICS=TRUE
 
+if %UWA% == 1 set buildUniversalApp=-DCMAKE_SYSTEM_NAME=WindowsStore -DUNIVERSAL_APP=TRUE
+if %UWA% == 0 set buildUniversalApp=-DDESKTOP_APP=TRUE
+
 :: Delete CMake cache
 del CMakeCache.txt
 
 @echo on
-cmake ../../ %languageString% -DCMAKE_SYSTEM_VERSION=10.0 -G "Visual Studio 14 2015 Win64"
+cmake ../../ %languageString% -G "Visual Studio 14 2015 Win64" %buildUniversalApp% -DCMAKE_SYSTEM_VERSION=10.0
 
 
 

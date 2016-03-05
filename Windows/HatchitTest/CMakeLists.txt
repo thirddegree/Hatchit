@@ -56,6 +56,22 @@ else()
 set(HT_DX_INCLUDES "")
 endif()
 
+set(SDL_LIBS "")
+# If we've asked to build a Universal Windows App
+if(UNIVERSAL_APP)
+    set(HT_WINDOW_INCLUDE ${PROJECT_SOURCE_DIR}/../HatchitGame/include/uwa)
+    file(GLOB HT_WINDOW_HEADERS ${PROJECT_SOURCE_DIR}/../HatchitGame/include/uwa/*.h)
+    file(GLOB HT_WINDOW_SOURCE ${PROJECT_SOURCE_DIR}/../HatchitGame/source/uwa/*.cpp)
+    source_group("Header Files\\uwa" FILES ${HT_WINDOW_HEADERS})
+    source_group("Source Files\\uwa" FILES ${HT_WINDOW_SOURCE})
+elseif(DESKTOP_APP)
+    set(HT_WINDOW_INCLUDE ${PROJECT_SOURCE_DIR}/../ThirdParty/SDL2/include ${PROJECT_SOURCE_DIR}/../HatchitGame/include/sdl)
+    file(GLOB HT_WINDOW_HEADERS ${PROJECT_SOURCE_DIR}/../HatchitGame/include/sdl/*.h)
+    file(GLOB HT_WINDOW_SOURCE ${PROJECT_SOURCE_DIR}/../HatchitGame/source/sdl/*.cpp)
+    source_group("Header Files\\sdl" FILES ${HT_WINDOW_HEADERS})
+    source_group("Source Files\\sdl" FILES ${HT_WINDOW_SOURCE})
+    set(SDL_LIBS debug SDL2d optimized SDL2)
+endif()
 
 include_directories("${PROJECT_SOURCE_DIR}/../HatchitCore/include/" "${PROJECT_SOURCE_DIR}/../HatchitCore/include/windows"
                     "${PROJECT_SOURCE_DIR}/../HatchitResource/include/"
@@ -66,17 +82,17 @@ include_directories("${PROJECT_SOURCE_DIR}/../HatchitCore/include/" "${PROJECT_S
                     ${HT_DX_INCLUDES}
                     ${HT_DX11_INCLUDES}
                     ${HT_DX12_INCLUDES}
-		    ${HT_VK_INCLUDES}
+		            ${HT_VK_INCLUDES}
+                    ${HT_WINDOW_INCLUDE}
                     "${PROJECT_SOURCE_DIR}/../HatchitGame/include/"
                     "${PROJECT_SOURCE_DIR}/../HatchitTest/include/"
                     "${PROJECT_SOURCE_DIR}/../HatchitNetwork/include/"
                     "${PROJECT_SOURCE_DIR}/../ThirdParty/assimp/include"
                     "${PROJECT_SOURCE_DIR}/../ThirdParty/stb"
-                    "${PROJECT_SOURCE_DIR}/../ThirdParty/SDL2/include"
                     "${PROJECT_SOURCE_DIR}/../ThirdParty/inih/"
-                    ${HT_GLEW_INCLUDES}
+                     ${HT_GLEW_INCLUDES}
                     "${PROJECT_SOURCE_DIR}/../ThirdParty/tinyxml2/"
-		    "${PROJECT_SOURCE_DIR}/../ThirdParty/cppformat/cppformat"
+		            "${PROJECT_SOURCE_DIR}/../ThirdParty/cppformat/cppformat"
                     "${PROJECT_SOURCE_DIR}/../ThirdParty/Python/include/"
                     "${PROJECT_SOURCE_DIR}/../ThirdParty/Python/PC/"
 					"${PROJECT_SOURCE_DIR}/../ThirdParty/json/src"
@@ -161,7 +177,6 @@ add_custom_command(TARGET HatchitServer PRE_BUILD
 set(ASSIMP_LIBS debug assimpd optimized assimp)
 set(TINYXML_LIBS debug tinyxml2d optimized tinyxml2)
 set(BULLET_LIBS debug BulletCollisiond BulletDynamicsd BulletInverseDynamicsd BulletSoftBodyd LinearMathd optimized BulletCollision BulletDynamics BulletInverseDynamics BulletSoftBody LinearMath)
-set(SDL_LIBS debug SDL2d optimized SDL2)
 
 target_link_libraries(HatchitTest HatchitCore HatchitResource HatchitNetwork HatchitGraphics HatchitGame
                        ${TINYXML_LIBS} ${ASSIMP_LIBS} ${SDL_LIBS} ${D3D11_LIBS} ${D3D12_LIBS} ${GLEW_LIBS} ${GL_LIBS} Ws2_32 ${VK_LIBS})

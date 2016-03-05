@@ -33,6 +33,14 @@ else()
 	
 endif()
 
+if(UNIVERSAL_APP)
+    add_definitions(-DHT_WIN32_UNIVERSAL_APP)
+    message("Windows Universal App defined")
+elseif(DESKTOP_APP)
+    add_definitions(-DHT_WIN32_DESKTOP_APP)
+    message("Windows Desktop App defined")
+endif()
+
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
 # Version info
