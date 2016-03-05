@@ -64,3 +64,7 @@ add_subdirectory("${PROJECT_SOURCE_DIR}/HatchitGraphics")
 add_subdirectory("${PROJECT_SOURCE_DIR}/HatchitGame")
 add_subdirectory("${PROJECT_SOURCE_DIR}/HatchitNetwork")
 add_subdirectory("${PROJECT_SOURCE_DIR}/HatchitTest")
+
+if(UNIVERSAL_APP)
+    set_target_properties(HatchitCore HatchitResource HatchitNetwork HatchitGame HatchitGraphics HatchitTest PROPERTIES COMPILE_FLAGS "/ZW")
+endif()
