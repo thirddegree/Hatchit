@@ -1,30 +1,15 @@
 cd ../_build
 mkdir dependencies
 
-SET VS2013=0
-SET VS2015=0
+REM Generate VS2015 Build
+mkdir VS2015
+cd VS2015
+mkdir ThirdParty
+cd ThirdParty
+cmake ../../../ThirdParty/ -G "Visual Studio 14 2015 Win64" -DDIRECTX=NO -DASSIMP_BUILD_ASSIMP_TOOLS=NO
+msbuild.exe ThirdPartyLibs.sln /p:Configuration=Debug
+msbuild.exe ThirdPartyLibs.sln /p:Configuration=Release 
 
-if "%1" == "VS2013" (
-    REM Generate VS2013 Build
-    mkdir VS2013
-    cd VS2013
-    mkdir ThirdParty
-    cd ThirdParty
-    cmake ../../../ThirdParty/ -G "Visual Studio 12 2013 Win64" -DDIRECTX=NO -DASSIMP_BUILD_ASSIMP_TOOLS=NO
-    msbuild ThirdPartyLibs.sln /p:Configuration=Debug
-    msbuild ThirdPartyLibs.sln /p:Configuration=Release
-)
-
-if "%1" == "VS2015" (
-    REM Generate VS2015 Build
-    mkdir VS2015
-    cd VS2015
-    mkdir ThirdParty
-    cd ThirdParty
-    cmake ../../../ThirdParty/ -G "Visual Studio 14 2015 Win64" -DDIRECTX=NO -DASSIMP_BUILD_ASSIMP_TOOLS=NO
-    msbuild.exe ThirdPartyLibs.sln /p:Configuration=Debug
-    msbuild.exe ThirdPartyLibs.sln /p:Configuration=Release 
-)
 
 cd ../../../
 

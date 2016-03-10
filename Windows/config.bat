@@ -8,8 +8,6 @@ SET GL=0
 SET DX11=0
 SET DX12=0
 SET UWA=0
-SET VS2013=0
-SET VS2015=0
 
 ::Check command line arguments for which graphics langs to support
 if "%1" == "GL" SET GL=1
@@ -48,23 +46,6 @@ if "%4" == "UWA" SET UWA=1
 if "%5" == "UWA" SET UWA=1
 if "%6" == "UWA" SET UWA=1
 
-::Check command line arguments to generate VS2013 build
-if "%1" == "VS2013" SET VS2013=1
-if "%2" == "VS2013" SET VS2013=1
-if "%3" == "VS2013" SET VS2013=1
-if "%4" == "VS2013" SET VS2013=1
-if "%5" == "VS2013" SET VS2013=1
-if "%6" == "VS2013" SET VS2013=1
-
-::Check command line arguments to generate VS2015 build
-if "%1" == "VS2015" SET VS2015=1
-if "%2" == "VS2015" SET VS2015=1
-if "%3" == "VS2015" SET VS2015=1
-if "%4" == "VS2015" SET VS2015=1
-if "%5" == "VS2015" SET VS2015=1
-if "%6" == "VS2015" SET VS2015=1
-
-
 ::Copying
 
 @echo on
@@ -90,15 +71,8 @@ copy /Y %VK_SDK_PATH%\Source\lib\vulkan-1.dll bin\Release
 copy /Y dependencies\cppformat\bin\Release\cppformat.dll bin\Release
 
 
-if %VS2015% == 1 (
-    mkdir VS2015
-    cd VS2015
-)
-
-if %VS2013% == 1 (
-    mkdir VS2013
-    cd VS2013
-)
+mkdir VS2015
+cd VS2015
 
 @echo off
 set languageString=
@@ -117,14 +91,11 @@ if %VK% == 0 if %GL% == 0 if %DX11% == 0 if %DX12% == 0 set languageString=-DALL
 if %UWA% == 1 set buildUniversalApp=-DCMAKE_SYSTEM_NAME=WindowsStore -DUNIVERSAL_APP=TRUE
 if %UWA% == 0 set buildUniversalApp=-DDESKTOP_APP=TRUE
 
-if %VS2013% == 1 set cmakeGenerateString="Visual Studio 12 2013 Win64"
-if %VS2015% == 1 set cmakeGenerateString="Visual Studio 14 2015 Win64"
-
 :: Delete CMake cache
 del CMakeCache.txt
 
 @echo on
-cmake ../../ %languageString% -G %cmakeGenerateString% %buildUniversalApp% -DCMAKE_SYSTEM_VERSION=10.0
+cmake ../../ %languageString% -G "Visual Studio 14 2015 Win64" %buildUniversalApp% -DCMAKE_SYSTEM_VERSION=10.0
 
 
 
