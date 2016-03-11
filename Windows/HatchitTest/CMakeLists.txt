@@ -144,6 +144,9 @@ add_custom_command(TARGET HatchitTest PRE_BUILD
 add_custom_command(TARGET HatchitTest PRE_BUILD
                    COMMAND ${CMAKE_COMMAND} -E copy_directory
                    ${PROJECT_SOURCE_DIR}/../Assets/Shaders/ $<TARGET_FILE_DIR:HatchitTest>)
+add_custom_command(TARGET HatchitTest PRE_BUILD
+                   COMMAND ${CMAKE_COMMAND} -E copy_directory
+                   ${PROJECT_SOURCE_DIR}/../Assets/Textures/ $<TARGET_FILE_DIR:HatchitTest>)
                    
 set_target_properties(HatchitClient
                       PROPERTIES
