@@ -94,6 +94,7 @@ configure_file (
 include_directories("../HatchitCore/include" 
 		            "../HatchitCore/include/linux"
                     "../HatchitResource/include"
+		    "../HatchitResource/source/inline"
                     "../HatchitMath/include"
                     "../HatchitGraphics/include"
                     "../HatchitNetwork/include"
