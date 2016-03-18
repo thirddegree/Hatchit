@@ -107,7 +107,7 @@ include_directories("../HatchitCore/include"
                     ${HT_WINDOW_INCLUDES}
                     "../HatchitTest/include")
 
-file(GLOB HT_CORE_SRC ../HatchitCore/source/*.cpp ../HatchitCore/source/linux/*.cpp ../ThirdParty/inih/*.c)
+file(GLOB HT_CORE_SRC ../HatchitCore/source/*.cpp ../HatchitCore/source/linux/*.cpp ../ThirdParty/inih/*.c ../ThirdParty/cppformat/cppformat/*.cc)
 file(GLOB HT_RESOURCE_SRC ../HatchitResource/source/*.cpp ../HatchitResource/source/*.c)
 file(GLOB HT_MATH_SRC ../HatchitMath/source/*.cpp)
 file(GLOB HT_GRAPHICS_SRC ../HatchitGraphics/source/*.cpp)
@@ -130,7 +130,7 @@ add_library(HatchitGame SHARED ${HT_GAME_SRC} ${HT_WINDOW_SRC})
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -D_DEBUG")
 
 target_compile_definitions(HatchitResource PRIVATE STB_IMAGE_IMPLEMENTATION)
-
+target_compile_definitions(HatchitCore PRIVATE FMT_EXPORT)
 if(GL_SUPPORT)
 	target_compile_definitions(HatchitGame PRIVATE GL_SUPPORT)
 endif()
@@ -154,12 +154,13 @@ add_custom_command(TARGET ht_test PRE_BUILD
                    ${PROJECT_SOURCE_DIR}/../Assets/Shaders/ $<TARGET_FILE_DIR:ht_test>)
 
 #target_link_libraries(HatchitCore cppformat)
+target_link_libraries(HatchitResource assimp)
 target_link_libraries(HatchitGraphics HatchitCore HatchitResource HatchitMath)
 target_link_libraries(HatchitNetwork HatchitCore)
 target_link_libraries(HatchitGame HatchitCore HatchitResource HatchitMath HatchitGraphics HatchitNetwork assimp SDL2 ${GL_LIBS} ${VK_LIBS} ${WINDOW_LIBS} )
-target_link_libraries(ht_test HatchitCore HatchitResource HatchitMath HatchitGraphics HatchitNetwork HatchitGame assimp SDL2 ${GL_LIBS} ${VK_LIBS} pthread cppformat)
-target_link_libraries(ht_client HatchitCore HatchitNetwork pthread cppformat)
-target_link_libraries(ht_server HatchitCore HatchitNetwork pthread cppformat)
+target_link_libraries(ht_test HatchitCore HatchitResource HatchitMath HatchitGraphics HatchitNetwork HatchitGame assimp SDL2 ${GL_LIBS} ${VK_LIBS} pthread)
+target_link_libraries(ht_client HatchitCore HatchitNetwork pthread)
+target_link_libraries(ht_server HatchitCore HatchitNetwork pthread)
 
 
 #install
