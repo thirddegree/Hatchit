@@ -8,22 +8,21 @@ layout (location = 2) in vec2 uv;
 layout (location = 0) out vec3 out_norm;
 layout (location = 1) out vec2 out_uv;
 
-layout(set = 0, binding = 0) uniform passBuf
-{
-    mat4 proj;
+layout(push_constant) uniform PassPushConsts {
+	mat4 proj;
     mat4 view;
-} pass;
+} passConsts;
 
-layout(set = 1, binding = 0) uniform objectBuf {
+layout(set = 1, binding = 0) uniform ObjectBuf {
     mat4 model;
-} object;
+} objectBuf;
 
 void main() {
 
     out_norm = norm;
     out_uv  = uv;
 
-    mat4 MVP =  pass.proj * (pass.view * object.model);
+    mat4 MVP =  passConsts.proj * (passConsts.view * objectBuf.model);
 
     vec4 worldPos = MVP * vec4(pos, 1);
 
