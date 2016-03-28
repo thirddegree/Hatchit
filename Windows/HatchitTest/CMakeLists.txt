@@ -75,6 +75,7 @@ endif()
 
 include_directories("${PROJECT_SOURCE_DIR}/../HatchitCore/include/" "${PROJECT_SOURCE_DIR}/../HatchitCore/include/windows"
                     "${PROJECT_SOURCE_DIR}/../HatchitResource/include/"
+		    "${PROJECT_SOURCE_DIR}/../HatchitResource/source/inline"
                     "${PROJECT_SOURCE_DIR}/../HatchitMath/include"
                     "${PROJECT_SOURCE_DIR}/../HatchitMath/source/inline"
                     "${PROJECT_SOURCE_DIR}/../HatchitGraphics/include"
