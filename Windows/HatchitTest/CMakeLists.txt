@@ -123,21 +123,6 @@ set_target_properties(HatchitTest
 
 add_custom_command(TARGET HatchitTest PRE_BUILD
                    COMMAND ${CMAKE_COMMAND} -E copy
-                   $<TARGET_FILE_DIR:HatchitNetwork>/HatchitNetwork.dll $<TARGET_FILE_DIR:HatchitTest>)
-add_custom_command(TARGET HatchitTest PRE_BUILD
-                   COMMAND ${CMAKE_COMMAND} -E copy
-                   $<TARGET_FILE_DIR:HatchitCore>/HatchitCore.dll $<TARGET_FILE_DIR:HatchitTest>)
-add_custom_command(TARGET HatchitTest PRE_BUILD
-                   COMMAND ${CMAKE_COMMAND} -E copy
-                   $<TARGET_FILE_DIR:HatchitResource>/HatchitResource.dll $<TARGET_FILE_DIR:HatchitTest>)
-add_custom_command(TARGET HatchitTest PRE_BUILD
-                   COMMAND ${CMAKE_COMMAND} -E copy
-                   $<TARGET_FILE_DIR:HatchitGraphics>/HatchitGraphics.dll $<TARGET_FILE_DIR:HatchitTest>)
-add_custom_command(TARGET HatchitTest PRE_BUILD
-                   COMMAND ${CMAKE_COMMAND} -E copy
-                   $<TARGET_FILE_DIR:HatchitGame>/HatchitGame.dll $<TARGET_FILE_DIR:HatchitTest>)
-add_custom_command(TARGET HatchitTest PRE_BUILD
-                   COMMAND ${CMAKE_COMMAND} -E copy
                    ${PROJECT_SOURCE_DIR}/../HatchitTest/HatchitTest.ini $<TARGET_FILE_DIR:HatchitTest>)
 add_custom_command(TARGET HatchitTest PRE_BUILD
                    COMMAND ${CMAKE_COMMAND} -E copy_directory

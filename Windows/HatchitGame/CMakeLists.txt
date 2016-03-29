@@ -106,6 +106,7 @@ add_definitions(-D_UNICODE)
 
 add_library(HatchitGame SHARED ${HT_GAME_INC} ${HT_GAME_SRC})
 
+
 target_compile_definitions(HatchitGame PRIVATE HT_NONCLIENT_BUILD)
 
 set(ASSIMP_LIBS debug assimpd optimized assimp)
