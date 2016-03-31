@@ -2,11 +2,19 @@
     "Shaders": {
         "spv": {
             "Vertex":"PATH",
-            "Pixel": "PATH"
+            "Fragment": "PATH",
+            "Geometry":"PATH",
+            "Tess_Control":"PATH",
+            "Tess_Eval":"PATH",
+            "Compute":"PATH"
         },
         "cso": {
             "Vertex":"PATH",
-            "Pixel": "PATH"
+            "Fragment": "PATH",
+            "Geometry":"PATH",
+            "Tess_Control":"PATH",
+            "Tess_Eval":"PATH",
+            "Compute":"PATH"
         }
     },
     "ShaderVariables": [
