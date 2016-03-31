@@ -74,7 +74,7 @@ endif()
 include_directories("../../HatchitCore/include" 
                     "../../HatchitCore/include/windows"
                     "../../HatchitResource/include"
-		    "../../HatchitResource/source/inline"
+                    "../../HatchitResource/source/inline"
                     "../../HatchitMath/include"
                     "../../HatchitMath/source/inline"
                     "../../HatchitGraphics/include"
