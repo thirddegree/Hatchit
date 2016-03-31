@@ -1,0 +1,28 @@
+{
+    "Shaders": {
+        "spv": {
+            "Vertex":"PATH",
+            "Pixel": "PATH"
+        },
+        "cso": {
+            "Vertex":"PATH",
+            "Pixel": "PATH"
+        }
+    },
+    "ShaderVariables": [
+        
+    ],
+    "RasterState": {
+        "PolygonMode": "Solid",
+        "CullMode": "Back",
+        "FrontCounterClockwise": true,
+        "DepthClampEnable": true,
+        "DiscardEnable": false,
+        "LineWidth": 1.0
+    },
+    "MultisampleState": {
+        "SampleCount": 1,            
+        "MinSamples": 1.0,
+        "PerSampleShading": false      
+    }    
+}
