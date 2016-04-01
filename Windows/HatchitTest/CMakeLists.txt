@@ -118,21 +118,6 @@ add_executable(HatchitServer ${PROJECT_SOURCE_DIR}/../HatchitTest/source/server.
 add_custom_command(TARGET HatchitTest PRE_BUILD
                    COMMAND ${CMAKE_COMMAND} -E copy
                    ${PROJECT_SOURCE_DIR}/../HatchitTest/HatchitTest.ini $<TARGET_FILE_DIR:HatchitTest>)
-add_custom_command(TARGET HatchitTest PRE_BUILD
-                   COMMAND ${CMAKE_COMMAND} -E copy_directory
-                   ${PROJECT_SOURCE_DIR}/../Assets/Models/ $<TARGET_FILE_DIR:HatchitTest>)
-add_custom_command(TARGET HatchitTest PRE_BUILD
-                   COMMAND ${CMAKE_COMMAND} -E copy_directory
-                   ${PROJECT_SOURCE_DIR}/../Assets/Shaders/ $<TARGET_FILE_DIR:HatchitTest>)
-add_custom_command(TARGET HatchitTest PRE_BUILD
-                   COMMAND ${CMAKE_COMMAND} -E copy_directory
-                   ${PROJECT_SOURCE_DIR}/../Assets/Textures/ $<TARGET_FILE_DIR:HatchitTest>)
-add_custom_command(TARGET HatchitTest PRE_BUILD
-                   COMMAND ${CMAKE_COMMAND} -E copy_directory
-                   ${PROJECT_SOURCE_DIR}/../Assets/Pipelines/ $<TARGET_FILE_DIR:HatchitTest>)
-add_custom_command(TARGET HatchitTest PRE_BUILD
-                   COMMAND ${CMAKE_COMMAND} -E copy_directory
-                   ${PROJECT_SOURCE_DIR}/../Assets/Scenes/ $<TARGET_FILE_DIR:HatchitTest>)
 
 #set(PYTHON_LIBS debug python34_d optimized python34 python3)
 set(ASSIMP_LIBS debug assimpd optimized assimp)
