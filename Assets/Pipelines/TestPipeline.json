@@ -1,20 +1,20 @@
 {
     "Shaders": {
         "spv": {
-            "Vertex":"PATH",
-            "Fragment": "PATH",
-            "Geometry":"PATH",
-            "Tess_Control":"PATH",
-            "Tess_Eval":"PATH",
-            "Compute":"PATH"
+            "Vertex":"raptor_VS.spv",
+            "Fragment":"raptor_FS.spv",
+            "Geometry":"",
+            "Tess_Control":"",
+            "Tess_Eval":"",
+            "Compute":""
         },
         "cso": {
-            "Vertex":"PATH",
-            "Fragment": "PATH",
-            "Geometry":"PATH",
-            "Tess_Control":"PATH",
-            "Tess_Eval":"PATH",
-            "Compute":"PATH"
+            "Vertex":"",
+            "Fragment": "",
+            "Geometry":"",
+            "Tess_Control":"",
+            "Tess_Eval":"",
+            "Compute":""
         }
     },
     "ShaderVariables": [
