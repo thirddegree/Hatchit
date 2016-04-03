@@ -74,6 +74,7 @@ endif()
 include_directories("../../HatchitCore/include" 
                     "../../HatchitCore/include/windows"
                     "../../HatchitResource/include"
+                    "../../HatchitResource/source/inline"
                     "../../HatchitMath/include"
                     "../../HatchitMath/source/inline"
                     "../../HatchitGraphics/include"
@@ -104,6 +105,7 @@ file(GLOB HT_GAME_SRC ../../HatchitGame/source/*.cpp ${HT_WINDOW_SOURCE})
 add_definitions(-D_UNICODE)
 
 add_library(HatchitGame SHARED ${HT_GAME_INC} ${HT_GAME_SRC})
+
 
 target_compile_definitions(HatchitGame PRIVATE HT_NONCLIENT_BUILD)
 

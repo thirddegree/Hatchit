@@ -75,6 +75,7 @@ endif()
 
 include_directories("${PROJECT_SOURCE_DIR}/../HatchitCore/include/" "${PROJECT_SOURCE_DIR}/../HatchitCore/include/windows"
                     "${PROJECT_SOURCE_DIR}/../HatchitResource/include/"
+		    "${PROJECT_SOURCE_DIR}/../HatchitResource/source/inline"
                     "${PROJECT_SOURCE_DIR}/../HatchitMath/include"
                     "${PROJECT_SOURCE_DIR}/../HatchitMath/source/inline"
                     "${PROJECT_SOURCE_DIR}/../HatchitGraphics/include"
@@ -114,67 +115,9 @@ add_executable(HatchitTest ${PROJECT_SOURCE_DIR}/../HatchitTest/source/main.cpp)
 add_executable(HatchitClient ${PROJECT_SOURCE_DIR}/../HatchitTest/source/client.cpp)
 add_executable(HatchitServer ${PROJECT_SOURCE_DIR}/../HatchitTest/source/server.cpp)
 
-set_target_properties(HatchitTest
-                      PROPERTIES
-                      ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/_build/bin/"
-                      LIBRARY_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/_build/bin/"
-                      RUNTIME_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/_build/bin/")
-
-add_custom_command(TARGET HatchitTest PRE_BUILD
-                   COMMAND ${CMAKE_COMMAND} -E copy
-                   $<TARGET_FILE_DIR:HatchitNetwork>/HatchitNetwork.dll $<TARGET_FILE_DIR:HatchitTest>)
-add_custom_command(TARGET HatchitTest PRE_BUILD
-                   COMMAND ${CMAKE_COMMAND} -E copy
-                   $<TARGET_FILE_DIR:HatchitCore>/HatchitCore.dll $<TARGET_FILE_DIR:HatchitTest>)
-add_custom_command(TARGET HatchitTest PRE_BUILD
-                   COMMAND ${CMAKE_COMMAND} -E copy
-                   $<TARGET_FILE_DIR:HatchitResource>/HatchitResource.dll $<TARGET_FILE_DIR:HatchitTest>)
-add_custom_command(TARGET HatchitTest PRE_BUILD
-                   COMMAND ${CMAKE_COMMAND} -E copy
-                   $<TARGET_FILE_DIR:HatchitGraphics>/HatchitGraphics.dll $<TARGET_FILE_DIR:HatchitTest>)
-add_custom_command(TARGET HatchitTest PRE_BUILD
-                   COMMAND ${CMAKE_COMMAND} -E copy
-                   $<TARGET_FILE_DIR:HatchitGame>/HatchitGame.dll $<TARGET_FILE_DIR:HatchitTest>)
 add_custom_command(TARGET HatchitTest PRE_BUILD
                    COMMAND ${CMAKE_COMMAND} -E copy
                    ${PROJECT_SOURCE_DIR}/../HatchitTest/HatchitTest.ini $<TARGET_FILE_DIR:HatchitTest>)
-add_custom_command(TARGET HatchitTest PRE_BUILD
-                   COMMAND ${CMAKE_COMMAND} -E copy_directory
-                   ${PROJECT_SOURCE_DIR}/../Assets/Models/ $<TARGET_FILE_DIR:HatchitTest>)
-add_custom_command(TARGET HatchitTest PRE_BUILD
-                   COMMAND ${CMAKE_COMMAND} -E copy_directory
-                   ${PROJECT_SOURCE_DIR}/../Assets/Shaders/ $<TARGET_FILE_DIR:HatchitTest>)
-add_custom_command(TARGET HatchitTest PRE_BUILD
-                   COMMAND ${CMAKE_COMMAND} -E copy_directory
-                   ${PROJECT_SOURCE_DIR}/../Assets/Textures/ $<TARGET_FILE_DIR:HatchitTest>)
-                   
-set_target_properties(HatchitClient
-                      PROPERTIES
-                      ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/_build/bin/"
-                      LIBRARY_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/_build/bin/"
-                      RUNTIME_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/_build/bin/")
-
-add_custom_command(TARGET HatchitClient PRE_BUILD
-                   COMMAND ${CMAKE_COMMAND} -E copy
-                   $<TARGET_FILE_DIR:HatchitNetwork>/HatchitNetwork.dll $<TARGET_FILE_DIR:HatchitClient>)
-add_custom_command(TARGET HatchitClient PRE_BUILD
-                   COMMAND ${CMAKE_COMMAND} -E copy
-                   $<TARGET_FILE_DIR:HatchitCore>/HatchitCore.dll $<TARGET_FILE_DIR:HatchitClient>)
-                   
-set_target_properties(HatchitServer
-                      PROPERTIES
-                      ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/_build/bin/"
-                      LIBRARY_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/_build/bin/"
-                      RUNTIME_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/_build/bin/")
-
-add_custom_command(TARGET HatchitServer PRE_BUILD
-                   COMMAND ${CMAKE_COMMAND} -E copy
-                   $<TARGET_FILE_DIR:HatchitNetwork>/HatchitNetwork.dll $<TARGET_FILE_DIR:HatchitServer>)
-add_custom_command(TARGET HatchitServer PRE_BUILD
-                   COMMAND ${CMAKE_COMMAND} -E copy
-                   $<TARGET_FILE_DIR:HatchitCore>/HatchitCore.dll $<TARGET_FILE_DIR:HatchitServer>)
-
-
 
 #set(PYTHON_LIBS debug python34_d optimized python34 python3)
 set(ASSIMP_LIBS debug assimpd optimized assimp)

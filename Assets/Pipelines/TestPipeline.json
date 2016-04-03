@@ -1,0 +1,36 @@
+{
+    "Shaders": {
+        "spv": {
+            "Vertex":"raptor_VS.spv",
+            "Fragment":"raptor_FS.spv",
+            "Geometry":"",
+            "Tess_Control":"",
+            "Tess_Eval":"",
+            "Compute":""
+        },
+        "cso": {
+            "Vertex":"",
+            "Fragment": "",
+            "Geometry":"",
+            "Tess_Control":"",
+            "Tess_Eval":"",
+            "Compute":""
+        }
+    },
+    "ShaderVariables": [
+        
+    ],
+    "RasterState": {
+        "PolygonMode": "Solid",
+        "CullMode": "Back",
+        "FrontCounterClockwise": true,
+        "DepthClampEnable": true,
+        "DiscardEnable": false,
+        "LineWidth": 1.0
+    },
+    "MultisampleState": {
+        "SampleCount": 1,            
+        "MinSamples": 1.0,
+        "PerSampleShading": false      
+    }    
+}

@@ -85,6 +85,7 @@ set(D3D12_LIB_DIR "$(WindowsSDK_LibraryPath_x64)")
 
 include_directories("../../HatchitCore/include"
                     "../../HatchitResource/include"
+		    "../../HatchitResource/source/inline"
                     "../../HatchitMath/include"
                     "../../HatchitMath/source/inline"
                     "../../HatchitGraphics/include"
