@@ -1,0 +1,13 @@
+{
+    "Pipeline": "pipeline_PATH",
+
+    "RenderPass": "renderpass_PATH",
+
+    "ShaderVariables": [
+        {
+            "Name": "Int_Var",
+            "Type": "INT",
+            "Value": 1"
+        }
+    ]
+}
