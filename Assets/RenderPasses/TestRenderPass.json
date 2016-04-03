@@ -1,0 +1,11 @@
+{
+    "Input": [
+        "input_PATH1",
+        "input_PATH2",
+        "input_PATH3"    
+    ],
+    "Output": [
+        "output_PATH1",
+        "output_PATH2"
+    ]
+}
