@@ -23,7 +23,7 @@
     "RasterState": {
         "PolygonMode": "Solid",
         "CullMode": "Back",
-        "FrontCounterClockwise": true,
+        "FrontCounterClockwise": false,
         "DepthClampEnable": true,
         "DiscardEnable": false,
         "LineWidth": 1.0
