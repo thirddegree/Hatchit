@@ -17,9 +17,32 @@
             "Compute":""
         }
     },
+    
     "ShaderVariables": [
-        
+
     ],
+
+    "InputLayout": [
+        {
+            "SemanticName": "POSITION",
+            "SemanticIndex": 0,
+            "Format": "R32G32B32_FLOAT",
+            "Slot": 0
+        },
+        {
+            "SemanticName": "NORMAL",
+            "SemanticIndex": 0,
+            "Format": "R32G32B32_FLOAT",
+            "Slot": 0
+        },
+        {
+            "SemanticName": "COLOR",
+            "SemanticIndex": 0,
+            "Format": "R32G32B32A32_FLOAT",
+            "Slot": 0
+        }
+    ],
+
     "RasterState": {
         "PolygonMode": "Solid",
         "CullMode": "Back",
