@@ -27,7 +27,7 @@
 	url = https://github.com/thirddegree/tinyxml2.git
 [submodule "HatchitGame"]
 	path = HatchitGame
-	url = https://github.com/thirddegree/HatchitGame.git
+	url = https://github.com/tcreeds/HatchitGame.git
 [submodule "HatchitMath"]
 	path = HatchitMath
 	url = https://github.com/thirddegree/HatchitMath.git
@@ -58,3 +58,6 @@
 [submodule "ThirdParty/cppformat"]
 	path = ThirdParty/cppformat
 	url = https://github.com/thirddegree/cppformat.git
+[submodule "cog"]
+	path = cog
+	url = http://github.com/thirddegree/cog
