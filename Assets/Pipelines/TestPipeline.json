@@ -9,8 +9,8 @@
             "Compute":""
         },
         "cso": {
-            "Vertex":"",
-            "Fragment": "",
+            "Vertex":"tri_VS.cso",
+            "Fragment": "tri_PS.cso",
             "Geometry":"",
             "Tess_Control":"",
             "Tess_Eval":"",
