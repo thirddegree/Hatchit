@@ -1,0 +1,10 @@
+{
+	"Input": [
+        "DeferredColor.json",
+        "DeferredPosition.json",
+        "DeferredNormal.json"
+        ],
+	"Output": [
+		"DeferredFinal.json"
+	]
+}

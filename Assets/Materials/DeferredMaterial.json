@@ -1,7 +1,7 @@
 {
-    "Pipeline": "TestPipeline.json",
+    "Pipeline": "DeferredPipeline.json",
 
-    "RenderPass": "PATH",
+    "RenderPass": "DeferredPass.json",
 
     "ShaderVariables": [{
         "Name": "object.model",
