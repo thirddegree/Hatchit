@@ -1,4 +1,6 @@
 {
+    "RenderPass" : "SwapchainRenderPass.json",
+
     "Shaders": {
         "spv": {
             "Vertex":"screen_VS.spv",

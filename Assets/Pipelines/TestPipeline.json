@@ -1,4 +1,6 @@
 {
+    "RenderPass" : "TestRenderPass.json",
+
     "Shaders": {
         "spv": {
             "Vertex":"raptor_VS.spv",

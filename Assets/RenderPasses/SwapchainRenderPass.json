@@ -1,0 +1,8 @@
+{
+	"Input": [
+        "TestRenderTarget.json"
+    ],
+	"Output": [
+		"ScreenTarget.json"
+	]
+}
