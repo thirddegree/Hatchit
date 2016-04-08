@@ -1,5 +1,5 @@
 {
     "FilterMode" : "Bilinear", 
-    "WrapMode" : "Repeat", 
+    "WrapMode" : "Wrap", 
     "ColorSpace" : "Gamma" 
 }

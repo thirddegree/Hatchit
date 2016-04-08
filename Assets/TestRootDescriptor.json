@@ -1,0 +1,18 @@
+{
+  "ParameterCount": 1,
+  "Parameters": [
+    {
+      "Type": "TABLE",
+      "Visibility": "VERTEX",
+      "RangeCount": 1,
+      "Ranges": [
+        {
+          "Type": "CONSTANT_BUFFER",
+          "DescriptorCount": 1,
+          "BaseRegister": 0,
+          "RegisterSpace": 0
+        }
+      ]
+    }
+  ]
+}
