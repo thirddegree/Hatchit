@@ -1,0 +1,61 @@
+{
+    "RenderPass" : "DeferredPass.json",
+
+    "Shaders": {
+        "spv": {
+            "Vertex":"deferred_VS.spv",
+            "Fragment":"deferred_FS.spv",
+            "Geometry":"",
+            "Tess_Control":"",
+            "Tess_Eval":"",
+            "Compute":""
+        },
+        "cso": {
+            "Vertex":"tri_VS.cso",
+            "Fragment": "tri_PS.cso",
+            "Geometry":"",
+            "Tess_Control":"",
+            "Tess_Eval":"",
+            "Compute":""
+        }
+    },
+    
+    "ShaderVariables": [
+
+    ],
+
+    "InputLayout": [
+        {
+            "SemanticName": "POSITION",
+            "SemanticIndex": 0,
+            "Format": "R32G32B32_FLOAT",
+            "Slot": 0
+        },
+        {
+            "SemanticName": "NORMAL",
+            "SemanticIndex": 0,
+            "Format": "R32G32B32_FLOAT",
+            "Slot": 0
+        },
+        {
+            "SemanticName": "COLOR",
+            "SemanticIndex": 0,
+            "Format": "R32G32B32A32_FLOAT",
+            "Slot": 0
+        }
+    ],
+
+    "RasterState": {
+        "PolygonMode": "Solid",
+        "CullMode": "Back",
+        "FrontCounterClockwise": false,
+        "DepthClampEnable": true,
+        "DiscardEnable": false,
+        "LineWidth": 1.0
+    },
+    "MultisampleState": {
+        "SampleCount": 1,            
+        "MinSamples": 1.0,
+        "PerSampleShading": false      
+    }    
+}

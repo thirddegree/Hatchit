@@ -1,6 +1,6 @@
 {
 	"Input": [
-        "TestRenderTarget.json"
+        "DeferredFinal.json"
     ],
 	"Output": [
 		"ScreenTarget.json"
