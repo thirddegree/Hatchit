@@ -48,16 +48,18 @@
         {
             "Type": "CONSTANT",
             "Visibility": "VERTEX",
-            "ShaderRegister": 0,
+            "ShaderRegister": 1,
             "RegisterSpace": 0,
-            "DataType": "MAT4"
+            "DataType": "MAT4",
+            "ValueCount": 1
         },
         {
             "Type": "CONSTANT",
             "Visibility": "VERTEX",
-            "ShaderRegister": 0,
+            "ShaderRegister": 2,
             "RegisterSpace": 0,
-            "DataType":  "MAT4"
+            "DataType": "MAT4",
+            "ValueCount": 1
         }
     ]
 }
