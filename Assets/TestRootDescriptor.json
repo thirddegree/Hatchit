@@ -30,7 +30,7 @@
         "LAYOUT_DENY_FRAGMENT_SHADER_ROOT_ACCESS",
         "LAYOUT_ALLOW_STREAM_OUTPUT"
     ],
-    "ParameterCount": 3,
+    "ParameterCount": 2,
     "Parameters": [
         {
             "Type": "TABLE",
@@ -46,20 +46,12 @@
             ]
         },
         {
-            "Type": "CONSTANT",
+            "Type": "CONSTANTS",
             "Visibility": "VERTEX",
             "ShaderRegister": 1,
             "RegisterSpace": 0,
             "DataType": "MAT4",
-            "ValueCount": 1
-        },
-        {
-            "Type": "CONSTANT",
-            "Visibility": "VERTEX",
-            "ShaderRegister": 2,
-            "RegisterSpace": 0,
-            "DataType": "MAT4",
-            "ValueCount": 1
+            "ValueCount": 2
         }
     ]
 }
