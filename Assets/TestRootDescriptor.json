@@ -30,7 +30,7 @@
         "LAYOUT_DENY_FRAGMENT_SHADER_ROOT_ACCESS",
         "LAYOUT_ALLOW_STREAM_OUTPUT"
     ],
-    "ParameterCount": 2,
+    "ParameterCount": 3,
     "Parameters": [
         {
             "Type": "TABLE",
@@ -39,6 +39,19 @@
             "Ranges": [
                 {
                     "Type": "CONSTANT_BUFFER",
+                    "DescriptorCount": 1,
+                    "BaseRegister": 0,
+                    "RegisterSpace": 0
+                }
+            ]
+        },
+        {
+            "Type": "TABLE",
+            "Visibility": "FRAGMENT",
+            "RangeCount": 1,
+            "Ranges": [
+                {
+                    "Type": "SAMPLER",
                     "DescriptorCount": 1,
                     "BaseRegister": 0,
                     "RegisterSpace": 0

@@ -14,7 +14,7 @@ layout(push_constant) uniform PassPushConsts {
     mat4 view;
 } passConsts;
 
-layout(set = 1, binding = 0) uniform ObjectBuf {
+layout(set = 0, binding = 0) uniform ObjectBuf {
     mat4 model;
 } objectBuf;
 
