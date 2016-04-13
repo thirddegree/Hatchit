@@ -51,7 +51,7 @@
             "RangeCount": 1,
             "Ranges": [
                 {
-                    "Type": "SAMPLER",
+                    "Type": "SHADER_RESOURCE",
                     "DescriptorCount": 1,
                     "BaseRegister": 0,
                     "RegisterSpace": 0
@@ -64,19 +64,19 @@
             "RangeCount": 3,
             "Ranges": [
                 {
-                    "Type": "SAMPLER",
+                    "Type": "SHADER_RESOURCE",
                     "DescriptorCount": 1,
                     "BaseRegister": 0,
                     "RegisterSpace": 0
                 },
                 {
-                    "Type": "SAMPLER",
+                    "Type": "SHADER_RESOURCE",
                     "DescriptorCount": 1,
                     "BaseRegister": 1,
                     "RegisterSpace": 0
                 },
                 {
-                    "Type": "SAMPLER",
+                    "Type": "SHADER_RESOURCE",
                     "DescriptorCount": 1,
                     "BaseRegister": 2,
                     "RegisterSpace": 0
