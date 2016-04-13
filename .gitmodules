@@ -61,3 +61,6 @@
 [submodule "cog"]
 	path = ThirdParty/cog
 	url = http://github.com/thirddegree/cog
+[submodule "ThirdParty/virtualenv"]
+	path = ThirdParty/virtualenv
+	url = https://github.com/pypa/virtualenv
