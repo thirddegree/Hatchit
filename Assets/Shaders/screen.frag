@@ -1,4 +1,4 @@
-#version 450
+#version 440
 #extension GL_ARB_separate_shader_objects : enable
 #extension GL_ARB_shading_language_420pack : enable
 
@@ -19,7 +19,7 @@ void main()
     float depth = positionSampled.r;
     vec3 normal = normalSampled.xyz;
 
-    vec4 ambientLight = vec4(0.1f, 0.1f, 0.1f, 1.0f);
+    vec4 ambientLight = vec4(0.4f, 0.4f, 0.4f, 1.0f);
     float nL = dot(normal, vec3(0, 1, 0));
     vec4 dirLight = vec4(nL, nL, nL, 1.0f);
 
