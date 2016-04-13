@@ -84,8 +84,9 @@ endif()
 set(D3D12_LIB_DIR "$(WindowsSDK_LibraryPath_x64)")
 
 include_directories("../../HatchitCore/include"
+                    "../../HatchitCore/source/inline"
                     "../../HatchitResource/include"
-		            "../../HatchitResource/source/inline"
+                    "../../HatchitResource/source/inline"
                     "../../HatchitMath/include"
                     "../../HatchitMath/source/inline"
                     "../../HatchitGraphics/include"
@@ -93,7 +94,7 @@ include_directories("../../HatchitCore/include"
                     ${HT_DX11_INCLUDES}
                     ${HT_DX12_INCLUDES}
                     ${HT_GL_INCLUDES}
-		            ${HT_VK_INCLUDES}
+                    ${HT_VK_INCLUDES}
                     "../../ThirdParty/assimp/include"
                     "../../ThirdParty/inih/"
                     "../../ThirdParty/tinyxml2/"
