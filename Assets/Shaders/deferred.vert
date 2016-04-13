@@ -25,12 +25,13 @@ void main()
     depthPos = objectBuf.model * depthPos;
     depthPos = passConsts.view * depthPos;
 
+    
     out_norm = norm;
     out_uv  = uv;
     
     vec4 worldPos = passConsts.proj * depthPos;
-
-    out_depth = worldPos.z / 1000.0f;
+    
+    out_depth = worldPos.z / 100.0f;
     
     gl_Position = worldPos;
 
