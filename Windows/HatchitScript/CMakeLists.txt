@@ -1,5 +1,6 @@
 
 include_directories("../../HatchitCore/include"
+                    "../../HatchitCore/source/inline"
                     "../../HatchitScript/include"
                     "../../ThirdParty/Python/include"
                     "../../ThirdParty/Python/PC")

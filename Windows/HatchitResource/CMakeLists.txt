@@ -1,9 +1,10 @@
 
 include_directories("../../HatchitCore/include"
+                    "../../HatchitCore/source/inline"
                     "../../HatchitMath/include"
                     "../../HatchitMath/source/inline"
                     "../../HatchitResource/include"
-		            "../../HatchitResource/source/inline"
+                    "../../HatchitResource/source/inline"
                     "../../ThirdParty/assimp/include"
                     "../../ThirdParty/stb/"
                     "../../ThirdParty/inih/"
