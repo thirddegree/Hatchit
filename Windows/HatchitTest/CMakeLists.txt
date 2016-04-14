@@ -126,6 +126,13 @@ add_custom_command(TARGET HatchitTest PRE_BUILD
                    ${PROJECT_SOURCE_DIR}/../Assets/Shaders/compileSPV.bat)
 endif()
 
+#Call script to compile HLSL shaders to CSO if we have DirectX12 support defined
+if(DX12_SUPPORT)
+add_custom_command(TARGET HatchitTest PRE_BUILD
+                   COMMAND "call"
+                   ${PROJECT_SOURCE_DIR}/../Assets/Shaders/compileCSO.bat)
+endif()
+
 #set(PYTHON_LIBS debug python34_d optimized python34 python3)
 set(ASSIMP_LIBS debug assimpd optimized assimp)
 set(TINYXML_LIBS debug tinyxml2d optimized tinyxml2)
