@@ -1,27 +1,29 @@
 {
-    "Samplers": [{
-        "Filter": {
-            "Mag": "BILINEAR",
-            "Min": "BILINEAR"
-        },
-        "Address": {
-            "U": "WRAP",
-            "V": "WRAP",
-            "W": "WRAP"
-        },
+    "Samplers": [
+        {
+            "Filter": {
+                "Mag": "BILINEAR",
+                "Min": "BILINEAR"
+            },
+            "Address": {
+                "U": "WRAP",
+                "V": "WRAP",
+                "W": "WRAP"
+            },
 
-        "MipLODBias": 0.0,
-        "MinLOD": 0.0,
-        "MaxLOD": 0.0,
-        "MaxAnisotropy": 8,
-        "CompareOp": "COMPARE_OP_NEVER",
-        "BorderColor": "COLOR_OPAQUE_WHITE",
-        "Immutable": {
-            "Register": 0,
-            "Space": 0,
-            "Visibility": "VERTEX"
+            "MipLODBias": 0.0,
+            "MinLOD": 0.0,
+            "MaxLOD": 0.0,
+            "MaxAnisotropy": 8,
+            "CompareOp": "COMPARE_OP_NEVER",
+            "BorderColor": "COLOR_OPAQUE_WHITE",
+            "Immutable": {
+                "Register": 0,
+                "Space": 0,
+                "Visibility": "VERTEX"
+            }
         }
-    }],
+    ],
     "Flags": [
         "LAYOUT_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT",
         "LAYOUT_DENY_TESS_CONTROL_SHADER_ROOT_ACCESS",
@@ -51,7 +53,7 @@
             "RangeCount": 1,
             "Ranges": [
                 {
-                    "Type": "SAMPLER",
+                    "Type": "SHADER_RESOURCE",
                     "DescriptorCount": 1,
                     "BaseRegister": 0,
                     "RegisterSpace": 0
@@ -64,19 +66,19 @@
             "RangeCount": 3,
             "Ranges": [
                 {
-                    "Type": "SAMPLER",
+                    "Type": "SHADER_RESOURCE",
                     "DescriptorCount": 1,
                     "BaseRegister": 0,
-                    "RegisterSpace": 0
+                    "RegisterSpace": 1
                 },
                 {
-                    "Type": "SAMPLER",
+                    "Type": "SHADER_RESOURCE",
                     "DescriptorCount": 1,
                     "BaseRegister": 1,
                     "RegisterSpace": 0
                 },
                 {
-                    "Type": "SAMPLER",
+                    "Type": "SHADER_RESOURCE",
                     "DescriptorCount": 1,
                     "BaseRegister": 2,
                     "RegisterSpace": 0
