@@ -6,7 +6,7 @@ struct PixelShaderInput
     float2 uv : TEXTURE0;
 };
 
-Texture2D diffuse : register(t1);
+Texture2D diffuse : register(t0);
 SamplerState samLinear : register(s0);
 
 // A pass-through function for the (interpolated) color data.
