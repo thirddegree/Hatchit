@@ -20,7 +20,7 @@
             "Immutable": {
                 "Register": 0,
                 "Space": 0,
-                "Visibility": "VERTEX"
+                "Visibility": "FRAGMENT"
             }
         }
     ],
