@@ -32,7 +32,7 @@
         "LAYOUT_DENY_FRAGMENT_SHADER_ROOT_ACCESS",
         "LAYOUT_ALLOW_STREAM_OUTPUT"
     ],
-    "ParameterCount": 4,
+    "ParameterCount": 5,
     "Parameters": [
         {
             "Type": "TABLE",
@@ -81,6 +81,19 @@
                     "Type": "SHADER_RESOURCE",
                     "DescriptorCount": 1,
                     "BaseRegister": 2,
+                    "RegisterSpace": 0
+                }
+            ]
+        },
+        {
+            "Type": "TABLE",
+            "Visibility": "VERTEX",
+            "RangeCount": 1,
+            "Ranges": [
+                {
+                    "Type": "UNORDERED_ACCESS",
+                    "DescriptorCount": 1,
+                    "BaseRegister": 0,
                     "RegisterSpace": 0
                 }
             ]

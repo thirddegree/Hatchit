@@ -2,9 +2,12 @@
 #extension GL_ARB_separate_shader_objects : enable
 #extension GL_ARB_shading_language_420pack : enable
 
-out gl_PerVertex
-{
+out gl_PerVertex{
     vec4 gl_Position;
+};
+
+struct InstanceData{
+    mat4 worldMatrix;
 };
 
 layout (location = 0) in vec3 pos;
@@ -24,9 +27,11 @@ layout(set = 0, binding = 0) uniform ObjectBuf {
     mat4 model;
 } objectBuf;
 
+layout(set = 3, binding = 0) uniform samplerBuffer InstanceDataBuffer;
+
 void main() 
 {
-    vec4 depthPos = vec4(pos, 1);
+    vec4 depthPos = vec4(pos, 1) + vec4(gl_InstanceIndex, 0, 0, 0);
     depthPos = objectBuf.model * depthPos;
     depthPos = passConsts.view * depthPos;
 
