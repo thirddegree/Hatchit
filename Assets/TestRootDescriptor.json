@@ -1,36 +1,34 @@
 {
-    "Samplers": [{
-        "Filter": {
-            "Mag": "BILINEAR",
-            "Min": "BILINEAR"
-        },
-        "Address": {
-            "U": "WRAP",
-            "V": "WRAP",
-            "W": "WRAP"
-        },
+    "Samplers": [
+        {
+            "Filter": {
+                "Mag": "BILINEAR",
+                "Min": "BILINEAR"
+            },
+            "Address": {
+                "U": "WRAP",
+                "V": "WRAP",
+                "W": "WRAP"
+            },
 
-        "MipLODBias": 0.0,
-        "MinLOD": 0.0,
-        "MaxLOD": 0.0,
-        "MaxAnisotropy": 8,
-        "CompareOp": "COMPARE_OP_NEVER",
-        "BorderColor": "COLOR_OPAQUE_WHITE",
-        "Immutable": {
-            "Register": 0,
-            "Space": 0,
-            "Visibility": "VERTEX"
+            "MipLODBias": 0.0,
+            "MinLOD": 0.0,
+            "MaxLOD": 0.0,
+            "MaxAnisotropy": 8,
+            "CompareOp": "COMPARE_OP_NEVER",
+            "BorderColor": "COLOR_OPAQUE_WHITE",
+            "Immutable": {
+                "Register": 0,
+                "Space": 0,
+                "Visibility": "FRAGMENT"
+            }
         }
-    }],
+    ],
     "Flags": [
         "LAYOUT_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT",
-        "LAYOUT_DENY_TESS_CONTROL_SHADER_ROOT_ACCESS",
-        "LAYOUT_DENY_TESS_EVAL_SHADER_ROOT_ACCESS",
-        "LAYOUT_DENY_GEOMETRY_SHADER_ROOT_ACCESS",
-        "LAYOUT_DENY_FRAGMENT_SHADER_ROOT_ACCESS",
         "LAYOUT_ALLOW_STREAM_OUTPUT"
     ],
-    "ParameterCount": 4,
+    "ParameterCount": 5,
     "Parameters": [
         {
             "Type": "TABLE",
@@ -66,6 +64,12 @@
                 {
                     "Type": "SHADER_RESOURCE",
                     "DescriptorCount": 1,
+                    "BaseRegister": 0,
+                    "RegisterSpace": 1
+                },
+                {
+                    "Type": "SHADER_RESOURCE",
+                    "DescriptorCount": 1,
                     "BaseRegister": 1,
                     "RegisterSpace": 0
                 },
@@ -74,11 +78,18 @@
                     "DescriptorCount": 1,
                     "BaseRegister": 2,
                     "RegisterSpace": 0
-                },
+                }
+            ]
+        },
+        {
+            "Type": "TABLE",
+            "Visibility": "VERTEX",
+            "RangeCount": 1,
+            "Ranges": [
                 {
-                    "Type": "SHADER_RESOURCE",
+                    "Type": "UNORDERED_ACCESS",
                     "DescriptorCount": 1,
-                    "BaseRegister": 3,
+                    "BaseRegister": 0,
                     "RegisterSpace": 0
                 }
             ]

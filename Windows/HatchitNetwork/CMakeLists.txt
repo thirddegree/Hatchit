@@ -1,5 +1,6 @@
 include_directories("../../HatchitNetwork/include"
                     "../../HatchitCore/include"
+                    "../../HatchitCore/source/inline"
                     "../../ThirdParty/cppformat/cppformat")
 
 file(GLOB HT_NETWORK_INC ../../HatchitNetwork/include/*.h)

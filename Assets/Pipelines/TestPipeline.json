@@ -38,9 +38,9 @@
             "Slot": 0
         },
         {
-            "SemanticName": "COLOR",
+            "SemanticName": "TEXTURE",
             "SemanticIndex": 0,
-            "Format": "R32G32B32A32_FLOAT",
+            "Format": "R32G32_FLOAT",
             "Slot": 0
         }
     ],

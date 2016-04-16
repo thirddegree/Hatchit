@@ -73,9 +73,11 @@ elseif(DESKTOP_APP)
     set(SDL_LIBS debug SDL2d optimized SDL2)
 endif()
 
-include_directories("${PROJECT_SOURCE_DIR}/../HatchitCore/include/" "${PROJECT_SOURCE_DIR}/../HatchitCore/include/windows"
+include_directories("${PROJECT_SOURCE_DIR}/../HatchitCore/include/" 
+                    "${PROJECT_SOURCE_DIR}/../HatchitCore/include/windows"
+                    "${PROJECT_SOURCE_DIR}/../HatchitCore/source/inline"
                     "${PROJECT_SOURCE_DIR}/../HatchitResource/include/"
-		            "${PROJECT_SOURCE_DIR}/../HatchitResource/source/inline"
+                    "${PROJECT_SOURCE_DIR}/../HatchitResource/source/inline"
                     "${PROJECT_SOURCE_DIR}/../HatchitMath/include"
                     "${PROJECT_SOURCE_DIR}/../HatchitMath/source/inline"
                     "${PROJECT_SOURCE_DIR}/../HatchitGraphics/include"
@@ -83,7 +85,7 @@ include_directories("${PROJECT_SOURCE_DIR}/../HatchitCore/include/" "${PROJECT_S
                     ${HT_DX_INCLUDES}
                     ${HT_DX11_INCLUDES}
                     ${HT_DX12_INCLUDES}
-		            ${HT_VK_INCLUDES}
+                    ${HT_VK_INCLUDES}
                     ${HT_WINDOW_INCLUDE}
                     "${PROJECT_SOURCE_DIR}/../HatchitGame/include/"
                     "${PROJECT_SOURCE_DIR}/../HatchitTest/include/"
@@ -93,10 +95,10 @@ include_directories("${PROJECT_SOURCE_DIR}/../HatchitCore/include/" "${PROJECT_S
                     "${PROJECT_SOURCE_DIR}/../ThirdParty/inih/"
                      ${HT_GLEW_INCLUDES}
                     "${PROJECT_SOURCE_DIR}/../ThirdParty/tinyxml2/"
-		            "${PROJECT_SOURCE_DIR}/../ThirdParty/cppformat/cppformat"
+                    "${PROJECT_SOURCE_DIR}/../ThirdParty/cppformat/cppformat"
                     "${PROJECT_SOURCE_DIR}/../ThirdParty/Python/include/"
                     "${PROJECT_SOURCE_DIR}/../ThirdParty/Python/PC/"
-					"${PROJECT_SOURCE_DIR}/../ThirdParty/json/src"
+                    "${PROJECT_SOURCE_DIR}/../ThirdParty/json/src"
                     ${VK_INCLUDES})
 
 
@@ -118,6 +120,20 @@ add_executable(HatchitServer ${PROJECT_SOURCE_DIR}/../HatchitTest/source/server.
 add_custom_command(TARGET HatchitTest PRE_BUILD
                    COMMAND ${CMAKE_COMMAND} -E copy
                    ${PROJECT_SOURCE_DIR}/../HatchitTest/HatchitTest.ini $<TARGET_FILE_DIR:HatchitTest>)
+                   
+#Call script to compile VK shaders to SPIR-V if we have Vulkan support defined
+if(VK_SUPPORT)
+add_custom_command(TARGET HatchitTest PRE_BUILD
+                   COMMAND "call"
+                   ${PROJECT_SOURCE_DIR}/../Assets/Shaders/compileSPV.bat)
+endif()
+
+#Call script to compile HLSL shaders to CSO if we have DirectX12 support defined
+if(DX12_SUPPORT)
+add_custom_command(TARGET HatchitTest PRE_BUILD
+                   COMMAND "call"
+                   ${PROJECT_SOURCE_DIR}/../Assets/Shaders/compileCSO.bat)
+endif()
 
 #set(PYTHON_LIBS debug python34_d optimized python34 python3)
 set(ASSIMP_LIBS debug assimpd optimized assimp)
