@@ -10,36 +10,37 @@ cmake ../../../ThirdParty/ -G "Visual Studio 14 2015 Win64" -DDIRECTX=NO -DASSIM
 msbuild.exe ThirdPartyLibs.sln /p:Configuration=Debug
 msbuild.exe ThirdPartyLibs.sln /p:Configuration=Release
 
-
 cd ../../../
 
 REM Build Python libraries
-set PYTHONPATH=%PYTHONPATH%;C:\Python34\Lib
-
-mkdir _build\dependencies\Python\bin\Debug
-mkdir _build\dependencies\Python\bin\Debug\Lib
-mkdir _build\dependencies\Python\bin\Release
-mkdir _build\dependencies\Python\bin\Release\Lib
-mkdir _build\dependencies\Python\lib\Debug
-mkdir _build\dependencies\Python\lib\Release
+mkdir _build\dependencies\Python\bin\
+mkdir _build\dependencies\Python\DLLs\
+mkdir _build\dependencies\Python\Lib\
+mkdir _build\dependencies\Python\libs\
 
 cd ../ThirdParty/Python/PCbuild
-call "build.bat" -p x64 -d
 
-move /Y x64-pgo\python3.lib %~dp0\..\_build\dependencies\Python\lib\Debug\
-move /Y amd64\python35_d.lib %~dp0\..\_build\dependencies\Python\lib\Debug\
-move /Y x64-pgo\python35stub.lib %~dp0\..\_build\dependencies\Python\lib\Debug\
-move /Y x64-pgo\* %~dp0\..\_build\dependencies\Python\bin\Debug\
-move /Y amd64\python35_d.dll %~dp0\..\_build\dependencies\Python\bin\Debug\
-move /Y amd64\python_d.exe %~dp0\..\_build\dependencies\Python\bin\Debug\
-xcopy /Y ..\Lib %~dp0\..\_build\dependencies\Python\bin\Debug\Lib /D /E
+REM Python Debug build
+call "get_externals.bat"
+call "build.bat" -p x64 -d -e
+move /Y .\amd64\python_d.exe %~dp0..\_build\dependencies\Python\bin
+move /Y .\amd64\*.dll %~dp0..\_build\dependencies\Python\bin
+move /Y .\amd64\*.lib %~dp0..\_build\dependencies\Python\libs
+move /Y .\amd64\*.pyd %~dp0..\_build\dependencies\Python\DLLs
+xcopy /Y /D /E ..\Lib %~dp0..\_build\dependencies\Python\Lib
 
-call "build.bat" -p x64
+cd ..\..\virtualenv
 
-move /Y amd64\python3.lib %~dp0\..\_build\dependencies\Python\lib\Release\
-move /Y amd64\python35.lib %~dp0\..\_build\dependencies\Python\lib\Release\
-move /Y amd64\python35stub.lib %~dp0\..\_build\dependencies\Python\lib\Release\
-move /Y amd64\python3.dll %~dp0\..\_build\dependencies\Python\bin\Release\
-move /Y amd64\python35.dll %~dp0\..\_build\dependencies\Python\bin\Release\
-move /Y amd64\python.exe %~dp0\..\_build\dependencies\Python\bin\Release\
-xcopy /Y ..\Lib %~dp0\..\_build\dependencies\Python\bin\Release\Lib /D /E
+REM Create virtualenv
+setlocal
+set PYTHONPATH=%~dp0..\_build\dependencies\Python\Lib:%~dp0..\_build\dependencies\Python\DLLs
+%~dp0..\_build\dependencies\Python\bin\python_d.exe .\virtualenv.py %~dp0..\_build\dependencies\Python\env
+endlocal
+
+REM Install libraries
+cd %~dp0..\_build\dependencies\Python\env\Scripts\
+call "activate.bat"
+pip install -I cogapp==2.5
+call "deactivate.bat"
+
+REM TODO: Python Release build
