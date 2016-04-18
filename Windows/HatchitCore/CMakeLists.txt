@@ -1,12 +1,10 @@
-
-
 include_directories("../../HatchitCore/include" 
                     "../../HatchitCore/include/windows"
                     "../../HatchitCore/source/inline"
                     "../../ThirdParty/inih/"
                     "../../ThirdParty/cppformat/cppformat"
                     "../../ThirdParty/json/src")
-					
+                    
 file(GLOB HT_CORE_INC ../../HatchitCore/include/*.h ../../HatchitCore/include/windows/*.h)
 file(GLOB HT_CORE_SRC ../../HatchitCore/source/*.cpp ../../HatchitCore/source/windows/*.cpp)
 file(GLOB HT_CORE_INL ../../HatchitCore/source/inline/*.inl)
