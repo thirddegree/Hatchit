@@ -24,24 +24,33 @@
 
     ],
 
-    "InputLayout": [
+    "VertexLayout": [
         {
             "SemanticName": "POSITION",
             "SemanticIndex": 0,
-            "Format": "R32G32B32_FLOAT",
+            "Type": "FLOAT3",
             "Slot": 0
         },
         {
             "SemanticName": "NORMAL",
-            "SemanticIndex": 0,
-            "Format": "R32G32B32_FLOAT",
+            "SemanticIndex": 1,
+            "Type": "FLOAT3",
             "Slot": 0
         },
         {
-            "SemanticName": "COLOR",
-            "SemanticIndex": 0,
-            "Format": "R32G32B32A32_FLOAT",
+            "SemanticName": "UV",
+            "SemanticIndex": 2,
+            "Type": "FLOAT2",
             "Slot": 0
+        }
+    ],
+
+    "InstanceLayout": [
+        {
+            "SemanticName": "MODELMATRIX",
+            "SemanticIndex": 3,
+            "Type": "MAT4",
+            "Slot": 1
         }
     ],
 
