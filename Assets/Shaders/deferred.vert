@@ -6,55 +6,37 @@ out gl_PerVertex{
     vec4 gl_Position;
 };
 
-struct InstanceData{
-    mat4 worldMatrix;
-};
-
 layout (location = 0) in vec3 pos;
 layout (location = 1) in vec3 norm;
 layout (location = 2) in vec2 uv;
+
+layout (location = 3) in mat4 modelMatrix;
 
 layout (location = 0) out float out_depth;
 layout (location = 1) out vec3 out_norm;
 layout (location = 2) out vec2 out_uv;
 
-layout(push_constant) uniform PassPushConsts {
+layout(push_constant) uniform Constants {
     mat4 proj;
     mat4 view;
 } passConsts;
 
-layout(set = 0, binding = 0) uniform ObjectBuf {
-    mat4 model;
-} objectBuf;
-
-layout(set = 3, binding = 0) uniform samplerBuffer InstanceDataBuffer;
 
 void main() 
 {
-    vec4 depthPos = vec4(pos, 1);
-
-    vec4 col1 = texelFetch(InstanceDataBuffer, gl_InstanceIndex * 4);
-    vec4 col2 = texelFetch(InstanceDataBuffer, gl_InstanceIndex * 4 + 1);
-    vec4 col3 = texelFetch(InstanceDataBuffer, gl_InstanceIndex * 4 + 2);
-    vec4 col4 = texelFetch(InstanceDataBuffer, gl_InstanceIndex * 4 + 3);
-
-    // Now assemble the four columns into a matrix.
-    mat4 model = mat4(col1, col2, col3, col4);
-
-    depthPos = model * depthPos;
-    depthPos = passConsts.view * depthPos;
-
-    
-    out_norm = norm;
+    out_norm = mat3(modelMatrix) * norm;
     out_uv  = uv;
     
-    vec4 worldPos = passConsts.proj * depthPos;
+    vec4 depthPos = passConsts.view * modelMatrix * vec4(pos, 1);
     
-    out_depth = worldPos.z / 100.0f;
+
+    vec4 clipPos = passConsts.proj * depthPos;
     
-    gl_Position = worldPos;
+    gl_Position = clipPos;
 
     // GL->VK conventions
     gl_Position.y = -gl_Position.y;
     gl_Position.z = (gl_Position.z + gl_Position.w) / 2.0;
+
+    out_depth = depthPos.z / -100.0f;
 }

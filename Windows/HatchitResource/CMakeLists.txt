@@ -1,4 +1,3 @@
-
 include_directories("../../HatchitCore/include"
                     "../../HatchitCore/source/inline"
                     "../../HatchitMath/include"

@@ -1,8 +1,12 @@
 {
-	"Input": [
-        "DeferredFinal.json"
+    "Input": [
+        {
+            "Path": "Lighting.json",
+            "Set": 1,
+            "Binding": 0
+        }
     ],
-	"Output": [
-		"ScreenTarget.json"
-	]
+    "Output": [
+        "ScreenTarget.json"
+    ]
 }

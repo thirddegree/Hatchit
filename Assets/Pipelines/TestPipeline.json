@@ -24,23 +24,23 @@
 
     ],
 
-    "InputLayout": [
+    "VertexLayout": [
         {
             "SemanticName": "POSITION",
             "SemanticIndex": 0,
-            "Format": "R32G32B32_FLOAT",
+            "Type": "FLOAT3",
             "Slot": 0
         },
         {
             "SemanticName": "NORMAL",
             "SemanticIndex": 0,
-            "Format": "R32G32B32_FLOAT",
+            "Type": "FLOAT3",
             "Slot": 0
         },
         {
             "SemanticName": "TEXTURE",
             "SemanticIndex": 0,
-            "Format": "R32G32_FLOAT",
+            "Type": "FLOAT2",
             "Slot": 0
         }
     ],

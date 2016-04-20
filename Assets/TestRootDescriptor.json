@@ -65,7 +65,7 @@
                     "Type": "SHADER_RESOURCE",
                     "DescriptorCount": 1,
                     "BaseRegister": 0,
-                    "RegisterSpace": 1
+                    "RegisterSpace": 0
                 },
                 {
                     "Type": "SHADER_RESOURCE",
@@ -100,6 +100,14 @@
             "ShaderRegister": 1,
             "RegisterSpace": 0,
             "DataType": "MAT4",
+            "ValueCount": 3
+        },
+        {
+            "Type": "CONSTANTS",
+            "Visibility": "VERTEX",
+            "ShaderRegister": 2,
+            "RegisterSpace": 0,
+            "DataType": "INT",
             "ValueCount": 2
         }
     ]

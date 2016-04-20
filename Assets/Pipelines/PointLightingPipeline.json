@@ -1,25 +1,25 @@
 {
-    "RenderPass" : "DeferredPass.json",
+    "RenderPass": "LightingPass.json",
 
     "Shaders": {
         "spv": {
-            "Vertex":"deferred_VS.spv",
-            "Fragment":"deferred_FS.spv",
-            "Geometry":"",
-            "Tess_Control":"",
-            "Tess_Eval":"",
-            "Compute":""
+            "Vertex": "pointLighting_VS.spv",
+            "Fragment": "pointLighting_FS.spv",
+            "Geometry": "",
+            "Tess_Control": "",
+            "Tess_Eval": "",
+            "Compute": ""
         },
         "cso": {
-            "Vertex":"tri_VS.cso",
+            "Vertex": "tri_VS.cso",
             "Fragment": "tri_PS.cso",
-            "Geometry":"",
-            "Tess_Control":"",
-            "Tess_Eval":"",
-            "Compute":""
+            "Geometry": "",
+            "Tess_Control": "",
+            "Tess_Eval": "",
+            "Compute": ""
         }
     },
-    
+
     "ShaderVariables": [
 
     ],
@@ -51,12 +51,30 @@
             "SemanticIndex": 3,
             "Type": "MAT4",
             "Slot": 1
+        },
+        {
+            "SemanticName": "COLOR",
+            "SemanticIndex": 7,
+            "Type": "FLOAT4",
+            "Slot": 1
+        },
+        {
+            "SemanticName": "RADIUS",
+            "SemanticIndex": 8,
+            "Type": "FLOAT",
+            "Slot": 1
+        },
+        {
+            "SemanticName": "ATTENUATION",
+            "SemanticIndex": 9,
+            "Type": "FLOAT3",
+            "Slot": 1
         }
     ],
 
     "RasterState": {
         "PolygonMode": "Solid",
-        "CullMode": "Back",
+        "CullMode": "None",
         "FrontCounterClockwise": false,
         "DepthClampEnable": true,
         "DiscardEnable": false,
