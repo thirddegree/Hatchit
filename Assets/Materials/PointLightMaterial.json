@@ -1,0 +1,9 @@
+{
+    "Pipeline": "PointLightingPipeline.json",
+
+    "RenderPass": "LightingPass.json",
+
+    "ShaderVariables": [],
+
+    "Textures": []
+}

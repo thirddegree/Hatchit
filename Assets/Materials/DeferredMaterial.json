@@ -3,14 +3,7 @@
 
     "RenderPass": "DeferredPass.json",
 
-    "ShaderVariables": [{
-        "Name": "object.model",
-        "Type": "MATRIX4",
-        "Value": [1,0,0,0,
-                  0,1,0,0,
-                  0,0,1,0,
-                  0,0,0,1]
-    }],
+    "ShaderVariables": [],
 
     "Textures": [
         "raptor.png"
