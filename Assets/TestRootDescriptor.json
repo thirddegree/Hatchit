@@ -28,7 +28,7 @@
         "LAYOUT_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT",
         "LAYOUT_ALLOW_STREAM_OUTPUT"
     ],
-    "ParameterCount": 5,
+    "ParameterCount": 7,
     "Parameters": [
         {
             "Type": "TABLE",
@@ -90,6 +90,25 @@
                     "Type": "UNORDERED_ACCESS",
                     "DescriptorCount": 1,
                     "BaseRegister": 0,
+                    "RegisterSpace": 0
+                }
+            ]
+        },
+        {
+            "Type": "TABLE",
+            "Visibility": "FRAGMENT",
+            "RangeCount": 2,
+            "Ranges": [
+                {
+                    "Type": "SHADER_RESOURCE",
+                    "DescriptorCount": 1,
+                    "BaseRegister": 0,
+                    "RegisterSpace": 0
+                },
+                {
+                    "Type": "SHADER_RESOURCE",
+                    "DescriptorCount": 1,
+                    "BaseRegister": 1,
                     "RegisterSpace": 0
                 }
             ]

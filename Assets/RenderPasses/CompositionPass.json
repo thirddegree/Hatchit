@@ -1,0 +1,17 @@
+{
+    "Input": [
+        {
+            "Path": "DeferredColor.json",
+            "Set": 4,
+            "Binding": 0
+        },
+        {
+            "Path": "Lighting.json",
+            "Set": 4,
+            "Binding": 1
+        }
+    ],
+    "Output": [
+        "Composition.json"
+    ]
+}

@@ -1,0 +1,9 @@
+{
+    "Pipeline": "CompositionPipeline.json",
+
+    "RenderPass": "CompositionPass.json",
+
+    "ShaderVariables": [],
+
+    "Textures": []
+}

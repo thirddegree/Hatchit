@@ -53,5 +53,5 @@ void main()
     (lightDist * lightAttenuation.y) + 
     lightAttenuation.z), 0.0f, 1.0f);
 
-    uFragColor = color * nL * attenuation * lightColor;
+    uFragColor = nL * attenuation * lightColor;
 }
