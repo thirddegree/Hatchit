@@ -17,15 +17,14 @@
                 }
             ],
             "Transform": {
-                "Position": [0, 0, 0],
+                "Position": [5, 0, 0],
                 "Rotation": [0, 0, 0],
-                "Scale": [1, 1, 1]
+                "Scale": [3, 3, 3]
             }
         },
         {
             "Name": "ChildObject",
             "GUID": "{00000000-0000-0000-0000-000000000002}",
-            "Parent": "{00000000-0000-0000-0000-000000000001}",
             "Components": [
                 {
                     "Type": "MeshRenderer",
