@@ -1,7 +1,7 @@
 {
     "Pipeline": "CompositionPipeline.json",
 
-    "RenderPass": "CompositionPass.json",
+    "RenderPasses": [ "CompositionPass.json" ],
 
     "ShaderVariables": [],
 
