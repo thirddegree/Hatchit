@@ -73,6 +73,10 @@ elseif(DESKTOP_APP)
     set(SDL_LIBS debug SDL2d optimized SDL2)
 endif()
 
+#Get build assets (icons etc)
+file(GLOB HT_BUILD_RESOURCES ${PROJECT_SOURCE_DIR}/../Assets/Build/*)
+file(GLOB HT_BUILD_ICONS ${PROJECT_SOURCE_DIR}/../Assets/Build/*.ico)
+
 include_directories("${PROJECT_SOURCE_DIR}/../HatchitCore/include/" 
                     "${PROJECT_SOURCE_DIR}/../HatchitCore/include/windows"
                     "${PROJECT_SOURCE_DIR}/../HatchitCore/source/inline"
@@ -113,7 +117,7 @@ link_directories("${PROJECT_SOURCE_DIR}/_build/dependencies/assimp/lib/$(Configu
 
 add_definitions(-D_UNICODE)
 
-add_executable(HatchitTest ${PROJECT_SOURCE_DIR}/../HatchitTest/source/main.cpp)
+add_executable(HatchitTest ${PROJECT_SOURCE_DIR}/../HatchitTest/source/main.cpp ${HT_BUILD_RESOURCES})
 add_executable(HatchitClient ${PROJECT_SOURCE_DIR}/../HatchitTest/source/client.cpp)
 add_executable(HatchitServer ${PROJECT_SOURCE_DIR}/../HatchitTest/source/server.cpp)
 
@@ -134,6 +138,11 @@ add_custom_command(TARGET HatchitTest PRE_BUILD
                    COMMAND "call"
                    ${PROJECT_SOURCE_DIR}/../Assets/Shaders/compileCSO.bat)
 endif()
+
+#Copy command to bring icon next to exe
+add_custom_command(TARGET HatchitTest PRE_BUILD
+                   COMMAND ${CMAKE_COMMAND} -E copy
+                   ${HT_BUILD_ICONS} $<TARGET_FILE_DIR:HatchitTest>)
 
 #set(PYTHON_LIBS debug python34_d optimized python34 python3)
 set(ASSIMP_LIBS debug assimpd optimized assimp)
