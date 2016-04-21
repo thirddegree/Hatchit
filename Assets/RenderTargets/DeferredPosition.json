@@ -2,5 +2,6 @@
     "Width": 0,
     "Height": 0,
     "Format": "R",
-    "ClearColor": [1.0, 0, 0, 1.0] 
+    "ClearColor": [ 1.0, 0, 0, 1.0 ],
+    "Blending":  null
 }

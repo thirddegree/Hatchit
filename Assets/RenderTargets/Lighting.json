@@ -2,5 +2,9 @@
     "Width": 0,
     "Height": 0,
     "Format": "BGRA",
-    "ClearColor": [0,0,0,1]
+    "ClearColor": [ 0, 0, 0, 1 ],
+    "Blending":  { 
+        "ColorBlendOp": "ADD",
+        "AlphaBlendOp": "NONE"
+    }
 }

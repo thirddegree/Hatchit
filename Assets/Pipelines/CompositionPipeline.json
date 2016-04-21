@@ -48,7 +48,10 @@
     "InstanceLayout": [
 
     ],
-
+    "DepthStencilState": {
+        "TestDepth": true,
+        "WriteDepth": true
+    },
     "RasterState": {
         "PolygonMode": "Solid",
         "CullMode": "Back",

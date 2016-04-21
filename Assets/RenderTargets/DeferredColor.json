@@ -2,5 +2,6 @@
     "Width": 0,
     "Height": 0,
     "Format": "BGRA",
-    "ClearColor": null
+    "ClearColor": null,
+    "Blending":  null
 }

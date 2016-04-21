@@ -44,7 +44,10 @@
             "Slot": 0
         }
     ],
-
+    "DepthStencilState": {
+        "TestDepth": true,
+        "WriteDepth": true
+    },
     "RasterState": {
         "PolygonMode": "Solid",
         "CullMode": "Back",
