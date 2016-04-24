@@ -13,12 +13,12 @@ set (HatchitEngine_VERSION_BUILD 1)
 
 # Compiler flag
 include (CheckCXXCompilerFlag)
-CHECK_CXX_COMPILER_FLAG("-std=c++11" COMPILER_SUPPORTS_CXX11)
-if(COMPILER_SUPPORTS_CXX11)
+CHECK_CXX_COMPILER_FLAG("-std=c++1y" COMPILER_SUPPORTS_CXX14)
+if(COMPILER_SUPPORTS_CXX14)
     if(CMAKE_BUILD_TYPE MATCHES DEBUG)
-        set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -g -msse")
+        set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++1y -Wall -g -msse")
     else()
-        set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -msse")
+        set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++1y -Wall -msse")
     endif()
 else()
     message(STATUS "The compiler ${CMAKE_CXX_COMPILER} has no C++11 support. Please use a different C++ compiler.")
@@ -94,7 +94,8 @@ configure_file (
 include_directories("../HatchitCore/include" 
 		            "../HatchitCore/include/linux"
                     "../HatchitResource/include"
-		    "../HatchitResource/source/inline"
+    		        "../HatchitCore/source/inline"
+                    "../HatchitResource/source/inline"
                     "../HatchitMath/include"
                     "../HatchitGraphics/include"
                     "../HatchitNetwork/include"
