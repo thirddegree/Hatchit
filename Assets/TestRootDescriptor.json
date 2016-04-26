@@ -65,19 +65,19 @@
                     "Type": "SHADER_RESOURCE",
                     "DescriptorCount": 1,
                     "BaseRegister": 0,
-                    "RegisterSpace": 0
+                    "RegisterSpace": 1
                 },
                 {
                     "Type": "SHADER_RESOURCE",
                     "DescriptorCount": 1,
                     "BaseRegister": 1,
-                    "RegisterSpace": 0
+                    "RegisterSpace": 1
                 },
                 {
                     "Type": "SHADER_RESOURCE",
                     "DescriptorCount": 1,
                     "BaseRegister": 2,
-                    "RegisterSpace": 0
+                    "RegisterSpace": 1
                 }
             ]
         },
@@ -103,13 +103,13 @@
                     "Type": "SHADER_RESOURCE",
                     "DescriptorCount": 1,
                     "BaseRegister": 0,
-                    "RegisterSpace": 0
+                    "RegisterSpace": 2
                 },
                 {
                     "Type": "SHADER_RESOURCE",
                     "DescriptorCount": 1,
                     "BaseRegister": 1,
-                    "RegisterSpace": 0
+                    "RegisterSpace": 2
                 }
             ]
         },
