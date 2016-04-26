@@ -1,0 +1,133 @@
+{
+    "Samplers": [
+        {
+            "Filter": {
+                "Mag": "BILINEAR",
+                "Min": "BILINEAR"
+            },
+            "Address": {
+                "U": "WRAP",
+                "V": "WRAP",
+                "W": "WRAP"
+            },
+
+            "MipLODBias": 0.0,
+            "MinLOD": 0.0,
+            "MaxLOD": 0.0,
+            "MaxAnisotropy": 8,
+            "CompareOp": "COMPARE_OP_NEVER",
+            "BorderColor": "COLOR_OPAQUE_WHITE",
+            "Immutable": {
+                "Register": 0,
+                "Space": 0,
+                "Visibility": "FRAGMENT"
+            }
+        }
+    ],
+    "Flags": [
+        "LAYOUT_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT",
+        "LAYOUT_ALLOW_STREAM_OUTPUT"
+    ],
+    "ParameterCount": 7,
+    "Parameters": [
+        {
+            "Type": "TABLE",
+            "Visibility": "VERTEX",
+            "RangeCount": 1,
+            "Ranges": [
+                {
+                    "Type": "CONSTANT_BUFFER",
+                    "DescriptorCount": 1,
+                    "BaseRegister": 0,
+                    "RegisterSpace": 0
+                }
+            ]
+        },
+        {
+            "Type": "TABLE",
+            "Visibility": "FRAGMENT",
+            "RangeCount": 1,
+            "Ranges": [
+                {
+                    "Type": "SHADER_RESOURCE",
+                    "DescriptorCount": 1,
+                    "BaseRegister": 0,
+                    "RegisterSpace": 0
+                }
+            ]
+        },
+        {
+            "Type": "TABLE",
+            "Visibility": "FRAGMENT",
+            "RangeCount": 3,
+            "Ranges": [
+                {
+                    "Type": "SHADER_RESOURCE",
+                    "DescriptorCount": 1,
+                    "BaseRegister": 0,
+                    "RegisterSpace": 1
+                },
+                {
+                    "Type": "SHADER_RESOURCE",
+                    "DescriptorCount": 1,
+                    "BaseRegister": 1,
+                    "RegisterSpace": 1
+                },
+                {
+                    "Type": "SHADER_RESOURCE",
+                    "DescriptorCount": 1,
+                    "BaseRegister": 2,
+                    "RegisterSpace": 1
+                }
+            ]
+        },
+        {
+            "Type": "TABLE",
+            "Visibility": "VERTEX",
+            "RangeCount": 1,
+            "Ranges": [
+                {
+                    "Type": "UNORDERED_ACCESS",
+                    "DescriptorCount": 1,
+                    "BaseRegister": 0,
+                    "RegisterSpace": 0
+                }
+            ]
+        },
+        {
+            "Type": "TABLE",
+            "Visibility": "FRAGMENT",
+            "RangeCount": 2,
+            "Ranges": [
+                {
+                    "Type": "SHADER_RESOURCE",
+                    "DescriptorCount": 1,
+                    "BaseRegister": 0,
+                    "RegisterSpace": 2
+                },
+                {
+                    "Type": "SHADER_RESOURCE",
+                    "DescriptorCount": 1,
+                    "BaseRegister": 1,
+                    "RegisterSpace": 2
+                }
+            ]
+        },
+        {
+            "Type": "CONSTANTS",
+            "Visibility": "VERTEX",
+            "ShaderRegister": 1,
+            "RegisterSpace": 0,
+            "DataType": "MAT4",
+            "ValueCount": 3
+        },
+        {
+            "Type": "CONSTANTS",
+            "Visibility": "VERTEX",
+            "ShaderRegister": 2,
+            "RegisterSpace": 0,
+            "DataType": "INT",
+            "ValueCount": 2
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "Filter": {
+        "Mag": "NEAREST",
+        "Min": "NEAREST"
+    },
+    "Address": {
+        "U": "WRAP",
+        "V": "WRAP",
+        "W": "WRAP"
+    },
+
+    "MipMode": "LINEAR",
+    "MipLODBias": 0.0,
+    "MinLOD": 0.0,
+    "MaxLOD": 0.0,
+    "MaxAnisotropy": 8,
+    "CompareOp": "COMPARE_OP_NEVER",
+    "BorderColor": "COLOR_OPAQUE_WHITE",
+    "ColorSpace": "LINEAR"
+}

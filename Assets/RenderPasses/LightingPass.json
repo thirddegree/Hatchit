@@ -1,0 +1,22 @@
+{
+    "Input": [
+        {
+            "Path": "DeferredColor.json",
+            "Set": 2,
+            "Binding": 0
+        },
+        {
+            "Path": "DeferredPosition.json",
+            "Set": 2,
+            "Binding": 1
+        },
+        {
+            "Path": "DeferredNormal.json",
+            "Set": 2,
+            "Binding": 2
+        }
+    ],
+    "Output": [
+        "Lighting.json"
+    ]
+}

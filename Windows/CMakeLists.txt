@@ -56,6 +56,10 @@ configure_file (
     "${PROJECT_SOURCE_DIR}/../HatchitCore/include/ht_version.h"
 )
 
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/_build/bin/lib")
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/_build/bin/lib")
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/_build/bin")
+
 add_subdirectory("${PROJECT_SOURCE_DIR}/HatchitCore")
 add_subdirectory("${PROJECT_SOURCE_DIR}/HatchitMath")
 add_subdirectory("${PROJECT_SOURCE_DIR}/HatchitResource")
@@ -65,6 +69,8 @@ add_subdirectory("${PROJECT_SOURCE_DIR}/HatchitGame")
 add_subdirectory("${PROJECT_SOURCE_DIR}/HatchitNetwork")
 add_subdirectory("${PROJECT_SOURCE_DIR}/HatchitTest")
 
+
+                      
 if(UNIVERSAL_APP)
     set_target_properties(HatchitCore HatchitResource HatchitNetwork HatchitGame HatchitGraphics HatchitTest PROPERTIES COMPILE_FLAGS "/ZW")
 endif()

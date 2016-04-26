@@ -28,7 +28,7 @@ endif()
 
 # If we've asked for DirectX 12 Support
 if(DX12_SUPPORT)
-    set(DX12_LIBS debug d3d12 d3dcompiler dxgi optimized d3d12 d3dcompiler dxgi)
+	set(DX12_LIBS debug d3d12 d3dcompiler dxgi optimized d3d12 d3dcompiler dxgi)
     set(HT_DX12_INCLUDES "../../HatchitGraphics/include/directx/dx12")
 else()
     set(DX12_LIBS "")
@@ -73,7 +73,9 @@ endif()
 
 include_directories("../../HatchitCore/include" 
                     "../../HatchitCore/include/windows"
+                    "../../HatchitCore/source/inline"
                     "../../HatchitResource/include"
+                    "../../HatchitResource/source/inline"
                     "../../HatchitMath/include"
                     "../../HatchitMath/source/inline"
                     "../../HatchitGraphics/include"
@@ -81,14 +83,14 @@ include_directories("../../HatchitCore/include"
                     ${HT_DX11_INCLUDES}
                     ${HT_DX12_INCLUDES}
                     ${HT_GL_INCLUDES}
-		            ${HT_VK_INCLUDES}
+                    ${HT_VK_INCLUDES}
                     "../../HatchitGame/include"
                     ${HT_WINDOW_INCLUDE}
                     "../../ThirdParty/assimp/include"
                     "../../ThirdParty/inih/"
                     "../../ThirdParty/tinyxml2/"
-		            "../../ThirdParty/json/src"
-		            "../../ThirdParty/cppformat/cppformat"
+                    "../../ThirdParty/json/src"
+                    "../../ThirdParty/cppformat/cppformat"
                     ${GLEW_INCLUDES}
                     ${VK_INCLUDES})
                     
@@ -104,6 +106,7 @@ file(GLOB HT_GAME_SRC ../../HatchitGame/source/*.cpp ${HT_WINDOW_SOURCE})
 add_definitions(-D_UNICODE)
 
 add_library(HatchitGame SHARED ${HT_GAME_INC} ${HT_GAME_SRC})
+
 
 target_compile_definitions(HatchitGame PRIVATE HT_NONCLIENT_BUILD)
 

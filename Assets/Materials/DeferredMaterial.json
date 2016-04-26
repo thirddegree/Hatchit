@@ -1,0 +1,11 @@
+{
+    "Pipeline": "DeferredPipeline.json",
+
+    "RenderPasses": [ "DeferredPass.json" ],
+
+    "ShaderVariables": [],
+
+    "Textures": [
+        "raptor.png"
+    ]
+}

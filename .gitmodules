@@ -43,9 +43,6 @@
 [submodule "ThirdParty/bullet3"]
 	path = ThirdParty/bullet3
 	url = https://github.com/thirddegree/bullet3.git
-[submodule "ThirdParty/Python"]
-	path = ThirdParty/Python
-	url = https://github.com/thirddegree/Python.git
 [submodule "ThirdParty/stb"]
 	path = ThirdParty/stb
 	url = https://github.com/thirddegree/stb
@@ -58,3 +55,6 @@
 [submodule "ThirdParty/cppformat"]
 	path = ThirdParty/cppformat
 	url = https://github.com/thirddegree/cppformat.git
+[submodule "ThirdParty/cog"]
+	path = ThirdParty/cog
+	url = https://github.com/thirddegree/cog.git
