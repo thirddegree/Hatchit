@@ -29,7 +29,7 @@
         "LAYOUT_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT",
         "LAYOUT_ALLOW_STREAM_OUTPUT"
     ],
-    "ParameterCount": 8,
+    "ParameterCount": 7,
     "Parameters": [
         {
             "Type": "TABLE",
