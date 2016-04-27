@@ -2,12 +2,12 @@
     "Input": [
         {
             "Path": "DeferredColor.json",
-            "Set": 4,
+            "Set": 5,
             "Binding": 0
         },
         {
             "Path": "Lighting.json",
-            "Set": 4,
+            "Set": 5,
             "Binding": 1
         }
     ],

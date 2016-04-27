@@ -3,7 +3,7 @@
 
     "Shaders": {
         "spv": {
-            "Vertex": "composition_VS.spv",
+            "Vertex": "fullscreenTri_VS.spv",
             "Fragment": "composition_FS.spv",
             "Geometry": "",
             "Tess_Control": "",
