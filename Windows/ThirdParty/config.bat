@@ -12,10 +12,3 @@ msbuild.exe ThirdPartyLibs.sln /p:Configuration=Release
 
 cd ../../../ThirdParty
 
-REM Download libsndfile installer
-
-pip install wget
-
-python.exe libsndfile_install.py
-
-
