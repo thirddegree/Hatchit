@@ -29,8 +29,21 @@
         "LAYOUT_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT",
         "LAYOUT_ALLOW_STREAM_OUTPUT"
     ],
-    "ParameterCount": 7,
+    "ParameterCount": 8,
     "Parameters": [
+        {
+            "Type": "TABLE",
+            "Visibility": "ALL",
+            "RangeCount": 1,
+            "Ranges": [
+                {
+                    "Type": "CONSTANT_BUFFER",
+                    "DescriptorCount": 1,
+                    "BaseRegister": 0,
+                    "RegisterSpace": 0
+                }
+            ]
+        },
         {
             "Type": "TABLE",
             "Visibility": "VERTEX",

@@ -2,10 +2,10 @@
 #extension GL_ARB_separate_shader_objects : enable
 #extension GL_ARB_shading_language_420pack : enable
 
-layout (set = 0, binding = 1) uniform sampler immutableSampler;
-layout (set = 3, binding = 0) uniform texture2D color;
-layout (set = 3, binding = 1) uniform texture2D position;
-layout (set = 3, binding = 2) uniform texture2D normal;
+layout (set = 0, binding = 0) uniform sampler immutableSampler;
+layout (set = 4, binding = 0) uniform texture2D color;
+layout (set = 4, binding = 1) uniform texture2D position;
+layout (set = 4, binding = 2) uniform texture2D normal;
 
 layout (location = 0) out vec4 uFragColor;
 
