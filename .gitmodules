@@ -55,9 +55,9 @@
 [submodule "ThirdParty/cppformat"]
 	path = ThirdParty/cppformat
 	url = https://github.com/thirddegree/cppformat.git
-[submodule "cog"]
+[submodule "ThirdParty/cog"]
 	path = ThirdParty/cog
-	url = http://github.com/thirddegree/cog
+	url = https://github.com/thirddegree/cog.git
 [submodule "ThirdParty/virtualenv"]
 	path = ThirdParty/virtualenv
 	url = https://github.com/pypa/virtualenv

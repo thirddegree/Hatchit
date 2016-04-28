@@ -3,7 +3,7 @@
 
     "Shaders": {
         "spv": {
-            "Vertex":"screen_VS.spv",
+            "Vertex":"fullscreenTri_VS.spv",
             "Fragment":"screen_FS.spv",
             "Geometry":"",
             "Tess_Control":"",
@@ -32,7 +32,10 @@
             "Slot": 0
         }
     ],
-
+    "DepthStencilState": {
+        "TestDepth": true,
+        "WriteDepth": true
+    },
     "RasterState": {
         "PolygonMode": "Solid",
         "CullMode": "Back",

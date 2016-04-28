@@ -24,10 +24,11 @@ call "deactivate.bat"
 goto :Done
 
 :Error
-echo "Error invoking Python. Is Python3.X.X installed? Is Python3.X.X accessible on the PATH?"
+echo "Error invoking Python. Is Python3.5 installed? Is Python3.5 accessible on the PATH?"
 goto :EndOfScript
 
 :Done
 echo "Script complete."
 
 :EndOfScript
+cd %~dp0

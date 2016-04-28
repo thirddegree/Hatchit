@@ -2,9 +2,10 @@
 #extension GL_ARB_separate_shader_objects : enable
 #extension GL_ARB_shading_language_420pack : enable
 
-layout (set = 2, binding = 0) uniform sampler2D color;
-layout (set = 2, binding = 1) uniform sampler2D position;
-layout (set = 2, binding = 2) uniform sampler2D normal;
+layout (set = 0, binding = 0) uniform sampler immutableSampler;
+layout (set = 4, binding = 0) uniform texture2D color;
+layout (set = 4, binding = 1) uniform texture2D position;
+layout (set = 4, binding = 2) uniform texture2D normal;
 
 layout (location = 0) out vec4 uFragColor;
 
@@ -25,9 +26,9 @@ void main()
 
     vec2 uv = vec2(screenX, screenY);
 
-    vec4 color = texture(color, uv);
-    vec4 positionSampled = texture(position, uv);
-    vec4 normalSampled = texture(normal, uv);
+    vec4 color = texture(sampler2D(color, immutableSampler), uv);
+    vec4 positionSampled = texture(sampler2D(position, immutableSampler), uv);
+    vec4 normalSampled = texture(sampler2D(normal, immutableSampler), uv);
     
     float depth = positionSampled.r;
     vec3 normal = normalSampled.xyz;
@@ -53,5 +54,5 @@ void main()
     (lightDist * lightAttenuation.y) + 
     lightAttenuation.z), 0.0f, 1.0f);
 
-    uFragColor = color * nL * attenuation * lightColor;
+    uFragColor = nL * attenuation * lightColor;
 }

@@ -29,10 +29,13 @@ layout (location = 10) out vec3 lightAttenuation;
 layout(push_constant) uniform Constants {
     mat4 proj;
     mat4 view;
+} passConsts;
+
+layout(set = 1, binding = 0) uniform PassBuffer {
     mat4 invViewProj;
     int width;
     int height;
-} passConsts;
+} passBuffer;
 
 void main() 
 {
@@ -47,9 +50,9 @@ void main()
 
     gl_Position = clipPos;
 
-    invViewProj = passConsts.invViewProj;
-    width = passConsts.width;
-    height = passConsts.height;
+    invViewProj = passBuffer.invViewProj;
+    width = passBuffer.width;
+    height = passBuffer.height;
 
     lightPos = modelMatrix[3];
     lightRadius = radius;

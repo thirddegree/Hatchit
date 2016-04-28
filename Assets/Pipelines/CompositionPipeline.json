@@ -1,25 +1,25 @@
 {
-    "RenderPass" : "DeferredPass.json",
+    "RenderPass": "CompositionPass.json",
 
     "Shaders": {
         "spv": {
-            "Vertex":"deferred_VS.spv",
-            "Fragment":"deferred_FS.spv",
-            "Geometry":"",
-            "Tess_Control":"",
-            "Tess_Eval":"",
-            "Compute":""
+            "Vertex": "fullscreenTri_VS.spv",
+            "Fragment": "composition_FS.spv",
+            "Geometry": "",
+            "Tess_Control": "",
+            "Tess_Eval": "",
+            "Compute": ""
         },
         "cso": {
-            "Vertex":"tri_VS.cso",
+            "Vertex": "tri_VS.cso",
             "Fragment": "tri_PS.cso",
-            "Geometry":"",
-            "Tess_Control":"",
-            "Tess_Eval":"",
-            "Compute":""
+            "Geometry": "",
+            "Tess_Control": "",
+            "Tess_Eval": "",
+            "Compute": ""
         }
     },
-    
+
     "ShaderVariables": [
 
     ],
@@ -46,12 +46,7 @@
     ],
 
     "InstanceLayout": [
-        {
-            "SemanticName": "MODELMATRIX",
-            "SemanticIndex": 3,
-            "Type": "MAT4",
-            "Slot": 1
-        }
+
     ],
     "DepthStencilState": {
         "TestDepth": true,

@@ -10,11 +10,12 @@ layout (location = 0) in float in_depth;
 layout (location = 1) in vec3 in_norm;
 layout (location = 2) in vec2 in_uv;
 
-layout (set = 1, binding = 0) uniform sampler2D color;
+layout (set = 0, binding = 0) uniform sampler immutableSampler;
+layout (set = 3, binding = 0) uniform texture2D color;
 
 void main()
 {
-    vec4 textureColor = texture(color, in_uv);
+    vec4 textureColor = texture(sampler2D(color, immutableSampler), in_uv);
 
     out_color = textureColor;
     out_position = in_depth;

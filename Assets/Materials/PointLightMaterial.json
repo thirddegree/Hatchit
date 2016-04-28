@@ -1,7 +1,7 @@
 {
     "Pipeline": "PointLightingPipeline.json",
 
-    "RenderPass": "LightingPass.json",
+    "RenderPasses": [ "LightingPass.json" ],
 
     "ShaderVariables": [],
 
