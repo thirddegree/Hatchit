@@ -6,6 +6,6 @@
     "ShaderVariables": [],
 
     "Textures": [
-        "raptor.png"
+        { "Path": "raptor.png", "Set":  3, "Binding": 0}
     ]
 }
