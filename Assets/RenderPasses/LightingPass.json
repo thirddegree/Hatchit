@@ -1,4 +1,6 @@
 {
+    "RootLayout": "TestRootDescriptor.json",
+
     "Input": [
         {
             "Path": "DeferredColor.json",
