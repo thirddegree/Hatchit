@@ -61,3 +61,6 @@
 [submodule "ThirdParty/virtualenv"]
 	path = ThirdParty/virtualenv
 	url = https://github.com/pypa/virtualenv
+[submodule "HatchitAudio"]
+	path = HatchitAudio
+	url = https://github.com/thirddegree/HatchitAudio.git
