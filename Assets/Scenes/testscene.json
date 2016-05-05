@@ -3,7 +3,8 @@
     "GUID": "{00000000-0000-0000-0000-000000000000}",
     "GUIDs": [
         "{00000000-0000-0000-0000-000000000001}",
-        "{00000000-0000-0000-0000-000000000002}"
+        "{00000000-0000-0000-0000-000000000002}",
+        "{00000000-0000-0000-0000-000000000003}"
     ],
     "GameObjects": [
         {
@@ -11,9 +12,9 @@
             "GUID": "{00000000-0000-0000-0000-000000000001}",
             "Components": [
                 {
-					"Type": "MeshRenderer",
-					"Material": "DeferredMaterial.json",
-					"Mesh":  "raptor.obj"
+                    "Type": "MeshRenderer",
+                    "Material": "DeferredMaterial.json",
+                    "Mesh":  "raptor.obj"
                 }
             ],
             "Transform": {
@@ -28,14 +29,28 @@
             "Components": [
                 {
                     "Type": "MeshRenderer",
-					"Material": "DeferredMaterial.json",
-					"Mesh":  "raptor.obj"
+                    "Material": "DeferredMaterial.json",
+                    "Mesh": "raptor.obj"
                 }
             ],
             "Transform": {
-                "Position": [0, 0, 0],
+                "Position": [ 0, 0, 0 ],
+                "Rotation": [ 0, 0, 0 ],
+                "Scale": [ 1, 1, 1 ]
+            }
+        },
+        {
+            "Name": "Camera",
+            "GUID": "{00000000-0000-0000-0000-000000000003}",
+            "Components": [
+                {
+                    "Type": "Camera"
+                }
+            ],
+            "Transform": {
+                "Position": [0, 15, 10],
                 "Rotation": [0, 0, 0],
-                "Scale": [1, 1, 1]
+                "Scale":    [1, 1, 1]
             }
         }
     ]

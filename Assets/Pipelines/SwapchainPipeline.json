@@ -24,7 +24,7 @@
 
     ],
 
-    "InputLayout": [
+    "VertexLayout": [
         {
             "SemanticName": "POSITION",
             "SemanticIndex": 0,
