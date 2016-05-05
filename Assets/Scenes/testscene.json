@@ -14,7 +14,7 @@
                 {
                     "Type": "MeshRenderer",
                     "Material": "DeferredMaterial.json",
-                    "Mesh":  "raptor.obj"
+                    "Mesh":  "Raptor.obj"
                 }
             ],
             "Transform": {
@@ -30,7 +30,7 @@
                 {
                     "Type": "MeshRenderer",
                     "Material": "DeferredMaterial.json",
-                    "Mesh": "raptor.obj"
+                    "Mesh": "Raptor.obj"
                 }
             ],
             "Transform": {

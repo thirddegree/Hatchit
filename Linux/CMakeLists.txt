@@ -66,23 +66,10 @@ set(HT_GL_INCLUDES "")
 
 endif()
 
-
-#If Vulkan support is defined we want to use XCB
-if(VK_SUPPORT)
-
-set(WINDOW_LIBS xcb)
-set(HT_WINDOW_INCLUDES ../HatchitGame/include/xcb/)
-
-file(GLOB HT_WINDOW_SRC ../HatchitGame/source/xcb/*.cpp)
-
-else()
-
 set(WINDOW_LIBS SDL2)
 set(HT_WINDOW_INCLUDES ../HatchitGame/include/sdl/)
 
 file(GLOB HT_WINDOW_SRC ../HatchitGame/source/sdl/*.cpp)
-
-endif()
 
 #configure header file to pass
 #CMake settings to source code
