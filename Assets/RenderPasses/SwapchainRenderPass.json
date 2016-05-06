@@ -2,7 +2,7 @@
     "RootLayout": "TestRootDescriptor.json",
     "Input": [
         {
-            "Path": "Lighting.json",
+            "Path": "Composition.json",
             "Set": 3,
             "Binding": 0
         }
