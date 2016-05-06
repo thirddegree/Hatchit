@@ -56,7 +56,7 @@
                 }
             ],
             "Transform": {
-                "Position": [ 0, 0, 2 ],
+                "Position": [ 0, 0, -2 ],
                 "Rotation": [ 0, 0, 0 ],
                 "Scale": [ 1, 1, 1 ]
             }
@@ -74,7 +74,7 @@
                 }
             ],
             "Transform": {
-                "Position": [ 0, 2, 0 ],
+                "Position": [ 0, 2, -2 ],
                 "Rotation": [ 0, 0, 0 ],
                 "Scale": [ 1, 1, 1 ]
             }
@@ -92,7 +92,7 @@
                 }
             ],
             "Transform": {
-                "Position": [ 2, 0, 0 ],
+                "Position": [ 2, 0, -2 ],
                 "Rotation": [ 0, 0, 0 ],
                 "Scale": [ 1, 1, 1 ]
             }
@@ -118,7 +118,14 @@
             "GUID": "{00000000-0000-0000-0000-000000000007}",
             "Components": [
                 {
-                    "Type": "Camera"
+                    "Type": "Camera",
+                    "UseWindowScale":  true,
+                    "FOV": 90.0,
+                    "Width": 1.0,
+                    "Height": 1.0,
+                    "Near": 0.1,
+                    "Far": 100.0,
+                    "Layer":  1
                 }
             ],
             "Transform": {
