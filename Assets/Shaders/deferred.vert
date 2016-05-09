@@ -29,14 +29,16 @@ void main()
     
     vec4 depthPos = passConsts.view * modelMatrix * vec4(pos, 1);
     
-
     vec4 clipPos = passConsts.proj * depthPos;
     
     gl_Position = clipPos;
 
     // GL->VK conventions
     gl_Position.y = -gl_Position.y;
+
+    out_depth = gl_Position.z / gl_Position.w;
+
     gl_Position.z = (gl_Position.z + gl_Position.w) / 2.0;
 
-    out_depth = depthPos.z / -100.0f;
+    //out_depth = depthPos.z / -100.0;
 }

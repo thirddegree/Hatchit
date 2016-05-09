@@ -34,9 +34,7 @@ void main()
     vec3 normal = normalSampled.xyz;
 
     //Depth to world space
-    vec4 corner = vec4(1.35876, 2.41557, 100, 1);
-    vec4 worldPos = vec4(clipPos.x, clipPos.y, -depth, 1);
-    worldPos = worldPos * corner;
+    vec4 worldPos = vec4(clipPos.x, clipPos.y, depth, 1);
     worldPos = invViewProj * worldPos;
     worldPos = worldPos / worldPos.w;
 
