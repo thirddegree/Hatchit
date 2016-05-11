@@ -4,6 +4,7 @@ include_directories("../../HatchitCore/include"
                     "../../HatchitMath/source/inline"
                     "../../HatchitResource/include"
                     "../../HatchitResource/source/inline"
+                    SYSTEM
                     "../../ThirdParty/assimp/include"
                     "../../ThirdParty/stb/"
                     "../../ThirdParty/inih/"
