@@ -124,10 +124,12 @@ target_compile_definitions(HatchitResource PRIVATE STB_IMAGE_IMPLEMENTATION)
 target_compile_definitions(HatchitCore PRIVATE FMT_EXPORT)
 if(GL_SUPPORT)
 	target_compile_definitions(HatchitGame PRIVATE GL_SUPPORT)
+    target_compile_definitions(HatchitGraphics PRIVATE GL_SUPPORT)
 endif()
 
 if(VK_SUPPORT)
 	target_compile_definitions(HatchitGame PRIVATE VK_SUPPORT)
+    target_compile_definitions(HatchitGraphics PRIVATE VK_SUPPORT)
 endif()
 
 add_executable(ht_test ${HT_TEST_SRC})
