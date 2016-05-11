@@ -94,6 +94,7 @@ include_directories("${PROJECT_SOURCE_DIR}/../HatchitCore/include/"
                     "${PROJECT_SOURCE_DIR}/../HatchitGame/include/"
                     "${PROJECT_SOURCE_DIR}/../HatchitTest/include/"
                     "${PROJECT_SOURCE_DIR}/../HatchitNetwork/include/"
+                    SYSTEM
                     "${PROJECT_SOURCE_DIR}/../ThirdParty/assimp/include"
                     "${PROJECT_SOURCE_DIR}/../ThirdParty/stb"
                     "${PROJECT_SOURCE_DIR}/../ThirdParty/inih/"

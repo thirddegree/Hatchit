@@ -86,11 +86,13 @@ include_directories("../../HatchitCore/include"
                     ${HT_VK_INCLUDES}
                     "../../HatchitGame/include"
                     ${HT_WINDOW_INCLUDE}
+                    SYSTEM
                     "../../ThirdParty/assimp/include"
                     "../../ThirdParty/inih/"
                     "../../ThirdParty/tinyxml2/"
                     "../../ThirdParty/json/src"
                     "../../ThirdParty/cppformat/cppformat"
+                    "../../ThirdParty/stb/"
                     ${GLEW_INCLUDES}
                     ${VK_INCLUDES})
                     
