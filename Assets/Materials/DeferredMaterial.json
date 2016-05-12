@@ -1,10 +1,22 @@
 {
     "Pipeline": "DeferredPipeline.json",
-
+	
     "RenderPasses": [ "DeferredPass.json" ],
-
-    "ShaderVariables": [],
-
+	
+    "ShaderVariables": [
+		{
+			"Vars": [
+				{
+					"Name": "Color",
+					"Type" : "FLOAT4",
+					"Value" : [0.5, 1.0, 0.5, 1.0]
+				}
+			],
+			"Set": 0,
+			"Binding": 0
+		}
+	],
+	
     "Textures": [
         { "Path": "raptor.png", "Set":  3, "Binding": 0}
     ]

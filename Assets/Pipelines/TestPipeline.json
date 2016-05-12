@@ -21,7 +21,40 @@
     },
     
     "ShaderVariables": [
-
+		{
+			"Type": "MATRIX4",
+			"Name": "View",
+			"Value": [1, 0, 0, 0,
+                      0, 1, 0, 0,
+                      0, 0, 1, 0,
+                      0, 0, 0, 1]
+		},
+		{
+			"Type": "MATRIX4",
+			"Name": "Projection",
+			"Value": [1, 0, 0, 0,
+                      0, 1, 0, 0,
+                      0, 0, 1, 0,
+                      0, 0, 0, 1]
+		},
+		{
+			"Type": "MATRIX4",
+			"Name": "InvViewProj",
+			"Value": [1, 0, 0, 0,
+                      0, 1, 0, 0,
+                      0, 0, 1, 0,
+                      0, 0, 0, 1]
+		},
+		{
+			"Type": "INT",
+			"Name": "Width",
+			"Value": 1
+		},
+		{
+			"Type": "INT",
+			"Name": "Height",
+			"Value": 1
+		}
     ],
 
     "VertexLayout": [
