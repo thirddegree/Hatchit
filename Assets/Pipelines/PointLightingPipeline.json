@@ -110,7 +110,7 @@
     },
     "RasterState": {
         "PolygonMode": "Solid",
-        "CullMode": "Front",
+        "CullMode": "None",
         "FrontCounterClockwise": false,
         "DepthClampEnable": true,
         "DiscardEnable": false,
