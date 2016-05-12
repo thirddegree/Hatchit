@@ -3,8 +3,8 @@
 
     "Shaders": {
         "spv": {
-            "Vertex": "pointLighting_VS.spv",
-            "Fragment": "pointLighting_FS.spv",
+            "Vertex": "directionalLighting_VS.spv",
+            "Fragment": "directionalLighting_FS.spv",
             "Geometry": "",
             "Tess_Control": "",
             "Tess_Eval": "",
@@ -92,14 +92,8 @@
             "Slot": 1
         },
         {
-            "SemanticName": "RADIUS",
+            "SemanticName": "DIRECTION",
             "SemanticIndex": 8,
-            "Type": "FLOAT",
-            "Slot": 1
-        },
-        {
-            "SemanticName": "ATTENUATION",
-            "SemanticIndex": 9,
             "Type": "FLOAT3",
             "Slot": 1
         }
@@ -110,7 +104,7 @@
     },
     "RasterState": {
         "PolygonMode": "Solid",
-        "CullMode": "Front",
+        "CullMode": "Back",
         "FrontCounterClockwise": false,
         "DepthClampEnable": true,
         "DiscardEnable": false,
