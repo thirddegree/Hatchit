@@ -9,7 +9,8 @@
         "{00000000-0000-0000-0000-000000000005}",
         "{00000000-0000-0000-0000-000000000006}",
         "{00000000-0000-0000-0000-000000000007}",
-        "{00000000-0000-0000-0000-000000000008}"
+        "{00000000-0000-0000-0000-000000000008}",
+        "{00000000-0000-0000-0000-000000000009}"
     ],
     "GameObjects": [
         {
@@ -45,21 +46,19 @@
             }
         },
         {
-            "Name": "Light",
+            "Name": "Floor",
             "GUID": "{00000000-0000-0000-0000-000000000003}",
             "Components": [
                 {
-                    "Type": "LightComponent",
-                    "LightType": 0,
-                    "Radius": 10.0,
-                    "Attenuation": [ 1, 1, 1 ],
-                    "Color": [ 1, 0.50588, 0.270588, 1 ]
+                    "Type": "MeshRenderer",
+                    "Material": "FloorMaterial.json",
+                    "Mesh":  "floor.obj"
                 }
             ],
             "Transform": {
-                "Position": [ 0, 0, -2 ],
-                "Rotation": [ 0, 0, 0 ],
-                "Scale": [ 1, 1, 1 ]
+                "Position": [0, 0, 0],
+                "Rotation": [0, 0, 0],
+                "Scale": [1, 1, 1]
             }
         },
         {
@@ -70,12 +69,12 @@
                     "Type": "LightComponent",
                     "LightType": 0,
                     "Radius": 10.0,
-                    "Attenuation": [ 1, 1, 1 ],
-                    "Color": [ 0, 1, 0.270588, 1 ]
+                    "Attenuation": [ 1, 0.5, 0.1 ],
+                    "Color": [ 1, 0.50588, 0.270588, 1 ]
                 }
             ],
             "Transform": {
-                "Position": [ 0, 2, -2 ],
+                "Position": [ -2, 1, 2 ],
                 "Rotation": [ 0, 0, 0 ],
                 "Scale": [ 1, 1, 1 ]
             }
@@ -89,18 +88,36 @@
                     "LightType": 0,
                     "Radius": 10.0,
                     "Attenuation": [ 1, 1, 1 ],
+                    "Color": [ 0, 1, 0.270588, 1 ]
+                }
+            ],
+            "Transform": {
+                "Position": [ 2, 1, -2 ],
+                "Rotation": [ 0, 0, 0 ],
+                "Scale": [ 1, 1, 1 ]
+            }
+        },
+        {
+            "Name": "Light",
+            "GUID": "{00000000-0000-0000-0000-000000000006}",
+            "Components": [
+                {
+                    "Type": "LightComponent",
+                    "LightType": 0,
+                    "Radius": 10.0,
+                    "Attenuation": [ 1, 1, 1 ],
                     "Color": [ 0, 0.50588, 1, 1 ]
                 }
             ],
             "Transform": {
-                "Position": [ 2, 0, -2 ],
+                "Position": [ 2, 1, 2 ],
                 "Rotation": [ 0, 0, 0 ],
                 "Scale": [ 1, 1, 1 ]
             }
         },
         {
             "Name": "Compositor",
-            "GUID": "{00000000-0000-0000-0000-000000000006}",
+            "GUID": "{00000000-0000-0000-0000-000000000007}",
             "Components": [
                 {
                     "Type": "MeshRenderer",
@@ -116,7 +133,7 @@
         },
         {
             "Name": "Light",
-            "GUID": "{00000000-0000-0000-0000-000000000007}",
+            "GUID": "{00000000-0000-0000-0000-000000000008}",
             "Components": [
                 {
                     "Type": "LightComponent",
@@ -133,7 +150,7 @@
         },
         {
             "Name": "Camera",
-            "GUID": "{00000000-0000-0000-0000-000000000008}",
+            "GUID": "{00000000-0000-0000-0000-000000000009}",
             "Components": [
                 {
                     "Type": "Camera",
@@ -147,7 +164,7 @@
                 }
             ],
             "Transform": {
-                "Position": [0, 0, -5],
+                "Position": [0, 1, -5],
                 "Rotation": [0, 0, 0],
                 "Scale":    [1, 1, 1]
             }
