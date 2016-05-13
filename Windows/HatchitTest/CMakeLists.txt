@@ -111,6 +111,7 @@ include_directories("${PROJECT_SOURCE_DIR}/../HatchitCore/include/"
 link_directories("${PROJECT_SOURCE_DIR}/_build/dependencies/assimp/lib/$(Configuration)/"
                  "${PROJECT_SOURCE_DIR}/_build/dependencies/SDL2/lib/$(Configuration)/"
                  "${PROJECT_SOURCE_DIR}/_build/dependencies/tinyxml2/lib/$(Configuration)/"
+                 "${PROJECT_SOURCE_DIR}/_build/dependencies/openal-soft/lib/$(Configuration)/"
                  ${GLEW_LIB_DIR}
                  "${PROJECT_SOURCE_DIR}/_build/dependencies/Python/lib/$(Configuration)/"
                  ${VK_LIB_DIR})
@@ -147,10 +148,11 @@ add_custom_command(TARGET HatchitTest PRE_BUILD
 
 #set(PYTHON_LIBS debug python34_d optimized python34 python3)
 set(ASSIMP_LIBS debug assimpd optimized assimp)
+set(OPENAL_LIBS debug OpenAL32d optimized OpenAL32)
 set(TINYXML_LIBS debug tinyxml2d optimized tinyxml2)
 set(BULLET_LIBS debug BulletCollisiond BulletDynamicsd BulletInverseDynamicsd BulletSoftBodyd LinearMathd optimized BulletCollision BulletDynamics BulletInverseDynamics BulletSoftBody LinearMath)
 
 target_link_libraries(HatchitTest HatchitCore HatchitResource HatchitNetwork HatchitGraphics HatchitGame
-                       ${TINYXML_LIBS} ${ASSIMP_LIBS} ${SDL_LIBS} ${D3D11_LIBS} ${D3D12_LIBS} ${GLEW_LIBS} ${GL_LIBS} Ws2_32 ${VK_LIBS})
+                       ${TINYXML_LIBS} ${ASSIMP_LIBS} ${OPENAL_LIBS} ${SDL_LIBS} ${D3D11_LIBS} ${D3D12_LIBS} ${GLEW_LIBS} ${GL_LIBS} Ws2_32 ${VK_LIBS})
 target_link_libraries(HatchitClient HatchitCore HatchitNetwork Ws2_32)
 target_link_libraries(HatchitServer HatchitCore HatchitNetwork Ws2_32)
