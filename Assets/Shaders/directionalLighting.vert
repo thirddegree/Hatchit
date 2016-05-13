@@ -8,8 +8,8 @@ out gl_PerVertex
 };
 
 //Instance Attributes
-layout (location = 7) in vec4 color;
-layout (location = 8) in vec3 direction;
+layout (location = 3) in vec4 color;
+layout (location = 4) in vec3 direction;
 
 //Output
 layout (location = 0) out vec2 uv;

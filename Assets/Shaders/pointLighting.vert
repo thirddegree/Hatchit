@@ -18,13 +18,14 @@ layout (location = 8) in float radius;
 layout (location = 9) in vec3 attenuation;
 
 layout (location = 0) out vec4 out_clipPos;
-layout (location = 1) out mat4 invViewProj;
-layout (location = 5) out int  width;
-layout (location = 6) out int  height;
-layout (location = 7) out vec4 lightPos;
-layout (location = 8) out float lightRadius;
-layout (location = 9) out vec4 lightColor;
-layout (location = 10) out vec3 lightAttenuation;
+layout (location = 1) out vec4 out_depthPos;
+layout (location = 2) out mat4 invView;
+layout (location = 6) out int  width;
+layout (location = 7) out int  height;
+layout (location = 8) out vec4 lightPos;
+layout (location = 9) out float lightRadius;
+layout (location = 10) out vec4 lightColor;
+layout (location = 11) out vec3 lightAttenuation;
 
 layout(push_constant) uniform Constants {
     mat4 proj;
@@ -32,7 +33,7 @@ layout(push_constant) uniform Constants {
 } passConsts;
 
 layout(set = 1, binding = 0) uniform PassBuffer {
-    mat4 invViewProj;
+    mat4 invView;
     int width;
     int height;
 } passBuffer;
@@ -44,13 +45,13 @@ void main()
 
     depthPos = modelMatrix * depthPos;
     depthPos = passConsts.view * depthPos;
-    
-    vec4 clipPos = passConsts.proj * depthPos;
-    out_clipPos = clipPos;
 
-    gl_Position = clipPos;
+    out_depthPos = depthPos;
 
-    invViewProj = passBuffer.invViewProj;
+    gl_Position = passConsts.proj * depthPos;
+    out_clipPos = gl_Position;
+
+    invView = passBuffer.invView;
     width = passBuffer.width;
     height = passBuffer.height;
 

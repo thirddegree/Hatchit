@@ -80,20 +80,14 @@
 
     "InstanceLayout": [
         {
-            "SemanticName": "MODELMATRIX",
-            "SemanticIndex": 3,
-            "Type": "MAT4",
-            "Slot": 1
-        },
-        {
             "SemanticName": "COLOR",
-            "SemanticIndex": 7,
+            "SemanticIndex": 3,
             "Type": "FLOAT4",
             "Slot": 1
         },
         {
             "SemanticName": "DIRECTION",
-            "SemanticIndex": 8,
+            "SemanticIndex": 4,
             "Type": "FLOAT3",
             "Slot": 1
         }

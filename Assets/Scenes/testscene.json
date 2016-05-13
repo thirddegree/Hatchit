@@ -122,8 +122,8 @@
                 {
                     "Type": "LightComponent",
                     "LightType": 2,
-                    "Color": [ 1, 0.1, 1, 1 ],
-                    "Direction": [ 0, 1, 0.5 ]
+                    "Color": [ 0.8, 0.8, 0.6, 1 ],
+                    "Direction": [ 0, 1, 0.1 ]
                 }
             ],
             "Transform": {
@@ -158,7 +158,7 @@
                     "FOV": 90.0,
                     "Width": 1.0,
                     "Height": 1.0,
-                    "Near": 0.1,
+                    "Near": 1.0,
                     "Far": 100.0,
                     "Layer":  1
                 }
