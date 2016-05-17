@@ -3,8 +3,8 @@
 
     "Shaders": {
         "spv": {
-            "Vertex": "pointLighting_VS.spv",
-            "Fragment": "pointLighting_FS.spv",
+            "Vertex": "directionalLighting_VS.spv",
+            "Fragment": "directionalLighting_FS.spv",
             "Geometry": "",
             "Tess_Control": "",
             "Tess_Eval": "",
@@ -80,26 +80,14 @@
 
     "InstanceLayout": [
         {
-            "SemanticName": "MODELMATRIX",
-            "SemanticIndex": 3,
-            "Type": "MAT4",
-            "Slot": 1
-        },
-        {
             "SemanticName": "COLOR",
-            "SemanticIndex": 7,
+            "SemanticIndex": 3,
             "Type": "FLOAT4",
             "Slot": 1
         },
         {
-            "SemanticName": "RADIUS",
-            "SemanticIndex": 8,
-            "Type": "FLOAT",
-            "Slot": 1
-        },
-        {
-            "SemanticName": "ATTENUATION",
-            "SemanticIndex": 9,
+            "SemanticName": "DIRECTION",
+            "SemanticIndex": 4,
             "Type": "FLOAT3",
             "Slot": 1
         }
@@ -110,7 +98,7 @@
     },
     "RasterState": {
         "PolygonMode": "Solid",
-        "CullMode": "Front",
+        "CullMode": "None",
         "FrontCounterClockwise": false,
         "DepthClampEnable": true,
         "DiscardEnable": false,

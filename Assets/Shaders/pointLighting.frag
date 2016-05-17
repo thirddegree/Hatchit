@@ -10,13 +10,14 @@ layout (set = 4, binding = 2) uniform texture2D normal;
 layout (location = 0) out vec4 uFragColor;
 
 layout (location = 0) in vec4 clipPos;
-layout (location = 1) in mat4 invViewProj;
-layout (location = 5) in flat int width;
-layout (location = 6) in flat int height;
-layout (location = 7) in vec4 lightPos;
-layout (location = 8) in float lightRadius;
-layout (location = 9) in vec4 lightColor;
-layout (location = 10) in vec3 lightAttenuation;
+layout (location = 1) in vec4 depthPos;
+layout (location = 2) in mat4 invView;
+layout (location = 6) in flat int width;
+layout (location = 7) in flat int height;
+layout (location = 8) in vec4 lightPos;
+layout (location = 9) in float lightRadius;
+layout (location = 10) in vec4 lightColor;
+layout (location = 11) in vec3 lightAttenuation;
 
 void main() 
 {
@@ -34,13 +35,15 @@ void main()
     vec3 normal = normalSampled.xyz;
 
     //Depth to world space
-    vec4 worldPos = vec4(clipPos.x, clipPos.y, depth, 1);
-    worldPos = invViewProj * worldPos;
-    worldPos = worldPos / worldPos.w;
+    float farClipDistance = 100.0 - 1.0;
+    vec3 viewRay = vec3(depthPos.xy * (farClipDistance / depthPos.z), farClipDistance);
+
+    vec4 worldPos = vec4(viewRay * depth, 1);
+    worldPos = invView * worldPos;
 
     //Convert normals from 0 to 1 to -1 to 1
     normal = normalize(normal * 2 - 1);
-
+    
     //N*L
     vec3 lightDir = normalize(lightPos - worldPos).xyz;
     float nL = dot(normal, lightDir);
