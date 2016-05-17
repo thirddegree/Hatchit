@@ -21,6 +21,9 @@
                     "Type": "MeshRenderer",
                     "Material": "DeferredMaterial.json",
                     "Mesh":  "Raptor.obj"
+                },
+                {
+                    "Type": "AudioSource"
                 }
             ],
             "Transform": {
