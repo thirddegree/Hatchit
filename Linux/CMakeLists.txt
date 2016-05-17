@@ -81,6 +81,7 @@ configure_file (
 include_directories("../HatchitCore/include" 
 		            "../HatchitCore/include/linux"
                     "../HatchitResource/include"
+                    "../HatchitAudio/include"
     		        "../HatchitCore/source/inline"
                     "../HatchitResource/source/inline"
                     "../HatchitMath/include"
@@ -102,6 +103,7 @@ file(GLOB HT_CORE_SRC ../HatchitCore/source/*.cpp ../HatchitCore/source/linux/*.
 file(GLOB HT_RESOURCE_SRC ../HatchitResource/source/*.cpp ../HatchitResource/source/*.c)
 file(GLOB HT_MATH_SRC ../HatchitMath/source/*.cpp)
 file(GLOB HT_GRAPHICS_SRC ../HatchitGraphics/source/*.cpp)
+file(GLOB HT_AUDIO_SRC ../HatchitAudio/source/*cpp)
 #file(GLOB HT_SCRIPT_SRC ../HatchitScript/source/*.cpp)
 file(GLOB HT_NETWORK_SRC ../HatchitNetwork/source/*cpp)
 file(GLOB HT_GAME_SRC ../HatchitGame/source/*.cpp)
@@ -112,6 +114,7 @@ file(GLOB HT_SERVER_SRC ../HatchitTest/source/server.cpp)
 
 add_library(HatchitCore SHARED ${HT_CORE_SRC})
 add_library(HatchitMath SHARED ${HT_MATH_SRC})
+add_library(HatchitAudio SHARED ${HT_AUDIO_SRC})
 add_library(HatchitResource SHARED ${HT_RESOURCE_SRC})
 #add_library(HatchitScript SHARED ${HT_SCRIPT_SRC})
 add_library(HatchitGraphics SHARED ${HT_GRAPHICS_SRC} ${HT_VK_SRC} ${HT_GL_SRC})
@@ -143,8 +146,9 @@ add_custom_command(TARGET ht_test PRE_BUILD
 target_link_libraries(HatchitResource assimp)
 target_link_libraries(HatchitGraphics HatchitCore HatchitResource HatchitMath)
 target_link_libraries(HatchitNetwork HatchitCore)
-target_link_libraries(HatchitGame HatchitCore HatchitResource HatchitMath HatchitGraphics HatchitNetwork assimp SDL2 ${GL_LIBS} ${VK_LIBS} ${WINDOW_LIBS} )
-target_link_libraries(ht_test HatchitCore HatchitResource HatchitMath HatchitGraphics HatchitNetwork HatchitGame assimp SDL2 ${GL_LIBS} ${VK_LIBS} pthread)
+target_link_libraries(HatchitAudio HatchitCore HatchitResource openal)
+target_link_libraries(HatchitGame HatchitCore HatchitResource HatchitMath HatchitGraphics HatchitAudio HatchitNetwork assimp openal SDL2 ${GL_LIBS} ${VK_LIBS} ${WINDOW_LIBS} )
+target_link_libraries(ht_test HatchitCore HatchitResource HatchitMath HatchitGraphics HatchitAudio HatchitNetwork HatchitGame assimp openal SDL2 ${GL_LIBS} ${VK_LIBS} pthread)
 target_link_libraries(ht_client HatchitCore HatchitNetwork pthread)
 target_link_libraries(ht_server HatchitCore HatchitNetwork pthread)
 
