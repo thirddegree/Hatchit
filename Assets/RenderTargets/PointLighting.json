@@ -1,0 +1,10 @@
+{
+    "Width": 0,
+    "Height": 0,
+    "Format": "BGRA",
+    "ClearColor": [ 0, 0, 0, 0 ],
+    "Blending":  { 
+        "ColorBlendOp": "ADD",
+        "AlphaBlendOp": "NONE"
+    }
+}

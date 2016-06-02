@@ -1,0 +1,23 @@
+{
+    "Pipeline": "DeferredPipeline.json",
+    
+    "RenderPasses": [ "DeferredPass.json" ],
+    
+    "ShaderVariables": [
+        {
+            "Vars": [
+                {
+                    "Name": "Color",
+                    "Type" : "FLOAT4",
+                    "Value" : [0.5, 1.0, 0.5, 1.0]
+                }
+            ],
+            "Set": 0,
+            "Binding": 0
+        }
+    ],
+    
+    "Textures": [
+        { "Path": "grass.png", "Set":  3, "Binding": 0}
+    ]
+}

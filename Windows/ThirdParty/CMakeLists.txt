@@ -74,3 +74,12 @@ set_target_properties(cppformat
 		      LIBRARY_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/../_build/dependencies/cppformat/lib"
 		      RUNTIME_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/../_build/dependencies/cppformat/bin")
 
+#HANDLE OPENAL-SOFT THIRD PARTY LIBRARY
+add_subdirectory("${PROJECT_SOURCE_DIR}/../../ThirdParty/openal-soft/" "${CMAKE_CURRENT_BINARY_DIR}/openal-soft")
+set_target_properties(altonegen bsincgen common makehrtf OpenAL32 openal-info test-common PROPERTIES FOLDER openal-soft)
+set_target_properties(altonegen bsincgen common makehrtf OpenAL32 openal-info test-common
+		      PROPERTIES
+		      ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/../_build/dependencies/openal-soft/lib"
+		      LIBRARY_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/../_build/dependencies/openal-soft/lib"
+		      RUNTIME_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/../_build/dependencies/openal-soft/bin")
+              

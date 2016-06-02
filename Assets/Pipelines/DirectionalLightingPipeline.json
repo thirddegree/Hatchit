@@ -1,10 +1,10 @@
 {
-    "RenderPass": "CompositionPass.json",
+    "RenderPass": "LightingPass.json",
 
     "Shaders": {
         "spv": {
-            "Vertex": "fullscreenTri_VS.spv",
-            "Fragment": "composition_FS.spv",
+            "Vertex": "directionalLighting_VS.spv",
+            "Fragment": "directionalLighting_FS.spv",
             "Geometry": "",
             "Tess_Control": "",
             "Tess_Eval": "",
@@ -21,40 +21,40 @@
     },
 
     "ShaderVariables": [
-		{
-			"Type": "MATRIX4",
-			"Name": "View",
-			"Value": [1, 0, 0, 0,
+        {
+            "Type": "MATRIX4",
+            "Name": "View",
+            "Value": [1, 0, 0, 0,
                       0, 1, 0, 0,
                       0, 0, 1, 0,
                       0, 0, 0, 1]
-		},
-		{
-			"Type": "MATRIX4",
-			"Name": "Projection",
-			"Value": [1, 0, 0, 0,
+        },
+        {
+            "Type": "MATRIX4",
+            "Name": "Projection",
+            "Value": [1, 0, 0, 0,
                       0, 1, 0, 0,
                       0, 0, 1, 0,
                       0, 0, 0, 1]
-		},
-		{
-			"Type": "MATRIX4",
-			"Name": "InvViewProj",
-			"Value": [1, 0, 0, 0,
+        },
+        {
+            "Type": "MATRIX4",
+            "Name": "InvViewProj",
+            "Value": [1, 0, 0, 0,
                       0, 1, 0, 0,
                       0, 0, 1, 0,
                       0, 0, 0, 1]
-		},
-		{
-			"Type": "INT",
-			"Name": "Width",
-			"Value": 1
-		},
-		{
-			"Type": "INT",
-			"Name": "Height",
-			"Value": 1
-		}
+        },
+        {
+            "Type": "INT",
+            "Name": "Width",
+            "Value": 1
+        },
+        {
+            "Type": "INT",
+            "Name": "Height",
+            "Value": 1
+        }
     ],
 
     "VertexLayout": [
@@ -79,15 +79,26 @@
     ],
 
     "InstanceLayout": [
-
+        {
+            "SemanticName": "COLOR",
+            "SemanticIndex": 3,
+            "Type": "FLOAT4",
+            "Slot": 1
+        },
+        {
+            "SemanticName": "DIRECTION",
+            "SemanticIndex": 4,
+            "Type": "FLOAT3",
+            "Slot": 1
+        }
     ],
     "DepthStencilState": {
-        "TestDepth": true,
-        "WriteDepth": true
+        "TestDepth": false,
+        "WriteDepth": false
     },
     "RasterState": {
         "PolygonMode": "Solid",
-        "CullMode": "Back",
+        "CullMode": "None",
         "FrontCounterClockwise": false,
         "DepthClampEnable": true,
         "DiscardEnable": false,

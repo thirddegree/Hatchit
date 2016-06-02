@@ -1,13 +1,14 @@
 {
+    "RootLayout": "TestRootDescriptor.json",
     "Input": [
         {
             "Path": "DeferredColor.json",
-            "Set": 4,
+            "Set": 6,
             "Binding": 0
         },
         {
             "Path": "Lighting.json",
-            "Set": 4,
+            "Set": 6,
             "Binding": 1
         }
     ],

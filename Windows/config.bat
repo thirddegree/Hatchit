@@ -56,19 +56,17 @@ copy /Y dependencies\SDL2\bin\Debug\SDL2d.dll bin\Debug
 copy /Y dependencies\assimp\bin\Debug\assimpd.dll bin\Debug
 copy /Y dependencies\glew\bin\Debug\glew32d.dll bin\Debug
 copy /Y dependencies\tinyxml2\bin\Debug\tinyxml2d.dll bin\Debug
-copy /Y dependencies\Python\bin\Debug\python3.dll bin\Debug
-copy /Y dependencies\Python\bin\Debug\python34_d.dll bin\Debug
-copy /Y %VK_SDK_PATH%\Source\lib\vulkan-1.dll bin\Debug
+copy /Y %VK_SDK_PATH%\Source\lib\*.dll bin\Debug
 copy /Y dependencies\cppformat\bin\Debug\cppformatd.dll bin\Debug
+copy /Y dependencies\openal-soft\bin\Debug\OpenAL32d.dll bin\Debug
 
 copy /Y dependencies\SDL2\bin\Release\SDL2.dll bin\Release
 copy /Y dependencies\assimp\bin\Release\assimp.dll bin\Release
 copy /Y dependencies\glew\bin\Release\glew32.dll bin\Release
 copy /Y dependencies\tinyxml2\bin\Release\tinyxml2.dll bin\Release
-copy /Y dependencies\Python\bin\Release\python3.dll bin\Release
-copy /Y dependencies\Python\bin\Release\python34.dll bin\Release
-copy /Y %VK_SDK_PATH%\Source\lib\vulkan-1.dll bin\Release
+copy /Y %VK_SDK_PATH%\Bin\*.dll bin\Release
 copy /Y dependencies\cppformat\bin\Release\cppformat.dll bin\Release
+copy /Y dependencies\openal-soft\bin\Release\OpenAL32.dll bin\Release
 
 
 mkdir VS2015

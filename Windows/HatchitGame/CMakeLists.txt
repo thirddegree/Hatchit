@@ -76,6 +76,8 @@ include_directories("../../HatchitCore/include"
                     "../../HatchitCore/source/inline"
                     "../../HatchitResource/include"
                     "../../HatchitResource/source/inline"
+                    "../../HatchitAudio/include"
+                    "../../HatchitAudio/source/inline"
                     "../../HatchitMath/include"
                     "../../HatchitMath/source/inline"
                     "../../HatchitGraphics/include"
@@ -86,17 +88,22 @@ include_directories("../../HatchitCore/include"
                     ${HT_VK_INCLUDES}
                     "../../HatchitGame/include"
                     ${HT_WINDOW_INCLUDE}
+                    SYSTEM
                     "../../ThirdParty/assimp/include"
                     "../../ThirdParty/inih/"
                     "../../ThirdParty/tinyxml2/"
                     "../../ThirdParty/json/src"
                     "../../ThirdParty/cppformat/cppformat"
+                    "../../ThirdParty/stb/"
+                    "../../ThirdParty/openal-soft/include"
+
                     ${GLEW_INCLUDES}
                     ${VK_INCLUDES})
                     
 link_directories("../_build/dependencies/assimp/lib/$(Configuration)/"
                  "../_build/dependencies/SDL2/lib/$(Configuration)/"
                  "../_build/dependencies/tinyxml2/lib/$(Configuration)/"
+                 "../_build/dependencies/openal-soft/lib/$(Configuration)/"
                  ${GLEW_LIB_DIR}
                  ${VK_LIB_DIR})
                     
@@ -107,6 +114,10 @@ add_definitions(-D_UNICODE)
 
 add_library(HatchitGame SHARED ${HT_GAME_INC} ${HT_GAME_SRC})
 
+add_custom_command(TARGET HatchitGame PRE_BUILD
+			COMMAND $(SolutionDir)../dependencies/Python/Scripts/activate.bat
+			COMMAND python -m cogapp -r $(SolutionDir)../../../HatchitGame/source/ht_component_factory.cpp
+			COMMAND $(SolutionDir)../dependencies/Python/Scripts/deactivate.bat)
 
 target_compile_definitions(HatchitGame PRIVATE HT_NONCLIENT_BUILD)
 
@@ -114,4 +125,4 @@ set(ASSIMP_LIBS debug assimpd optimized assimp)
 set(TINYXML_LIBS debug tinyxml2d optimized tinyxml2)
 set(BULLET_LIBS debug BulletCollisiond BulletDynamicsd BulletInverseDynamicsd BulletSoftBodyd LinearMathd optimized BulletCollision BulletDynamics BulletInverseDynamics BulletSoftBody LinearMath)
 
-target_link_libraries(HatchitGame HatchitCore HatchitResource HatchitGraphics ${TINYXML_LIBS} ${GL_LIBS} ${ASSIMP_LIBS} ${SDL_LIBS} ${GLEW_LIBS} ${DX11_LIBS} ${DX12_LIBS} ${VK_LIBS})
+target_link_libraries(HatchitGame HatchitCore HatchitResource HatchitGraphics HatchitAudio ${TINYXML_LIBS} ${GL_LIBS} ${ASSIMP_LIBS} ${SDL_LIBS} ${GLEW_LIBS} ${DX11_LIBS} ${DX12_LIBS} ${VK_LIBS})

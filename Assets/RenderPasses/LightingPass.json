@@ -1,18 +1,20 @@
 {
+    "RootLayout": "TestRootDescriptor.json",
+
     "Input": [
         {
             "Path": "DeferredColor.json",
-            "Set": 2,
+            "Set": 4,
             "Binding": 0
         },
         {
             "Path": "DeferredPosition.json",
-            "Set": 2,
+            "Set": 4,
             "Binding": 1
         },
         {
             "Path": "DeferredNormal.json",
-            "Set": 2,
+            "Set": 4,
             "Binding": 2
         }
     ],

@@ -2,21 +2,22 @@
     "Samplers": [
         {
             "Filter": {
-                "Mag": "BILINEAR",
-                "Min": "BILINEAR"
+                "Mag": "NEAREST",
+                "Min": "NEAREST"
             },
             "Address": {
                 "U": "WRAP",
                 "V": "WRAP",
                 "W": "WRAP"
             },
-
+            "MipMode": "LINEAR",
             "MipLODBias": 0.0,
             "MinLOD": 0.0,
             "MaxLOD": 0.0,
             "MaxAnisotropy": 8,
             "CompareOp": "COMPARE_OP_NEVER",
             "BorderColor": "COLOR_OPAQUE_WHITE",
+            "ColorSpace": "LINEAR",
             "Immutable": {
                 "Register": 0,
                 "Space": 0,
@@ -30,6 +31,19 @@
     ],
     "ParameterCount": 7,
     "Parameters": [
+        {
+            "Type": "TABLE",
+            "Visibility": "ALL",
+            "RangeCount": 1,
+            "Ranges": [
+                {
+                    "Type": "CONSTANT_BUFFER",
+                    "DescriptorCount": 1,
+                    "BaseRegister": 0,
+                    "RegisterSpace": 0
+                }
+            ]
+        },
         {
             "Type": "TABLE",
             "Visibility": "VERTEX",
@@ -119,14 +133,6 @@
             "ShaderRegister": 1,
             "RegisterSpace": 0,
             "DataType": "MAT4",
-            "ValueCount": 3
-        },
-        {
-            "Type": "CONSTANTS",
-            "Visibility": "VERTEX",
-            "ShaderRegister": 2,
-            "RegisterSpace": 0,
-            "DataType": "INT",
             "ValueCount": 2
         }
     ]
