@@ -78,7 +78,7 @@ configure_file (
     "${PROJECT_SOURCE_DIR}/../HatchitCore/include/ht_version.h"
 )
 
-include_directories("../HatchitCore/include" 
+include_directories("../HatchitCore/include"
 		            "../HatchitCore/include/linux"
                     "../HatchitResource/include"
                     "../HatchitAudio/include"
@@ -157,4 +157,3 @@ target_link_libraries(ht_server HatchitCore HatchitNetwork pthread)
 
 install (TARGETS HatchitCore HatchitResource HatchitMath HatchitGraphics HatchitNetwork HatchitGame DESTINATION lib)
 install (TARGETS ht_test ht_client ht_server DESTINATION bin)
-
