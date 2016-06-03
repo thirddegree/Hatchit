@@ -36,9 +36,12 @@ message("Vulkan Support defined")
 
 set(VK_INCLUDES "/usr/include/vulkan")
 set(VK_LIBS vulkan)
-
 set(HT_VK_INCLUDES "../HatchitGraphics/include/vulkan")
+set(SPV_CROSS_INC_DIR "../../ThirdParty/SPIRV-Cross/")
+
 file(GLOB HT_VK_SRC ../HatchitGraphics/source/vulkan/*.cpp)
+file(GLOB SPV_CROSS_INC ../../ThirdParty/SPIRV-Cross/*.hpp)
+file(GLOB SPV_CROSS_SRC ../../ThirdParty/SPIRV-Cross/*.cpp)
 
 else()
 
@@ -46,6 +49,7 @@ set(VK_INCLUDES "")
 set(VK_LIBS "")
 
 set(HT_VK_INCLUDES "")
+set(SPV_CROSS_INC_DIR "")
 
 endif()
 
@@ -92,6 +96,7 @@ include_directories("../HatchitCore/include"
 		            ${HT_VK_INCLUDES}
 		            ${HT_GL_INCLUDES}
                     ${HT_WINDOW_INCLUDES}
+                    ${SPV_CROSS_INC_DIR}
                     "../HatchitTest/include"
                     SYSTEM
                     "../ThirdParty/inih/"
@@ -117,7 +122,7 @@ add_library(HatchitMath SHARED ${HT_MATH_SRC})
 add_library(HatchitAudio SHARED ${HT_AUDIO_SRC})
 add_library(HatchitResource SHARED ${HT_RESOURCE_SRC})
 #add_library(HatchitScript SHARED ${HT_SCRIPT_SRC})
-add_library(HatchitGraphics SHARED ${HT_GRAPHICS_SRC} ${HT_VK_SRC} ${HT_GL_SRC})
+add_library(HatchitGraphics SHARED ${HT_GRAPHICS_SRC} ${HT_VK_SRC} ${HT_GL_SRC} ${SPV_CROSS_SRC})
 add_library(HatchitNetwork SHARED ${HT_NETWORK_SRC})
 add_library(HatchitGame SHARED ${HT_GAME_SRC} ${HT_WINDOW_SRC})
 
