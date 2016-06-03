@@ -61,3 +61,6 @@
 [submodule "HatchitAudio"]
 	path = HatchitAudio
 	url = https://github.com/thirddegree/HatchitAudio.git
+[submodule "ThirdParty/SPIRV-Cross"]
+	path = ThirdParty/SPIRV-Cross
+	url = https://github.com/KhronosGroup/SPIRV-Cross

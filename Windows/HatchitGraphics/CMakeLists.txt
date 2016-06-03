@@ -4,17 +4,24 @@ set(VK_INCLUDES "$ENV{VK_SDK_PATH}/Include")
 set(VK_LIB_DIR "$ENV{VK_SDK_PATH}/Source/lib")
 set(VK_LIBS debug vulkan-1 optimized vulkan-1)
 set(HT_VK_INCLUDES "../../HatchitGraphics/include/vulkan")
+set(SPV_CROSS_INC_DIR "../../ThirdParty/SPIRV-Cross/")
 
 file(GLOB HT_GRAPHICS_VULKAN_INC ../../HatchitGraphics/include/vulkan/*.h)
 file(GLOB HT_GRAPHICS_VULKAN_SRC ../../HatchitGraphics/source/vulkan/*.cpp)
+file(GLOB SPV_CROSS_INC ../../ThirdParty/SPIRV-Cross/*.hpp)
+file(GLOB SPV_CROSS_SRC ../../ThirdParty/SPIRV-Cross/*.cpp)
 
 source_group("Header Files\\vulkan" FILES ${HT_GRAPHICS_VULKAN_INC})
 source_group("Source Files\\vulkan" FILES ${HT_GRAPHICS_VULKAN_SRC})
+source_group("Header Files\\vulkan\\spirv-cross" FILES ${SPV_CROSS_INC})
+source_group("Source Files\\vulkan\\spirv-cross" FILES ${SPV_CROSS_SRC})
 else()
 set(VK_INCLUDES "")
 set(VK_LIB_DIR "")
 set(VK_LIBS "")
 set(HT_VK_INCLUDES "")
+set(SPV_CROSS_INC_DIR "")
+set(SPV_CROSS_INC "")
 endif()
 
 # If we've asked for OpenGL support
@@ -103,8 +110,9 @@ include_directories("../../HatchitCore/include"
                     "../../ThirdParty/cppformat/cppformat"
                     "../../ThirdParty/stb/"
                     ${GLEW_INCLUDES}
-                    ${VK_INCLUDES})
-                    
+                    ${VK_INCLUDES}
+                    ${SPV_CROSS_INC_DIR})
+
 file(GLOB HT_GRAPHICS_INC ../../HatchitGraphics/include/*.h)
 file(GLOB HT_GRAPHICS_SRC ../../HatchitGraphics/source/*.cpp)
 
@@ -116,17 +124,19 @@ link_directories(${GLEW_LIB_DIR}
                  ${VK_LIB_DIR})
 
 add_library(HatchitGraphics SHARED 	${HT_GRAPHICS_INC}
-									${HT_GRAPHICS_DIRECTX_INC} 
-									${HT_GRAPHICS_OPENGL_INC}
-									${HT_GRAPHICS_SRC} 
-									${HT_GRAPHICS_DIRECTX_SRC} 
-									${HT_GRAPHICS_OPENGL_SRC}
-									${HT_GRAPHICS_VULKAN_INC}
-									${HT_GRAPHICS_VULKAN_SRC} 
-									${HT_GRAPHICS_D3D11_INC}
-									${HT_GRAPHICS_D3D11_SRC}
-									${HT_GRAPHICS_D3D12_INC}
-									${HT_GRAPHICS_D3D12_SRC})
+                                    ${HT_GRAPHICS_DIRECTX_INC}
+                                    ${HT_GRAPHICS_OPENGL_INC}
+                                    ${HT_GRAPHICS_SRC}
+                                    ${HT_GRAPHICS_DIRECTX_SRC}
+                                    ${HT_GRAPHICS_OPENGL_SRC}
+                                    ${HT_GRAPHICS_VULKAN_INC}
+                                    ${HT_GRAPHICS_VULKAN_SRC}
+                                    ${SPV_CROSS_INC}
+                                    ${SPV_CROSS_SRC}
+                                    ${HT_GRAPHICS_D3D11_INC}
+                                    ${HT_GRAPHICS_D3D11_SRC}
+                                    ${HT_GRAPHICS_D3D12_INC}
+                                    ${HT_GRAPHICS_D3D12_SRC})
 
 target_compile_definitions(HatchitGraphics PRIVATE HT_NONCLIENT_BUILD)
 
