@@ -37,11 +37,11 @@ message("Vulkan Support defined")
 set(VK_INCLUDES "/usr/include/vulkan")
 set(VK_LIBS vulkan)
 set(HT_VK_INCLUDES "../HatchitGraphics/include/vulkan")
-set(SPV_CROSS_INC_DIR "../../ThirdParty/SPIRV-Cross/")
+set(SPV_CROSS_INC_DIR "../ThirdParty/SPIRV-Cross/")
 
 file(GLOB HT_VK_SRC ../HatchitGraphics/source/vulkan/*.cpp)
-file(GLOB SPV_CROSS_INC ../../ThirdParty/SPIRV-Cross/*.hpp)
-file(GLOB SPV_CROSS_SRC ../../ThirdParty/SPIRV-Cross/*.cpp)
+file(GLOB SPV_CROSS_INC ../ThirdParty/SPIRV-Cross/*.hpp)
+file(GLOB SPV_CROSS_SRC ../ThirdParty/SPIRV-Cross/*.cpp)
 
 else()
 
