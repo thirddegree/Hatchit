@@ -66,7 +66,6 @@ Next up is building all the dependencies. This should only have to be done once 
 
 * `cd` into `Hatchit\Windows\ThirdParty`
 * Run the `config.bat` file located here. This should configure AND BUILD all your dependencies
-* Your shell will be moved to a Python directory, just `cd` up a few directories
 
 ##### Hatchit
 This is the easy part!
