@@ -71,9 +71,9 @@ set(HT_GL_INCLUDES "")
 endif()
 
 set(WINDOW_LIBS SDL2)
-set(HT_WINDOW_INCLUDES ../HatchitGame/include/sdl/)
+set(HT_WINDOW_INCLUDES ../HatchitGame/include/glfw/)
 
-file(GLOB HT_WINDOW_SRC ../HatchitGame/source/sdl/*.cpp)
+file(GLOB HT_WINDOW_SRC ../HatchitGame/source/glfw/*.cpp)
 
 #configure header file to pass
 #CMake settings to source code
@@ -152,8 +152,8 @@ target_link_libraries(HatchitResource assimp)
 target_link_libraries(HatchitGraphics HatchitCore HatchitResource HatchitMath)
 target_link_libraries(HatchitNetwork HatchitCore)
 target_link_libraries(HatchitAudio HatchitCore HatchitResource openal)
-target_link_libraries(HatchitGame HatchitCore HatchitResource HatchitMath HatchitGraphics HatchitAudio HatchitNetwork assimp openal SDL2 ${GL_LIBS} ${VK_LIBS} ${WINDOW_LIBS} )
-target_link_libraries(ht_test HatchitCore HatchitResource HatchitMath HatchitGraphics HatchitAudio HatchitNetwork HatchitGame assimp openal SDL2 ${GL_LIBS} ${VK_LIBS} pthread)
+target_link_libraries(HatchitGame HatchitCore HatchitResource HatchitMath HatchitGraphics HatchitAudio HatchitNetwork assimp openal glfw3 GL X11 Xrandr Xinerama Xcursor Xxf86vm  ${GL_LIBS} ${VK_LIBS} ${WINDOW_LIBS} )
+target_link_libraries(ht_test HatchitCore HatchitResource HatchitMath HatchitGraphics HatchitAudio HatchitNetwork HatchitGame assimp openal glfw3 GL X11 Xrandr Xinerama Xcursor Xxf86vm ${GL_LIBS} ${VK_LIBS} pthread)
 target_link_libraries(ht_client HatchitCore HatchitNetwork pthread)
 target_link_libraries(ht_server HatchitCore HatchitNetwork pthread)
 
