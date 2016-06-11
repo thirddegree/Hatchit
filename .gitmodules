@@ -18,7 +18,7 @@
 	url = https://github.com/thirddegree/HatchitScript.git
 [submodule "ThirdParty/assimp"]
 	path = ThirdParty/assimp
-	url = https://github.com/assimp/assimp.git
+	url = https://github.com/thiddegree/assimp.git
 [submodule "ThirdParty/SDL2"]
 	path = ThirdParty/SDL2
 	url = https://github.com/thirddegree/SDL2.git
@@ -34,9 +34,6 @@
 [submodule "HatchitGraphics"]
 	path = HatchitGraphics
 	url = https://github.com/thirddegree/HatchitGraphics.git
-[submodule "ThirdParty/glew"]
-	path = ThirdParty/glew
-	url = https://github.com/thirddegree/glew.git
 [submodule "ThirdParty/openal-soft"]
 	path = ThirdParty/openal-soft
 	url = https://github.com/kcat/openal-soft.git
