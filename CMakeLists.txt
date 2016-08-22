@@ -25,6 +25,7 @@ endif()
 if(WIN32)
 
 elseif(UNIX)
+    find_package(GTest REQUIRED)
 
     include_directories("HatchitCore/include"
                         "HatchitCore/include/linux"
@@ -44,3 +45,5 @@ elseif(UNIX)
     target_compile_definitions(HatchitCore PRIVATE FMT_EXPORT)
 
 endif()
+
+add_subdirectory(HatchitTest)

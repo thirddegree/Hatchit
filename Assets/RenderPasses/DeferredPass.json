@@ -1,9 +1,0 @@
-{
-    "RootLayout": "TestRootDescriptor.json",
-    "Input": [],
-    "Output": [
-        "DeferredColor.json",
-        "DeferredPosition.json",
-        "DeferredNormal.json"
-    ]
-}

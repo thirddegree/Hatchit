@@ -1,9 +1,0 @@
-{
-    "Pipeline": "DirectionalLightingPipeline.json",
-
-    "RenderPasses": [ "LightingPass.json" ],
-
-    "ShaderVariables": [],
-
-    "Textures": []
-}
