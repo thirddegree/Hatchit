@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake")
 project(Hatchit)
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
@@ -25,11 +25,15 @@ endif()
 if(WIN32)
 
 elseif(UNIX)
-    find_package(GTest REQUIRED)
+    find_package(OpenAL REQUIRED)
+    find_library(Vulkan REQUIRED)
+    find_package(Bullet REQUIRED)
 
     include_directories("HatchitCore/include"
                         "HatchitCore/include/linux"
                         "HatchitCore/source/inline"
+                        "HatchitGraphics/include"
+                        "HatchitGraphics/include/vulkan"
                         SYSTEM
                         "ThirdParty/inih/"
                         "ThirdParty/cppformat/cppformat"
@@ -37,11 +41,12 @@ elseif(UNIX)
                         "ThirdParty/stb")
 
     file(GLOB HT_CORE_SRC HatchitCore/source/*.cpp HatchitCore/source/linux/*.cpp ThirdParty/inih/*.c ThirdParty/cppformat/cppformat/*.cc)
-
+    #file(GLOB HT_GRAPHICS_SRC HatchitGraphics/source/*.cpp)
 
     set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -D_DEBUG")
 
     add_library(HatchitCore SHARED ${HT_CORE_SRC})
+    #add_library(HatchitGraphics SHARED ${HT_GRAPHICS_SRC})
     target_compile_definitions(HatchitCore PRIVATE FMT_EXPORT)
 
 endif()
