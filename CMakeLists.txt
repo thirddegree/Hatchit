@@ -25,29 +25,41 @@ endif()
 if(WIN32)
 
 elseif(UNIX)
-    find_package(OpenAL REQUIRED)
-    find_library(Vulkan REQUIRED)
-    find_package(Bullet REQUIRED)
 
     include_directories("HatchitCore/include"
                         "HatchitCore/include/linux"
                         "HatchitCore/source/inline"
                         "HatchitGraphics/include"
                         "HatchitGraphics/include/vulkan"
+                        "HatchitGame/include"
+                        "HatchitGame/include/sdl"
                         SYSTEM
                         "ThirdParty/inih/"
                         "ThirdParty/cppformat/cppformat"
                         "ThirdParty/json/src/"
                         "ThirdParty/stb")
 
+    # Collect all Hatchit Core source and include
+    file(GLOB HT_CORE_INC HatchitCore/include/*.h)
     file(GLOB HT_CORE_SRC HatchitCore/source/*.cpp HatchitCore/source/linux/*.cpp ThirdParty/inih/*.c ThirdParty/cppformat/cppformat/*.cc)
-    #file(GLOB HT_GRAPHICS_SRC HatchitGraphics/source/*.cpp)
+
+    # Collect all Hatchit Graphics source and include
+    file(GLOB HT_GRAPHICS_INC HatchitGraphics/include/*.h HatchitGraphics/include/vulkan/*.h)
+    file(GLOB HT_GRAPHICS_SRC HatchitGraphics/source/*.cpp HatchitGraphics/source/vulkan/*.cpp)
+
+    # Collect all Hatchit Game source and include
+    file(GLOB HT_GAME_INC HatchitGame/include/*.h HatchitGame/include/sdl/*.h)
+    file(GLOB HT_GAME_SRC HatchitGame/source/*.cpp HatchitGame/source/sdl/*.cpp)
 
     set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -D_DEBUG")
 
-    add_library(HatchitCore SHARED ${HT_CORE_SRC})
-    #add_library(HatchitGraphics SHARED ${HT_GRAPHICS_SRC})
+    add_library(HatchitCore SHARED ${HT_CORE_INC} ${HT_CORE_SRC})
+    add_library(HatchitGraphics SHARED ${HT_GRAPHICS_INC} ${HT_GRAPHICS_SRC})
+    add_library(HatchitGame SHARED ${HT_GAME_INC} ${HT_GAME_SRC})
+
     target_compile_definitions(HatchitCore PRIVATE FMT_EXPORT)
+
+    target_link_libraries(HatchitGame HatchitCore HatchitGraphics)
 
 endif()
 
