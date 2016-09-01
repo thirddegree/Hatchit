@@ -24,6 +24,7 @@ endif()
 
 if(WIN32)
 
+
 elseif(UNIX)
 
     find_package(Vulkan REQUIRED)
@@ -70,7 +71,8 @@ elseif(UNIX)
     target_link_libraries(HatchitGraphics HatchitCore ${VULKAN_LIBRARY})
     target_link_libraries(HatchitGame HatchitCore HatchitGraphics)
 
+    
+    add_subdirectory(HatchitTest)
 
 endif()
 
-add_subdirectory(HatchitTest)
