@@ -27,7 +27,7 @@ if(WIN32)
         find_package(Vulkan REQUIRED)
 
         include_directories("HatchitCore/include"
-                            "HatchitCore/include/linux"
+                            "HatchitCore/include/windows"
                             "HatchitCore/source/inline"
                             "HatchitGraphics/include"
                             "HatchitGraphics/include/vulkan"
@@ -41,7 +41,7 @@ if(WIN32)
 
         # Collect all Hatchit Core source and include
         file(GLOB HT_CORE_INC HatchitCore/include/*.h)
-        file(GLOB HT_CORE_SRC HatchitCore/source/*.cpp HatchitCore/source/linux/*.cpp ThirdParty/inih/*.c ThirdParty/cppformat/cppformat/*.cc)
+        file(GLOB HT_CORE_SRC HatchitCore/source/*.cpp HatchitCore/source/windows/*.cpp ThirdParty/inih/*.c ThirdParty/cppformat/cppformat/*.cc)
 
         # Collect all Hatchit Graphics source and include
         file(GLOB HT_GRAPHICS_INC HatchitGraphics/include/*.h HatchitGraphics/include/vulkan/*.h)
@@ -59,7 +59,11 @@ if(WIN32)
         add_library(HatchitGraphics SHARED ${HT_GRAPHICS_INC} ${HT_GRAPHICS_SRC})
         add_library(HatchitNetwork SHARED ${HT_NETWORK_INC} ${HT_NETWORK_SRC})
 
+        target_link_libraries(HatchitGraphics HatchitCore ${VULKAN_LIBRARY})
+
         target_compile_definitions(HatchitCore PRIVATE FMT_EXPORT)
+
+        add_definitions(-DHT_NONCLIENT_BUILD)
 
     else()
         message( FATAL_ERROR "Please run setup.bat to build required dependencies and initialize build system." )
