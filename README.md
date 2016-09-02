@@ -2,7 +2,7 @@
 
 [![Join the chat at https://gitter.im/thirddegree/HatchitDiscussion](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/thirddegree/HatchitDiscussion)
 
-An Open Source 3D Game Engine written in C++ focusing on support for Vulkan and DirectX 12 renderers
+An Open Source 3D Game Engine written in C++ focusing on support for Vulkan
 
 ---
 
@@ -23,7 +23,6 @@ All testing and development so far has been done on Ubuntu 15.x and Fedora 23
 Install the following dependencies:
 * GCC (minimum required version. 5.0) -- for C++11/14 support
 * CMake
-* GLEW 		(For GL Support)
 * SDL2
 * Bullet3
 * Assimp
@@ -55,9 +54,6 @@ We recommend using some sort of cmd replacement in Windows such as cmder or some
 To build with Vulkan support you MUST have installed:
 * Vulkan SDK
 * Vulkan supported drivers!
-
-To build with Direct X 12 support you MUST install:
-* Windows 10 SDK
 
 The build system requires that you have a working Python 3.5 installation.
 
