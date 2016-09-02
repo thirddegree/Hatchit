@@ -18,7 +18,7 @@ This is subject to change and may not be complete or entirely accurate!
 
 #### Linux
 
-All testing and development so far has been done on Ubuntu 15.x and Fedora 23
+All testing and development so far has been done on Ubuntu 16.04 XENIAL
 
 Install the following dependencies:
 * GCC (minimum required version. 5.0) -- for C++11/14 support
