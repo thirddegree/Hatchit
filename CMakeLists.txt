@@ -72,6 +72,7 @@ if(WIN32)
 elseif(UNIX)
 
     find_package(Vulkan REQUIRED)
+    find_package(GLFW3 REQUIRED)
 
     include_directories("HatchitCore/include"
                         "HatchitCore/include/linux"
@@ -79,14 +80,15 @@ elseif(UNIX)
                         "HatchitGraphics/include"
                         "HatchitGraphics/include/vulkan"
                         "HatchitGame/include"
-                        "HatchitGame/include/sdl"
+                        "HatchitGame/include/glfw"
                         "HatchitNetwork/include"
                         SYSTEM
                         "ThirdParty/inih/"
                         "ThirdParty/cppformat/cppformat"
                         "ThirdParty/json/src/"
                         "ThirdParty/stb"
-                        ${VULKAN_INCLUDE_DIR})
+                        ${VULKAN_INCLUDE_DIR}
+                        ${GLFW_INCLUDE_DIR})
 
     # Collect all Hatchit Core source and include
     file(GLOB HT_CORE_INC HatchitCore/include/*.h)
@@ -97,8 +99,8 @@ elseif(UNIX)
     file(GLOB HT_GRAPHICS_SRC HatchitGraphics/source/*.cpp HatchitGraphics/source/vulkan/*.cpp)
 
     # Collect all Hatchit Game source and include
-    file(GLOB HT_GAME_INC HatchitGame/include/*.h HatchitGame/include/sdl/*.h)
-    file(GLOB HT_GAME_SRC HatchitGame/source/*.cpp HatchitGame/source/sdl/*.cpp)
+    file(GLOB HT_GAME_INC HatchitGame/include/*.h HatchitGame/include/glfw/*.h)
+    file(GLOB HT_GAME_SRC HatchitGame/source/*.cpp HatchitGame/source/glfw/*.cpp)
 
     #Collect all Hatchit Network source and include
     file(GLOB HT_NETWORK_INC HatchitNetwork/include/*.h)
@@ -113,7 +115,7 @@ elseif(UNIX)
     target_compile_definitions(HatchitCore PRIVATE FMT_EXPORT)
 
     target_link_libraries(HatchitGraphics HatchitCore ${VULKAN_LIBRARY})
-    target_link_libraries(HatchitGame HatchitCore HatchitGraphics)
+    target_link_libraries(HatchitGame HatchitCore HatchitGraphics ${GLFW_LIBRARY})
 
     
     add_subdirectory(HatchitTest)
