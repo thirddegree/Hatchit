@@ -9,18 +9,8 @@ set (HatchitEngine_VERSION_MAJOR 0)
 set (HatchitEngine_VERSION_MINOR 1)
 set (HatchitEngine_VERSION_BUILD 1)
 
-# Compiler flag
-include (CheckCXXCompilerFlag)
-CHECK_CXX_COMPILER_FLAG("-std=c++1y" COMPILER_SUPPORTS_CXX14)
-if(COMPILER_SUPPORTS_CXX14)
-    if(CMAKE_BUILD_TYPE MATCHES DEBUG)
-        set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++1y -Wall -g -msse")
-    else()
-        set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++1y -Wall -msse")
-    endif()
-else()
-    message(STATUS "The compiler ${CMAKE_CXX_COMPILER} has no C++11 support. Please use a different C++ compiler.")
-endif()
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 if(WIN32)
     if(IS_DIRECTORY "${CMAKE_SOURCE_DIR}/build/")
@@ -33,11 +23,12 @@ if(WIN32)
                             "HatchitGraphics/include/vulkan"
                             "HatchitNetwork/include"
                             SYSTEM
-                            "ThirdParty/inih/"
+                            "ThirdParty/inih"
                             "ThirdParty/cppformat/cppformat"
-                            "ThirdParty/json/src/"
+                            "ThirdParty/json/src"
                             "ThirdParty/stb"
-                            ${VULKAN_INCLUDE_DIR})
+                            "ThirdParty/glfw"
+			    ${VULKAN_INCLUDE_DIR})
 
         # Collect all Hatchit Core source and include
         file(GLOB HT_CORE_INC HatchitCore/include/*.h)

@@ -7,7 +7,7 @@ cd build
 IF NOT EXIST %cd% mkdir ThirdParty
 
 IF "%1" == "-hatchit" (
-    cmake ../ -G "Visual Studio 14 2015 Win64"
+    cmake ../ -G "Visual Studio 14 2015 Win64" -DCMAKE_SYSTEM_VERSION=10.0
 )
 
 IF NOT "%1" == "-hatchit" (
@@ -19,5 +19,5 @@ IF NOT "%1" == "-hatchit" (
 
     cd ..
 
-    cmake ../ -G "Visual Studio 14 2015 Win64"
+    cmake ../ -G "Visual Studio 14 2015 Win64" -DCMAKE_SYSTEM_VERSION=10.0
 )

@@ -1,19 +1,18 @@
 cmake_minimum_required(VERSION 3.5)
 project(ThirdPartyLibs)
 
-# Compiler flag
-include (CheckCXXCompilerFlag)
-CHECK_CXX_COMPILER_FLAG("-std=c++1y" COMPILER_SUPPORTS_CXX14)
-if(COMPILER_SUPPORTS_CXX14)
-    if(CMAKE_BUILD_TYPE MATCHES DEBUG)
-        set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++1y -Wall -g -msse")
-    else()
-        set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++1y -Wall -msse")
-    endif()
-else()
-    message(STATUS "The compiler ${CMAKE_CXX_COMPILER} has no C++11 support. Please use a different C++ compiler.")
-endif()
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+#HANDLE GLFW THIRD PARTY LIBRARY
+add_subdirectory("${CMAKE_SOURCE_DIR}/glfw" "${CMAKE_CURRENT_BINARY_DIR}/glfw")
+set_target_properties(glfw PROPERTIES FOLDER glfw)
+set_target_properties(glfw
+	PROPERTIES
+	ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/glfw/lib"
+	LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/glfw/lib"
+	RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/glfw/bin"
+	OUTPUT_NAME "glfw")
 
 #HANDLE ASSIMP THIRD PARTY LIBRARY
 add_subdirectory("${CMAKE_SOURCE_DIR}/assimp" "${CMAKE_CURRENT_BINARY_DIR}/Assimp")
