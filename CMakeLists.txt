@@ -22,13 +22,18 @@ if(WIN32)
                             "HatchitGraphics/include"
                             "HatchitGraphics/include/vulkan"
                             "HatchitNetwork/include"
+			    "HatchitGame/include"
+			    "HatchitGame/include/glfw"
+			    "HatchitGame/source/inline"
                             SYSTEM
                             "ThirdParty/inih"
                             "ThirdParty/cppformat/cppformat"
                             "ThirdParty/json/src"
                             "ThirdParty/stb"
-                            "ThirdParty/glfw"
+                            "ThirdParty/glfw/include"
 			    ${VULKAN_INCLUDE_DIR})
+
+	link_directories("ThirdParty/lib/glfw/lib/$(Configuration)")
 
         # Collect all Hatchit Core source and include
         file(GLOB HT_CORE_INC HatchitCore/include/*.h)
@@ -39,8 +44,8 @@ if(WIN32)
         file(GLOB HT_GRAPHICS_SRC HatchitGraphics/source/*.cpp HatchitGraphics/source/vulkan/*.cpp)
 
         # Collect all Hatchit Game source and include
-        file(GLOB HT_GAME_INC HatchitGame/include/*.h HatchitGame/include/sdl/*.h)
-        file(GLOB HT_GAME_SRC HatchitGame/source/*.cpp HatchitGame/source/sdl/*.cpp)
+        file(GLOB HT_GAME_INC HatchitGame/include/*.h HatchitGame/include/glfw/*.h)
+        file(GLOB HT_GAME_SRC HatchitGame/source/*.cpp HatchitGame/source/glfw/*.cpp)
 
         #Collect all Hatchit Network source and include
         file(GLOB HT_NETWORK_INC HatchitNetwork/include/*.h)
@@ -48,13 +53,17 @@ if(WIN32)
 
         add_library(HatchitCore SHARED ${HT_CORE_INC} ${HT_CORE_SRC})
         add_library(HatchitGraphics SHARED ${HT_GRAPHICS_INC} ${HT_GRAPHICS_SRC})
-        add_library(HatchitNetwork SHARED ${HT_NETWORK_INC} ${HT_NETWORK_SRC})
+	add_library(HatchitGame SHARED ${HT_GAME_INC} ${HT_GAME_SRC})
+	add_library(HatchitNetwork SHARED ${HT_NETWORK_INC} ${HT_NETWORK_SRC})
 
         target_link_libraries(HatchitGraphics HatchitCore ${VULKAN_LIBRARY})
 	target_link_libraries(HatchitNetwork HatchitCore Ws2_32)
+	target_link_libraries(HatchitGame HatchitCore HatchitGraphics HatchitNetwork glfw ${VULKAN_LIBRARY})
         target_compile_definitions(HatchitCore PRIVATE FMT_EXPORT)
 
         add_definitions(-DHT_NONCLIENT_BUILD)
+
+	add_subdirectory(HatchitTest)
 
     else()
         message( FATAL_ERROR "Please run setup.bat to build required dependencies and initialize build system." )
