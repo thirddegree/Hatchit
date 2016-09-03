@@ -84,6 +84,10 @@ if(WIN32)
 
         add_definitions(-DHT_NONCLIENT_BUILD)
 
+        set_target_properties(HatchitCore HatchitGraphics HatchitGame HatchitNetwork
+            PROPERTIES
+            RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin")
+
 	    add_subdirectory(HatchitTest)
 
     else()

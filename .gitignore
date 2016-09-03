@@ -1,5 +1,6 @@
 ThirdParty/lib
 build/
+bin/
 
 
 #Visual Studio Code
