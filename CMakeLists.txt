@@ -51,7 +51,7 @@ if(WIN32)
         add_library(HatchitNetwork SHARED ${HT_NETWORK_INC} ${HT_NETWORK_SRC})
 
         target_link_libraries(HatchitGraphics HatchitCore ${VULKAN_LIBRARY})
-
+	target_link_libraries(HatchitNetwork HatchitCore Ws2_32)
         target_compile_definitions(HatchitCore PRIVATE FMT_EXPORT)
 
         add_definitions(-DHT_NONCLIENT_BUILD)
