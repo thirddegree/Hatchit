@@ -22,9 +22,9 @@ if(WIN32)
                             "HatchitGraphics/include"
                             "HatchitGraphics/include/vulkan"
                             "HatchitNetwork/include"
-			    "HatchitGame/include"
-			    "HatchitGame/include/glfw"
-			    "HatchitGame/source/inline"
+			                "HatchitGame/include"
+			                "HatchitGame/include/glfw"
+			                "HatchitGame/source/inline"
                             SYSTEM
                             "ThirdParty/inih"
                             "ThirdParty/cppformat/cppformat"
@@ -33,37 +33,58 @@ if(WIN32)
                             "ThirdParty/glfw/include"
 			    ${VULKAN_INCLUDE_DIR})
 
-	link_directories("ThirdParty/lib/glfw/lib/$(Configuration)")
+	    link_directories("ThirdParty/lib/glfw/lib/$(Configuration)")
 
         # Collect all Hatchit Core source and include
         file(GLOB HT_CORE_INC HatchitCore/include/*.h)
         file(GLOB HT_CORE_SRC HatchitCore/source/*.cpp HatchitCore/source/windows/*.cpp ThirdParty/inih/*.c ThirdParty/cppformat/cppformat/*.cc)
 
         # Collect all Hatchit Graphics source and include
-        file(GLOB HT_GRAPHICS_INC HatchitGraphics/include/*.h HatchitGraphics/include/vulkan/*.h)
-        file(GLOB HT_GRAPHICS_SRC HatchitGraphics/source/*.cpp HatchitGraphics/source/vulkan/*.cpp)
+        file(GLOB HT_GRAPHICS_INC HatchitGraphics/include/*.h)
+        file(GLOB HT_GRAPHICS_SRC HatchitGraphics/source/*.cpp)
+        file(GLOB HT_GRAPHICS_VULKAN_INC HatchitGraphics/include/vulkan/*.h)
+        file(GLOB HT_GRAPHICS_VULKAN_SRC HatchitGraphics/source/vulkan/*.cpp)
+
+            #Create source groups
+            source_group("Header Files\\vulkan" FILES ${HT_GRAPHICS_VULKAN_INC})
+            source_group("Source Files\\vulkan" FILES ${HT_GRAPHICS_VULKAN_SRC})
+
+        set(HT_GRAPHICS_INC_GLOB ${HT_GRAPHICS_INC} ${HT_GRAPHICS_VULKAN_INC})
+        set(HT_GRAPHICS_SRC_GLOB ${HT_GRAPHICS_SRC} ${HT_GRAPHICS_VULKAN_SRC})
+
 
         # Collect all Hatchit Game source and include
-        file(GLOB HT_GAME_INC HatchitGame/include/*.h HatchitGame/include/glfw/*.h)
-        file(GLOB HT_GAME_SRC HatchitGame/source/*.cpp HatchitGame/source/glfw/*.cpp)
+        file(GLOB HT_GAME_INC HatchitGame/include/*.h)
+        file(GLOB HT_GAME_SRC HatchitGame/source/*.cpp)
+        file(GLOB HT_GAME_GLFW_INC HatchitGame/include/glfw/*.h)
+        file(GLOB HT_GAME_GLFW_SRC HatchitGame/source/glfw/*.cpp)
+
+            #Create source groups
+            source_group("Header Files\\glfw" FILES ${HT_GAME_GLFW_INC})
+            source_group("Source Files\\glfw" FILES ${HT_GAME_GLFW_SRC})
+        
+        set(HT_GAME_INC_GLOB ${HT_GAME_INC} ${HT_GAME_GLFW_INC})
+        set(HT_GAME_SRC_GLOB ${HT_GAME_SRC} ${HT_GAME_GLFW_SRC})
 
         #Collect all Hatchit Network source and include
         file(GLOB HT_NETWORK_INC HatchitNetwork/include/*.h)
         file(GLOB HT_NETWORK_SRC HatchitNetwork/source/*.cpp)
 
+        
+
         add_library(HatchitCore SHARED ${HT_CORE_INC} ${HT_CORE_SRC})
-        add_library(HatchitGraphics SHARED ${HT_GRAPHICS_INC} ${HT_GRAPHICS_SRC})
-	add_library(HatchitGame SHARED ${HT_GAME_INC} ${HT_GAME_SRC})
-	add_library(HatchitNetwork SHARED ${HT_NETWORK_INC} ${HT_NETWORK_SRC})
+        add_library(HatchitGraphics SHARED ${HT_GRAPHICS_INC_GLOB} ${HT_GRAPHICS_SRC_GLOB})
+	    add_library(HatchitGame SHARED ${HT_GAME_INC_GLOB} ${HT_GAME_SRC_GLOB})
+	    add_library(HatchitNetwork SHARED ${HT_NETWORK_INC} ${HT_NETWORK_SRC})
 
         target_link_libraries(HatchitGraphics HatchitCore ${VULKAN_LIBRARY})
-	target_link_libraries(HatchitNetwork HatchitCore Ws2_32)
-	target_link_libraries(HatchitGame HatchitCore HatchitGraphics HatchitNetwork glfw ${VULKAN_LIBRARY})
+	    target_link_libraries(HatchitNetwork HatchitCore Ws2_32)
+	    target_link_libraries(HatchitGame HatchitCore HatchitGraphics HatchitNetwork glfw ${VULKAN_LIBRARY})
         target_compile_definitions(HatchitCore PRIVATE FMT_EXPORT)
 
         add_definitions(-DHT_NONCLIENT_BUILD)
 
-	add_subdirectory(HatchitTest)
+	    add_subdirectory(HatchitTest)
 
     else()
         message( FATAL_ERROR "Please run setup.bat to build required dependencies and initialize build system." )
