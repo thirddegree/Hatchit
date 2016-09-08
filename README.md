@@ -23,7 +23,7 @@ All testing and development so far has been done on Ubuntu 16.04 XENIAL
 Install the following dependencies:
 * GCC (minimum required version. 5.0) -- for C++11/14 support
 * CMake
-* SDL2
+* GLFW3
 * Bullet3
 * Assimp
 * TinyXML2
