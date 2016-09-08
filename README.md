@@ -23,7 +23,7 @@ All testing and development so far has been done on Ubuntu 16.04 XENIAL
 Install the following dependencies:
 * GCC (minimum required version. 5.0) -- for C++11/14 support
 * CMake
-* SDL2
+* GLFW3
 * Bullet3
 * Assimp
 * TinyXML2
@@ -32,11 +32,9 @@ Install the following dependencies:
 
 Then follow these simple directions:
 * Clone down the repo with `git clone --recursive http://github.com/thirddegree/Hatchit`
-* `cd` into the Linux directory
-* Run the `configure.sh` script
-* `cd` into `_build/` and then either `debug/` or `release/`
-* Run `make -j 16`
-* Run your new `ht_test` executable!
+* Make a build dir (e.g. mkdir build)
+* cd into build/ and run cmake ..
+* Now just run make to build Hatchit
 
 #### Windows
 
@@ -60,16 +58,10 @@ The build system requires that you have a working Python 3.5 installation.
 ##### Third Party
 Next up is building all the dependencies. This should only have to be done once for your machine. After this you won't have to worry about `vcvarsall.bat` but you will need CMake.
 
-* `cd` into `Hatchit\Windows\ThirdParty`
-* Run the `config.bat` file located here. This should configure AND BUILD all your dependencies
+* Run the `setup.bat` file. This should configure AND BUILD all your dependencies
 
 ##### Hatchit
 This is the easy part!
 
-* `cd` into `Hatchit\Windows`
-* Run the `config.bat` files located here. This will configure the Visual Studio solution
-* `config.bat` takes command line arguments! Add `GL` to build with OpenGL 4.2+ support. Add `DX` to build with Direct X 11 support. Add `VK` to build with Vulkan support. Add `DX12` to build with Direct X 12 support. For example to build with Vulkan and Direct X 12 support you would run `config.bat VK DX12`.
-* Your shell should be located in `Hatchit\Windows\_build\VS2015`
-* Open the `HatchitEngine.sln` file however you'd like
-* Make sure that `HatchitTest` is marked as your startup project
-* Build and Run!
+* `cd` into `build
+* Open the Hatchit.sln solution file or execute it with MSBuild.exe to build all targets
