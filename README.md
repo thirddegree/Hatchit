@@ -32,11 +32,9 @@ Install the following dependencies:
 
 Then follow these simple directions:
 * Clone down the repo with `git clone --recursive http://github.com/thirddegree/Hatchit`
-* `cd` into the Linux directory
-* Run the `configure.sh` script
-* `cd` into `_build/` and then either `debug/` or `release/`
-* Run `make -j 16`
-* Run your new `ht_test` executable!
+* Make a build dir (e.g. mkdir build)
+* cd into build/ and run cmake ..
+* Now just run make to build Hatchit
 
 #### Windows
 
