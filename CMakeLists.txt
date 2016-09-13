@@ -96,8 +96,10 @@ if(WIN32)
 
 elseif(UNIX)
 
+    find_package(PkgConfig REQUIRED)
+    pkg_check_modules(GLFW REQUIRED glfw3)
+
     find_package(Vulkan REQUIRED)
-    find_package(GLFW3 REQUIRED)
 
     include_directories("HatchitCore/include"
                         "HatchitCore/include/linux"
@@ -140,7 +142,7 @@ elseif(UNIX)
     target_compile_definitions(HatchitCore PRIVATE FMT_EXPORT)
 
     target_link_libraries(HatchitGraphics HatchitCore ${VULKAN_LIBRARY})
-    target_link_libraries(HatchitGame HatchitCore HatchitGraphics ${GLFW_LIBRARY})
+    target_link_libraries(HatchitGame HatchitCore HatchitGraphics ${GLFW_LIBRARIES})
 
     
     add_subdirectory(HatchitTest)
