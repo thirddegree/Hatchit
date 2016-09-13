@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Hatchit : An Open Source 3D Game Engine written in C++">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Hatchit</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/thirddegree/Hatchit">View on GitHub</a>
+
+          <h1 id="project_title">Hatchit</h1>
+          <h2 id="project_tagline">An Open Source 3D Game Engine written in C++</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/thirddegree/Hatchit/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/thirddegree/Hatchit/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="hatchit" class="anchor" href="#hatchit" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Hatchit</h1>
+
+<p><a href="https://gitter.im/thirddegree/HatchitDiscussion"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Join the chat at https://gitter.im/thirddegree/HatchitDiscussion"></a></p>
+
+<p>An Open Source 3D Game Engine written in C++ focusing on support for Vulkan</p>
+
+<hr>
+
+<h3>
+<a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributing</h3>
+
+<p>Any issues not related to the build system should go onto the page of the repo best suited for that issue. Graphics code goes onto the HatchitGraphics page for instance.</p>
+
+<p>If you would like to submit a Pull Request it's probably best to clone this repo and follow the build instructions to get a working copy. Then fork the repo that you'd like to contribute code to and modify your .gitconfig file to point to your fork. Then you can edit, test and push all you'd like before submitting a pull request.</p>
+
+<h3>
+<a id="build-instructions" class="anchor" href="#build-instructions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Build instructions</h3>
+
+<p>This is subject to change and may not be complete or entirely accurate!</p>
+
+<h4>
+<a id="linux" class="anchor" href="#linux" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Linux</h4>
+
+<p>All testing and development so far has been done on Ubuntu 16.04 XENIAL</p>
+
+<p>Install the following dependencies:</p>
+
+<ul>
+<li>GCC (minimum required version. 5.0) -- for C++11/14 support</li>
+<li>CMake</li>
+<li>GLFW3</li>
+<li>Bullet3</li>
+<li>Assimp</li>
+<li>TinyXML2</li>
+<li>Python 3.5 (with pip and virtualenv)</li>
+<li>Vulkan SDK    (For Vulkan Support)</li>
+</ul>
+
+<p>Then follow these simple directions:</p>
+
+<ul>
+<li>Clone down the repo with <code>git clone --recursive http://github.com/thirddegree/Hatchit</code>
+</li>
+<li>Make a build dir (e.g. mkdir build)</li>
+<li>cd into build/ and run cmake ..</li>
+<li>Now just run make to build Hatchit</li>
+</ul>
+
+<h4>
+<a id="windows" class="anchor" href="#windows" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Windows</h4>
+
+<p>This is a bit more of a pain. All dependencies are submodules in the Third Party
+directory and will need to be built before you build Hatchit.</p>
+
+<p>All testing and development has been done on Windows 10 with Visual Studio 2015</p>
+
+<h5>
+<a id="pre-build" class="anchor" href="#pre-build" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pre-Build</h5>
+
+<p>We recommend using some sort of cmd replacement in Windows such as cmder or some sort of bash shell</p>
+
+<ul>
+<li>Install CMake and make sure it is in your path</li>
+<li>Make sure that you can run <code>msbuild.exe</code> from your shell. If it's not there try running the <code>vcvarsall.bat</code> file located at <code>C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat</code> for Visual Studio 2015</li>
+<li>Clone down the repo with <code>git clone --recursive http://github.com/thirddegree/Hatchit</code>
+</li>
+</ul>
+
+<p>To build with Vulkan support you MUST have installed:</p>
+
+<ul>
+<li>Vulkan SDK</li>
+<li>Vulkan supported drivers!</li>
+</ul>
+
+<p>The build system requires that you have a working Python 3.5 installation.</p>
+
+<h5>
+<a id="third-party" class="anchor" href="#third-party" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Third Party</h5>
+
+<p>Next up is building all the dependencies. This should only have to be done once for your machine. After this you won't have to worry about <code>vcvarsall.bat</code> but you will need CMake.</p>
+
+<ul>
+<li>Run the <code>setup.bat</code> file. This should configure AND BUILD all your dependencies</li>
+</ul>
+
+<h5>
+<a id="hatchit-1" class="anchor" href="#hatchit-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Hatchit</h5>
+
+<p>This is the easy part!</p>
+
+<ul>
+<li>
+<code>cd</code> into `build</li>
+<li>Open the Hatchit.sln solution file or execute it with MSBuild.exe to build all targets</li>
+</ul>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Hatchit maintained by <a href="https://github.com/thirddegree">thirddegree</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
