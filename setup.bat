@@ -19,5 +19,5 @@ IF NOT "%1" == "-hatchit" (
 
     cd ..
 
-    cmake ../ -G "Visual Studio 14 2015 Win64" -DCMAKE_SYSTEM_VERSION=10.0
+    cmake ../ -G "Visual Studio 14 2015 Win64" -DCMAKE_SYSTEM_VERSION=10.0 -DBUILD_SHARED_LIBS=ON
 )
