@@ -1,6 +1,6 @@
 # Hatchit
 
-[![Join the chat at https://gitter.im/thirddegree/Hatchit](https://badges.gitter.im/thirddegree/Hatchit.svg)](https://gitter.im/thirddegree/Hatchit?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Join the chat at https://gitter.im/thirddegree/Hatchit](https://badges.gitter.im/thirddegree/Hatchit.svg)](https://gitter.im/thirddegree/Hatchit?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![View documentation](doxygen/Hatchit.svg)](doxygen/html/index.html)
 
 An Open Source 3D Game Engine written in C++ focusing on support for Vulkan
 

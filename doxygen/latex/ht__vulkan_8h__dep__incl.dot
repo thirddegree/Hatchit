@@ -1,0 +1,18 @@
+digraph "/home/debunez/GitHub/Hatchit/HatchitGraphics/include/vulkan/ht_vulkan.h"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="/home/debunez/GitHub\l/Hatchit/HatchitGraphics\l/include/vulkan/ht_vulkan.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="/home/debunez/GitHub\l/Hatchit/HatchitGraphics\l/include/vulkan/ht_vkapplication.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$ht__vkapplication_8h.html",tooltip="VKApplication class definition. "];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="/home/debunez/GitHub\l/Hatchit/HatchitGraphics\l/include/vulkan/ht_vkcommandbuffer.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$ht__vkcommandbuffer_8h.html",tooltip="VKCommandBuffer class definition. "];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="/home/debunez/GitHub\l/Hatchit/HatchitGraphics\l/include/vulkan/ht_vkcommandpool.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$ht__vkcommandpool_8h.html",tooltip="VKCommandPool definition. "];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="/home/debunez/GitHub\l/Hatchit/HatchitGraphics\l/include/vulkan/ht_vkdevice.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$ht__vkdevice_8h.html",tooltip="VKDevice class definition. "];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="/home/debunez/GitHub\l/Hatchit/HatchitGraphics\l/include/vulkan/ht_vkimage.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$ht__vkimage_8h.html",tooltip="VKImage class definition. "];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node7 [label="/home/debunez/GitHub\l/Hatchit/HatchitGraphics\l/include/vulkan/ht_vkswapchain.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$ht__vkswapchain_8h.html",tooltip="VKSwapChain class definition. "];
+}
