@@ -25,11 +25,13 @@ Install the following dependencies:
 * GCC (minimum required version. 5.0) -- for C++11/14 support
 * CMake
 * GLFW3
+  * sudo apt-get install libglfw3-dev
 * Bullet3
 * Assimp
 * TinyXML2
 * Python 3.5 (with pip and virtualenv)
 * Vulkan SDK 	(For Vulkan Support)
+  * sudo apt-get install libvulkan-dev
 
 Then follow these simple directions:
 * Clone down the repo with `git clone --recursive http://github.com/thirddegree/Hatchit`
