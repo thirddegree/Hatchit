@@ -37,6 +37,5 @@ This application is developed as part of <b>HatchitEditor</b> but is required fo
 Note: There is a GUI mode available when running the hash tool.
 
 * Allows for visualizing the source input and output before processing
-* Easy of use for those unwilling to run from command line.
-
+* Currently only supports viewing. Processing must be run with arguments.
 ![gui](data/hashtool_gui.png)
