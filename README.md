@@ -1,6 +1,7 @@
 # Hatchit
 
-[![Join the chat at https://gitter.im/thirddegree/Hatchit](https://badges.gitter.im/thirddegree/Hatchit.svg)](https://gitter.im/thirddegree/Hatchit?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Join the chat at https://gitter.im/thirddegree/Hatchit](https://badges.gitter.im/thirddegree/Hatchit.svg)](https://gitter.im/thirddegree/Hatchit?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![View documentation](doxygen/Hatchit.png)](doxygen/html/index.html)
+
 
 An Open Source 3D Game Engine written in C++ focusing on support for Vulkan
 
@@ -65,5 +66,5 @@ Next up is building all the dependencies. This should only have to be done once 
 ##### Hatchit
 This is the easy part!
 
-* `cd` into `build
-* Open the Hatchit.sln solution file or execute it with MSBuild.exe to build all targets
+* `cd` into `build`
+* Open the Hatchit.sln solution file or execute it with `MSBuild.exe` to build all targets

@@ -37,7 +37,11 @@ if(WIN32)
 
         # Collect all Hatchit Core source and include
         file(GLOB HT_CORE_INC HatchitCore/include/*.h)
+		file(GLOB HT_CORE_INL HatchitCore/source/inline/*.inl)
         file(GLOB HT_CORE_SRC HatchitCore/source/*.cpp HatchitCore/source/windows/*.cpp ThirdParty/inih/*.c ThirdParty/cppformat/cppformat/*.cc)
+
+			#Create source groups
+			source_group("Source Files\\inline" FILES ${HT_CORE_INL})
 
         # Collect all Hatchit Graphics source and include
         file(GLOB HT_GRAPHICS_INC HatchitGraphics/include/*.h)
@@ -72,7 +76,7 @@ if(WIN32)
 
         
 
-        add_library(HatchitCore SHARED ${HT_CORE_INC} ${HT_CORE_SRC})
+        add_library(HatchitCore SHARED ${HT_CORE_INC} ${HT_CORE_SRC} ${HT_CORE_INL})
         add_library(HatchitGraphics SHARED ${HT_GRAPHICS_INC_GLOB} ${HT_GRAPHICS_SRC_GLOB})
 	    add_library(HatchitGame SHARED ${HT_GAME_INC_GLOB} ${HT_GAME_SRC_GLOB})
 	    add_library(HatchitNetwork SHARED ${HT_NETWORK_INC} ${HT_NETWORK_SRC})
@@ -140,12 +144,14 @@ elseif(UNIX)
     add_library(HatchitGame SHARED ${HT_GAME_INC} ${HT_GAME_SRC})
     add_library(HatchitNetwork SHARED ${HT_NETWORK_INC} ${HT_NETWORK_SRC})
     target_compile_definitions(HatchitCore PRIVATE FMT_EXPORT)
-
+    target_link_libraries(HatchitCore pthread)
     target_link_libraries(HatchitGraphics HatchitCore ${VULKAN_LIBRARY})
     target_link_libraries(HatchitGame HatchitCore HatchitGraphics ${GLFW_LIBRARIES})
 
     
     add_subdirectory(HatchitTest)
+
+    install (TARGETS HatchitCore HatchitGraphics HatchitGame HatchitNetwork DESTINATION lib)
 
 endif()
 
