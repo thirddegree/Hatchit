@@ -151,5 +151,7 @@ elseif(UNIX)
     
     add_subdirectory(HatchitTest)
 
+    install (TARGETS HatchitCore HatchitGraphics HatchitGame HatchitNetwork DESTINATION lib)
+
 endif()
 
