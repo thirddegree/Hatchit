@@ -1,0 +1,179 @@
+\hypertarget{classHatchit_1_1Core_1_1ITimer}{}\section{Hatchit\+:\+:Core\+:\+:I\+Timer Interface Reference}
+\label{classHatchit_1_1Core_1_1ITimer}\index{Hatchit\+::\+Core\+::\+I\+Timer@{Hatchit\+::\+Core\+::\+I\+Timer}}
+
+
+Interface to describe timer functionality.  
+
+
+
+
+{\ttfamily \#include $<$ht\+\_\+timer.\+h$>$}
+
+
+
+Inheritance diagram for Hatchit\+:\+:Core\+:\+:I\+Timer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=324pt]{classHatchit_1_1Core_1_1ITimer__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classHatchit_1_1Core_1_1ITimer_abf16ebbb5a924fc20cf3099280f74cf7}{Start} ()=0
+\begin{DoxyCompactList}\small\item\em Starts tracking time from moment this function is called. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classHatchit_1_1Core_1_1ITimer_a6969cb6203be6fd3d3a002146bb55fa1}{Tick} ()=0
+\begin{DoxyCompactList}\small\item\em Calculates the delta time and total time. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classHatchit_1_1Core_1_1ITimer_a3bb9bec5874fd1c706ced3ba8033c761}{Stop} ()=0
+\begin{DoxyCompactList}\small\item\em Stops timer. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classHatchit_1_1Core_1_1ITimer_a4f6fc1ec97ef9345d64e75bdeadcdad2}{Reset} ()=0
+\begin{DoxyCompactList}\small\item\em Resets the timer data. \end{DoxyCompactList}\item 
+virtual float \hyperlink{classHatchit_1_1Core_1_1ITimer_aef2f629b7e527640a62af97dad17dcb2}{Elapsed\+Time} () const =0
+\begin{DoxyCompactList}\small\item\em Gets elapsed time (in seconds) \end{DoxyCompactList}\item 
+virtual float \hyperlink{classHatchit_1_1Core_1_1ITimer_af5d9551ef9a0a98591f823b014efca11}{Total\+Time} () const =0
+\begin{DoxyCompactList}\small\item\em Gets total time (in seconds) \end{DoxyCompactList}\item 
+virtual float \hyperlink{classHatchit_1_1Core_1_1ITimer_a201d0dd1503b393ea7c1e1acfb402cd5}{Delta\+Time} () const =0
+\begin{DoxyCompactList}\small\item\em Gets delta time (in seconds) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classHatchit_1_1Core_1_1ITimer_a6e778117ed24325b99b3b5f258695bec}{I\+Timer} ()=default
+\begin{DoxyCompactList}\small\item\em Creates instance of timer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Interface to describe timer functionality. 
+
+Interface that describes the functionality of a timer. Used to link usability between a \hyperlink{namespaceWindows}{Windows} timer and a \hyperlink{namespaceLinux}{Linux} timer. 
+
+Definition at line 41 of file ht\+\_\+timer.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Hatchit\+::\+Core\+::\+I\+Timer@{Hatchit\+::\+Core\+::\+I\+Timer}!I\+Timer@{I\+Timer}}
+\index{I\+Timer@{I\+Timer}!Hatchit\+::\+Core\+::\+I\+Timer@{Hatchit\+::\+Core\+::\+I\+Timer}}
+\subsubsection[{\texorpdfstring{I\+Timer()=default}{ITimer()=default}}]{\setlength{\rightskip}{0pt plus 5cm}Hatchit\+::\+Core\+::\+I\+Timer\+::\+I\+Timer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [default]}}\hypertarget{classHatchit_1_1Core_1_1ITimer_a6e778117ed24325b99b3b5f258695bec}{}\label{classHatchit_1_1Core_1_1ITimer_a6e778117ed24325b99b3b5f258695bec}
+
+
+Creates instance of timer. 
+
+Created instance must then be started. 
+
+\subsection{Member Function Documentation}
+\index{Hatchit\+::\+Core\+::\+I\+Timer@{Hatchit\+::\+Core\+::\+I\+Timer}!Delta\+Time@{Delta\+Time}}
+\index{Delta\+Time@{Delta\+Time}!Hatchit\+::\+Core\+::\+I\+Timer@{Hatchit\+::\+Core\+::\+I\+Timer}}
+\subsubsection[{\texorpdfstring{Delta\+Time() const =0}{DeltaTime() const =0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual float Hatchit\+::\+Core\+::\+I\+Timer\+::\+Delta\+Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classHatchit_1_1Core_1_1ITimer_a201d0dd1503b393ea7c1e1acfb402cd5}{}\label{classHatchit_1_1Core_1_1ITimer_a201d0dd1503b393ea7c1e1acfb402cd5}
+
+
+Gets delta time (in seconds) 
+
+Returns delta time (in seconds) between last two ticks of timer. 
+
+Implemented in \hyperlink{classHatchit_1_1Core_1_1Linux_1_1Timer_aefd9ad0a2297d03e3877c0c6c900bd1c}{Hatchit\+::\+Core\+::\+Linux\+::\+Timer}, and \hyperlink{classHatchit_1_1Core_1_1Windows_1_1Timer_a79a80293593eb0d0785e896bbf7c934b}{Hatchit\+::\+Core\+::\+Windows\+::\+Timer}.
+
+\index{Hatchit\+::\+Core\+::\+I\+Timer@{Hatchit\+::\+Core\+::\+I\+Timer}!Elapsed\+Time@{Elapsed\+Time}}
+\index{Elapsed\+Time@{Elapsed\+Time}!Hatchit\+::\+Core\+::\+I\+Timer@{Hatchit\+::\+Core\+::\+I\+Timer}}
+\subsubsection[{\texorpdfstring{Elapsed\+Time() const =0}{ElapsedTime() const =0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual float Hatchit\+::\+Core\+::\+I\+Timer\+::\+Elapsed\+Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classHatchit_1_1Core_1_1ITimer_aef2f629b7e527640a62af97dad17dcb2}{}\label{classHatchit_1_1Core_1_1ITimer_aef2f629b7e527640a62af97dad17dcb2}
+
+
+Gets elapsed time (in seconds) 
+
+Returns elapsed time (in seconds) between \hyperlink{classHatchit_1_1Core_1_1ITimer_abf16ebbb5a924fc20cf3099280f74cf7}{Start()} and \hyperlink{classHatchit_1_1Core_1_1ITimer_a3bb9bec5874fd1c706ced3ba8033c761}{Stop()} calls. 
+
+Implemented in \hyperlink{classHatchit_1_1Core_1_1Linux_1_1Timer_aa8e7a94df99e3953eebbb0d08d1dd8a2}{Hatchit\+::\+Core\+::\+Linux\+::\+Timer}, and \hyperlink{classHatchit_1_1Core_1_1Windows_1_1Timer_a4cda627adbe26e6f2b5438681063995e}{Hatchit\+::\+Core\+::\+Windows\+::\+Timer}.
+
+\index{Hatchit\+::\+Core\+::\+I\+Timer@{Hatchit\+::\+Core\+::\+I\+Timer}!Reset@{Reset}}
+\index{Reset@{Reset}!Hatchit\+::\+Core\+::\+I\+Timer@{Hatchit\+::\+Core\+::\+I\+Timer}}
+\subsubsection[{\texorpdfstring{Reset()=0}{Reset()=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Hatchit\+::\+Core\+::\+I\+Timer\+::\+Reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classHatchit_1_1Core_1_1ITimer_a4f6fc1ec97ef9345d64e75bdeadcdad2}{}\label{classHatchit_1_1Core_1_1ITimer_a4f6fc1ec97ef9345d64e75bdeadcdad2}
+
+
+Resets the timer data. 
+
+If timer is currently running, delta time will be calculated between the tick this function is called and the tick that \hyperlink{classHatchit_1_1Core_1_1ITimer_a6969cb6203be6fd3d3a002146bb55fa1}{Tick()} is called. 
+
+Implemented in \hyperlink{classHatchit_1_1Core_1_1Linux_1_1Timer_a1159f074a5290718acee991decd80af3}{Hatchit\+::\+Core\+::\+Linux\+::\+Timer}, and \hyperlink{classHatchit_1_1Core_1_1Windows_1_1Timer_a464c6b3e3017867bd387a8fb477ad186}{Hatchit\+::\+Core\+::\+Windows\+::\+Timer}.
+
+\index{Hatchit\+::\+Core\+::\+I\+Timer@{Hatchit\+::\+Core\+::\+I\+Timer}!Start@{Start}}
+\index{Start@{Start}!Hatchit\+::\+Core\+::\+I\+Timer@{Hatchit\+::\+Core\+::\+I\+Timer}}
+\subsubsection[{\texorpdfstring{Start()=0}{Start()=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Hatchit\+::\+Core\+::\+I\+Timer\+::\+Start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classHatchit_1_1Core_1_1ITimer_abf16ebbb5a924fc20cf3099280f74cf7}{}\label{classHatchit_1_1Core_1_1ITimer_abf16ebbb5a924fc20cf3099280f74cf7}
+
+
+Starts tracking time from moment this function is called. 
+
+Starts tracking time from moment this function is called. 
+
+Implemented in \hyperlink{classHatchit_1_1Core_1_1Linux_1_1Timer_ad71a11915c848a40be11b2a2a1c24375}{Hatchit\+::\+Core\+::\+Linux\+::\+Timer}, and \hyperlink{classHatchit_1_1Core_1_1Windows_1_1Timer_a6441edbd90a09f4cfbca01fafd4d0aff}{Hatchit\+::\+Core\+::\+Windows\+::\+Timer}.
+
+\index{Hatchit\+::\+Core\+::\+I\+Timer@{Hatchit\+::\+Core\+::\+I\+Timer}!Stop@{Stop}}
+\index{Stop@{Stop}!Hatchit\+::\+Core\+::\+I\+Timer@{Hatchit\+::\+Core\+::\+I\+Timer}}
+\subsubsection[{\texorpdfstring{Stop()=0}{Stop()=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Hatchit\+::\+Core\+::\+I\+Timer\+::\+Stop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classHatchit_1_1Core_1_1ITimer_a3bb9bec5874fd1c706ced3ba8033c761}{}\label{classHatchit_1_1Core_1_1ITimer_a3bb9bec5874fd1c706ced3ba8033c761}
+
+
+Stops timer. 
+
+Stops tracking timing information 
+
+Implemented in \hyperlink{classHatchit_1_1Core_1_1Linux_1_1Timer_a93adf56776127d8c3215024f6566837b}{Hatchit\+::\+Core\+::\+Linux\+::\+Timer}, and \hyperlink{classHatchit_1_1Core_1_1Windows_1_1Timer_a1d9f06759a7a48e807d4b2a0254e7dbc}{Hatchit\+::\+Core\+::\+Windows\+::\+Timer}.
+
+\index{Hatchit\+::\+Core\+::\+I\+Timer@{Hatchit\+::\+Core\+::\+I\+Timer}!Tick@{Tick}}
+\index{Tick@{Tick}!Hatchit\+::\+Core\+::\+I\+Timer@{Hatchit\+::\+Core\+::\+I\+Timer}}
+\subsubsection[{\texorpdfstring{Tick()=0}{Tick()=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Hatchit\+::\+Core\+::\+I\+Timer\+::\+Tick (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classHatchit_1_1Core_1_1ITimer_a6969cb6203be6fd3d3a002146bb55fa1}{}\label{classHatchit_1_1Core_1_1ITimer_a6969cb6203be6fd3d3a002146bb55fa1}
+
+
+Calculates the delta time and total time. 
+
+Calculates the delta time between this tick and the last tick, or the last reset, depending on which happened more recently. Also recalculates the total time by accruing the calculated delta time into the total time. 
+
+Implemented in \hyperlink{classHatchit_1_1Core_1_1Linux_1_1Timer_aafd5b502c0fda46aad2f38b47a6974d6}{Hatchit\+::\+Core\+::\+Linux\+::\+Timer}, and \hyperlink{classHatchit_1_1Core_1_1Windows_1_1Timer_ae1879dac284fc160b0322f5a57aa8ae3}{Hatchit\+::\+Core\+::\+Windows\+::\+Timer}.
+
+\index{Hatchit\+::\+Core\+::\+I\+Timer@{Hatchit\+::\+Core\+::\+I\+Timer}!Total\+Time@{Total\+Time}}
+\index{Total\+Time@{Total\+Time}!Hatchit\+::\+Core\+::\+I\+Timer@{Hatchit\+::\+Core\+::\+I\+Timer}}
+\subsubsection[{\texorpdfstring{Total\+Time() const =0}{TotalTime() const =0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual float Hatchit\+::\+Core\+::\+I\+Timer\+::\+Total\+Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classHatchit_1_1Core_1_1ITimer_af5d9551ef9a0a98591f823b014efca11}{}\label{classHatchit_1_1Core_1_1ITimer_af5d9551ef9a0a98591f823b014efca11}
+
+
+Gets total time (in seconds) 
+
+Returns total time between when timer was started and last tick. 
+
+Implemented in \hyperlink{classHatchit_1_1Core_1_1Linux_1_1Timer_a9ca1371d09e3fd4ddb72ea4f6b9fb9d9}{Hatchit\+::\+Core\+::\+Linux\+::\+Timer}, and \hyperlink{classHatchit_1_1Core_1_1Windows_1_1Timer_a5cc4dcb2292ef3e12a5855990c296ab7}{Hatchit\+::\+Core\+::\+Windows\+::\+Timer}.
+
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/debunez/\+Git\+Hub/\+Hatchit\+Editor/\+Hatchit/\+Hatchit\+Core/include/\hyperlink{ht__timer_8h}{ht\+\_\+timer.\+h}\end{DoxyCompactItemize}

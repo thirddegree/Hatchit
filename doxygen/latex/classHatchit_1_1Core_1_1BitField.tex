@@ -1,0 +1,133 @@
+\hypertarget{classHatchit_1_1Core_1_1BitField}{}\section{Hatchit\+:\+:Core\+:\+:Bit\+Field$<$ Enum $>$ Class Template Reference}
+\label{classHatchit_1_1Core_1_1BitField}\index{Hatchit\+::\+Core\+::\+Bit\+Field$<$ Enum $>$@{Hatchit\+::\+Core\+::\+Bit\+Field$<$ Enum $>$}}
+
+
+A class that represents an array of bitflags for a given enum.  
+
+
+
+
+{\ttfamily \#include $<$ht\+\_\+bitfield.\+h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using {\bfseries Bitfield\+Type} = typename std\+::conditional$<$ std\+::is\+\_\+unsigned$<$ Enum $>$\+::value, unsigned int, signed int $>$\+::type\hypertarget{classHatchit_1_1Core_1_1BitField_a8baaae3621a4946f3e7c3a881df3f6c6}{}\label{classHatchit_1_1Core_1_1BitField_a8baaae3621a4946f3e7c3a881df3f6c6}
+
+\item 
+using {\bfseries Enum\+Type} = Enum\hypertarget{classHatchit_1_1Core_1_1BitField_aacdaa25135b74eb6cb11a844c5a6f1a4}{}\label{classHatchit_1_1Core_1_1BitField_aacdaa25135b74eb6cb11a844c5a6f1a4}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+constexpr {\bfseries Bit\+Field} (Enum\+Type e)\hypertarget{classHatchit_1_1Core_1_1BitField_a5a63b5d0d3a96e685f011eb772b402e0}{}\label{classHatchit_1_1Core_1_1BitField_a5a63b5d0d3a96e685f011eb772b402e0}
+
+\item 
+constexpr {\bfseries Bit\+Field} (Bitfield\+Type val=0)\hypertarget{classHatchit_1_1Core_1_1BitField_a1609fde91a202f2b795b17966e6814cb}{}\label{classHatchit_1_1Core_1_1BitField_a1609fde91a202f2b795b17966e6814cb}
+
+\item 
+constexpr {\bfseries Bit\+Field} (\hyperlink{classHatchit_1_1Core_1_1BitFlag}{Bit\+Flag} b)\hypertarget{classHatchit_1_1Core_1_1BitField_aeae2ac25ea2e5133dd734317e970b800}{}\label{classHatchit_1_1Core_1_1BitField_aeae2ac25ea2e5133dd734317e970b800}
+
+\item 
+constexpr {\bfseries operator Bitfield\+Type} () const \hypertarget{classHatchit_1_1Core_1_1BitField_a90eb827615fb760e9b0efeb85d0df47d}{}\label{classHatchit_1_1Core_1_1BitField_a90eb827615fb760e9b0efeb85d0df47d}
+
+\item 
+\hyperlink{classHatchit_1_1Core_1_1BitField}{Bit\+Field} \& {\bfseries operator\&=} (int mask)\hypertarget{classHatchit_1_1Core_1_1BitField_af530b288d475b85b29cbc420f3f4fee1}{}\label{classHatchit_1_1Core_1_1BitField_af530b288d475b85b29cbc420f3f4fee1}
+
+\item 
+\hyperlink{classHatchit_1_1Core_1_1BitField}{Bit\+Field} \& {\bfseries operator\&=} (unsigned int mask)\hypertarget{classHatchit_1_1Core_1_1BitField_a97a8071133090c32f97410edb869f590}{}\label{classHatchit_1_1Core_1_1BitField_a97a8071133090c32f97410edb869f590}
+
+\item 
+\hyperlink{classHatchit_1_1Core_1_1BitField}{Bit\+Field} \& {\bfseries operator\&=} (Enum mask)\hypertarget{classHatchit_1_1Core_1_1BitField_a47949500f0510ae5a41d16f7687b2cd5}{}\label{classHatchit_1_1Core_1_1BitField_a47949500f0510ae5a41d16f7687b2cd5}
+
+\item 
+\hyperlink{classHatchit_1_1Core_1_1BitField}{Bit\+Field} \& {\bfseries operator\&=} (\hyperlink{classHatchit_1_1Core_1_1BitField}{Bit\+Field} mask)\hypertarget{classHatchit_1_1Core_1_1BitField_a9af0f92a6f6e5abc4c74768de4e9ed9e}{}\label{classHatchit_1_1Core_1_1BitField_a9af0f92a6f6e5abc4c74768de4e9ed9e}
+
+\item 
+\hyperlink{classHatchit_1_1Core_1_1BitField}{Bit\+Field} \& {\bfseries operator$\vert$=} (int mask)\hypertarget{classHatchit_1_1Core_1_1BitField_a6e6940db2b9b66ad111e5e1370786148}{}\label{classHatchit_1_1Core_1_1BitField_a6e6940db2b9b66ad111e5e1370786148}
+
+\item 
+\hyperlink{classHatchit_1_1Core_1_1BitField}{Bit\+Field} \& {\bfseries operator$\vert$=} (unsigned int mask)\hypertarget{classHatchit_1_1Core_1_1BitField_aa64e5fc3e9aa36d2962d044813256cf3}{}\label{classHatchit_1_1Core_1_1BitField_aa64e5fc3e9aa36d2962d044813256cf3}
+
+\item 
+\hyperlink{classHatchit_1_1Core_1_1BitField}{Bit\+Field} \& {\bfseries operator$\vert$=} (Enum mask)\hypertarget{classHatchit_1_1Core_1_1BitField_a35387b21041140425fd81dd048915cf0}{}\label{classHatchit_1_1Core_1_1BitField_a35387b21041140425fd81dd048915cf0}
+
+\item 
+\hyperlink{classHatchit_1_1Core_1_1BitField}{Bit\+Field} \& {\bfseries operator$\vert$=} (\hyperlink{classHatchit_1_1Core_1_1BitField}{Bit\+Field} mask)\hypertarget{classHatchit_1_1Core_1_1BitField_a4e5557fdef012f140aab5bdd392917ce}{}\label{classHatchit_1_1Core_1_1BitField_a4e5557fdef012f140aab5bdd392917ce}
+
+\item 
+\hyperlink{classHatchit_1_1Core_1_1BitField}{Bit\+Field} \& {\bfseries operator$^\wedge$=} (int mask)\hypertarget{classHatchit_1_1Core_1_1BitField_a337f9ea0cb33126c2be157267ed0445d}{}\label{classHatchit_1_1Core_1_1BitField_a337f9ea0cb33126c2be157267ed0445d}
+
+\item 
+\hyperlink{classHatchit_1_1Core_1_1BitField}{Bit\+Field} \& {\bfseries operator$^\wedge$=} (unsigned int mask)\hypertarget{classHatchit_1_1Core_1_1BitField_a6f34c12d039924aa3632e7867ed50751}{}\label{classHatchit_1_1Core_1_1BitField_a6f34c12d039924aa3632e7867ed50751}
+
+\item 
+\hyperlink{classHatchit_1_1Core_1_1BitField}{Bit\+Field} \& {\bfseries operator$^\wedge$=} (Enum mask)\hypertarget{classHatchit_1_1Core_1_1BitField_ad923e49e6edfce36479b41c6b0ad1d5f}{}\label{classHatchit_1_1Core_1_1BitField_ad923e49e6edfce36479b41c6b0ad1d5f}
+
+\item 
+\hyperlink{classHatchit_1_1Core_1_1BitField}{Bit\+Field} \& {\bfseries operator$^\wedge$=} (\hyperlink{classHatchit_1_1Core_1_1BitField}{Bit\+Field} mask)\hypertarget{classHatchit_1_1Core_1_1BitField_a374eef9f59b447644af2af3e24452efc}{}\label{classHatchit_1_1Core_1_1BitField_a374eef9f59b447644af2af3e24452efc}
+
+\item 
+constexpr \hyperlink{classHatchit_1_1Core_1_1BitField}{Bit\+Field} {\bfseries operator\&} (int mask) const \hypertarget{classHatchit_1_1Core_1_1BitField_a375f421140afed41302d88dc6c75efd9}{}\label{classHatchit_1_1Core_1_1BitField_a375f421140afed41302d88dc6c75efd9}
+
+\item 
+constexpr \hyperlink{classHatchit_1_1Core_1_1BitField}{Bit\+Field} {\bfseries operator\&} (unsigned int mask) const \hypertarget{classHatchit_1_1Core_1_1BitField_a56da32ce9522fb8bd2a04c605c338c0b}{}\label{classHatchit_1_1Core_1_1BitField_a56da32ce9522fb8bd2a04c605c338c0b}
+
+\item 
+constexpr \hyperlink{classHatchit_1_1Core_1_1BitField}{Bit\+Field} {\bfseries operator\&} (Enum mask) const \hypertarget{classHatchit_1_1Core_1_1BitField_a1a30a55fa3ed43f454ed324c7b171727}{}\label{classHatchit_1_1Core_1_1BitField_a1a30a55fa3ed43f454ed324c7b171727}
+
+\item 
+constexpr \hyperlink{classHatchit_1_1Core_1_1BitField}{Bit\+Field} {\bfseries operator\&} (\hyperlink{classHatchit_1_1Core_1_1BitField}{Bit\+Field} mask) const \hypertarget{classHatchit_1_1Core_1_1BitField_a183e2fe0fdc59521e41b74cb5c6292fd}{}\label{classHatchit_1_1Core_1_1BitField_a183e2fe0fdc59521e41b74cb5c6292fd}
+
+\item 
+constexpr \hyperlink{classHatchit_1_1Core_1_1BitField}{Bit\+Field} {\bfseries operator$\vert$} (int mask) const \hypertarget{classHatchit_1_1Core_1_1BitField_acee6b24173c0557cfe10ce8c08f7ba0b}{}\label{classHatchit_1_1Core_1_1BitField_acee6b24173c0557cfe10ce8c08f7ba0b}
+
+\item 
+constexpr \hyperlink{classHatchit_1_1Core_1_1BitField}{Bit\+Field} {\bfseries operator$\vert$} (unsigned int mask) const \hypertarget{classHatchit_1_1Core_1_1BitField_a0da3d7458e0b8f4c2da36166c0abf247}{}\label{classHatchit_1_1Core_1_1BitField_a0da3d7458e0b8f4c2da36166c0abf247}
+
+\item 
+constexpr \hyperlink{classHatchit_1_1Core_1_1BitField}{Bit\+Field} {\bfseries operator$\vert$} (Enum mask) const \hypertarget{classHatchit_1_1Core_1_1BitField_acaa763ab0a2f94748e1df816ee582976}{}\label{classHatchit_1_1Core_1_1BitField_acaa763ab0a2f94748e1df816ee582976}
+
+\item 
+constexpr \hyperlink{classHatchit_1_1Core_1_1BitField}{Bit\+Field} {\bfseries operator$\vert$} (\hyperlink{classHatchit_1_1Core_1_1BitField}{Bit\+Field} mask) const \hypertarget{classHatchit_1_1Core_1_1BitField_a5abf09f319aaaa46fcb18da809bc98d4}{}\label{classHatchit_1_1Core_1_1BitField_a5abf09f319aaaa46fcb18da809bc98d4}
+
+\item 
+constexpr \hyperlink{classHatchit_1_1Core_1_1BitField}{Bit\+Field} {\bfseries operator$^\wedge$} (int mask) const \hypertarget{classHatchit_1_1Core_1_1BitField_ac9d409b63f45de94ddff7a2e598699d5}{}\label{classHatchit_1_1Core_1_1BitField_ac9d409b63f45de94ddff7a2e598699d5}
+
+\item 
+constexpr \hyperlink{classHatchit_1_1Core_1_1BitField}{Bit\+Field} {\bfseries operator$^\wedge$} (unsigned int mask) const \hypertarget{classHatchit_1_1Core_1_1BitField_a5ce2b4a9e8e84f1a6f6733575c637a0d}{}\label{classHatchit_1_1Core_1_1BitField_a5ce2b4a9e8e84f1a6f6733575c637a0d}
+
+\item 
+constexpr \hyperlink{classHatchit_1_1Core_1_1BitField}{Bit\+Field} {\bfseries operator$^\wedge$} (Enum mask) const \hypertarget{classHatchit_1_1Core_1_1BitField_ae258c581845a5903beab676594723fa1}{}\label{classHatchit_1_1Core_1_1BitField_ae258c581845a5903beab676594723fa1}
+
+\item 
+constexpr \hyperlink{classHatchit_1_1Core_1_1BitField}{Bit\+Field} {\bfseries operator$^\wedge$} (\hyperlink{classHatchit_1_1Core_1_1BitField}{Bit\+Field} mask) const \hypertarget{classHatchit_1_1Core_1_1BitField_aa35d9f59c7380a01ee6c42f01dd744ac}{}\label{classHatchit_1_1Core_1_1BitField_aa35d9f59c7380a01ee6c42f01dd744ac}
+
+\item 
+constexpr \hyperlink{classHatchit_1_1Core_1_1BitField}{Bit\+Field} {\bfseries operator$\sim$} () const \hypertarget{classHatchit_1_1Core_1_1BitField_a35cffc05996f702eb8179f5ed725ef7a}{}\label{classHatchit_1_1Core_1_1BitField_a35cffc05996f702eb8179f5ed725ef7a}
+
+\item 
+constexpr bool {\bfseries operator!} () const \hypertarget{classHatchit_1_1Core_1_1BitField_a37b7a2490f2b4aadc401b563d2a3dcc8}{}\label{classHatchit_1_1Core_1_1BitField_a37b7a2490f2b4aadc401b563d2a3dcc8}
+
+\item 
+constexpr bool {\bfseries Test\+Flag} (Enum flag) const \hypertarget{classHatchit_1_1Core_1_1BitField_a5614d8fe65946fe7f3ddada579210348}{}\label{classHatchit_1_1Core_1_1BitField_a5614d8fe65946fe7f3ddada579210348}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Enum$>$\\*
+class Hatchit\+::\+Core\+::\+Bit\+Field$<$ Enum $>$}
+
+A class that represents an array of bitflags for a given enum. 
+
+Stores marked bits for a given enum in a bit array, or bit field. 
+
+Definition at line 66 of file ht\+\_\+bitfield.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/debunez/\+Git\+Hub/\+Hatchit\+Editor/\+Hatchit/\+Hatchit\+Core/include/\hyperlink{ht__bitfield_8h}{ht\+\_\+bitfield.\+h}\end{DoxyCompactItemize}

@@ -1,0 +1,57 @@
+\hypertarget{classHatchit_1_1Core_1_1Scheduler}{}\section{Hatchit\+:\+:Core\+:\+:Scheduler Class Reference}
+\label{classHatchit_1_1Core_1_1Scheduler}\index{Hatchit\+::\+Core\+::\+Scheduler@{Hatchit\+::\+Core\+::\+Scheduler}}
+
+
+A manager that schedules and submits jobs to threads as they are available.  
+
+
+
+
+{\ttfamily \#include $<$ht\+\_\+scheduler.\+h$>$}
+
+
+
+Inheritance diagram for Hatchit\+:\+:Core\+:\+:Scheduler\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=205pt]{classHatchit_1_1Core_1_1Scheduler__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Hatchit\+:\+:Core\+:\+:Scheduler\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=205pt]{classHatchit_1_1Core_1_1Scheduler__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void {\bfseries Initialize} ()\hypertarget{classHatchit_1_1Core_1_1Scheduler_aaaa1302b7bbc52e75bc4c23b8d6f016a}{}\label{classHatchit_1_1Core_1_1Scheduler_aaaa1302b7bbc52e75bc4c23b8d6f016a}
+
+\item 
+{\footnotesize template$<$class Func , class... Args$>$ }\\static void {\bfseries Schedule\+Job} (Func \&\&function, Args \&\&...arguments)\hypertarget{classHatchit_1_1Core_1_1Scheduler_a078c9f11edc0ab0f1b595e9298374d6f}{}\label{classHatchit_1_1Core_1_1Scheduler_a078c9f11edc0ab0f1b595e9298374d6f}
+
+\item 
+static void {\bfseries Run\+Jobs} ()\hypertarget{classHatchit_1_1Core_1_1Scheduler_a47863a38c261d59ae9b5e91d2ba521fd}{}\label{classHatchit_1_1Core_1_1Scheduler_a47863a38c261d59ae9b5e91d2ba521fd}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A manager that schedules and submits jobs to threads as they are available. 
+
+Supply this manager with function pointers (jobs) and it should schedule and sync these jobs appropriately across however many threads are on the hardware. 
+
+Definition at line 76 of file ht\+\_\+scheduler.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/debunez/\+Git\+Hub/\+Hatchit\+Editor/\+Hatchit/\+Hatchit\+Core/include/ht\+\_\+scheduler.\+h\end{DoxyCompactItemize}

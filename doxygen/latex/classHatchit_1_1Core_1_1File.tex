@@ -1,0 +1,292 @@
+\hypertarget{classHatchit_1_1Core_1_1File}{}\section{Hatchit\+:\+:Core\+:\+:File Class Reference}
+\label{classHatchit_1_1Core_1_1File}\index{Hatchit\+::\+Core\+::\+File@{Hatchit\+::\+Core\+::\+File}}
+
+
+Defines a simple \hyperlink{classHatchit_1_1Core_1_1File}{File} class for file input/output.  
+
+
+
+
+{\ttfamily \#include $<$ht\+\_\+file.\+h$>$}
+
+
+
+Inheritance diagram for Hatchit\+:\+:Core\+:\+:File\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=205pt]{classHatchit_1_1Core_1_1File__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Hatchit\+:\+:Core\+:\+:File\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=205pt]{classHatchit_1_1Core_1_1File__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual std\+::string \hyperlink{classHatchit_1_1Core_1_1File_acf299b9ad7d5362e69ce5e2da1613887}{Name} (void) override
+\begin{DoxyCompactList}\small\item\em Returns the name of the file. \end{DoxyCompactList}\item 
+virtual std\+::string \hyperlink{classHatchit_1_1Core_1_1File_ad7c6f4473dba9f55fa06095180e8b49f}{Path} (void) override
+\begin{DoxyCompactList}\small\item\em Returns the path to the file. \end{DoxyCompactList}\item 
+virtual std\+::string \hyperlink{classHatchit_1_1Core_1_1File_a59e1437b18943479de2f6c4234b3eb40}{Base\+Name} (void) override
+\begin{DoxyCompactList}\small\item\em Returns the base name of the system file. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classHatchit_1_1Core_1_1File_a86b433cd9a4c10cad0bdacba9d4ae770}{Open} (const std\+::string \&path, File\+Mode mode) override
+\begin{DoxyCompactList}\small\item\em Opens the file at the given path, using the given File\+Mode. \end{DoxyCompactList}\item 
+virtual bool \hyperlink{classHatchit_1_1Core_1_1File_a3cf429a1d4538e301b74fad16e4b5c88}{Seek} (long pos, File\+Seek mode) override
+\begin{DoxyCompactList}\small\item\em Moves file stream pointer to requested offset relative to given mode. \end{DoxyCompactList}\item 
+virtual size\+\_\+t \hyperlink{classHatchit_1_1Core_1_1File_aa301dd426e9787589b2fcfce6fb25a15}{Read} (B\+Y\+TE $\ast$out, size\+\_\+t len) override
+\begin{DoxyCompactList}\small\item\em Reads contents of file into given byte buffer. \end{DoxyCompactList}\item 
+virtual size\+\_\+t \hyperlink{classHatchit_1_1Core_1_1File_adca0370e5faf5e22b6b4c5993ae71e5d}{Write} (const B\+Y\+TE $\ast$in, size\+\_\+t len) override
+\begin{DoxyCompactList}\small\item\em Writes contents of byte array into file output stream. \end{DoxyCompactList}\item 
+virtual bool \hyperlink{classHatchit_1_1Core_1_1File_ae1a078ed489dd57396e53bcd61cbb8c0}{Close} (void) override
+\begin{DoxyCompactList}\small\item\em Closes current file and releases memory held from file. \end{DoxyCompactList}\item 
+virtual size\+\_\+t \hyperlink{classHatchit_1_1Core_1_1File_af28f52fda6efcbc6b452c8eef7843556}{Tell} (void) override
+\begin{DoxyCompactList}\small\item\em Gives current position of stream in file. \end{DoxyCompactList}\item 
+virtual size\+\_\+t \hyperlink{classHatchit_1_1Core_1_1File_a179bf2bab450ad8b7808c367b68cfcdc}{Size\+Bytes} (void) override
+\begin{DoxyCompactList}\small\item\em Gives size of file in bytes. \end{DoxyCompactList}\item 
+virtual size\+\_\+t \hyperlink{classHatchit_1_1Core_1_1File_a3d88ad1d8573c2b78cbd67fac6fd694f}{Size\+K\+Bytes} (void) override
+\begin{DoxyCompactList}\small\item\em Gives size of file in Kilobytes. \end{DoxyCompactList}\item 
+virtual size\+\_\+t \hyperlink{classHatchit_1_1Core_1_1File_ae19d803e3e7112ef1fb390c101228be6}{Position} (void) override
+\begin{DoxyCompactList}\small\item\em Returns position of stream pointer in file. \end{DoxyCompactList}\item 
+virtual std\+::fstream $\ast$ \hyperlink{classHatchit_1_1Core_1_1File_a4c29391e00c45e1af2abc45ddd458812}{Handle} (void) override
+\begin{DoxyCompactList}\small\item\em Gives file pointer to opened file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Defines a simple \hyperlink{classHatchit_1_1Core_1_1File}{File} class for file input/output. 
+
+Definition at line 34 of file ht\+\_\+file.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\index{Hatchit\+::\+Core\+::\+File@{Hatchit\+::\+Core\+::\+File}!Base\+Name@{Base\+Name}}
+\index{Base\+Name@{Base\+Name}!Hatchit\+::\+Core\+::\+File@{Hatchit\+::\+Core\+::\+File}}
+\subsubsection[{\texorpdfstring{Base\+Name(void) override}{BaseName(void) override}}]{\setlength{\rightskip}{0pt plus 5cm}virtual std\+::string Hatchit\+::\+Core\+::\+File\+::\+Base\+Name (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classHatchit_1_1Core_1_1File_a59e1437b18943479de2f6c4234b3eb40}{}\label{classHatchit_1_1Core_1_1File_a59e1437b18943479de2f6c4234b3eb40}
+
+
+Returns the base name of the system file. 
+
+Returns the base name of the system file open. Base name is the name of the file without the extension. 
+
+Implements \hyperlink{classHatchit_1_1Core_1_1IFile_a9c62bd232c9cce46ccf39d864a816e56}{Hatchit\+::\+Core\+::\+I\+File}.
+
+\index{Hatchit\+::\+Core\+::\+File@{Hatchit\+::\+Core\+::\+File}!Close@{Close}}
+\index{Close@{Close}!Hatchit\+::\+Core\+::\+File@{Hatchit\+::\+Core\+::\+File}}
+\subsubsection[{\texorpdfstring{Close(void) override}{Close(void) override}}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool Hatchit\+::\+Core\+::\+File\+::\+Close (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classHatchit_1_1Core_1_1File_ae1a078ed489dd57396e53bcd61cbb8c0}{}\label{classHatchit_1_1Core_1_1File_ae1a078ed489dd57396e53bcd61cbb8c0}
+
+
+Closes current file and releases memory held from file. 
+
+Function closes the currently open file and releases any memory from the file. This function M\+U\+ST be called before destruction of \hyperlink{classHatchit_1_1Core_1_1File}{File} objects. \begin{DoxyReturn}{Returns}
+Whether file was successfully closed or not. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classHatchit_1_1Core_1_1IFile_a3e604bf80e604d22adfd10475693213e}{Hatchit\+::\+Core\+::\+I\+File}.
+
+\index{Hatchit\+::\+Core\+::\+File@{Hatchit\+::\+Core\+::\+File}!Handle@{Handle}}
+\index{Handle@{Handle}!Hatchit\+::\+Core\+::\+File@{Hatchit\+::\+Core\+::\+File}}
+\subsubsection[{\texorpdfstring{Handle(void) override}{Handle(void) override}}]{\setlength{\rightskip}{0pt plus 5cm}virtual std\+::fstream$\ast$ Hatchit\+::\+Core\+::\+File\+::\+Handle (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classHatchit_1_1Core_1_1File_a4c29391e00c45e1af2abc45ddd458812}{}\label{classHatchit_1_1Core_1_1File_a4c29391e00c45e1af2abc45ddd458812}
+
+
+Gives file pointer to opened file. 
+
+Gives file pointer to opened file. 
+
+Implements \hyperlink{classHatchit_1_1Core_1_1IFile_aa9673f333160b5d2b75f1800fb950b21}{Hatchit\+::\+Core\+::\+I\+File}.
+
+\index{Hatchit\+::\+Core\+::\+File@{Hatchit\+::\+Core\+::\+File}!Name@{Name}}
+\index{Name@{Name}!Hatchit\+::\+Core\+::\+File@{Hatchit\+::\+Core\+::\+File}}
+\subsubsection[{\texorpdfstring{Name(void) override}{Name(void) override}}]{\setlength{\rightskip}{0pt plus 5cm}virtual std\+::string Hatchit\+::\+Core\+::\+File\+::\+Name (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classHatchit_1_1Core_1_1File_acf299b9ad7d5362e69ce5e2da1613887}{}\label{classHatchit_1_1Core_1_1File_acf299b9ad7d5362e69ce5e2da1613887}
+
+
+Returns the name of the file. 
+
+Returns the name of the file, i.\+e. File\+Name.\+txt 
+
+Implements \hyperlink{classHatchit_1_1Core_1_1IFile_ac60ac0b57e7af8ca509723be55e4638b}{Hatchit\+::\+Core\+::\+I\+File}.
+
+\index{Hatchit\+::\+Core\+::\+File@{Hatchit\+::\+Core\+::\+File}!Open@{Open}}
+\index{Open@{Open}!Hatchit\+::\+Core\+::\+File@{Hatchit\+::\+Core\+::\+File}}
+\subsubsection[{\texorpdfstring{Open(const std\+::string \&path, File\+Mode mode) override}{Open(const std::string &path, FileMode mode) override}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Hatchit\+::\+Core\+::\+File\+::\+Open (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{path, }
+\item[{File\+Mode}]{mode}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classHatchit_1_1Core_1_1File_a86b433cd9a4c10cad0bdacba9d4ae770}{}\label{classHatchit_1_1Core_1_1File_a86b433cd9a4c10cad0bdacba9d4ae770}
+
+
+Opens the file at the given path, using the given File\+Mode. 
+
+Opens the file at the given relative path. Then populates member data with information about the open file. 
+
+Implements \hyperlink{classHatchit_1_1Core_1_1IFile_af5b39a1db2e3e03ebb2a641fed60ea63}{Hatchit\+::\+Core\+::\+I\+File}.
+
+\index{Hatchit\+::\+Core\+::\+File@{Hatchit\+::\+Core\+::\+File}!Path@{Path}}
+\index{Path@{Path}!Hatchit\+::\+Core\+::\+File@{Hatchit\+::\+Core\+::\+File}}
+\subsubsection[{\texorpdfstring{Path(void) override}{Path(void) override}}]{\setlength{\rightskip}{0pt plus 5cm}virtual std\+::string Hatchit\+::\+Core\+::\+File\+::\+Path (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classHatchit_1_1Core_1_1File_ad7c6f4473dba9f55fa06095180e8b49f}{}\label{classHatchit_1_1Core_1_1File_ad7c6f4473dba9f55fa06095180e8b49f}
+
+
+Returns the path to the file. 
+
+Returns the relative path to the file. Path includes file name appended to end. 
+
+Implements \hyperlink{classHatchit_1_1Core_1_1IFile_a718f7b7b6ad27be36f1b224ac1254a66}{Hatchit\+::\+Core\+::\+I\+File}.
+
+\index{Hatchit\+::\+Core\+::\+File@{Hatchit\+::\+Core\+::\+File}!Position@{Position}}
+\index{Position@{Position}!Hatchit\+::\+Core\+::\+File@{Hatchit\+::\+Core\+::\+File}}
+\subsubsection[{\texorpdfstring{Position(void) override}{Position(void) override}}]{\setlength{\rightskip}{0pt plus 5cm}virtual size\+\_\+t Hatchit\+::\+Core\+::\+File\+::\+Position (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classHatchit_1_1Core_1_1File_ae19d803e3e7112ef1fb390c101228be6}{}\label{classHatchit_1_1Core_1_1File_ae19d803e3e7112ef1fb390c101228be6}
+
+
+Returns position of stream pointer in file. 
+
+Returns position of stream pointer in file (relative to beginning of file). 
+
+Implements \hyperlink{classHatchit_1_1Core_1_1IFile_aa03495bd6404a082c0b0fe53c7e383d0}{Hatchit\+::\+Core\+::\+I\+File}.
+
+\index{Hatchit\+::\+Core\+::\+File@{Hatchit\+::\+Core\+::\+File}!Read@{Read}}
+\index{Read@{Read}!Hatchit\+::\+Core\+::\+File@{Hatchit\+::\+Core\+::\+File}}
+\subsubsection[{\texorpdfstring{Read(\+B\+Y\+T\+E $\ast$out, size\+\_\+t len) override}{Read(BYTE *out, size_t len) override}}]{\setlength{\rightskip}{0pt plus 5cm}virtual size\+\_\+t Hatchit\+::\+Core\+::\+File\+::\+Read (
+\begin{DoxyParamCaption}
+\item[{B\+Y\+TE $\ast$}]{out, }
+\item[{size\+\_\+t}]{length}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classHatchit_1_1Core_1_1File_aa301dd426e9787589b2fcfce6fb25a15}{}\label{classHatchit_1_1Core_1_1File_aa301dd426e9787589b2fcfce6fb25a15}
+
+
+Reads contents of file into given byte buffer. 
+
+Function reads data from file (based on its current stream pointer position) and places data into given byte buffer, for a maximum of {\itshape length} number of bytes \begin{DoxyReturn}{Returns}
+Number of bytes read into byte array. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classHatchit_1_1Core_1_1IFile_ab6270f8bde6a526cce3f3a2838bb1331}{Hatchit\+::\+Core\+::\+I\+File}.
+
+\index{Hatchit\+::\+Core\+::\+File@{Hatchit\+::\+Core\+::\+File}!Seek@{Seek}}
+\index{Seek@{Seek}!Hatchit\+::\+Core\+::\+File@{Hatchit\+::\+Core\+::\+File}}
+\subsubsection[{\texorpdfstring{Seek(long pos, File\+Seek mode) override}{Seek(long pos, FileSeek mode) override}}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool Hatchit\+::\+Core\+::\+File\+::\+Seek (
+\begin{DoxyParamCaption}
+\item[{long}]{offset, }
+\item[{File\+Seek}]{mode}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classHatchit_1_1Core_1_1File_a3cf429a1d4538e301b74fad16e4b5c88}{}\label{classHatchit_1_1Core_1_1File_a3cf429a1d4538e301b74fad16e4b5c88}
+
+
+Moves file stream pointer to requested offset relative to given mode. 
+
+Function moves the stream pointer to a new location, with an offset relative to the given File\+Seek enum. \begin{DoxyReturn}{Returns}
+Whether seeked position was found and moved to. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classHatchit_1_1Core_1_1IFile_aaf302f7b42b30af0c1827814d805098b}{Hatchit\+::\+Core\+::\+I\+File}.
+
+\index{Hatchit\+::\+Core\+::\+File@{Hatchit\+::\+Core\+::\+File}!Size\+Bytes@{Size\+Bytes}}
+\index{Size\+Bytes@{Size\+Bytes}!Hatchit\+::\+Core\+::\+File@{Hatchit\+::\+Core\+::\+File}}
+\subsubsection[{\texorpdfstring{Size\+Bytes(void) override}{SizeBytes(void) override}}]{\setlength{\rightskip}{0pt plus 5cm}virtual size\+\_\+t Hatchit\+::\+Core\+::\+File\+::\+Size\+Bytes (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classHatchit_1_1Core_1_1File_a179bf2bab450ad8b7808c367b68cfcdc}{}\label{classHatchit_1_1Core_1_1File_a179bf2bab450ad8b7808c367b68cfcdc}
+
+
+Gives size of file in bytes. 
+
+Gives size of file in bytes. 
+
+Implements \hyperlink{classHatchit_1_1Core_1_1IFile_a804338c824b2cb4047e45a6b9b62b910}{Hatchit\+::\+Core\+::\+I\+File}.
+
+\index{Hatchit\+::\+Core\+::\+File@{Hatchit\+::\+Core\+::\+File}!Size\+K\+Bytes@{Size\+K\+Bytes}}
+\index{Size\+K\+Bytes@{Size\+K\+Bytes}!Hatchit\+::\+Core\+::\+File@{Hatchit\+::\+Core\+::\+File}}
+\subsubsection[{\texorpdfstring{Size\+K\+Bytes(void) override}{SizeKBytes(void) override}}]{\setlength{\rightskip}{0pt plus 5cm}virtual size\+\_\+t Hatchit\+::\+Core\+::\+File\+::\+Size\+K\+Bytes (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classHatchit_1_1Core_1_1File_a3d88ad1d8573c2b78cbd67fac6fd694f}{}\label{classHatchit_1_1Core_1_1File_a3d88ad1d8573c2b78cbd67fac6fd694f}
+
+
+Gives size of file in Kilobytes. 
+
+Gives size of file in kilobytes 
+
+Implements \hyperlink{classHatchit_1_1Core_1_1IFile_aea3fd028436c4e75967b065d5655ca0b}{Hatchit\+::\+Core\+::\+I\+File}.
+
+\index{Hatchit\+::\+Core\+::\+File@{Hatchit\+::\+Core\+::\+File}!Tell@{Tell}}
+\index{Tell@{Tell}!Hatchit\+::\+Core\+::\+File@{Hatchit\+::\+Core\+::\+File}}
+\subsubsection[{\texorpdfstring{Tell(void) override}{Tell(void) override}}]{\setlength{\rightskip}{0pt plus 5cm}virtual size\+\_\+t Hatchit\+::\+Core\+::\+File\+::\+Tell (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classHatchit_1_1Core_1_1File_af28f52fda6efcbc6b452c8eef7843556}{}\label{classHatchit_1_1Core_1_1File_af28f52fda6efcbc6b452c8eef7843556}
+
+
+Gives current position of stream in file. 
+
+Function returns the current position of the stream reader relative to the beginning of the file.
+
+\begin{DoxyNote}{Note}
+Tell will be more or less arbitrary with text files, but can still be used to return to the same location with \hyperlink{classHatchit_1_1Core_1_1IFile_aaf302f7b42b30af0c1827814d805098b}{I\+File\+::\+Seek(long offset, File\+Seek mode)}; 
+\end{DoxyNote}
+
+
+Implements \hyperlink{classHatchit_1_1Core_1_1IFile_aaa6d3d85bfbbb1edb19be32e8cf271c4}{Hatchit\+::\+Core\+::\+I\+File}.
+
+\index{Hatchit\+::\+Core\+::\+File@{Hatchit\+::\+Core\+::\+File}!Write@{Write}}
+\index{Write@{Write}!Hatchit\+::\+Core\+::\+File@{Hatchit\+::\+Core\+::\+File}}
+\subsubsection[{\texorpdfstring{Write(const B\+Y\+T\+E $\ast$in, size\+\_\+t len) override}{Write(const BYTE *in, size_t len) override}}]{\setlength{\rightskip}{0pt plus 5cm}virtual size\+\_\+t Hatchit\+::\+Core\+::\+File\+::\+Write (
+\begin{DoxyParamCaption}
+\item[{const B\+Y\+TE $\ast$}]{in, }
+\item[{size\+\_\+t}]{len}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classHatchit_1_1Core_1_1File_adca0370e5faf5e22b6b4c5993ae71e5d}{}\label{classHatchit_1_1Core_1_1File_adca0370e5faf5e22b6b4c5993ae71e5d}
+
+
+Writes contents of byte array into file output stream. 
+
+Function writes contents of given byte array into the file\textquotesingle{}s output stream. The function will write up to a maximum of {\itshape len} bytes. \begin{DoxyReturn}{Returns}
+Number of bytes written to file. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classHatchit_1_1Core_1_1IFile_a227ad957bbc544111b84871cdc0c2c32}{Hatchit\+::\+Core\+::\+I\+File}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/debunez/\+Git\+Hub/\+Hatchit\+Editor/\+Hatchit/\+Hatchit\+Core/include/ht\+\_\+file.\+h\end{DoxyCompactItemize}

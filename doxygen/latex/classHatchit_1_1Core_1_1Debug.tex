@@ -1,0 +1,143 @@
+\hypertarget{classHatchit_1_1Core_1_1Debug}{}\section{Hatchit\+:\+:Core\+:\+:Debug Class Reference}
+\label{classHatchit_1_1Core_1_1Debug}\index{Hatchit\+::\+Core\+::\+Debug@{Hatchit\+::\+Core\+::\+Debug}}
+
+
+Defines a static debug class.  
+
+
+
+
+{\ttfamily \#include $<$ht\+\_\+debug.\+h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{classHatchit_1_1Core_1_1Debug_a2a42bf8bcfbf6a7f8ec8f22c65470a37}{Log\+Severity} \{ {\bfseries Debug}, 
+{\bfseries Info}, 
+{\bfseries Warning}, 
+{\bfseries Error}
+ \}\hypertarget{classHatchit_1_1Core_1_1Debug_a2a42bf8bcfbf6a7f8ec8f22c65470a37}{}\label{classHatchit_1_1Core_1_1Debug_a2a42bf8bcfbf6a7f8ec8f22c65470a37}
+\begin{DoxyCompactList}\small\item\em An enumeration of log severities. \end{DoxyCompactList}
+\item 
+using \hyperlink{classHatchit_1_1Core_1_1Debug_a0e7951bf02ef93ff3cd4eb9b7d3d4edb}{Log\+Callback} = std\+::function$<$ void(const std\+::string \&)$>$\hypertarget{classHatchit_1_1Core_1_1Debug_a0e7951bf02ef93ff3cd4eb9b7d3d4edb}{}\label{classHatchit_1_1Core_1_1Debug_a0e7951bf02ef93ff3cd4eb9b7d3d4edb}
+
+\begin{DoxyCompactList}\small\item\em The type used for registering log callbacks. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::string \hyperlink{classHatchit_1_1Core_1_1Debug_a66231a5f3c90eeec844eb50cc5f223fe}{Get\+Output\+File\+Name} ()
+\begin{DoxyCompactList}\small\item\em Gets the file name of the output file. \end{DoxyCompactList}\item 
+static \hyperlink{classHatchit_1_1Core_1_1Debug_a2a42bf8bcfbf6a7f8ec8f22c65470a37}{Debug\+::\+Log\+Severity} \hyperlink{classHatchit_1_1Core_1_1Debug_a359ddb78747d6001f294a3884427555d}{Get\+Severity\+Threshold} ()
+\begin{DoxyCompactList}\small\item\em Gets the current severity threshold. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class... Args$>$ }\\static void \hyperlink{classHatchit_1_1Core_1_1Debug_a7a97b3ab2f6608e2c2985905cb20fe3b}{Log} (\hyperlink{classHatchit_1_1Core_1_1Debug_a2a42bf8bcfbf6a7f8ec8f22c65470a37}{Debug\+::\+Log\+Severity} severity, const std\+::string \&fmt\+\_\+message, const Args \&...args)
+\begin{DoxyCompactList}\small\item\em Logs a message with the given severity. \end{DoxyCompactList}\item 
+static void \hyperlink{classHatchit_1_1Core_1_1Debug_a1f15f3fd3c717638772f7f4b88cdd233}{Set\+Log\+Callback} (\hyperlink{classHatchit_1_1Core_1_1Debug_a0e7951bf02ef93ff3cd4eb9b7d3d4edb}{Log\+Callback} callback)
+\begin{DoxyCompactList}\small\item\em Sets the callback for whenever a message is logged. \end{DoxyCompactList}\item 
+static void \hyperlink{classHatchit_1_1Core_1_1Debug_a655e35db650cf2fb92617d5962e03cc9}{Set\+Output\+File\+Name} (const std\+::string \&fname)
+\begin{DoxyCompactList}\small\item\em Sets the file name of the output file. \end{DoxyCompactList}\item 
+static void \hyperlink{classHatchit_1_1Core_1_1Debug_a85fccb1b83d35493e1cc4aa291bff95c}{Set\+Severity\+Threshold} (\hyperlink{classHatchit_1_1Core_1_1Debug_a2a42bf8bcfbf6a7f8ec8f22c65470a37}{Log\+Severity} threshold)
+\begin{DoxyCompactList}\small\item\em Sets the current severity threshold. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Defines a static debug class. 
+
+Definition at line 104 of file ht\+\_\+debug.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\index{Hatchit\+::\+Core\+::\+Debug@{Hatchit\+::\+Core\+::\+Debug}!Get\+Output\+File\+Name@{Get\+Output\+File\+Name}}
+\index{Get\+Output\+File\+Name@{Get\+Output\+File\+Name}!Hatchit\+::\+Core\+::\+Debug@{Hatchit\+::\+Core\+::\+Debug}}
+\subsubsection[{\texorpdfstring{Get\+Output\+File\+Name()}{GetOutputFileName()}}]{\setlength{\rightskip}{0pt plus 5cm}static std\+::string Hatchit\+::\+Core\+::\+Debug\+::\+Get\+Output\+File\+Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classHatchit_1_1Core_1_1Debug_a66231a5f3c90eeec844eb50cc5f223fe}{}\label{classHatchit_1_1Core_1_1Debug_a66231a5f3c90eeec844eb50cc5f223fe}
+
+
+Gets the file name of the output file. 
+
+\begin{DoxyReturn}{Returns}
+The output file name. 
+\end{DoxyReturn}
+\index{Hatchit\+::\+Core\+::\+Debug@{Hatchit\+::\+Core\+::\+Debug}!Get\+Severity\+Threshold@{Get\+Severity\+Threshold}}
+\index{Get\+Severity\+Threshold@{Get\+Severity\+Threshold}!Hatchit\+::\+Core\+::\+Debug@{Hatchit\+::\+Core\+::\+Debug}}
+\subsubsection[{\texorpdfstring{Get\+Severity\+Threshold()}{GetSeverityThreshold()}}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Debug\+::\+Log\+Severity} Hatchit\+::\+Core\+::\+Debug\+::\+Get\+Severity\+Threshold (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classHatchit_1_1Core_1_1Debug_a359ddb78747d6001f294a3884427555d}{}\label{classHatchit_1_1Core_1_1Debug_a359ddb78747d6001f294a3884427555d}
+
+
+Gets the current severity threshold. 
+
+If a message is logged with a severity lower than the current severity threshold, then it will not be output for end-\/users to see. \index{Hatchit\+::\+Core\+::\+Debug@{Hatchit\+::\+Core\+::\+Debug}!Log@{Log}}
+\index{Log@{Log}!Hatchit\+::\+Core\+::\+Debug@{Hatchit\+::\+Core\+::\+Debug}}
+\subsubsection[{\texorpdfstring{Log(\+Debug\+::\+Log\+Severity severity, const std\+::string \&fmt\+\_\+message, const Args \&...\+args)}{Log(Debug::LogSeverity severity, const std::string &fmt_message, const Args &...args)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class... Args$>$ static void Hatchit\+::\+Core\+::\+Debug\+::\+Log (
+\begin{DoxyParamCaption}
+\item[{{\bf Debug\+::\+Log\+Severity}}]{severity, }
+\item[{const std\+::string \&}]{fmt\+\_\+message, }
+\item[{const Args \&...}]{args}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classHatchit_1_1Core_1_1Debug_a7a97b3ab2f6608e2c2985905cb20fe3b}{}\label{classHatchit_1_1Core_1_1Debug_a7a97b3ab2f6608e2c2985905cb20fe3b}
+
+
+Logs a message with the given severity. 
+
+severity The message\textquotesingle{}s severity. fmt\+\_\+message The message that is to be formatted. args The arguments to format the message with. \index{Hatchit\+::\+Core\+::\+Debug@{Hatchit\+::\+Core\+::\+Debug}!Set\+Log\+Callback@{Set\+Log\+Callback}}
+\index{Set\+Log\+Callback@{Set\+Log\+Callback}!Hatchit\+::\+Core\+::\+Debug@{Hatchit\+::\+Core\+::\+Debug}}
+\subsubsection[{\texorpdfstring{Set\+Log\+Callback(\+Log\+Callback callback)}{SetLogCallback(LogCallback callback)}}]{\setlength{\rightskip}{0pt plus 5cm}static void Hatchit\+::\+Core\+::\+Debug\+::\+Set\+Log\+Callback (
+\begin{DoxyParamCaption}
+\item[{{\bf Log\+Callback}}]{callback}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classHatchit_1_1Core_1_1Debug_a1f15f3fd3c717638772f7f4b88cdd233}{}\label{classHatchit_1_1Core_1_1Debug_a1f15f3fd3c717638772f7f4b88cdd233}
+
+
+Sets the callback for whenever a message is logged. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em callback} & The new callback. \\
+\hline
+\end{DoxyParams}
+\index{Hatchit\+::\+Core\+::\+Debug@{Hatchit\+::\+Core\+::\+Debug}!Set\+Output\+File\+Name@{Set\+Output\+File\+Name}}
+\index{Set\+Output\+File\+Name@{Set\+Output\+File\+Name}!Hatchit\+::\+Core\+::\+Debug@{Hatchit\+::\+Core\+::\+Debug}}
+\subsubsection[{\texorpdfstring{Set\+Output\+File\+Name(const std\+::string \&fname)}{SetOutputFileName(const std::string &fname)}}]{\setlength{\rightskip}{0pt plus 5cm}static void Hatchit\+::\+Core\+::\+Debug\+::\+Set\+Output\+File\+Name (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{fname}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classHatchit_1_1Core_1_1Debug_a655e35db650cf2fb92617d5962e03cc9}{}\label{classHatchit_1_1Core_1_1Debug_a655e35db650cf2fb92617d5962e03cc9}
+
+
+Sets the file name of the output file. 
+
+\begin{DoxyWarning}{Warning}
+This function will not do anything after the first time something is logged.
+\end{DoxyWarning}
+
+\begin{DoxyParams}{Parameters}
+{\em fname} & The new file name. \\
+\hline
+\end{DoxyParams}
+\index{Hatchit\+::\+Core\+::\+Debug@{Hatchit\+::\+Core\+::\+Debug}!Set\+Severity\+Threshold@{Set\+Severity\+Threshold}}
+\index{Set\+Severity\+Threshold@{Set\+Severity\+Threshold}!Hatchit\+::\+Core\+::\+Debug@{Hatchit\+::\+Core\+::\+Debug}}
+\subsubsection[{\texorpdfstring{Set\+Severity\+Threshold(\+Log\+Severity threshold)}{SetSeverityThreshold(LogSeverity threshold)}}]{\setlength{\rightskip}{0pt plus 5cm}static void Hatchit\+::\+Core\+::\+Debug\+::\+Set\+Severity\+Threshold (
+\begin{DoxyParamCaption}
+\item[{{\bf Log\+Severity}}]{threshold}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classHatchit_1_1Core_1_1Debug_a85fccb1b83d35493e1cc4aa291bff95c}{}\label{classHatchit_1_1Core_1_1Debug_a85fccb1b83d35493e1cc4aa291bff95c}
+
+
+Sets the current severity threshold. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em threshold} & The new severity threshold. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/debunez/\+Git\+Hub/\+Hatchit\+Editor/\+Hatchit/\+Hatchit\+Core/include/\hyperlink{ht__debug_8h}{ht\+\_\+debug.\+h}\end{DoxyCompactItemize}

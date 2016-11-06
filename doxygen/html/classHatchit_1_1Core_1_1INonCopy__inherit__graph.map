@@ -1,0 +1,10 @@
+<map id="Hatchit::Core::INonCopy" name="Hatchit::Core::INonCopy">
+<area shape="rect" id="node2" href="$classHatchit_1_1Core_1_1IFile.html" title="An interface to describe system files. " alt="" coords="251,5,384,32"/>
+<area shape="rect" id="node4" href="$classHatchit_1_1Core_1_1ScopedThread.html" title="A safety wrapper for std::threads to safely join threads. " alt="" coords="221,56,413,83"/>
+<area shape="rect" id="node5" href="$classHatchit_1_1Core_1_1Singleton.html" title="Describes class that has only one instance avialable globally. " alt="" coords="220,107,415,133"/>
+<area shape="rect" id="node6" href="$classHatchit_1_1Core_1_1Singleton.html" title="Hatchit::Core::Singleton\l\&lt; Profiler \&gt;" alt="" coords="236,158,399,199"/>
+<area shape="rect" id="node8" href="$classHatchit_1_1Core_1_1Singleton.html" title="Hatchit::Core::Singleton\l\&lt; Scheduler \&gt;" alt="" coords="236,223,399,265"/>
+<area shape="rect" id="node3" href="$classHatchit_1_1Core_1_1File.html" title="Defines a simple File class for file input/output. " alt="" coords="481,5,611,32"/>
+<area shape="rect" id="node7" href="$classHatchit_1_1Core_1_1Profiler.html" title="Defines a Runtime Profiler Singleton. " alt="" coords="471,165,621,192"/>
+<area shape="rect" id="node9" href="$classHatchit_1_1Core_1_1Scheduler.html" title="A manager that schedules and submits jobs to threads as they are available. " alt="" coords="463,231,629,257"/>
+</map>

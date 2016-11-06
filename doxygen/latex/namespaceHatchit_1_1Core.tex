@@ -1,0 +1,96 @@
+\hypertarget{namespaceHatchit_1_1Core}{}\section{Hatchit\+:\+:Core Namespace Reference}
+\label{namespaceHatchit_1_1Core}\index{Hatchit\+::\+Core@{Hatchit\+::\+Core}}
+
+
+Engine utility layer.  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classHatchit_1_1Core_1_1AutoProfile}{Auto\+Profile}
+\begin{DoxyCompactList}\small\item\em Simple auto-\/profiling class. \end{DoxyCompactList}\item 
+class \hyperlink{classHatchit_1_1Core_1_1BitField}{Bit\+Field}
+\begin{DoxyCompactList}\small\item\em A class that represents an array of bitflags for a given enum. \end{DoxyCompactList}\item 
+class \hyperlink{classHatchit_1_1Core_1_1BitFlag}{Bit\+Flag}
+\begin{DoxyCompactList}\small\item\em A class that represents a single bit flag. \end{DoxyCompactList}\item 
+class \hyperlink{classHatchit_1_1Core_1_1Debug}{Debug}
+\begin{DoxyCompactList}\small\item\em Defines a static debug class. \end{DoxyCompactList}\item 
+class \hyperlink{classHatchit_1_1Core_1_1File}{File}
+\begin{DoxyCompactList}\small\item\em Defines a simple \hyperlink{classHatchit_1_1Core_1_1File}{File} class for file input/output. \end{DoxyCompactList}\item 
+class \hyperlink{classHatchit_1_1Core_1_1FileException}{File\+Exception}
+\item 
+interface \hyperlink{classHatchit_1_1Core_1_1IFile}{I\+File}
+\begin{DoxyCompactList}\small\item\em An interface to describe system files. \end{DoxyCompactList}\item 
+interface \hyperlink{classHatchit_1_1Core_1_1IJob}{I\+Job}
+\begin{DoxyCompactList}\small\item\em Interface for threading job. \end{DoxyCompactList}\item 
+class \hyperlink{classHatchit_1_1Core_1_1INIException}{I\+N\+I\+Exception}
+\begin{DoxyCompactList}\small\item\em Exception for errors reading an I\+NI file. \end{DoxyCompactList}\item 
+class \hyperlink{classHatchit_1_1Core_1_1INISettings}{I\+N\+I\+Settings}
+\begin{DoxyCompactList}\small\item\em Class handling reading and writing of .ini files. \end{DoxyCompactList}\item 
+interface \hyperlink{classHatchit_1_1Core_1_1INonCopy}{I\+Non\+Copy}
+\begin{DoxyCompactList}\small\item\em Describes a class that cannot be copied. \end{DoxyCompactList}\item 
+interface \hyperlink{classHatchit_1_1Core_1_1ITimer}{I\+Timer}
+\begin{DoxyCompactList}\small\item\em Interface to describe timer functionality. \end{DoxyCompactList}\item 
+class \hyperlink{classHatchit_1_1Core_1_1Job}{Job}
+\begin{DoxyCompactList}\small\item\em Describes a function to be threaded. \end{DoxyCompactList}\item 
+class \hyperlink{classHatchit_1_1Core_1_1Profiler}{Profiler}
+\begin{DoxyCompactList}\small\item\em Defines a Runtime \hyperlink{classHatchit_1_1Core_1_1Profiler}{Profiler} \hyperlink{classHatchit_1_1Core_1_1Singleton}{Singleton}. \end{DoxyCompactList}\item 
+class \hyperlink{classHatchit_1_1Core_1_1Scheduler}{Scheduler}
+\begin{DoxyCompactList}\small\item\em A manager that schedules and submits jobs to threads as they are available. \end{DoxyCompactList}\item 
+class \hyperlink{classHatchit_1_1Core_1_1ScopedThread}{Scoped\+Thread}
+\begin{DoxyCompactList}\small\item\em A safety wrapper for std\+::threads to safely join threads. \end{DoxyCompactList}\item 
+class \hyperlink{classHatchit_1_1Core_1_1Singleton}{Singleton}
+\begin{DoxyCompactList}\small\item\em Describes class that has only one instance avialable globally. \end{DoxyCompactList}\item 
+class \hyperlink{classHatchit_1_1Core_1_1ThreadsafeQueue}{Threadsafe\+Queue}
+\item 
+class \hyperlink{classHatchit_1_1Core_1_1ThreadsafeStack}{Threadsafe\+Stack}
+\item 
+class \hyperlink{classHatchit_1_1Core_1_1ThreadsafeVector}{Threadsafe\+Vector}
+\begin{DoxyCompactList}\small\item\em wrapper for std\+::vector that provides thread-\/safe functions \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{namespaceHatchit_1_1Core_a58a6350dd2a195178625a9f423a71b1c}{J\+S\+ON} = nlohmann\+::json\hypertarget{namespaceHatchit_1_1Core_a58a6350dd2a195178625a9f423a71b1c}{}\label{namespaceHatchit_1_1Core_a58a6350dd2a195178625a9f423a71b1c}
+
+\begin{DoxyCompactList}\small\item\em The J\+S\+ON type to use. \end{DoxyCompactList}\item 
+using \hyperlink{namespaceHatchit_1_1Core_a52c93242389bf919650beaae657e541f}{Json\+Verify\+Func} = bool(J\+S\+O\+N\+::$\ast$)() const\hypertarget{namespaceHatchit_1_1Core_a52c93242389bf919650beaae657e541f}{}\label{namespaceHatchit_1_1Core_a52c93242389bf919650beaae657e541f}
+
+\begin{DoxyCompactList}\small\item\em The verification function used to validate J\+S\+ON types. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\bool {\bfseries Json\+Extract} (const \hyperlink{namespaceHatchit_1_1Core_a58a6350dd2a195178625a9f423a71b1c}{J\+S\+ON} \&json, const std\+::string \&name, T \&out)\hypertarget{namespaceHatchit_1_1Core_a69209c6f14d9daa5d2eee43211058ee1}{}\label{namespaceHatchit_1_1Core_a69209c6f14d9daa5d2eee43211058ee1}
+
+\item 
+H\+T\+\_\+\+A\+PI void {\bfseries os\+\_\+mkdir} (const std\+::string \&path)\hypertarget{namespaceHatchit_1_1Core_ada6dafa34682ddf11a428f1afd087d31}{}\label{namespaceHatchit_1_1Core_ada6dafa34682ddf11a428f1afd087d31}
+
+\item 
+H\+T\+\_\+\+A\+PI bool {\bfseries os\+\_\+isdir} (const std\+::string \&path)\hypertarget{namespaceHatchit_1_1Core_af5539c53cda834892639880ce83f07b2}{}\label{namespaceHatchit_1_1Core_af5539c53cda834892639880ce83f07b2}
+
+\item 
+H\+T\+\_\+\+A\+PI std\+::string {\bfseries os\+\_\+path} (const std\+::string \&path)\hypertarget{namespaceHatchit_1_1Core_a475971d07c33df39e7fe4b72f9e4f021}{}\label{namespaceHatchit_1_1Core_a475971d07c33df39e7fe4b72f9e4f021}
+
+\item 
+H\+T\+\_\+\+A\+PI std\+::string {\bfseries os\+\_\+dir} (const std\+::string \&path, bool wt=true)\hypertarget{namespaceHatchit_1_1Core_a3e275c86e7b5fc6a1efad72ddce1ef43}{}\label{namespaceHatchit_1_1Core_a3e275c86e7b5fc6a1efad72ddce1ef43}
+
+\item 
+H\+T\+\_\+\+A\+PI std\+::string {\bfseries os\+\_\+exec\+\_\+dir} ()\hypertarget{namespaceHatchit_1_1Core_a723c20b12c91d492e3b05e8180a0c924}{}\label{namespaceHatchit_1_1Core_a723c20b12c91d492e3b05e8180a0c924}
+
+\item 
+H\+T\+\_\+\+A\+PI char {\bfseries os\+\_\+path\+\_\+delimeter} ()\hypertarget{namespaceHatchit_1_1Core_aa8dd5e72b88d07efb7016f5c599b2f93}{}\label{namespaceHatchit_1_1Core_aa8dd5e72b88d07efb7016f5c599b2f93}
+
+\item 
+H\+T\+\_\+\+A\+PI void {\bfseries str\+\_\+replace\+All} (std\+::string \&input, const std\+::string \&from, const std\+::string \&to)\hypertarget{namespaceHatchit_1_1Core_a31bba4fb447b917de997912acf912cf2}{}\label{namespaceHatchit_1_1Core_a31bba4fb447b917de997912acf912cf2}
+
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+constexpr size\+\_\+t \hyperlink{namespaceHatchit_1_1Core_a2b5e66afde67284001830baf2724cb2c}{H\+T\+\_\+\+S\+T\+R\+I\+N\+G\+B\+U\+F\+F\+S\+I\+ZE} = 1024\hypertarget{namespaceHatchit_1_1Core_a2b5e66afde67284001830baf2724cb2c}{}\label{namespaceHatchit_1_1Core_a2b5e66afde67284001830baf2724cb2c}
+
+\begin{DoxyCompactList}\small\item\em Describes the buffer size to use for C-\/\+String operations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Engine utility layer. 
