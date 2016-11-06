@@ -144,7 +144,7 @@ elseif(UNIX)
     add_library(HatchitGame SHARED ${HT_GAME_INC} ${HT_GAME_SRC})
     add_library(HatchitNetwork SHARED ${HT_NETWORK_INC} ${HT_NETWORK_SRC})
     target_compile_definitions(HatchitCore PRIVATE FMT_EXPORT)
-
+    target_link_libraries(HatchitCore pthread)
     target_link_libraries(HatchitGraphics HatchitCore ${VULKAN_LIBRARY})
     target_link_libraries(HatchitGame HatchitCore HatchitGraphics ${GLFW_LIBRARIES})
 
