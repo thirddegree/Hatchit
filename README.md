@@ -64,5 +64,5 @@ Next up is building all the dependencies. This should only have to be done once 
 ##### Hatchit
 This is the easy part!
 
-* `cd` into `build
-* Open the Hatchit.sln solution file or execute it with MSBuild.exe to build all targets
+* `cd` into `build`
+* Open the Hatchit.sln solution file or execute it with `MSBuild.exe` to build all targets
