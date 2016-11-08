@@ -67,3 +67,6 @@
 [submodule "ThirdParty/Chipmunk2D"]
 	path = ThirdParty/Chipmunk2D
 	url = https://github.com/slembcke/Chipmunk2D.git
+[submodule "ThirdParty/msgpack-c"]
+	path = ThirdParty/msgpack-c
+	url = https://github.com/msgpack/msgpack-c.git
