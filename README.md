@@ -24,14 +24,12 @@ All testing and development so far has been done on Ubuntu 16.04 XENIAL
 Install the following dependencies:
 * GCC (minimum required version. 5.0) -- for C++11/14 support
 * CMake
-* GLFW3
-  * sudo apt-get install libglfw3-dev
+* GLFW3 (build/install shared library from source: ThirdParty/glfw)
 * Bullet3
 * Assimp
 * TinyXML2
 * Python 3.5 (with pip and virtualenv)
-* Vulkan SDK 	(For Vulkan Support)
-  * sudo apt-get install libvulkan-dev
+* Vulkan SDK 	(For Vulkan Support -- https://vulkan.lunarg.com/doc/sdk/1.0.30.0/linux/getting_started.html)
 
 Then follow these simple directions:
 * Clone down the repo with `git clone --recursive http://github.com/thirddegree/Hatchit`
