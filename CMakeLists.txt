@@ -119,7 +119,9 @@ elseif(UNIX)
                         "ThirdParty/json/src/"
                         "ThirdParty/stb"
                         ${VULKAN_INCLUDE_DIR}
-                        ${GLFW_INCLUDE_DIR})
+                        ${GLFW_INCLUDE_DIRS})
+
+    link_directories(${GLFW_LIBRARY_DIRS})
 
     # Collect all Hatchit Core source and include
     file(GLOB HT_CORE_INC HatchitCore/include/*.h)
