@@ -73,3 +73,6 @@
 [submodule "ThirdParty/protobuf"]
 	path = ThirdParty/protobuf
 	url = https://github.com/google/protobuf.git
+[submodule "ThirdParty/grpc"]
+	path = ThirdParty/grpc
+	url = https://github.com/grpc/grpc.git
