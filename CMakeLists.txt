@@ -31,6 +31,7 @@ if(WIN32)
                             "ThirdParty/json/src"
                             "ThirdParty/stb"
                             "ThirdParty/glfw/include"
+                            "ThirdParty/glm"
 			    ${VULKAN_INCLUDE_DIR})
 
 	    link_directories("ThirdParty/lib/glfw/lib/$(Configuration)")
