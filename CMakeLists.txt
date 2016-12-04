@@ -19,6 +19,8 @@ if(WIN32)
         include_directories("HatchitCore/include"
                             "HatchitCore/include/windows"
                             "HatchitCore/source/inline"
+                            "HatchitResource/include"
+                            "HatchitResource/source/inline"
                             "HatchitGraphics/include"
                             "HatchitGraphics/include/vulkan"
                             "HatchitNetwork/include"
@@ -30,6 +32,7 @@ if(WIN32)
                             "ThirdParty/cppformat/cppformat"
                             "ThirdParty/json/src"
                             "ThirdParty/stb"
+                            "ThirdParty/assimp/include"
                             "ThirdParty/glfw/include"
                             "ThirdParty/glm"
 			    ${VULKAN_INCLUDE_DIR})
@@ -57,6 +60,14 @@ if(WIN32)
         set(HT_GRAPHICS_INC_GLOB ${HT_GRAPHICS_INC} ${HT_GRAPHICS_VULKAN_INC})
         set(HT_GRAPHICS_SRC_GLOB ${HT_GRAPHICS_SRC} ${HT_GRAPHICS_VULKAN_SRC})
 
+        # Collect all Hatchit Resource source and include
+        file(GLOB HT_RESOURCE_INC HatchitResource/include/*.h)
+        file(GLOB HT_RESOURCE_SRC HatchitResource/source/*.cpp)
+        file(GLOB HT_RESOURCE_INL HatchitResource/source/inline/*.inl)
+
+            #Create source groups
+            source_group("Source Files\\inline" FILES ${HT_RESOURCE_INL})
+        
 
         # Collect all Hatchit Game source and include
         file(GLOB HT_GAME_INC HatchitGame/include/*.h)
@@ -81,7 +92,8 @@ if(WIN32)
         add_library(HatchitGraphics SHARED ${HT_GRAPHICS_INC_GLOB} ${HT_GRAPHICS_SRC_GLOB})
 	    add_library(HatchitGame SHARED ${HT_GAME_INC_GLOB} ${HT_GAME_SRC_GLOB})
 	    add_library(HatchitNetwork SHARED ${HT_NETWORK_INC} ${HT_NETWORK_SRC})
-
+        add_library(HatchitResource SHARED ${HT_RESOURCE_INC} ${HT_RESOURCE_SRC} ${HT_RESOURCE_INL})
+        target_link_libraries(HatchitResource HatchitCore)
         target_link_libraries(HatchitGraphics HatchitCore ${VULKAN_LIBRARY})
 	    target_link_libraries(HatchitNetwork HatchitCore Ws2_32)
 	    target_link_libraries(HatchitGame HatchitCore HatchitGraphics HatchitNetwork glfw ${VULKAN_LIBRARY})
@@ -89,7 +101,7 @@ if(WIN32)
 
         add_definitions(-DHT_NONCLIENT_BUILD)
 
-        set_target_properties(HatchitCore HatchitGraphics HatchitGame HatchitNetwork
+        set_target_properties(HatchitCore HatchitResource HatchitGraphics HatchitGame HatchitNetwork
             PROPERTIES
             RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin")
 
@@ -117,7 +129,7 @@ elseif(UNIX)
                         SYSTEM
                         "ThirdParty/inih/"
                         "ThirdParty/cppformat/cppformat"
-                        "ThirdParty/json/src/"
+                        "ThirdParty/json/src"
                         "ThirdParty/stb"
                         ${VULKAN_INCLUDE_DIR}
                         ${GLFW_INCLUDE_DIRS})

@@ -72,7 +72,7 @@
 	url = https://github.com/msgpack/msgpack-c.git
 [submodule "ThirdParty/protobuf"]
 	path = ThirdParty/protobuf
-	url = https://github.com/google/protobuf.git
+	url = https://github.com/thirddegree/protobuf.git
 [submodule "ThirdParty/grpc"]
 	path = ThirdParty/grpc
 	url = https://github.com/grpc/grpc.git

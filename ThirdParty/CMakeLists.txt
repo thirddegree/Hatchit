@@ -52,3 +52,6 @@ set_target_properties(altonegen bsincgen common makehrtf OpenAL32 openal-info te
         ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/openal-soft/lib"
         LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/openal-soft/lib"
         RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/openal-soft/bin")
+
+#HANDLE PROTOBUF THIRD PARTY LIBRARY
+#add_subdirectory("${CMAKE_SOURCE_DIR}/protobuf/cmake/" "${CMAKE_CURRENT_BINARY_DIR}/protobuf")
