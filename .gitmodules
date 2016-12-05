@@ -76,3 +76,6 @@
 [submodule "ThirdParty/grpc"]
 	path = ThirdParty/grpc
 	url = https://github.com/grpc/grpc.git
+[submodule "ThirdParty/libgit2"]
+	path = ThirdParty/libgit2
+	url = https://github.com/libgit2/libgit2.git

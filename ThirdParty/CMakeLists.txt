@@ -4,9 +4,18 @@ project(ThirdPartyLibs)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+#HANDLE LIBGIT2 THIRD PARTY LIBRARY
+add_subdirectory("${CMAKE_SOURCE_DIR}/libgit2/" "${CMAKE_CURRENT_BINARY_DIR}/libgit2")
+set_target_properties(git2 libgit2_clar PROPERTIES FOLDER libgit2)
+set_target_properties(git2 libgit2_clar
+        PROPERTIES
+        ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/libgit2/lib"
+        LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/libgit2/lib"
+        RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/libgit2/bin")
+
 #HANDLE GLFW THIRD PARTY LIBRARY
 add_subdirectory("${CMAKE_SOURCE_DIR}/glfw" "${CMAKE_CURRENT_BINARY_DIR}/glfw")
-set_target_properties(glfw PROPERTIES FOLDER glfw)
+set_target_properties(glfw docs PROPERTIES FOLDER glfw)
 set_target_properties(glfw
 	PROPERTIES
 	ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/glfw/lib"
@@ -52,6 +61,7 @@ set_target_properties(altonegen bsincgen common makehrtf OpenAL32 openal-info te
         ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/openal-soft/lib"
         LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/openal-soft/lib"
         RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/openal-soft/bin")
+
 
 #HANDLE PROTOBUF THIRD PARTY LIBRARY
 #add_subdirectory("${CMAKE_SOURCE_DIR}/protobuf/cmake/" "${CMAKE_CURRENT_BINARY_DIR}/protobuf")
