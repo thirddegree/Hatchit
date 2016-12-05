@@ -115,12 +115,15 @@ elseif(UNIX)
 
     find_package(PkgConfig REQUIRED)
     pkg_check_modules(GLFW REQUIRED glfw3)
+    pkg_check_modules(ASSIMP REQUIRED assimp)
 
     find_package(Vulkan REQUIRED)
 
     include_directories("HatchitCore/include"
                         "HatchitCore/include/linux"
                         "HatchitCore/source/inline"
+                        "HatchitResource/include"
+                        "HatchitResource/source/inline"
                         "HatchitGraphics/include"
                         "HatchitGraphics/include/vulkan"
                         "HatchitGame/include"
@@ -132,7 +135,8 @@ elseif(UNIX)
                         "ThirdParty/json/src"
                         "ThirdParty/stb"
                         ${VULKAN_INCLUDE_DIR}
-                        ${GLFW_INCLUDE_DIRS})
+                        ${GLFW_INCLUDE_DIRS}
+                        ${ASSIMP_INCLUDE_DIRS})
 
     link_directories(${GLFW_LIBRARY_DIRS})
 
@@ -143,6 +147,11 @@ elseif(UNIX)
     # Collect all Hatchit Graphics source and include
     file(GLOB HT_GRAPHICS_INC HatchitGraphics/include/*.h HatchitGraphics/include/vulkan/*.h)
     file(GLOB HT_GRAPHICS_SRC HatchitGraphics/source/*.cpp HatchitGraphics/source/vulkan/*.cpp)
+
+    # Collect all Hatchit Resource souce and include
+    file(GLOB HT_RESOURCE_INC HatchitResource/include/*.h)
+    file(GLOB HT_RESOURCE_SRC HatchitResource/source/*.cpp)
+    file(GLOB HT_RESOURCE_INL HatchitResource/source/inline/*.inl)
 
     # Collect all Hatchit Game source and include
     file(GLOB HT_GAME_INC HatchitGame/include/*.h HatchitGame/include/glfw/*.h)
@@ -155,12 +164,14 @@ elseif(UNIX)
     set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -D_DEBUG")
 
     add_library(HatchitCore SHARED ${HT_CORE_INC} ${HT_CORE_SRC})
+    add_library(HatchitResource SHARED ${HT_RESOURCE_INC} ${HT_RESOURCE_SRC} ${HT_RESOURCE_INL})
     add_library(HatchitGraphics SHARED ${HT_GRAPHICS_INC} ${HT_GRAPHICS_SRC})
     add_library(HatchitGame SHARED ${HT_GAME_INC} ${HT_GAME_SRC})
     add_library(HatchitNetwork SHARED ${HT_NETWORK_INC} ${HT_NETWORK_SRC})
     target_compile_definitions(HatchitCore PRIVATE FMT_EXPORT)
     target_link_libraries(HatchitCore pthread)
-    target_link_libraries(HatchitGraphics HatchitCore ${VULKAN_LIBRARY})
+    target_link_libraries(HatchitResource HatchitCore ${ASSIMP_LIBRARIES})
+    target_link_libraries(HatchitGraphics HatchitCore HatchitResource ${VULKAN_LIBRARY})
     target_link_libraries(HatchitGame HatchitCore HatchitGraphics ${GLFW_LIBRARIES})
 
     
