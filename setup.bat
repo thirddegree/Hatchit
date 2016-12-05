@@ -13,7 +13,7 @@ IF "%1" == "-hatchit" (
 IF NOT "%1" == "-hatchit" (
     cd ThirdParty
 
-    cmake ../../ThirdParty -G "Visual Studio 14 2015 Win64" -DDIRECTX=NO -DASSIMP_BUILD_ASSIMP_TOOLS=NO
+    cmake ../../ThirdParty -G "Visual Studio 14 2015 Win64" -DDIRECTX=NO -DASSIMP_BUILD_ASSIMP_TOOLS=NO -DBUILD_SHARED_LIBS=ON
     msbuild.exe ThirdPartyLibs.sln /p:Configuration=Debug
     msbuild.exe ThirdPartyLibs.sln /p:Configuration=Release
 
