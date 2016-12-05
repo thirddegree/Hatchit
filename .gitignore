@@ -1,7 +1,8 @@
 ThirdParty/lib
 build/
 bin/
-
+cmake-build-debug/
+cmake-build-release/
 
 #Visual Studio Code
 .vscode/*
