@@ -98,6 +98,7 @@ if(WIN32)
 	    target_link_libraries(HatchitNetwork HatchitCore Ws2_32)
 	    target_link_libraries(HatchitGame HatchitCore HatchitGraphics HatchitNetwork glfw ${VULKAN_LIBRARY})
         target_compile_definitions(HatchitCore PRIVATE FMT_EXPORT)
+		target_compile_definitions(HatchitResource PRIVATE STB_IMAGE_IMPLEMENTATION)
 
         add_definitions(-DHT_NONCLIENT_BUILD)
 
