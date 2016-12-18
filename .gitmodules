@@ -79,3 +79,6 @@
 [submodule "ThirdParty/libgit2"]
 	path = ThirdParty/libgit2
 	url = https://github.com/libgit2/libgit2.git
+[submodule "ThirdParty/libarchive"]
+	path = ThirdParty/libarchive
+	url = https://github.com/libarchive/libarchive.git
