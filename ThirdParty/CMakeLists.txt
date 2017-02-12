@@ -4,15 +4,6 @@ project(ThirdPartyLibs)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-#HANDLE LIBGIT2 THIRD PARTY LIBRARY
-add_subdirectory("${CMAKE_SOURCE_DIR}/libgit2/" "${CMAKE_CURRENT_BINARY_DIR}/libgit2")
-set_target_properties(git2 libgit2_clar PROPERTIES FOLDER libgit2)
-set_target_properties(git2 libgit2_clar
-        PROPERTIES
-        ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/libgit2/lib"
-        LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/libgit2/lib"
-        RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/libgit2/bin")
-
 #HANDLE GLFW THIRD PARTY LIBRARY
 add_subdirectory("${CMAKE_SOURCE_DIR}/glfw" "${CMAKE_CURRENT_BINARY_DIR}/glfw")
 set_target_properties(glfw docs PROPERTIES FOLDER glfw)
@@ -35,14 +26,14 @@ set_target_properties(assimp
         OUTPUT_NAME "assimp")
 
 #HANDLE TINYXML2 THIRD PARTY LIBRARY
-#add_subdirectory("${CMAKE_SOURCE_DIR}/tinyxml2" "${CMAKE_CURRENT_BINARY_DIR}/tinyxml2")
-#set_target_properties(tinyxml2 xmltest DATA_COPY PROPERTIES FOLDER tinyxml2)
-#set_target_properties(tinyxml2
-#        PROPERTIES
-#        ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/tinyxml2/lib"
-#        LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/tinyxml2/lib"
-#        RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/tinyxml2/bin"
-#        OUTPUT_NAME "tinyxml2")
+add_subdirectory("${CMAKE_SOURCE_DIR}/tinyxml2" "${CMAKE_CURRENT_BINARY_DIR}/tinyxml2")
+set_target_properties(tinyxml2 xmltest DATA_COPY PROPERTIES FOLDER tinyxml2)
+set_target_properties(tinyxml2
+        PROPERTIES
+        ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/tinyxml2/lib"
+        LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/tinyxml2/lib"
+        RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/tinyxml2/bin"
+        OUTPUT_NAME "tinyxml2")
 
 #HANDLE BULLET-PHYSICS THIRD PARTY LIBRARY
 add_subdirectory("${CMAKE_SOURCE_DIR}/bullet3/" "${CMAKE_CURRENT_BINARY_DIR}/bullet3")
@@ -62,6 +53,16 @@ set_target_properties(altonegen bsincgen common makehrtf OpenAL32 openal-info te
         LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/openal-soft/lib"
         RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/openal-soft/bin")
 
-
-#HANDLE PROTOBUF THIRD PARTY LIBRARY
-#add_subdirectory("${CMAKE_SOURCE_DIR}/protobuf/cmake/" "${CMAKE_CURRENT_BINARY_DIR}/protobuf")
+#HANDLE VORBIS THIRD PARTY LIBRARY
+add_subdirectory("${CMAKE_SOURCE_DIR}/vorbis" "${CMAKE_CURRENT_BINARY_DIR}/vorbis")
+set_target_properties(ogg vorbis vorbisenc vorbisfile PROPERTIES FOLDER vorbis)
+set_target_properties(ogg
+        PROPERTIES
+        ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/ogg/lib"
+        LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/ogg/lib"
+        RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/ogg/bin")
+set_target_properties(vorbis vorbisenc vorbisfile
+        PROPERTIES
+        ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/vorbis/lib"
+        LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/vorbis/lib"
+        RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/vorbis/bin")
