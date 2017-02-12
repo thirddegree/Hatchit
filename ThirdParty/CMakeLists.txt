@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 #HANDLE GLFW THIRD PARTY LIBRARY
 add_subdirectory("${CMAKE_SOURCE_DIR}/glfw" "${CMAKE_CURRENT_BINARY_DIR}/glfw")
-set_target_properties(glfw docs PROPERTIES FOLDER glfw)
+set_target_properties(glfw docs PROPERTIES FOLDER GLFW3)
 set_target_properties(glfw
 	PROPERTIES
 	ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/glfw/lib"

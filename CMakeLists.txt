@@ -24,6 +24,7 @@ if(WIN32)
                             "HatchitGraphics/include"
                             "HatchitGraphics/include/vulkan"
                             "HatchitNetwork/include"
+                            "HatchitAudio/include"
 			                "HatchitGame/include"
 			                "HatchitGame/include/glfw"
 			                "HatchitGame/source/inline"
@@ -35,9 +36,15 @@ if(WIN32)
                             "ThirdParty/assimp/include"
                             "ThirdParty/glfw/include"
                             "ThirdParty/glm"
+                            "ThirdParty/openal-soft/include"
+                            "ThirdParty/vorbis/dependencies/ogg/include"
+                            "ThirdParty/vorbis/include"
 			    ${VULKAN_INCLUDE_DIR})
 
-	    link_directories("ThirdParty/lib/glfw/lib/$(Configuration)")
+	    link_directories("ThirdParty/lib/glfw/lib/$(Configuration)"
+                         "ThirdParty/lib/openal-soft/lib/$(Configuration)"
+                         "ThirdParty/lib/vorbis/lib/$(Configuration)"
+                         "ThirdParty/lib/ogg/lib/$(Configuration)")
 
         # Collect all Hatchit Core source and include
         file(GLOB HT_CORE_INC HatchitCore/include/*.h)
@@ -68,6 +75,9 @@ if(WIN32)
             #Create source groups
             source_group("Source Files\\inline" FILES ${HT_RESOURCE_INL})
         
+        # Collect all Hatchit Audio source and include
+        file(GLOB HT_AUDIO_INC HatchitAudio/include/*.h)
+        file(GLOB HT_AUDIO_SRC HatchitAudio/source/*.cpp)
 
         # Collect all Hatchit Game source and include
         file(GLOB HT_GAME_INC HatchitGame/include/*.h)
@@ -90,19 +100,21 @@ if(WIN32)
 
         add_library(HatchitCore SHARED ${HT_CORE_INC} ${HT_CORE_SRC} ${HT_CORE_INL})
         add_library(HatchitGraphics SHARED ${HT_GRAPHICS_INC_GLOB} ${HT_GRAPHICS_SRC_GLOB})
+        add_library(HatchitAudio SHARED ${HT_AUDIO_INC} ${HT_AUDIO_SRC})
 	    add_library(HatchitGame SHARED ${HT_GAME_INC_GLOB} ${HT_GAME_SRC_GLOB})
 	    add_library(HatchitNetwork SHARED ${HT_NETWORK_INC} ${HT_NETWORK_SRC})
         add_library(HatchitResource SHARED ${HT_RESOURCE_INC} ${HT_RESOURCE_SRC} ${HT_RESOURCE_INL})
         target_link_libraries(HatchitResource HatchitCore)
         target_link_libraries(HatchitGraphics HatchitCore ${VULKAN_LIBRARY})
+        target_link_libraries(HatchitAudio HatchitCore OpenAL32 ogg vorbis vorbisfile)
 	    target_link_libraries(HatchitNetwork HatchitCore Ws2_32)
-	    target_link_libraries(HatchitGame HatchitCore HatchitGraphics HatchitNetwork glfw ${VULKAN_LIBRARY})
+	    target_link_libraries(HatchitGame HatchitCore HatchitGraphics HatchitNetwork glfwdll ${VULKAN_LIBRARY})
         target_compile_definitions(HatchitCore PRIVATE FMT_EXPORT)
 		target_compile_definitions(HatchitResource PRIVATE STB_IMAGE_IMPLEMENTATION)
 
         add_definitions(-DHT_NONCLIENT_BUILD)
 
-        set_target_properties(HatchitCore HatchitResource HatchitGraphics HatchitGame HatchitNetwork
+        set_target_properties(HatchitCore HatchitResource HatchitGraphics HatchitAudio HatchitGame HatchitNetwork
             PROPERTIES
             RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin")
 
