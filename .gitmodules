@@ -88,6 +88,3 @@
 [submodule "ThirdParty/vorbis"]
 	path = ThirdParty/vorbis
 	url = https://github.com/thirddegree/vorbis.git
-[submodule "ThirdParty/ogg"]
-	path = ThirdParty/ogg
-	url = https://github.com/xiph/ogg.git
