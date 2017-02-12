@@ -79,3 +79,12 @@
 [submodule "ThirdParty/libarchive"]
 	path = ThirdParty/libarchive
 	url = https://github.com/libarchive/libarchive.git
+[submodule "ThirdParty/libpng"]
+	path = ThirdParty/libpng
+	url = https://github.com/glennrp/libpng.git
+[submodule "ThirdParty/asio"]
+	path = ThirdParty/asio
+	url = https://github.com/chriskohlhoff/asio.git
+[submodule "ThirdParty/vorbis"]
+	path = ThirdParty/vorbis
+	url = https://github.com/xiph/vorbis.git
