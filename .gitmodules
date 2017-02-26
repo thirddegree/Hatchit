@@ -67,12 +67,6 @@
 [submodule "ThirdParty/msgpack-c"]
 	path = ThirdParty/msgpack-c
 	url = https://github.com/msgpack/msgpack-c.git
-[submodule "ThirdParty/protobuf"]
-	path = ThirdParty/protobuf
-	url = https://github.com/thirddegree/protobuf.git
-[submodule "ThirdParty/grpc"]
-	path = ThirdParty/grpc
-	url = https://github.com/grpc/grpc.git
 [submodule "ThirdParty/libgit2"]
 	path = ThirdParty/libgit2
 	url = https://github.com/libgit2/libgit2.git
