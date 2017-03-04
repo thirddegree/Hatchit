@@ -83,4 +83,5 @@
 	path = ThirdParty/vorbis
 	url = https://github.com/thirddegree/vorbis.git
 [submodule "ThirdParty/pybind11"]
+	path = ThirdParty/pybind11
 	url = https://github.com/pybind/pybind11.git
