@@ -85,3 +85,6 @@
 [submodule "ThirdParty/pybind11"]
 	path = ThirdParty/pybind11
 	url = https://github.com/pybind/pybind11.git
+[submodule "ThirdParty/freetype"]
+	path = ThirdParty/freetype
+	url = https://github.com/thirddegree/freetype.git
