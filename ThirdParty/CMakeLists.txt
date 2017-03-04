@@ -66,3 +66,12 @@ set_target_properties(vorbis vorbisenc vorbisfile
         ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/vorbis/lib"
         LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/vorbis/lib"
         RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/vorbis/bin")
+
+#HANDLE FREETYPE THIRD PARTY LIBRARY
+add_subdirectory("${CMAKE_SOURCE_DIR}/freetype/windows" "${CMAKE_CURRENT_BINARY_DIR}/freetype/windows")
+set_target_properties(freetype PROPERTIES FOLDER freetype)
+set_target_properties(freetype
+        PROPERTIES
+        ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/freetype/lib"
+        LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/freetype/lib"
+        RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/freetype/bin")
