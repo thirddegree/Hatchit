@@ -88,3 +88,6 @@
 [submodule "ThirdParty/freetype"]
 	path = ThirdParty/freetype
 	url = https://github.com/thirddegree/freetype.git
+[submodule "ThirdParty/glbinding"]
+	path = ThirdParty/glbinding
+	url = https://github.com/thirddegree/glbinding.git
