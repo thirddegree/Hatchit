@@ -30,7 +30,7 @@ Install the following dependencies:
 * tinyxml2
 * freetype
 * openal-soft
-* Vulkan SDK (For Vulkan Support -- https://vulkan.lunarg.com/doc/sdk/1.0.46.0/windows/getting_started.html)
+* Vulkan SDK (For Vulkan Support -- https://vulkan.lunarg.com/doc/sdk/1.0.46.0/linux/getting_started.html)
 
 Then follow these simple directions:
 * Clone down the repo with `git clone --recursive http://github.com/thirddegree/Hatchit`
@@ -52,7 +52,7 @@ We recommend using some sort of cmd replacement in Windows such as cmder or some
 * Clone down the repo with `git clone --recursive http://github.com/thirddegree/Hatchit`
 
 To build with Vulkan support you MUST have installed:
-* Vulkan SDK
+* Vulkan SDK -- https://vulkan.lunarg.com/doc/sdk/1.0.46.0/windows/getting_started.html
 * Vulkan supported drivers!
 
 ##### Third Party
