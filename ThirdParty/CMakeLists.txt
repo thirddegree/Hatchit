@@ -4,25 +4,30 @@ project(ThirdPartyLibs)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-if(BUILD_REQUIRED)
 
-        #HANDLE GLFW THIRD PARTY LIBRARY
-        add_subdirectory("${CMAKE_SOURCE_DIR}/glfw" "${CMAKE_CURRENT_BINARY_DIR}/glfw")
-        set_target_properties(glfw docs PROPERTIES FOLDER GLFW3)
-        set_target_properties(boing gears heightmap particles simple splitview wave 
-                PROPERTIES
-                ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/glfw/lib"
-                LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/glfw/lib"
-                RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/glfw/bin")
-        set_target_properties(glfw
-                PROPERTIES
-                ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/glfw/lib"
-                LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/glfw/lib"
-                RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/glfw/bin"
-                OUTPUT_NAME "glfw")
+if(BUILD_WINRT)
 
+#HANDLE SDL WINRT BUILD
+add_subdirectory("${CMAKE_SOURCE_DIR}/SDL2/winrt" "${CMAKE_CURRENT_BINARY_DIR}/SDL2/winrt")
+set_target_properties(SDL2_uwp PROPERTIES FOLDER SDL2)
+        set_target_properties(SDL2_uwp
+                PROPERTIES
+                ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/SDL2/lib"
+                LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/SDL2/lib"
+                RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/SDL2/bin")
 else()
 
+#HANDLE SDL THIRDPARTY LIBRARY
+add_subdirectory("${CMAKE_SOURCE_DIR}/SDL2" "${CMAKE_CURRENT_BINARY_DIR}/SDL2")
+add_subdirectory("${CMAKE_SOURCE_DIR}/SDL2/winrt" "${CMAKE_CURRENT_BINARY_DIR}/SDL2/winrt")
+set_target_properties(SDL2 SDL2main SDL2_uwp PROPERTIES FOLDER SDL2)
+set_target_properties(SDL2 SDL2main SDL2_uwp
+        PROPERTIES
+        ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/SDL2/lib"
+        LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/SDL2/lib"
+        RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/SDL2/bin")
+
+        
 #HANDLE ASSIMP THIRD PARTY LIBRARY
 add_subdirectory("${CMAKE_SOURCE_DIR}/assimp" "${CMAKE_CURRENT_BINARY_DIR}/Assimp")
 set_target_properties(uninstall UpdateAssimpLibsDebugSymbolsAndDLLs PROPERTIES EXCLUDE_FROM_ALL 1 EXCLUDE_FROM_DEFAULT_BUILD 1)
@@ -45,13 +50,13 @@ set_target_properties(tinyxml2
         OUTPUT_NAME "tinyxml2")
 
 # #HANDLE BULLET-PHYSICS THIRD PARTY LIBRARY
-add_subdirectory("${CMAKE_SOURCE_DIR}/bullet3/" "${CMAKE_CURRENT_BINARY_DIR}/bullet3")
-set_target_properties(BulletCollision BulletSoftBody BulletDynamics BulletInverseDynamics LinearMath PROPERTIES FOLDER bullet)
-set_target_properties(BulletCollision BulletSoftBody BulletDynamics BulletInverseDynamics LinearMath
-        PROPERTIES
-        ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/bullet/lib"
-        LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/bullet/lib"
-        RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/bullet/bin")
+# add_subdirectory("${CMAKE_SOURCE_DIR}/bullet3/" "${CMAKE_CURRENT_BINARY_DIR}/bullet3")
+# set_target_properties(BulletCollision BulletSoftBody BulletDynamics BulletInverseDynamics LinearMath PROPERTIES FOLDER bullet)
+# set_target_properties(BulletCollision BulletSoftBody BulletDynamics BulletInverseDynamics LinearMath
+#         PROPERTIES
+#         ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/bullet/lib"
+#         LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/bullet/lib"
+#         RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/bullet/bin")
 
 #HANDLE OPENAL-SOFT THIRD PARTY LIBRARY
 add_subdirectory("${CMAKE_SOURCE_DIR}/openal-soft/" "${CMAKE_CURRENT_BINARY_DIR}/openal-soft")
@@ -85,16 +90,14 @@ set_target_properties(freetype
         LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/freetype/lib"
         RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/freetype/bin")
 
-
-        
 #HANDLE GLBINDING THIRD PARTY LIBRARY
-set(BUILD_SHARED_LIBS OFF) #Force static lib for glbinding
-add_subdirectory("${CMAKE_SOURCE_DIR}/glbinding" "${CMAKE_CURRENT_BINDARY_DIR}/glbinding")
-set_target_properties(glbinding
-        PROPERTIES
-        ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/glbinding/lib"
-        LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/glbinding/lib"
-        RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/glbinding/bin")
+# set(BUILD_SHARED_LIBS OFF) #Force static lib for glbinding
+# add_subdirectory("${CMAKE_SOURCE_DIR}/glbinding" "${CMAKE_CURRENT_BINDARY_DIR}/glbinding")
+# set_target_properties(glbinding
+#         PROPERTIES
+#         ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/glbinding/lib"
+#         LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/glbinding/lib"
+#         RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/glbinding/bin")
 
 endif()
 
