@@ -91,3 +91,6 @@
 [submodule "ThirdParty/glbinding"]
 	path = ThirdParty/glbinding
 	url = https://github.com/thirddegree/glbinding.git
+[submodule "ThirdParty/SDL2"]
+	path = ThirdParty/SDL2
+	url = https://github.com/thirddegree/SDL2.git
