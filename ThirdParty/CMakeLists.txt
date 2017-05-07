@@ -45,22 +45,22 @@ set_target_properties(tinyxml2
         OUTPUT_NAME "tinyxml2")
 
 # #HANDLE BULLET-PHYSICS THIRD PARTY LIBRARY
-# add_subdirectory("${CMAKE_SOURCE_DIR}/bullet3/" "${CMAKE_CURRENT_BINARY_DIR}/bullet3")
-# set_target_properties(BulletCollision BulletSoftBody BulletDynamics BulletInverseDynamics LinearMath PROPERTIES FOLDER bullet)
-# set_target_properties(BulletCollision BulletSoftBody BulletDynamics BulletInverseDynamics LinearMath
-#         PROPERTIES
-#         ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/bullet/lib"
-#         LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/bullet/lib"
-#         RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/bullet/bin")
+add_subdirectory("${CMAKE_SOURCE_DIR}/bullet3/" "${CMAKE_CURRENT_BINARY_DIR}/bullet3")
+set_target_properties(BulletCollision BulletSoftBody BulletDynamics BulletInverseDynamics LinearMath PROPERTIES FOLDER bullet)
+set_target_properties(BulletCollision BulletSoftBody BulletDynamics BulletInverseDynamics LinearMath
+        PROPERTIES
+        ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/bullet/lib"
+        LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/bullet/lib"
+        RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/bullet/bin")
 
 #HANDLE OPENAL-SOFT THIRD PARTY LIBRARY
 add_subdirectory("${CMAKE_SOURCE_DIR}/openal-soft/" "${CMAKE_CURRENT_BINARY_DIR}/openal-soft")
-set_target_properties(altonegen bsincgen common makehrtf OpenAL32 openal-info test-common PROPERTIES FOLDER openal-soft)
-set_target_properties(altonegen bsincgen common makehrtf OpenAL32 openal-info test-common
-        PROPERTIES
-        ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/openal-soft/lib"
-        LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/openal-soft/lib"
-        RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/openal-soft/bin")
+set_target_properties(altonegen bsincgen makehrtf OpenAL openal-info PROPERTIES FOLDER openal-soft)
+set_target_properties(altonegen bsincgen makehrtf OpenAL openal-info 
+       PROPERTIES
+       ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/openal-soft/lib"
+       LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/openal-soft/lib"
+       RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/openal-soft/bin")
 
 #HANDLE VORBIS THIRD PARTY LIBRARY
 add_subdirectory("${CMAKE_SOURCE_DIR}/vorbis" "${CMAKE_CURRENT_BINARY_DIR}/vorbis")
