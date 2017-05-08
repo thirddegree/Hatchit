@@ -10,11 +10,21 @@ if(BUILD_WINRT)
 #HANDLE SDL WINRT BUILD
 add_subdirectory("${CMAKE_SOURCE_DIR}/SDL2/winrt" "${CMAKE_CURRENT_BINARY_DIR}/SDL2/winrt")
 set_target_properties(SDL2_uwp PROPERTIES FOLDER SDL2)
-        set_target_properties(SDL2_uwp
+set_target_properties(SDL2_uwp
                 PROPERTIES
                 ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/SDL2/lib"
                 LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/SDL2/lib"
                 RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/SDL2/bin")
+
+#HANDLE FMT WINRT BUILD
+add_subdirectory("${CMAKE_SOURCE_DIR}/cppformat" "${CMAKE_CURRENT_BINDARY_DIR}/cppformat")
+set_target_properties(fmt
+                PROPERTIES
+                OUTPUT_NAME fmt_uwp
+                ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/cppformat/lib"
+                LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/cppformat/lib"
+                RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/cppformat/bin")
+
 else()
 
 #HANDLE SDL THIRDPARTY LIBRARY

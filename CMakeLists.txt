@@ -15,8 +15,14 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 if(WIN32)
     if(IS_DIRECTORY "${CMAKE_SOURCE_DIR}/build/")
 
+        if(BUILD_WINRT)
+            set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /ZW")
+            set(RUNTIME_OUTPUT_FOLDER AppX)
+        endif()
+
         include_directories("HatchitCore/include"
                             "HatchitCore/include/windows"
+                            "HatchitCore/include/winrt"
                             "HatchitCore/source/inline"
                             "HatchitResource/include"
                             "HatchitResource/source/inline"
@@ -29,7 +35,7 @@ if(WIN32)
 			                "HatchitGame/source/inline"
                             SYSTEM
                             "ThirdParty/inih"
-                            "ThirdParty/cppformat/cppformat"
+                            "ThirdParty/cppformat"
                             "ThirdParty/json/src"
                             "ThirdParty/stb"
                             "ThirdParty/assimp/include"
@@ -37,56 +43,55 @@ if(WIN32)
                             "ThirdParty/glm"
                             "ThirdParty/openal-soft/include"
                             "ThirdParty/vorbis/dependencies/ogg/include"
-                            "ThirdParty/vorbis/include"
-			    ${VULKAN_INCLUDE_DIR})
+                            "ThirdParty/vorbis/include")
 
 	    link_directories("ThirdParty/lib/SDL2/lib/$(Configuration)"
                          "ThirdParty/lib/openal-soft/lib/$(Configuration)"
                          "ThirdParty/lib/vorbis/lib/$(Configuration)"
-                         "ThirdParty/lib/ogg/lib/$(Configuration)")
+                         "ThirdParty/lib/ogg/lib/$(Configuration)"
+                         "ThirdParty/lib/cppformat/lib/$(Configuration)")
 
-        # Collect all Hatchit Core source and include
+        ##### CORE LIBRARY ####
+
         file(GLOB HT_CORE_INC HatchitCore/include/*.h)
 		file(GLOB HT_CORE_INL HatchitCore/source/inline/*.inl)
-        file(GLOB HT_CORE_SRC HatchitCore/source/*.cpp HatchitCore/source/windows/*.cpp ThirdParty/inih/*.c ThirdParty/cppformat/cppformat/*.cc)
+        file(GLOB HT_CORE_SRC HatchitCore/source/*.cpp ThirdParty/inih/*.c HatchitCore/source/windows/*.cpp)
 
-			#Create source groups
-			source_group("Source Files\\inline" FILES ${HT_CORE_INL})
+        if(BUILD_WINRT)
+            file(GLOB HT_CORE_WINRT_INC HatchitCore/include/winrt/*.h)
+            file(GLOB HT_CORE_WINRT_SRC HatchitCore/source/winrt/*.cpp)
+        endif()
 
-        # Collect all Hatchit Graphics source and include
-        file(GLOB HT_GRAPHICS_INC HatchitGraphics/include/*.h)
-        file(GLOB HT_GRAPHICS_SRC HatchitGraphics/source/*.cpp)
-
-        set(HT_GRAPHICS_INC_GLOB ${HT_GRAPHICS_INC})
-        set(HT_GRAPHICS_SRC_GLOB ${HT_GRAPHICS_SRC})
-
-        # Collect all Hatchit Resource source and include
-        file(GLOB HT_RESOURCE_INC HatchitResource/include/*.h)
-        file(GLOB HT_RESOURCE_SRC HatchitResource/source/*.cpp)
-        file(GLOB HT_RESOURCE_INL HatchitResource/source/inline/*.inl)
-
-            #Create source groups
-            source_group("Source Files\\inline" FILES ${HT_RESOURCE_INL})
+        # Create source groups
+        source_group("Header Files\\winrt" FILES ${HT_CORE_WINRT_INC})
+        source_group("Source Files\\inline" FILES ${HT_CORE_INL})
+        source_group("Source Files\\winrt" FILES ${HT_CORE_WINRT_SRC})
         
-        # Collect all Hatchit Audio source and include
-        file(GLOB HT_AUDIO_INC HatchitAudio/include/*.h)
-        file(GLOB HT_AUDIO_SRC HatchitAudio/source/*.cpp)
+        if(BUILD_WINRT)
+            set(HT_CORE_LIBS fmt_uwp)
+        else()
+            set(HT_CORE_LIBS fmt)
+        endif()
 
-        add_library(HatchitCore SHARED ${HT_CORE_INC} ${HT_CORE_SRC} ${HT_CORE_INL})
-        #add_library(HatchitGraphics SHARED ${HT_GRAPHICS_INC_GLOB} ${HT_GRAPHICS_SRC_GLOB})
-        add_library(HatchitAudio SHARED ${HT_AUDIO_INC} ${HT_AUDIO_SRC})
-        add_library(HatchitResource SHARED ${HT_RESOURCE_INC} ${HT_RESOURCE_SRC} ${HT_RESOURCE_INL})
-        target_link_libraries(HatchitResource HatchitCore)
-        #target_link_libraries(HatchitGraphics HatchitCore ${VULKAN_LIBRARY})
-        target_link_libraries(HatchitAudio HatchitCore OpenAL32 ogg vorbis vorbisfile)
-        target_compile_definitions(HatchitCore PRIVATE FMT_EXPORT)
-		target_compile_definitions(HatchitResource PRIVATE STB_IMAGE_IMPLEMENTATION)
+        add_library(HatchitCore SHARED ${HT_CORE_INC} ${HT_CORE_SRC} ${HT_CORE_INL} ${HT_CORE_WINRT_INC} ${HT_CORE_WINRT_SRC})
+        target_include_directories(HatchitCore 
+            PUBLIC
+            "HatchitCore/include"
+            "HatchitCore/include/windows"
+            "HatchitCore/include/winrt"
+            "HatchitCore/source/inline"
+            SYSTEM
+            "ThirdParty/inih"
+            "ThirdParty/cppformat")
+        target_link_libraries(HatchitCore ${HT_CORE_LIBS})
+        
 
         add_definitions(-DHT_NONCLIENT_BUILD)
 
-        set_target_properties(HatchitCore HatchitResource HatchitAudio
+        set_target_properties(HatchitCore 
             PROPERTIES
-            RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin")
+            RUNTIME_OUTPUT_DIRECTORY_DEBUG "${CMAKE_SOURCE_DIR}/bin/Debug/${RUNTIME_OUTPUT_FOLDER}"
+            RUNTIME_OUTPUT_DIRECTORY_RELEASE "${CMAKE_SOURCE_DIR}/bin/Release/${RUNTIME_OUTPUT_FOLDER}")
 
 	    add_subdirectory(HatchitTest)
 
