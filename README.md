@@ -17,43 +17,20 @@ If you would like to submit a pull-request it's best to fork the project and fol
 
 The information below is subject to change at any time
 
-#### Linux
-
-All testing and development so far has been done on Ubuntu 16.04 XENIAL
-
-Install the following dependencies:
-* GCC (minimum required version. 5.0) -- for C++11/14 support
-* CMake
-* glfw3
-* bullet3
-* assimp
-* tinyxml2
-* freetype
-* openal-soft
-* Vulkan SDK (For Vulkan Support -- https://vulkan.lunarg.com/doc/sdk/1.0.46.0/linux/getting_started.html)
-
-Then follow these simple directions:
-* Clone down the repo with `git clone --recursive http://github.com/thirddegree/Hatchit`
-* Make a build dir (e.g. mkdir build)
-* cd into build/ and run cmake ..
-* Now just run make to build Hatchit
-
 #### Windows
 
-Due to the lack of a package managerment system for Windows. Most dependencies of Hatchit are submodules
+Due to the lack of a package management system for Windows. Most dependencies of Hatchit are submodules
 and will need to be built from source before you can build Hatchit.
 
-All testing and development has been done on <b>Windows 10</b> with <b>Visual Studio 2015</b>
+All testing and development has been done on <b>Windows 10</b> with <b>Visual Studio 2017</b>
 
 ##### Pre-Build
 We recommend using some sort of cmd replacement in Windows such as cmder or some sort of bash shell
 * Install CMake and make sure it is in your path
-* Make sure that you can run `msbuild.exe` from your shell. If it's not there try running the `vcvarsall.bat` file located at `C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat` for Visual Studio 2015
+* Make sure that you have access to `vswhere.exe` a new utility supported by Microsoft for Visual Studio 2017 and its subsequent releases. [https://github.com/Microsoft/vswhere](https://github.com/Microsoft/vswhere)
+
 * Clone down the repo with `git clone --recursive http://github.com/thirddegree/Hatchit`
 
-To build with Vulkan support you MUST have installed:
-* Vulkan SDK -- https://vulkan.lunarg.com/doc/sdk/1.0.46.0/windows/getting_started.html
-* Vulkan supported drivers!
 
 ##### Third Party
 Next up is building all the dependencies. Included in the repo is a batch script
@@ -66,4 +43,4 @@ that will build all necessary dependencies for Hatchit.
 This is the easy part!
 
 * `cd` into `build`
-* Open the Hatchit.sln solution file or execute it with `MSBuild.exe` to build all targets
+* Open the `Hatchit.sln` solution file
