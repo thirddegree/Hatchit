@@ -10,9 +10,6 @@
 [submodule "HatchitResource"]
 	path = HatchitResource
 	url = https://github.com/thirddegree/HatchitResource.git
-[submodule "HatchitScript"]
-	path = HatchitScript
-	url = https://github.com/thirddegree/HatchitScript.git
 [submodule "ThirdParty/assimp"]
 	path = ThirdParty/assimp
 	url = https://github.com/assimp/assimp.git
@@ -28,9 +25,6 @@
 [submodule "ThirdParty/bullet3"]
 	path = ThirdParty/bullet3
 	url = https://github.com/thirddegree/bullet3.git
-[submodule "ThirdParty/stb"]
-	path = ThirdParty/stb
-	url = https://github.com/thirddegree/stb
 [submodule "HatchitNetwork"]
 	path = HatchitNetwork
 	url = https://github.com/thirddegree/HatchitNetwork.git
@@ -40,27 +34,15 @@
 [submodule "ThirdParty/cppformat"]
 	path = ThirdParty/cppformat
 	url = https://github.com/thirddegree/cppformat.git
-[submodule "ThirdParty/virtualenv"]
-	path = ThirdParty/virtualenv
-	url = https://github.com/pypa/virtualenv
 [submodule "HatchitAudio"]
 	path = HatchitAudio
 	url = https://github.com/thirddegree/HatchitAudio.git
-[submodule "ThirdParty/SPIRV-Cross"]
-	path = ThirdParty/SPIRV-Cross
-	url = https://github.com/KhronosGroup/SPIRV-Cross
-[submodule "ThirdParty/glfw"]
-	path = ThirdParty/glfw
-	url = https://github.com/glfw/glfw.git
 [submodule "ThirdParty/glm"]
 	path = ThirdParty/glm
     url = https://github.com/g-truc/glm.git
 [submodule "ThirdParty/Chipmunk2D"]
 	path = ThirdParty/Chipmunk2D
 	url = https://github.com/slembcke/Chipmunk2D.git
-[submodule "ThirdParty/msgpack-c"]
-	path = ThirdParty/msgpack-c
-	url = https://github.com/msgpack/msgpack-c.git
 [submodule "ThirdParty/libgit2"]
 	path = ThirdParty/libgit2
 	url = https://github.com/libgit2/libgit2.git
@@ -76,15 +58,9 @@
 [submodule "ThirdParty/vorbis"]
 	path = ThirdParty/vorbis
 	url = https://github.com/thirddegree/vorbis.git
-[submodule "ThirdParty/pybind11"]
-	path = ThirdParty/pybind11
-	url = https://github.com/pybind/pybind11.git
 [submodule "ThirdParty/freetype"]
 	path = ThirdParty/freetype
 	url = https://github.com/thirddegree/freetype.git
-[submodule "ThirdParty/glbinding"]
-	path = ThirdParty/glbinding
-	url = https://github.com/thirddegree/glbinding.git
 [submodule "ThirdParty/SDL2"]
 	path = ThirdParty/SDL2
 	url = https://github.com/thirddegree/SDL2.git
